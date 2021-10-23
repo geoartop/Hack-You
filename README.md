@@ -1,4 +1,4 @@
-This wiil  be the repository for our game 
+This will  be the repository for our game 
 
 The team is :
 
