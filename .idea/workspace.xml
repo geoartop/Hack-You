@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e552222b-1624-46c7-bdfa-d761c016f744" name="Changes" comment="For mallikoko" />
+    <list default="true" id="e552222b-1624-46c7-bdfa-d761c016f744" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,6 +36,7 @@
     <configuration name="Mallo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Mallo" />
       <module name="Spinollis" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Spinollis/src" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
