@@ -5,5 +5,6 @@ public class Mallo {
         int x=4012;
         // test //
         System.out.println(x);
+        System.out.println("Spanakis is our leader");
     }
 }
