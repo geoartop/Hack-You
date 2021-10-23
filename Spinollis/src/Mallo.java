@@ -3,5 +3,7 @@ public class Mallo {
         System.out.println("Patao next paidia?");
         System.out.println("test test");
         int x=4012;
+        // test //
+        System.out.println(x);
     }
 }
