@@ -6,5 +6,7 @@ public class Mallo {
         // test //
         System.out.println(x);
         System.out.println("Spanakis is our leader");
+        int y = 20;
+        System.out.println(y);
     }
 }
