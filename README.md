@@ -2,7 +2,7 @@ This will be the repository for our game
 
 The team is :
 
-Georgios Artopoulos (you mean spyros?)
+Georgios Artopoulos (aka spyros)
 
 Elisavet Voulgari
 
