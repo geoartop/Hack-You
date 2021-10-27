@@ -2,15 +2,21 @@ This will be the repository for our game
 
 The team is :
 
-Georgios Artopoulos (aka spyros) --> Programmer
+Georgios Artopoulos (aka spyros)
+Role: Software Engineer , General Assistance
 
-Elisavet Voulgari --> Designer
+Elisavet Voulgari
+Role: Level & Graphic Designer, Presentation Administrator
 
-Emmanouil Dellatolas ->Tester/Debugger 
+Emmanouil Dellatolas
+Role: Tester/Debugger, DevOps 
 
 Athanasia Koutra
+Role: Level & Question Designer, Presentation Administrator
 
-Theodoros Malikourtis -> Senior Programmer
+Theodoros Malikourtis
+Role: Software Engineer, DevOps
 
-Panagiotis Spanakis -> Senior Programmer
+Panagiotis Spanakis  
+Role: Lead Software Engineer , GitHub Adminsistrator 
 
