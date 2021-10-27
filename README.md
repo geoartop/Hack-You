@@ -6,7 +6,7 @@ Georgios Artopoulos (aka spyros)
 
 Elisavet Voulgari
 
-Emmanouil Dellatolas
+Emmanouil Dellatolas ->Has the role of the Debugger 
 
 Athanasia Koutra
 
