@@ -2,15 +2,15 @@ This will be the repository for our game
 
 The team is :
 
-Georgios Artopoulos (aka spyros)
+Georgios Artopoulos (aka spyros) --> Programmer
 
-Elisavet Voulgari
+Elisavet Voulgari --> Designer
 
-Emmanouil Dellatolas ->Has the role of the Debugger 
+Emmanouil Dellatolas ->Tester/Debugger 
 
 Athanasia Koutra
 
-Theodoros Malikourtis
+Theodoros Malikourtis -> Senior Programmer
 
-Panagiotis Spanakis
+Panagiotis Spanakis -> Senior Programmer
 
