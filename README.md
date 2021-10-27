@@ -25,4 +25,3 @@ Role: Software Engineer, DevOps
 Panagiotis Spanakis  
 
 Role: Lead Software Engineer , GitHub Adminsistrator 
-
