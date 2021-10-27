@@ -4,7 +4,7 @@ The team is :
 
 Georgios Artopoulos (aka spyros)
 
-Role: Software Engineer , General Assistance
+Role: QA Engineer 
 
 Elisavet Voulgari
 
