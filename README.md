@@ -3,7 +3,7 @@ This will be the repository for our game
 The team is :
 
 Georgios Artopoulos (aka spyros)
-Role: Software Engineer , General Assistance
+Role: QA Engineer , General Assistance
 
 Elisavet Voulgari
 Role: Level & Graphic Designer, Presentation Administrator
