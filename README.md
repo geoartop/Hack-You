@@ -12,7 +12,7 @@ Role: Level & Graphic Designer, Presentation Administrator
 
 Emmanouil Dellatolas
 
-Role: Software Engineer, QA Engineer 
+Role: Senior Software Engineer, QA Engineer 
 
 Athanasia Koutra
 
@@ -20,7 +20,7 @@ Role: Level & Question Designer, Presentation Administrator
 
 Theodoros Malikourtis
 
-Role: Software Engineer, DevOps
+Role: Senior Software Engineer, DevOps
 
 Panagiotis Spanakis  
 
