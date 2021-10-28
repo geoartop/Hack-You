@@ -3,6 +3,7 @@ public class Mallo {
         System.out.println("Patao next paidia?");
         System.out.println("test test");
         int x=4012;
+        System.out.println("SPYROS");
         // test //
         System.out.println(x);
         System.out.println("Spanakis is our leader");
