@@ -3,6 +3,9 @@ public class Mallo {
         System.out.println("Patao next paidia?");
         System.out.println("test test");
         int x=4012;
+        int rigas=45;
+        if(rigas==45)
+            System.out.println("PHrame protathlima");
         System.out.println("SPYROS");
         // test //
         System.out.println(x);
