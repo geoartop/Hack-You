@@ -6,6 +6,7 @@ public class Mallo {
         int rigas=45;
         if(rigas==45)
             System.out.println("PHrame protathlima");
+        //SPINOLLL
         System.out.println("SPYROS");
         // test //
         System.out.println(x);
