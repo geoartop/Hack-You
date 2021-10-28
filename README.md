@@ -4,7 +4,7 @@ The team is :
 
 Georgios Artopoulos 
 
-Role: QA Engineer 
+Role: Software Engineer , QA Engineer 
 
 Elisavet Voulgari
 
@@ -12,7 +12,7 @@ Role: Level & Graphic Designer, Presentation Administrator
 
 Emmanouil Dellatolas
 
-Role: Tester, DevOps 
+Role: Software Engineer, QA Engineer 
 
 Athanasia Koutra
 
