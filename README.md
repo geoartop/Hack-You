@@ -12,7 +12,7 @@ Role: Level & Graphic Designer, Presentation Administrator
 
 Emmanouil Dellatolas
 
-Role: Tester/Debugger, DevOps 
+Role: Tester, DevOps 
 
 Athanasia Koutra
 
