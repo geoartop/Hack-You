@@ -2,9 +2,7 @@ This will be the repository for our game
 
 The team is : 
 
-Georgios Artopoulos 
 
-Role: Software Engineer , QA Engineer
 
 Elisavet Voulgari
 
@@ -13,10 +11,6 @@ Role: Level & Graphic Designer, Presentation Administrator
 Emmanouil Dellatolas 
 
 Role: Software Engineer, QA Engineer 
-
-Athanasia Koutra 
-
-Role: Level & Question Designer, Presentation Administrator
 
 Theodoros Malikourtis
 
