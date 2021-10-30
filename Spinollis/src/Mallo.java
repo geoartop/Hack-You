@@ -5,7 +5,8 @@ public class Mallo {
         int x = 4012;
         int rigas = 45;
         if (rigas == 45)
-            System.out.println("PHrame protathlima");
+            System.out.println("PHramee protathlima");
+        System.out.println("Saki pou eisai?");
         //SPINOLLL
         System.out.println("SPYROS");
         // test //
