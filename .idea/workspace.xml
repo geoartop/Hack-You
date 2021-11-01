@@ -17,7 +17,16 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="test-branch" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Spinollis/src/Mallo.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Spinollis/Spinollis.iml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1zu1iTIW7vG0KwIF0WKXV9Cd7jx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -45,6 +54,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Mallo" />
         <item itemvalue="Application.Mallo" />
       </list>
     </recent_temporary>
