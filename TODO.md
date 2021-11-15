@@ -1,5 +1,5 @@
 For Athanasia-Liza:
--Start Menu -> Design
+- Start Menu -> Design
 
 For Athanasia:
 - Δημιουργία Ερωτήσεων
