@@ -1,15 +1,40 @@
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+/**
+ *
+ * @author Panagiotis Spanakis k synergates
+ */
 public class Main {
-    public static void main(String[] args) {
-        JFrame f=new JFrame();//creating instance of JFrame
+    class AlertAction implements ActionListener {
+        private JFrame parent;
 
-        JButton b=new JButton("click");//creating instance of JButton
-        b.setBounds(130,100,100, 40);//x axis, y axis, width, height
+        AlertAction(JFrame parent) {
+            this.parent = parent;
+        }
 
-        f.add(b);//adding button in JFrame
-
-        f.setSize(400,500);//400 width and 500 height
-        f.setLayout(null);//using no layout managers
-        f.setVisible(true);//making the frame visible
+        @Override public void actionPerformed(ActionEvent e) {
+            JOptionPane.showMessageDialog(parent, "information", "Kali phimosi!!", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
-}  
+
+    public Main() {
+        JFrame jf = new JFrame("Hack-You");
+        JButton jb = new JButton("Click Me!");
+
+        jf.setBounds(0, 0, 800, 600);
+
+        jf.setLayout(new BorderLayout());
+        jf.add(jb, BorderLayout.CENTER);
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jb.addActionListener(new AlertAction(jf));
+
+        // Remember, the method show() is deprecated
+        jf.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new Main();
+    }
+}
