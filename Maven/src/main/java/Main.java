@@ -1,4 +1,5 @@
-/**Σημείο Εκκίνησης παιχνιδιού
+/**
+ * Σημείο Εκκίνησης παιχνιδιού
  *
  * @author Panagiotis Spanakis k synergates
  */
