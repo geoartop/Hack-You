@@ -1,29 +1,46 @@
 // MyLogin.java
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
-public class Username {
+public class Username implements ActionListener{
+
+    private JFrame frame;
+    private JButton submit=new JButton("Submit");
+    private JTextField textField=new JTextField();
+    protected static String username;
 
     public Username() {
-        JFrame f = new JFrame("Login");
-        JButton bok = new JButton("OK");
-        bok.setBounds(150,200,100,30);
-        f.add(bok);
-        f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        bok.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                f.dispose();
-                //new SecondFrame();//
-            }
-        });
-        f.setSize(600,600);
-        f.setVisible(true);
-        f.setLayout(null);
+        frame=new JFrame();
+        frame.setTitle("Set Username");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.setSize(300,300);
+        frame.setVisible(true);
+        frame.setLayout(null);
+        frame.getContentPane().setBackground(Color.black);
+
+        submit.setBounds(100,200,100,30);
+        submit.setHorizontalAlignment(JButton.CENTER);
+        submit.setFocusable(false);
+        submit.addActionListener(this);
+
+        textField.setBounds(75,100,150,50);
+        textField.setPreferredSize(new Dimension(200,50));
+
+        frame.add(submit);
+        frame.add(textField);
+
     }
 
-    public static void main(String[] args) {
-        new Username();
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==submit){
+            username=textField.getText();
+            frame.dispose();
+            new Menu();
+        }
     }
 }
 

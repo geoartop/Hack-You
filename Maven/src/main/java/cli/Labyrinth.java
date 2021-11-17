@@ -1,8 +1,9 @@
 package cli;
 
 public class Labyrinth {
+
     private String[][] labyrinth;
-    private int size;
+    private final int size;
     public Labyrinth(char answer){
         switch (answer) {
             case 'e':
@@ -15,6 +16,7 @@ public class Labyrinth {
                 size = 10;
                 break;
         }
+        labyrinth=new String[size][size];
     }
 
 }
