@@ -1,6 +1,13 @@
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+/** Κλάση για StartMenu
+ *
+ * @author Panagiotis Spanakis kai synergates
+ *
+ */
+
 public class Menu implements ActionListener{
 
     JFrame frame;
@@ -31,13 +38,14 @@ public class Menu implements ActionListener{
         frame.add(label);
     }
 
-
+    /** Μέθοδος δημιουργίας Κουμπιών*/
     public void setButton(JButton button,int x,int y,int width,int height){
         button.setBounds(x,y,width,height);
         button.setFocusable(false);
         button.addActionListener(this);
     }
 
+    /**Ενέργεια όταν κάνουμε κλικ στο κουμπί*/
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==start){

@@ -1,5 +1,11 @@
 import javax.swing.*;
 
+/** Κλάση για περιγραφή οδηγιών
+ *
+ * @author Panagiotis Spanakis kai synergates
+ *
+ */
+
 public class Guide {
 
     JFrame frame;

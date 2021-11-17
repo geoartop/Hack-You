@@ -4,10 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="GUI">
+    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Gui updated">
+      <change afterPath="$PROJECT_DIR$/.idea/copyright/Panagiotis_Spanakis.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Credits.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/EasyQuestions.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Paradise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Paradise.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Credits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Credits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Guide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Guide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Levels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Paradise.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Paradise.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Username.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Username.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Levels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Levels.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Menu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Username.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Username.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +59,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="template.copyright.formatting" />
+    <property name="settings.editor.selected.configurable" value="copyright.profiles" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -183,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637181985653</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Gui updated">
+      <created>1637183524943</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1637183524943</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,6 +222,7 @@
     <MESSAGE value="Add Classes" />
     <MESSAGE value="Read files" />
     <MESSAGE value="GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI" />
+    <MESSAGE value="Gui updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gui updated" />
   </component>
 </project>

@@ -1,8 +1,12 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/** Επιλογή Επίπεδου δυσκολίας
+ *
+ * @author Panagiotis Spanakis k synergates
+ *
+ * */
 public class Levels implements ActionListener {
 
     JFrame frame;
@@ -21,18 +25,6 @@ public class Levels implements ActionListener {
         frame.setVisible(true);
         frame.setLayout(null);
 
-        /*easy.setBounds(250,200,150,50);
-        easy.setFocusable(false);
-        easy.addActionListener(this);
-
-        medium.setBounds(250,300,150,50);
-        medium.setFocusable(false);
-        medium.addActionListener(this);
-
-        hard.setBounds(250,400,150,50);
-        hard.setFocusable(false);
-        hard.addActionListener(this);*/
-
         setButton(easy,250,200,150,50);
         setButton(medium,250,300,150,50);
         setButton(hard,250,400,150,50);
@@ -41,18 +33,22 @@ public class Levels implements ActionListener {
         label.setHorizontalAlignment(JLabel.CENTER);
         label.setText("Select Difficulty");
 
+        /**Προσθήκη συστατικών*/
         frame.add(easy);
         frame.add(medium);
         frame.add(hard);
         frame.add(label);
     }
 
+    /** Μέθοδος δημιουργίας Κουμπιών*/
     public void setButton(JButton button,int x,int y,int width,int height){
         button.setBounds(x,y,width,height);
         button.setFocusable(false);
         button.addActionListener(this);
+        button.setHorizontalAlignment(JButton.CENTER);
     }
 
+    /**Ενέργεια όταν κάνουμε κλικ στο κουμπί*/
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==easy){

@@ -1,8 +1,12 @@
-// MyLogin.java
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
+/** Κλάση για εισαγωγή username χρήστη και έλεγχος εγκυρότητας
+ *
+ * @author Panagiotis Spanakis
+ *
+ */
 
 public class Username implements ActionListener,KeyListener{
 
@@ -37,6 +41,7 @@ public class Username implements ActionListener,KeyListener{
 
     }
 
+    /**Ενέργεια όταν κάνουμε κλικ στο κουμπί*/
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==submit){
@@ -45,18 +50,19 @@ public class Username implements ActionListener,KeyListener{
                 JOptionPane.showMessageDialog(null,"You must enter your username!","Reminder",JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
-            frame.dispose();
             new Menu();
         }
+        frame.dispose();
     }
 
+    //Απλά κουβαλιέται λόγω του implementation
     @Override
     public void keyTyped(KeyEvent e) {}
 
+    /**Ενέργεια για όταν πατιέται το κουμπί enter*/
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode()==KeyEvent.VK_ENTER) {
-            //Component frame = new JFrhtgame();
             username=textField.getText();
             if(username.equals("")){
                 JOptionPane.showMessageDialog(null, "You must enter your username!", "Reminder", JOptionPane.ERROR_MESSAGE);
@@ -70,6 +76,7 @@ public class Username implements ActionListener,KeyListener{
 
     }
 
+    //Απλά κουβαλιέται λόγω του implementation
     @Override
     public void keyReleased(KeyEvent e) {}
 }
