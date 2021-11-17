@@ -18,17 +18,9 @@ public class Menu implements ActionListener{
         frame.setVisible(true);
         frame.setLayout(null);
 
-        start.setBounds(250,200,150,50);
-        start.setFocusable(false);
-        start.addActionListener(this);
-
-        how2play.setBounds(250,300,150,50);
-        how2play.setFocusable(false);
-        how2play.addActionListener(this);
-
-        credits.setBounds(250,400,150,50);
-        credits.setFocusable(false);
-        credits.addActionListener(this);
+        setButton(start,250,200,150,50);
+        setButton(how2play,250,300,150,50);
+        setButton(credits,250,400,150,50);
 
         label.setText(Username.username);
         label.setBounds(0,0,150,50);
@@ -39,16 +31,21 @@ public class Menu implements ActionListener{
         frame.add(label);
     }
 
+
+    public void setButton(JButton button,int x,int y,int width,int height){
+        button.setBounds(x,y,width,height);
+        button.setFocusable(false);
+        button.addActionListener(this);
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==start){
-            frame.dispose();
             new Levels();
-        }else if(e.getSource()==how2play){
             frame.dispose();
+        }else if(e.getSource()==how2play){
             new Guide();
         }else {
-            frame.dispose();
             new Credits();
         }
     }

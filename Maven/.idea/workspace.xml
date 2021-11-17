@@ -4,18 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Read files">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Credits.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Guide.java" afterDir="false" />
+    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Credits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Credits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Guide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Guide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Levels.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Paradise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Paradise.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Username.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Username.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cli/Labyrinth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cli/Labyrinth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Levels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Levels.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Username.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Username.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637170873161</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="GUI">
+      <created>1637177589097</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1637177589097</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -195,6 +202,7 @@
     <MESSAGE value="Spinoll" />
     <MESSAGE value="Add Classes" />
     <MESSAGE value="Read files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Read files" />
+    <MESSAGE value="GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI" />
   </component>
 </project>

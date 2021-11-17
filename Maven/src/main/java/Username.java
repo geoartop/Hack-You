@@ -38,6 +38,10 @@ public class Username implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==submit){
             username=textField.getText();
+            if(username.equals("")){
+                JOptionPane.showMessageDialog(null,"You must enter your username!","Reminder",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
             frame.dispose();
             new Menu();
         }
