@@ -14,7 +14,7 @@ public class Username {
         bok.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 f.dispose();
-                new SecondFrame();
+                //new SecondFrame();//
             }
         });
         f.setSize(600,600);
