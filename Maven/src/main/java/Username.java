@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Username implements ActionListener{
+public class Username implements ActionListener,KeyListener{
 
     private JFrame frame;
     private JButton submit=new JButton("Submit");
@@ -28,9 +28,12 @@ public class Username implements ActionListener{
 
         textField.setBounds(75,100,150,50);
         textField.setPreferredSize(new Dimension(200,50));
+        //Key Bind
+        submit.addKeyListener(this);
 
         frame.add(submit);
         frame.add(textField);
+        frame.getRootPane().setDefaultButton(submit);
 
     }
 
@@ -46,5 +49,28 @@ public class Username implements ActionListener{
             new Menu();
         }
     }
+
+    @Override
+    public void keyTyped(KeyEvent e) {}
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode()==KeyEvent.VK_ENTER) {
+            //Component frame = new JFrhtgame();
+            username=textField.getText();
+            if(username.equals("")){
+                JOptionPane.showMessageDialog(null, "You must enter your username!", "Reminder", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            JOptionPane.showMessageDialog(null, "You've Submitted the name " + username, "Info", JOptionPane.ERROR_MESSAGE);
+            new Menu();
+
+        }
+        frame.dispose();
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {}
 }
 
