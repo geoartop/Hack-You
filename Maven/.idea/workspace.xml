@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Add Classes">
-      <change afterPath="$PROJECT_DIR$/Maven.iml" afterDir="false" />
+    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Read files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Paradise.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Paradise.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Paradise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Paradise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cli/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cli/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cli/WrongInputException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cli/WrongInputException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/testfile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cli/ReadText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cli/ReadText.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +46,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="template.copyright.formatting" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -158,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637169742771</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Read files">
+      <created>1637170029134</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1637170029134</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -176,6 +179,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Spinoll" />
     <MESSAGE value="Add Classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Classes" />
+    <MESSAGE value="Read files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Read files" />
   </component>
 </project>
