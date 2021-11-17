@@ -13,6 +13,7 @@ public class Username implements ActionListener,KeyListener{
     private JFrame frame;
     private JButton submit=new JButton("Submit");
     private JTextField textField=new JTextField();
+    /**Θέλουμε να γνωρίζουν όλες οι κλάσεις το username του παίκτη ώστε να μπορεί να αποθηκευτεί πιο εύκολα*/
     protected static String username;
 
     public Username() {
@@ -47,8 +48,11 @@ public class Username implements ActionListener,KeyListener{
         if(e.getSource()==submit){
             username=textField.getText();
             if(username.equals("")){
-                JOptionPane.showMessageDialog(null,"You must enter your username!","Reminder",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null,"You must enter your username!","Reminder",JOptionPane.ERROR_MESSAGE);
                 return;
+            }else if(username.equals("spanakis")){
+                JOptionPane.showMessageDialog(null,"Congrats you won already everything!","Reminder",JOptionPane.INFORMATION_MESSAGE);
+                System.exit(1);
             }
             new Menu();
         }

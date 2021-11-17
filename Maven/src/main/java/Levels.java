@@ -14,6 +14,7 @@ public class Levels implements ActionListener {
     JButton medium=new JButton("Medium");
     JButton hard=new JButton("Hard");
     JLabel label=new JLabel();
+    /**Θέλουμε να γνωρίζει η κλάση labyrinth το επίπεδο δυσκολίας που επίλεξε */
     protected static String difficulty;
 
     public Levels(){
@@ -53,10 +54,13 @@ public class Levels implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==easy){
             //new EasyLabyrinths();
+            difficulty="easy";
         }else if(e.getSource()==medium){
             //new MediumLabyrinths();
+            difficulty="medium";
         }else {
             //new HardLabyrinths();
+            difficulty="hard";
         }
         //Κάθε κατηγορία λαβύρινθου να κάνει extend την κλάση Labyrinth!
         frame.dispose();

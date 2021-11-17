@@ -4,22 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Gui updated">
-      <change afterPath="$PROJECT_DIR$/.idea/copyright/Panagiotis_Spanakis.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Credits.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/EasyQuestions.txt" afterDir="false" />
+    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Gui comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Credits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Credits.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Guide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Guide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/High_Score.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Levels.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Paradise.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Paradise.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Username.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Username.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/High_Score.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Levels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Levels.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Menu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Username.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Username.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,20 +104,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Username" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Username" />
-      <module name="Maven" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="Maven-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/Maven-1.0-SNAPSHOT.jar" />
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JAR Application.Maven-1.0-SNAPSHOT.jar" />
         <item itemvalue="Application.ReadText" />
         <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.StopWatch" />
-        <item itemvalue="Application.Username" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637183524943</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Gui comments">
+      <created>1637184936967</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1637184936967</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -223,6 +218,7 @@
     <MESSAGE value="Read files" />
     <MESSAGE value="GUI" />
     <MESSAGE value="Gui updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gui updated" />
+    <MESSAGE value="Gui comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gui comments" />
   </component>
 </project>
