@@ -18,7 +18,7 @@ public class Menu {
        System.out.printf("Wassup %s \n",username);
        //Save file somehow
        OptionMenu();
-
+       System.out.println("Use the arrow keys to move");
 
     }
 
@@ -31,7 +31,6 @@ public class Menu {
                 answer = Character.toLowerCase(answer);
                 if (answer != 'e' && answer != 'm' && answer != 'h')
                     throw new WrongInputException("Please give a correct answer");
-                System.out.println("Use the arrow keys to move");
                 break;
             } catch (WrongInputException e) {
                 e.printIssue();

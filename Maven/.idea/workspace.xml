@@ -4,9 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Read text from file and store in Arraylist">
-      <change afterPath="$PROJECT_DIR$/testfile.txt" afterDir="false" />
+    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Add Classes">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Paradise.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Paradise.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cli/Labyrinth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cli/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cli/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cli/StopWatch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cli/WrongInputException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LinkedList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Username.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Username.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LinkedList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main$AlertAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Username.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Username.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +32,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaFXApplication" />
         <option value="Class" />
       </list>
     </option>
@@ -40,12 +57,26 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.ReadText">
+  <component name="RunManager" selected="Application.Main (1)">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cli.Main" />
+      <module name="Maven" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Maven" />
@@ -60,21 +91,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Question" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cli.Question" />
-      <module name="Maven" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReadText" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cli.ReadText" />
+    <configuration name="StopWatch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cli.StopWatch" />
       <module name="Maven" />
       <extension name="coverage">
         <pattern>
@@ -95,10 +113,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ReadText" />
-        <item itemvalue="Application.Question" />
-        <item itemvalue="Application.Menu" />
+        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.StopWatch" />
         <item itemvalue="Application.Username" />
+        <item itemvalue="Application.Menu" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -126,32 +144,15 @@
       <option name="project" value="LOCAL" />
       <updated>1636993545921</updated>
     </task>
-    <task id="LOCAL-00003" summary="Read text from file and store in Arraylist">
-      <created>1637163767310</created>
+    <task id="LOCAL-00003" summary="Add Classes">
+      <created>1637144510966</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1637163767310</updated>
+      <updated>1637144510966</updated>
     </task>
-    <task id="LOCAL-00004" summary="Read text from file and store in Arraylist">
-      <created>1637163811599</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1637163811599</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ID_ORDER">
-      <list>
-        <option value="Default.Root" />
-        <option value="Default.Author" />
-        <option value="Default.Date" />
-        <option value="Default.Subject" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -168,7 +169,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Spinoll" />
     <MESSAGE value="Add Classes" />
-    <MESSAGE value="Read text from file and store in Arraylist" />
-    <option name="LAST_COMMIT_MESSAGE" value="Read text from file and store in Arraylist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Classes" />
   </component>
 </project>

@@ -1,7 +1,8 @@
 package cli;
 
 public class WrongInputException extends Exception{
-    private String message;
+    private final String message;
+
     public WrongInputException(String message){
         this.message=message;
     }
