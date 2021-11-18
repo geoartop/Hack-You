@@ -1,4 +1,6 @@
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+
 /**
  * Κλάση που περιγράφει το παιχνίδι και την "πλοκή"
  *

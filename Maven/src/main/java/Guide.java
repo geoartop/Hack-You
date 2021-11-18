@@ -1,4 +1,5 @@
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  * Κλάση για περιγραφή οδηγιών

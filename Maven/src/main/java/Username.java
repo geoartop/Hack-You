@@ -1,7 +1,14 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.Locale;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 /**
  * Κλάση για εισαγωγή username χρήστη και έλεγχος εγκυρότητας
