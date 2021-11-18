@@ -6,7 +6,9 @@ import javax.swing.*;
  * @author Panagiotis Spanakis kai synergates
  */
 
-/**Ιδέα να φορτώνουν τα credits όπως στις ταινίες*/
+/**
+ * Ιδέα να φορτώνουν τα credits όπως στις ταινίες
+ */
 public class Credits {
 
 

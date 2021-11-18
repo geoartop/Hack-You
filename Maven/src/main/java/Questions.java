@@ -1,3 +1,8 @@
+/**
+ * @author Panagiotis Spanakis kai synergates
+ * Λειτουργική κλάση για την λειτορυγία των ερωτήσεων
+ */
+
 public class Questions {
 
     //protected static File file;

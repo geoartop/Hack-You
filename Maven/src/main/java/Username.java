@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Locale;
 
 /**
  * Κλάση για εισαγωγή username χρήστη και έλεγχος εγκυρότητας
@@ -24,6 +25,7 @@ public class Username implements ActionListener, KeyListener {
         frame = new JFrame();
         frame.setTitle("Set Username");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //Για να μη μεγαλώνει/μικραίνει το μέγεθος του παραθύρου
         frame.setResizable(false);
         frame.setSize(300, 300);
         frame.setVisible(true);
@@ -57,8 +59,11 @@ public class Username implements ActionListener, KeyListener {
             if (username.equals("")) {
                 JOptionPane.showMessageDialog(null, "You must enter your username!", "Reminder", JOptionPane.ERROR_MESSAGE);
                 return;
-            } else if (username.equals("spanakis")) {
+            } else if (username.toLowerCase().equals("spanakis")) {
                 JOptionPane.showMessageDialog(null, "Congrats you won already everything!", "Reminder", JOptionPane.INFORMATION_MESSAGE);
+                System.exit(1);
+            }else if(username.toLowerCase().equals("artopoulos")){
+                JOptionPane.showMessageDialog(null, "You lost already, good paradise", "Announcement", JOptionPane.WARNING_MESSAGE);
                 System.exit(1);
             }
             new Menu();
