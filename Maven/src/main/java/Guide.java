@@ -20,6 +20,8 @@ public class Guide {
         frame.setVisible(true);
         frame.setLayout(null);
         frame.setIconImage(Icon.getImage());// hope it works
+
+
     }
 
 }

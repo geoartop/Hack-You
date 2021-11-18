@@ -9,6 +9,7 @@ import javax.swing.*;
 /**Ιδέα να φορτώνουν τα credits όπως στις ταινίες*/
 public class Credits {
 
+
     JFrame frame;
     private ImageIcon Icon = new ImageIcon("src/main/resources/maze-icon.png");
 

@@ -79,6 +79,10 @@ public class Levels implements ActionListener {
             //new HardLabyrinths();
             difficulty = "hard";
         }
+        /**Δημιουργία λαβύρινθου και καθορισμός δυσκολίας ερωτήσεων*/
+        Labyrinth.setLabyrinth();
+        Questions.setQuestionsDifficulty();
+        new Labyrinth();
         //Κάθε κατηγορία λαβύρινθου να κάνει extend την κλάση Labyrinth!
         frame.dispose();
     }
