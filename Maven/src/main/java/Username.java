@@ -69,7 +69,7 @@ public class Username implements ActionListener, KeyListener {
             } else if (username.toLowerCase().equals("spanakis")) {
                 JOptionPane.showMessageDialog(null, "Congrats you won already everything!", "Reminder", JOptionPane.INFORMATION_MESSAGE);
                 System.exit(1);
-            }else if(username.toLowerCase().equals("artopoulos")){
+            } else if (username.toLowerCase().equals("artopoulos")) {
                 JOptionPane.showMessageDialog(null, "You lost already, good paradise", "Announcement", JOptionPane.WARNING_MESSAGE);
                 System.exit(1);
             }

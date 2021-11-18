@@ -2,6 +2,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -46,6 +47,11 @@ public class Levels implements ActionListener {
         setButton(medium, BY + 100);
         setButton(hard, BY + 200);
 
+        easy.setForeground(Color.green);
+
+        medium.setForeground(Color.orange);
+        hard.setForeground(Color.red);
+
         label.setBounds(0, 0, 100, 50);
         label.setHorizontalAlignment(JLabel.CENTER);
         label.setText("Select Difficulty");
@@ -65,6 +71,7 @@ public class Levels implements ActionListener {
         button.setFocusable(false);
         button.addActionListener(this);
         button.setHorizontalAlignment(JButton.CENTER);
+        button.setFont(new Font("Arial", Font.ITALIC,20));
     }
 
     /**
