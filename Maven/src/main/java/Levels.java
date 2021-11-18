@@ -22,7 +22,7 @@ public class Levels implements ActionListener {
     JButton medium = new JButton("Medium");
     JButton hard = new JButton("Hard");
     JLabel label = new JLabel();
-    private ImageIcon icon=new ImageIcon("src/main/resources/Icon.png");
+    private ImageIcon Icon = new ImageIcon("src/main/resources/maze-icon.png");
     /**
      * Θέλουμε να γνωρίζει η κλάση labyrinth το επίπεδο δυσκολίας που επίλεξε
      */
@@ -37,6 +37,7 @@ public class Levels implements ActionListener {
         frame.setSize(600, 600);
         frame.setVisible(true);
         frame.setLayout(null);
+        frame.setIconImage(Icon.getImage());
 
         setButton(easy, BY);
         setButton(medium, BY + 100);

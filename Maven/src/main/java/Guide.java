@@ -9,6 +9,7 @@ import javax.swing.*;
 public class Guide {
 
     JFrame frame;
+    private ImageIcon Icon = new ImageIcon("src/main/resources/maze-icon.png");
     public Guide() {
         // Εξατομίκευση παραθύρου
         frame = new JFrame(); //create frame
@@ -18,6 +19,7 @@ public class Guide {
         frame.setSize(600, 600);
         frame.setVisible(true);
         frame.setLayout(null);
+        frame.setIconImage(Icon.getImage());
     }
 
 }
