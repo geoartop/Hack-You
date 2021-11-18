@@ -21,6 +21,7 @@ public class Menu implements ActionListener {
     JButton how2play = new JButton("How to Play");
     JButton credits = new JButton("Show Credits");
     JLabel label = new JLabel();
+    ImageIcon Icon = new ImageIcon("src/main/resources/maze-icon.png");
 
     public Menu() {
         // Εξατομίκευση παραθύρου
@@ -31,6 +32,7 @@ public class Menu implements ActionListener {
         frame.setSize(600, 600);
         frame.setVisible(true);
         frame.setLayout(null);
+        frame.setIconImage(Icon.getImage());
 
         setButton(start, X, Y, WIDTH, HEIGHT);
         setButton(how2play, X, Y+100, WIDTH, HEIGHT);
