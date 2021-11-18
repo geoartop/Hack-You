@@ -13,7 +13,6 @@ public class Username implements ActionListener, KeyListener {
     private JFrame frame;
     private JButton submit = new JButton("Submit");
     private JTextField textField = new JTextField();
-    private ImageIcon Icon = new ImageIcon("src/main/resources/maze-icon.png");
     /**
      * Θέλουμε να γνωρίζουν όλες οι κλάσεις το username του παίκτη ώστε να μπορεί να αποθηκευτεί πιο εύκολα
      */
@@ -29,7 +28,6 @@ public class Username implements ActionListener, KeyListener {
         frame.setVisible(true);
         frame.setLayout(null);
         frame.getContentPane().setBackground(Color.black);
-        frame.setIconImage(Icon.getImage());
 
         submit.setBounds(100, 200, 100, 30);
         submit.setHorizontalAlignment(JButton.CENTER);

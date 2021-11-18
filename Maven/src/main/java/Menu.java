@@ -20,6 +20,7 @@ public class Menu implements ActionListener {
     JButton start = new JButton("Start Game");
     JButton how2play = new JButton("How to Play");
     JButton credits = new JButton("Show Credits");
+    JButton description=new JButton("Game Description");
     JLabel label = new JLabel();
     ImageIcon Icon = new ImageIcon("src/main/resources/maze-icon.png");
 
@@ -34,9 +35,10 @@ public class Menu implements ActionListener {
         frame.setLayout(null);
         frame.setIconImage(Icon.getImage());
 
-        setButton(start, X, Y, WIDTH, HEIGHT);
-        setButton(how2play, X, Y+100, WIDTH, HEIGHT);
-        setButton(credits, X, Y+200, WIDTH, HEIGHT);
+        setButton(start,Y);
+        setButton(how2play,Y+100);
+        setButton(credits,Y+200);
+        setButton(description,Y+300);
 
         label.setText(Username.username);
         label.setBounds(0, 0, WIDTH, HEIGHT);
@@ -44,18 +46,18 @@ public class Menu implements ActionListener {
         frame.add(start);
         frame.add(how2play);
         frame.add(credits);
+        frame.add(description);
         frame.add(label);
     }
 
     /**
      * Μέθοδος δημιουργίας Κουμπιών
      */
-    public void setButton(JButton button, int x, int y, int width, int height) {
-        button.setBounds(x, y, width, height);
+    public void setButton(JButton button,int y) {
+        button.setBounds(X, y, WIDTH, HEIGHT);
         button.setFocusable(false);
         button.setHorizontalAlignment(JButton.CENTER);
         button.addActionListener(this);
-
     }
 
     /**
@@ -68,8 +70,10 @@ public class Menu implements ActionListener {
             frame.dispose();
         } else if (e.getSource() == how2play) {
             new Guide();
-        } else {
+        } else if(e.getSource()==credits){
             new Credits();
+        }else {
+            new Description();
         }
     }
 }

@@ -9,17 +9,20 @@ import java.awt.event.ActionListener;
  */
 public class Levels implements ActionListener {
 
-    /**Initialize μεταβλητών διαστάσεων*/
-    private final int BX=225;
-    private final int BY=200;
-    private final int B_WIDTH=150;
-    private final int B_HEIGHT=50;
+    /**
+     * Initialize μεταβλητών διαστάσεων
+     */
+    private final int BX = 225;
+    private final int BY = 200;
+    private final int B_WIDTH = 150;
+    private final int B_HEIGHT = 50;
 
     JFrame frame;
     JButton easy = new JButton("Easy");
     JButton medium = new JButton("Medium");
     JButton hard = new JButton("Hard");
     JLabel label = new JLabel();
+    private ImageIcon icon=new ImageIcon("src/main/resources/Icon.png");
     /**
      * Θέλουμε να γνωρίζει η κλάση labyrinth το επίπεδο δυσκολίας που επίλεξε
      */
@@ -35,9 +38,9 @@ public class Levels implements ActionListener {
         frame.setVisible(true);
         frame.setLayout(null);
 
-        setButton(easy, BX, BY, B_WIDTH, B_HEIGHT);
-        setButton(medium, BX, BY+100, B_WIDTH, B_HEIGHT);
-        setButton(hard, BX, BY+200, B_WIDTH, B_HEIGHT);
+        setButton(easy, BY);
+        setButton(medium, BY + 100);
+        setButton(hard, BY + 200);
 
         label.setBounds(0, 0, 100, 50);
         label.setHorizontalAlignment(JLabel.CENTER);
@@ -53,8 +56,8 @@ public class Levels implements ActionListener {
     /**
      * Μέθοδος δημιουργίας Κουμπιών
      */
-    public void setButton(JButton button, int x, int y, int width, int height) {
-        button.setBounds(x, y, width, height);
+    public void setButton(JButton button, int y) {
+        button.setBounds(BX, y, B_WIDTH, B_HEIGHT);
         button.setFocusable(false);
         button.addActionListener(this);
         button.setHorizontalAlignment(JButton.CENTER);
