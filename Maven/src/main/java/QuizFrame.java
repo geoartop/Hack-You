@@ -11,6 +11,11 @@ public class QuizFrame implements ActionListener {
     ButtonGroup buttonGroup = new ButtonGroup();
     private final ImageIcon icon = new ImageIcon("src/main/resources/question_mark.png");
     JButton submit = new JButton("submit");
+    private final int RADIOBUTTON_GAP=60;
+    private final int RADIOBUTTON_START=50;
+    private final int RADIOBUTTON_Y=400;
+    private final int RADIOBUTTON_WIDTH=50;
+    private final int RADIOBUTTON_HEIGHT=20;
 
     public QuizFrame() {
         frame=new JFrame();
@@ -27,7 +32,7 @@ public class QuizFrame implements ActionListener {
         frame.add(label);
         for (int i = 0; i < radioButtons.length; i++) {
             radioButtons[i]=new JRadioButton();
-            setRadioButton(i, i * 60 + 50);
+            setRadioButton(i, i * RADIOBUTTON_GAP + RADIOBUTTON_START);
             frame.add(radioButtons[i]);
             buttonGroup.add(radioButtons[i]);
         }
@@ -49,7 +54,7 @@ public class QuizFrame implements ActionListener {
     }
 
     public void setRadioButton(int i, int x) {
-            radioButtons[i].setBounds(x, 400, 50, 20);
+            radioButtons[i].setBounds(x, RADIOBUTTON_Y, RADIOBUTTON_WIDTH, RADIOBUTTON_HEIGHT);
             radioButtons[i].setText(String.format("%d",i+1));
     }
 
