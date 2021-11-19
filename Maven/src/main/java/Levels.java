@@ -1,8 +1,6 @@
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import java.awt.*;
+import javax.swing.*;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -26,11 +24,11 @@ public class Levels implements ActionListener {
     JButton medium = new JButton("Medium");
     JButton hard = new JButton("Hard");
     JLabel label = new JLabel();
-    private ImageIcon Icon = new ImageIcon("src/main/resources/maze-icon.png");
+
     /**
      * Θέλουμε να γνωρίζει η κλάση labyrinth το επίπεδο δυσκολίας που επίλεξε
      */
-    protected static String difficulty;
+    protected static String difficulty="";
 
     public Levels() {
         // Εξατομίκευση παραθύρου
@@ -41,14 +39,14 @@ public class Levels implements ActionListener {
         frame.setSize(600, 600);
         frame.setVisible(true);
         frame.setLayout(null);
-        frame.setIconImage(Icon.getImage());
+        frame.setIconImage(Main.icon.getImage());
 
         setButton(easy, BY);
         setButton(medium, BY + 100);
         setButton(hard, BY + 200);
 
+        //Τοποθέτηση χρωμάτων στα κουμπιά
         easy.setForeground(Color.green);
-
         medium.setForeground(Color.orange);
         hard.setForeground(Color.red);
 
@@ -89,11 +87,12 @@ public class Levels implements ActionListener {
             //new HardLabyrinths();
             difficulty = "hard";
         }
+        frame.dispose();
         /**Δημιουργία λαβύρινθου και καθορισμός δυσκολίας ερωτήσεων*/
         Labyrinth.setLabyrinth();
         Questions.setQuestionsDifficulty();
-        new Labyrinth();
-        //Κάθε κατηγορία λαβύρινθου να κάνει extend την κλάση Labyrinth!
-        frame.dispose();
+        SwingUtilities.invokeLater(LabyrinthFrame::new);
+        //TODO Κάθε κατηγορία λαβύρινθου να κάνει extend την κλάση Labyrinth!
+
     }
 }

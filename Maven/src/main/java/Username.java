@@ -1,4 +1,3 @@
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -7,8 +6,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.util.Locale;
 
 /**
  * Κλάση για εισαγωγή username χρήστη και έλεγχος εγκυρότητας
@@ -16,12 +14,11 @@ import java.awt.event.KeyListener;
  * @author Panagiotis Spanakis
  */
 
-public class Username implements ActionListener, KeyListener {
+public class Username implements ActionListener{
 
     private JFrame frame;
     private JButton submit = new JButton("Submit");
     private JTextField textField = new JTextField();
-    private ImageIcon Icon = new ImageIcon("src/main/resources/maze-icon.png");
     /**
      * Θέλουμε να γνωρίζουν όλες οι κλάσεις το username του παίκτη ώστε να μπορεί να αποθηκευτεί πιο εύκολα
      */
@@ -38,7 +35,7 @@ public class Username implements ActionListener, KeyListener {
         frame.setVisible(true);
         frame.setLayout(null);
         frame.getContentPane().setBackground(Color.black);
-        frame.setIconImage(Icon.getImage());
+        frame.setIconImage(Main.icon.getImage());
 
         submit.setBounds(100, 200, 100, 30);
         submit.setHorizontalAlignment(JButton.CENTER);
@@ -48,16 +45,17 @@ public class Username implements ActionListener, KeyListener {
         textField.setBounds(75, 100, 150, 50);
         textField.setPreferredSize(new Dimension(200, 50));
         //Key Bind
-        submit.addKeyListener(this);
+        //submit.addKeyListener(this);
 
         frame.add(submit);
         frame.add(textField);
+        // Για να λειτουργεί το κουμπί enter
         frame.getRootPane().setDefaultButton(submit);
 
     }
 
     /**
-     * Ενέργεια όταν κάνουμε κλικ στο κουμπί
+     * Ενέργεια όταν κάνουμε κλικ στο κουμπί ή όταν πατάμε enter
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -66,10 +64,10 @@ public class Username implements ActionListener, KeyListener {
             if (username.equals("")) {
                 JOptionPane.showMessageDialog(null, "You must enter your username!", "Reminder", JOptionPane.ERROR_MESSAGE);
                 return;
-            } else if (username.toLowerCase().equals("spanakis")) {
-                JOptionPane.showMessageDialog(null, "Congrats you won already everything!", "Reminder", JOptionPane.INFORMATION_MESSAGE);
+            } else if (username.toLowerCase(Locale.ROOT).equals("spanakis")) {
+                JOptionPane.showMessageDialog(null, "Congrats you won already on everything!", "Reminder", JOptionPane.INFORMATION_MESSAGE);
                 System.exit(1);
-            } else if (username.toLowerCase().equals("artopoulos")) {
+            } else if (username.toLowerCase(Locale.ROOT).equals("artopoulos")) {
                 JOptionPane.showMessageDialog(null, "You lost already, good paradise", "Announcement", JOptionPane.WARNING_MESSAGE);
                 System.exit(1);
             }
@@ -78,33 +76,6 @@ public class Username implements ActionListener, KeyListener {
         frame.dispose();
     }
 
-    //Απλά κουβαλιέται λόγω του implementation
-    @Override
-    public void keyTyped(KeyEvent e) {
-    }
 
-    /**
-     * Ενέργεια για όταν πατιέται το κουμπί enter
-     */
-    @Override
-    public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-            username = textField.getText();
-            if (username.equals("")) {
-                JOptionPane.showMessageDialog(null, "You must enter your username!", "Reminder", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            JOptionPane.showMessageDialog(null, "You've Submitted the name " + username, "Info", JOptionPane.ERROR_MESSAGE);
-            new Menu();
-
-        }
-        frame.dispose();
-
-    }
-
-    //Απλά κουβαλιέται λόγω του implementation
-    @Override
-    public void keyReleased(KeyEvent e) {
-    }
 }
 

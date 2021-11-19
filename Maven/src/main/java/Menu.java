@@ -1,7 +1,4 @@
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,32 +8,29 @@ import java.awt.event.ActionListener;
  * @author Panagiotis Spanakis kai synergates
  */
 
-public class Menu implements ActionListener {
+public class Menu extends JFrame implements ActionListener {
 
     /**Initialize μεταβλητών διαστάσεων*/
     private final int X=225;
     private final int Y=200;
     private final int WIDTH=150;
     private final int HEIGHT=50;
-
-    JFrame frame;
+    
     JButton start = new JButton("Start Game");
     JButton how2play = new JButton("How to Play");
     JButton credits = new JButton("Show Credits");
     JButton description=new JButton("Game Description");
     JLabel label = new JLabel();
-    ImageIcon Icon = new ImageIcon("src/main/resources/maze-icon.png");
 
     public Menu() {
         // Εξατομίκευση παραθύρου
-        frame = new JFrame(); //create frame
-        frame.setTitle("Menu"); //setTitle of frame
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-        frame.setSize(600, 600);
-        frame.setVisible(true);
-        frame.setLayout(null);
-        frame.setIconImage(Icon.getImage());
+        this.setTitle("Menu"); //setTitle of frame
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false);
+        this.setSize(600, 600);
+        this.setVisible(true);
+        this.setLayout(null);
+        this.setIconImage(Main.icon.getImage());
 
         setButton(start,Y);
         setButton(how2play,Y+100);
@@ -46,11 +40,11 @@ public class Menu implements ActionListener {
         label.setText(Username.username);
         label.setBounds(0, 0, WIDTH, HEIGHT);
 
-        frame.add(start);
-        frame.add(how2play);
-        frame.add(credits);
-        frame.add(description);
-        frame.add(label);
+        this.add(start);
+        this.add(how2play);
+        this.add(credits);
+        this.add(description);
+        this.add(label);
     }
 
     /**
@@ -70,7 +64,7 @@ public class Menu implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == start) {
             new Levels();
-            frame.dispose();
+            this.dispose();
         } else if (e.getSource() == how2play) {
             new Guide();
         } else if(e.getSource()==credits){

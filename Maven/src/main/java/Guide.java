@@ -1,5 +1,4 @@
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  * Κλάση για περιγραφή οδηγιών
@@ -10,7 +9,7 @@ import javax.swing.JFrame;
 public class Guide {
 
     JFrame frame;
-    private ImageIcon Icon = new ImageIcon("src/main/resources/maze-icon.png");
+
     public Guide() {
         // Εξατομίκευση παραθύρου
         frame = new JFrame(); //create frame
@@ -20,8 +19,7 @@ public class Guide {
         frame.setSize(600, 600);
         frame.setVisible(true);
         frame.setLayout(null);
-        frame.setIconImage(Icon.getImage());// hope it works
-
+        frame.setIconImage(Main.icon.getImage());// hope it works
 
     }
 

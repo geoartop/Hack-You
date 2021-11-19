@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 /**
  * Σημείο Εκκίνησης παιχνιδιού
  *
@@ -5,10 +7,9 @@
  */
 public class Main {
 
+    protected static final ImageIcon icon = new ImageIcon("src/main/resources/maze-icon.png");
+
     public static void main(String[] args) {
-        new Username();
-    }
-
-
+        SwingUtilities.invokeLater(Username::new);}
 
 }

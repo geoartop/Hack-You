@@ -12,9 +12,7 @@ import javax.swing.JFrame;
  */
 public class Credits {
 
-
     JFrame frame;
-    private ImageIcon Icon = new ImageIcon("src/main/resources/maze-icon.png");
 
     public Credits() {
         // Εξατομίκευση παραθύρου
@@ -25,6 +23,6 @@ public class Credits {
         frame.setSize(600, 600);
         frame.setVisible(true);
         frame.setLayout(null);
-        frame.setIconImage(Icon.getImage());
+        frame.setIconImage(Main.icon.getImage());
     }
 }

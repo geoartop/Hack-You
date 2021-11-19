@@ -1,5 +1,4 @@
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  * Κλάση που περιγράφει το παιχνίδι και την "πλοκή"
@@ -9,7 +8,6 @@ import javax.swing.JFrame;
 public class Description {
 
     JFrame frame;
-    private ImageIcon Icon = new ImageIcon("src/main/resources/maze-icon.png");
 
     public Description(){
         frame = new JFrame(); //create frame
@@ -19,6 +17,6 @@ public class Description {
         frame.setSize(600, 600);
         frame.setVisible(true);
         frame.setLayout(null);
-        frame.setIconImage(Icon.getImage());
+        frame.setIconImage(Main.icon.getImage());
     }
 }
