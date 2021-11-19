@@ -1,7 +1,4 @@
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
+import javax.swing.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -19,6 +16,9 @@ public class Username implements ActionListener{
     private JFrame frame;
     private JButton submit = new JButton("Submit");
     private JTextField textField = new JTextField();
+    //-------test changes------//
+    JLabel label = new JLabel();
+    //-------test changes end------//
     /**
      * Θέλουμε να γνωρίζουν όλες οι κλάσεις το username του παίκτη ώστε να μπορεί να αποθηκευτεί πιο εύκολα
      */
@@ -51,6 +51,11 @@ public class Username implements ActionListener{
         frame.add(textField);
         // Για να λειτουργεί το κουμπί enter
         frame.getRootPane().setDefaultButton(submit);
+        //-------test changes------//
+        label.setIcon(Main.background);
+        label.setBounds(0,0,1000,1000);
+        frame.add(label);
+        //-------test changes end------//
 
     }
 
