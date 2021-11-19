@@ -5,11 +5,14 @@ import javax.swing.*;
  *
  * @author Panagiotis Spanakis kai synergates
  */
-public class Description {
+public class Description extends JFrame{
 
     JFrame frame;
+    //-------test changes------//
+    JLabel label = new JLabel();
+    //-------test changes end------//
 
-    public Description(){
+    public Description() {
         frame = new JFrame(); //create frame
         frame.setTitle("Game description"); //setTitle of frame
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -18,5 +21,10 @@ public class Description {
         frame.setVisible(true);
         frame.setLayout(null);
         frame.setIconImage(Main.icon.getImage());
+        //-------test changes------//
+        label.setIcon(Main.background);
+        label.setBounds(0,0,1000,1000);
+        frame.add(label);
+        //-------test changes end------//
     }
 }

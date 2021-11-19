@@ -24,6 +24,9 @@ public class Levels implements ActionListener {
     JButton medium = new JButton("Medium");
     JButton hard = new JButton("Hard");
     JLabel label = new JLabel();
+    //-------test changes------//
+    JLabel label2 = new JLabel();
+    // -------test changes end------//
 
     /**
      * Θέλουμε να γνωρίζει η κλάση labyrinth το επίπεδο δυσκολίας που επίλεξε
@@ -53,12 +56,20 @@ public class Levels implements ActionListener {
         label.setBounds(0, 0, 100, 50);
         label.setHorizontalAlignment(JLabel.CENTER);
         label.setText("Select Difficulty");
+        //-------test changes------//
+        label.setForeground(Color.white);
+        //-------test changes end------//
 
         /**Προσθήκη συστατικών*/
         frame.add(easy);
         frame.add(medium);
         frame.add(hard);
         frame.add(label);
+        //-------test changes------//
+        label2.setIcon(Main.background);
+        label2.setBounds(0,0,1000,1000);
+        frame.add(label2);
+        //-------test changes end------//
     }
 
     /**

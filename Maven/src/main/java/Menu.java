@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,6 +22,9 @@ public class Menu extends JFrame implements ActionListener {
     JButton credits = new JButton("Show Credits");
     JButton description=new JButton("Game Description");
     JLabel label = new JLabel();
+    //-------test changes------//
+    JLabel label2 = new JLabel();
+    //-------test changes end------//
 
     public Menu() {
         // Εξατομίκευση παραθύρου
@@ -39,12 +43,20 @@ public class Menu extends JFrame implements ActionListener {
 
         label.setText(Username.username);
         label.setBounds(0, 0, WIDTH, HEIGHT);
+        //-------test changes------//
+        label.setForeground(Color.white);
+        //-------test changes end------//
 
         this.add(start);
         this.add(how2play);
         this.add(credits);
         this.add(description);
         this.add(label);
+        //-------test changes------//
+        label2.setIcon(Main.background);
+        label2.setBounds(0,0,1000,1000);
+        this.add(label2);
+        //-------test changes end------//
     }
 
     /**

@@ -9,6 +9,9 @@ import javax.swing.*;
 public class Guide {
 
     JFrame frame;
+    //-------test changes------//
+    JLabel label = new JLabel();
+    //-------test changes end------//
 
     public Guide() {
         // Εξατομίκευση παραθύρου
@@ -20,6 +23,11 @@ public class Guide {
         frame.setVisible(true);
         frame.setLayout(null);
         frame.setIconImage(Main.icon.getImage());// hope it works
+        //-------test changes------//
+        label.setIcon(Main.background);
+        label.setBounds(0,0,1000,1000);
+        frame.add(label);
+        //-------test changes end------//
 
     }
 

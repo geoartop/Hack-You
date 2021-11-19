@@ -1,7 +1,4 @@
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JProgressBar;
+import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -9,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-/**
+/*
  * WARNING
  *  TODO Να φτιάξουμε νέα κλάση για το frame του παιχνιδιού, για το panel που θα παίζει ο λαβύρινθος
  */
@@ -30,6 +27,9 @@ public class LabyrinthFrame extends JFrame implements KeyListener, ActionListene
     JButton start = new JButton("Start");
     /*JButton pause = new JButton("pause");
     JButton goOn = new JButton("continue");*/
+    //-------test changes------//
+    JLabel label = new JLabel();
+    //-------test changes end------//
     private boolean go = true;
     private int pause_count = 0;
     private boolean hasStarted = false;
@@ -90,6 +90,11 @@ public class LabyrinthFrame extends JFrame implements KeyListener, ActionListene
         this.add(start);
         /*this.add(pause);
         this.add(goOn);*/
+        //-------test changes------//
+        label.setIcon(Main.background);
+        label.setBounds(0,0,1000,1000);
+        this.add(label);
+        //-------test changes end------//
     }
 
     /**
