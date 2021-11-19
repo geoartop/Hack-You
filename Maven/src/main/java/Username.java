@@ -1,6 +1,5 @@
 import javax.swing.*;
-import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Locale;
@@ -18,7 +17,10 @@ public class Username implements ActionListener{
     private JTextField textField = new JTextField();
     //-------test changes------//
     JLabel label = new JLabel();
+
     //-------test changes end------//
+    ImageIcon icon2;
+
     /**
      * Θέλουμε να γνωρίζουν όλες οι κλάσεις το username του παίκτη ώστε να μπορεί να αποθηκευτεί πιο εύκολα
      */
@@ -31,19 +33,30 @@ public class Username implements ActionListener{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //Για να μη μεγαλώνει/μικραίνει το μέγεθος του παραθύρου
         frame.setResizable(false);
-        frame.setSize(300, 300);
+        frame.setSize(1600, 1000);
         frame.setVisible(true);
         frame.setLayout(null);
         frame.getContentPane().setBackground(Color.black);
         frame.setIconImage(Main.icon.getImage());
 
-        submit.setBounds(100, 200, 100, 30);
-        submit.setHorizontalAlignment(JButton.CENTER);
+
+        icon2= new ImageIcon("src/main/resources/buttons1234.jpg");
+        submit.setIcon(icon2);
+        submit.setHorizontalTextPosition(JButton.CENTER);
+        submit.setFont(new Font("Calibri",Font.BOLD,16));
+        submit.setForeground(Color.black);
+        submit.setBounds(755, 470, 100, 30);
+        //δεν κανουν τιποτα
+        //submit.setHorizontalAlignment(JButton.CENTER);
+        //submit.setVerticalAlignment(JButton.CENTER);
         submit.setFocusable(false);
+
+
+
         submit.addActionListener(this);
 
-        textField.setBounds(75, 100, 150, 50);
-        textField.setPreferredSize(new Dimension(200, 50));
+        textField.setBounds(650, 400, 300, 50);
+        textField.setPreferredSize(new Dimension(300, 50));
         //Key Bind
         //submit.addKeyListener(this);
 
@@ -53,9 +66,11 @@ public class Username implements ActionListener{
         frame.getRootPane().setDefaultButton(submit);
         //-------test changes------//
         label.setIcon(Main.background);
-        label.setBounds(0,0,1000,1000);
+        label.setBounds(0,0,1600,1000);
         frame.add(label);
         //-------test changes end------//
+
+
 
     }
 

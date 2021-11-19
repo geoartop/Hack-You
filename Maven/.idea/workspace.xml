@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="adjustments to gui">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/12345 - Copy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/buttons123 - Copy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_11_2021_7_15_____Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_11_2021_7_15_____Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_11_2021_12_33_____Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_11_2021_12_33_____Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_11_2021_12_44_____Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_11_2021_12_44_____Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_11_2021_1_46_____Changes_.xml" beforeDir="false" />
+    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment=" add resources">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/buttons1234.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Username.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Username.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Username.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Username.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,14 +44,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="copyright.profiles" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\geoar\Documents\GitHub\Hack-you3\Maven\src\main\resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\geoar\Documents\GitHub\Hack-you3\Maven\src\main\resources" />
       <recent name="C:\Users\panagiotis\Desktop\GitHub\Hack-you\Maven\src\main\resources" />
     </key>
   </component>
@@ -219,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637232230868</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary=" add resources">
+      <created>1637336296756</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1637336296756</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,6 +251,7 @@
     <MESSAGE value="Gui comments" />
     <MESSAGE value="adjustments to gui" />
     <MESSAGE value="Add Icon" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Icon" />
+    <MESSAGE value=" add resources" />
+    <option name="LAST_COMMIT_MESSAGE" value=" add resources" />
   </component>
 </project>
