@@ -11,6 +11,7 @@ public class Main {
     protected static final ImageIcon background = new ImageIcon("src/main/resources/background.jpg");
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(Username::new);}
+        SwingUtilities.invokeLater(Username::new);
+    }
 
 }

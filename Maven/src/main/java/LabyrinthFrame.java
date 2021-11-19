@@ -25,6 +25,7 @@ public class LabyrinthFrame extends JFrame implements KeyListener, ActionListene
      */
     JProgressBar bar = new JProgressBar(0, 100);
     JButton start = new JButton("Start");
+    JButton testQuestionFrame=new JButton("try me");
     /*JButton pause = new JButton("pause");
     JButton goOn = new JButton("continue");*/
     //-------test changes------//
@@ -52,8 +53,7 @@ public class LabyrinthFrame extends JFrame implements KeyListener, ActionListene
     /**
      * PROBLEM !
      * TODO FIX LAGGING PROGRESS BAR
-     * <p>
-     * UPDATE -> FIXED Μέσα από Threading
+     * <p> UPDATE -> FIXED Μέσα από Threading
      */
 
     private void createFrame(){
@@ -88,12 +88,16 @@ public class LabyrinthFrame extends JFrame implements KeyListener, ActionListene
 
         this.add(bar);
         this.add(start);
+
+        setButton(testQuestionFrame,400);
+        testQuestionFrame.addActionListener(this);
+        this.add(testQuestionFrame);
         /*this.add(pause);
         this.add(goOn);*/
         //-------test changes------//
-        label.setIcon(Main.background);
-        label.setBounds(0,0,1000,1000);
-        this.add(label);
+        //label.setIcon(Main.background);
+        //label.setBounds(0,0,1000,1000);
+        //this.add(label);
         //-------test changes end------//
     }
 
@@ -125,7 +129,7 @@ public class LabyrinthFrame extends JFrame implements KeyListener, ActionListene
         button.setFocusable(false);
         button.addActionListener(this);
         button.setHorizontalAlignment(JButton.CENTER);
-        button.setFont(new Font("Arial", Font.ITALIC, 20));
+        button.setFont(new Font("Calibri", Font.ITALIC, 20));
     }
 
 
@@ -161,7 +165,10 @@ public class LabyrinthFrame extends JFrame implements KeyListener, ActionListene
             start.setEnabled(false);
             //goOn.setEnabled(true);
             hasStarted = true;
-        }/* else if (e.getSource() == pause) {
+        }else if(e.getSource() == testQuestionFrame){
+            SwingUtilities.invokeLater(QuizFrame::new);
+        }
+        /* else if (e.getSource() == pause) {
             go = false;
         } else {
             Thread fill_bar2 = new Thread(() -> fill(bar.getValue()));
