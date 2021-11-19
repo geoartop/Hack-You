@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-/**
+/*
  * Κλάση για παρουσίαση μελών και ρόλων αυτών
  *
  * @author Panagiotis Spanakis kai synergates

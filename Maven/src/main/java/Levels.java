@@ -4,14 +4,14 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
+/*
  * Επιλογή Επίπεδου δυσκολίας
  *
  * @author Panagiotis Spanakis k synergates
  */
 public class Levels implements ActionListener {
 
-    /**
+    /*
      * Initialize μεταβλητών διαστάσεων
      */
     private final int BX = 225;
@@ -28,7 +28,7 @@ public class Levels implements ActionListener {
     JLabel label2 = new JLabel();
     // -------test changes end------//
 
-    /**
+    /*
      * Θέλουμε να γνωρίζει η κλάση labyrinth το επίπεδο δυσκολίας που επίλεξε
      */
     protected static String difficulty="";
@@ -60,7 +60,7 @@ public class Levels implements ActionListener {
         label.setForeground(Color.white);
         //-------test changes end------//
 
-        /**Προσθήκη συστατικών*/
+        /*Προσθήκη συστατικών*/
         frame.add(easy);
         frame.add(medium);
         frame.add(hard);
@@ -83,7 +83,7 @@ public class Levels implements ActionListener {
         button.setFont(new Font("Arial", Font.ITALIC,20));
     }
 
-    /**
+    /*
      * Ενέργεια όταν κάνουμε κλικ στο κουμπί
      */
     @Override
@@ -99,7 +99,7 @@ public class Levels implements ActionListener {
             difficulty = "hard";
         }
         frame.dispose();
-        /**Δημιουργία λαβύρινθου και καθορισμός δυσκολίας ερωτήσεων*/
+        /*Δημιουργία λαβύρινθου και καθορισμός δυσκολίας ερωτήσεων*/
         Labyrinth.setLabyrinth();
         Questions.setQuestionsDifficulty();
         SwingUtilities.invokeLater(LabyrinthFrame::new);
