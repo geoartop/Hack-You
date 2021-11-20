@@ -12,11 +12,12 @@ import java.awt.event.ActionListener;
 public class Menu extends JFrame implements ActionListener {
 
     /**Initialize μεταβλητών διαστάσεων*/
-    private final int X=225;
+    private final int X=380;
     private final int Y=200;
-    private final int WIDTH=150;
+    private final int WIDTH=200;
     private final int HEIGHT=50;
-    
+    private int counter = 0;
+    ImageIcon icon3;
     JButton start = new JButton("Start Game");
     JButton how2play = new JButton("How to Play");
     JButton credits = new JButton("Show Credits");
@@ -31,7 +32,7 @@ public class Menu extends JFrame implements ActionListener {
         this.setTitle("Menu"); //setTitle of frame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        this.setSize(600, 600);
+        this.setSize(970, 850);
         this.setVisible(true);
         this.setLayout(null);
         this.setIconImage(Main.icon.getImage());
@@ -41,11 +42,6 @@ public class Menu extends JFrame implements ActionListener {
         setButton(credits,Y+200);
         setButton(description,Y+300);
 
-        label.setText(Username.username);
-        label.setBounds(0, 0, WIDTH, HEIGHT);
-        //-------test changes------//
-        label.setForeground(Color.white);
-        //-------test changes end------//
 
         this.add(start);
         this.add(how2play);
@@ -63,9 +59,19 @@ public class Menu extends JFrame implements ActionListener {
      * Μέθοδος δημιουργίας Κουμπιών
      */
     public void setButton(JButton button,int y) {
+        counter++;
         button.setBounds(X, y, WIDTH, HEIGHT);
         button.setFocusable(false);
-        button.setHorizontalAlignment(JButton.CENTER);
+        if (counter % 2 == 1) {
+            icon3 = new ImageIcon("src/main/resources/wood2.png");
+        } else {
+            icon3 = new ImageIcon("src/main/resources/wood1.png");
+        }
+        button.setIcon(icon3);
+        button.setHorizontalTextPosition(JButton.CENTER);
+        button.setFont(new Font("Calibri",Font.BOLD,25));
+        button.setForeground(Color.black);
+        //button.setHorizontalAlignment(JButton.CENTER);
         button.addActionListener(this);
         //button.setFont(new Font("Calibri",Font.ITALIC,16));
     }

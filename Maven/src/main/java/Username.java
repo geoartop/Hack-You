@@ -42,7 +42,7 @@ public class Username implements ActionListener{
         frame.setIconImage(Main.icon.getImage());
 
 
-        icon2= new ImageIcon("src/main/resources/buttons123 - Copy.png");
+        icon2= new ImageIcon("src/main/resources/wood1.png");
         submit.setIcon(icon2);
         submit.setHorizontalTextPosition(JButton.CENTER);
         submit.setFont(new Font("Calibri",Font.BOLD,25));

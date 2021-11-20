@@ -14,11 +14,13 @@ public class Levels implements ActionListener {
     /*
      * Initialize μεταβλητών διαστάσεων
      */
-    private final int BX = 225;
-    private final int BY = 200;
-    private final int B_WIDTH = 150;
+    private final int BX = 380;
+    private final int BY = 250;
+    private final int B_WIDTH = 182;
     private final int B_HEIGHT = 50;
+    private int counter=0;
 
+    ImageIcon icon4;
     JFrame frame;
     JButton easy = new JButton("Easy");
     JButton medium = new JButton("Medium");
@@ -39,7 +41,7 @@ public class Levels implements ActionListener {
         frame.setTitle("Select Difficulty"); //setTitle of frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
-        frame.setSize(600, 600);
+        frame.setSize(970, 850);
         frame.setVisible(true);
         frame.setLayout(null);
         frame.setIconImage(Main.icon.getImage());
@@ -49,15 +51,15 @@ public class Levels implements ActionListener {
         setButton(hard, BY + 200);
 
         //Τοποθέτηση χρωμάτων στα κουμπιά
-        easy.setForeground(Color.green);
-        medium.setForeground(Color.orange);
+        easy.setForeground(Color.white);
+
+        medium.setForeground(Color.black);
         hard.setForeground(Color.red);
 
-        label.setBounds(0, 0, 100, 50);
-        label.setHorizontalAlignment(JLabel.CENTER);
+        label.setBounds(345, 150, 400,50 );
         label.setText("Select Difficulty");
-        //-------test changes------//
-        label.setForeground(Color.white);
+        label.setFont(new Font("Calibri", Font.BOLD,40));
+        label.setForeground(Color.black);
         //-------test changes end------//
 
         /*Προσθήκη συστατικών*/
@@ -76,11 +78,20 @@ public class Levels implements ActionListener {
      * Μέθοδος δημιουργίας Κουμπιών
      */
     public void setButton(JButton button, int y) {
+        counter++;
         button.setBounds(BX, y, B_WIDTH, B_HEIGHT);
         button.setFocusable(false);
+        if (counter==1){
+            icon4 = new ImageIcon("src/main/resources/wood1.png");
+        } else if (counter==2){
+            icon4 = new ImageIcon("src/main/resources/iron2.jpg");
+        } else {
+            icon4 = new ImageIcon("src/main/resources/gold2.png");
+        }
+        button.setIcon(icon4);
         button.addActionListener(this);
-        button.setHorizontalAlignment(JButton.CENTER);
-        button.setFont(new Font("Arial", Font.ITALIC,20));
+        button.setHorizontalTextPosition(JButton.CENTER);
+        button.setFont(new Font("Arial", Font.ITALIC,25));
     }
 
     /*
