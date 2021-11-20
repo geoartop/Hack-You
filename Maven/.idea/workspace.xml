@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Fix dumb mistake @QuizFrame">
+    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Add QuizFrame">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LabyrinthFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LabyrinthFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LabyrinthPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LabyrinthPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Levels.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QuizFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/QuizFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Levels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Levels.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Menu.class" afterDir="false" />
@@ -246,14 +245,7 @@
       <option name="project" value="LOCAL" />
       <updated>1637349910630</updated>
     </task>
-    <task id="LOCAL-00017" summary="Fix dumb mistake @QuizFrame">
-      <created>1637368420412</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1637368420412</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -279,7 +271,6 @@
     <MESSAGE value="Add Icon" />
     <MESSAGE value=" add resources" />
     <MESSAGE value="Add QuizFrame" />
-    <MESSAGE value="Fix dumb mistake @QuizFrame" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix dumb mistake @QuizFrame" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add QuizFrame" />
   </component>
 </project>

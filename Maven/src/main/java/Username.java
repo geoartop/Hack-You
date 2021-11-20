@@ -1,3 +1,5 @@
+import javafx.scene.layout.Border;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -33,19 +35,19 @@ public class Username implements ActionListener{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //Για να μη μεγαλώνει/μικραίνει το μέγεθος του παραθύρου
         frame.setResizable(false);
-        frame.setSize(1600, 1000);
+        frame.setSize(970, 850);
         frame.setVisible(true);
         frame.setLayout(null);
         frame.getContentPane().setBackground(Color.black);
         frame.setIconImage(Main.icon.getImage());
 
 
-        icon2= new ImageIcon("src/main/resources/buttons1234.jpg");
+        icon2= new ImageIcon("src/main/resources/buttons123 - Copy.png");
         submit.setIcon(icon2);
         submit.setHorizontalTextPosition(JButton.CENTER);
-        submit.setFont(new Font("Calibri",Font.BOLD,16));
+        submit.setFont(new Font("Calibri",Font.BOLD,25));
         submit.setForeground(Color.black);
-        submit.setBounds(755, 470, 100, 30);
+        submit.setBounds(400, 350, 150, 45);
         //δεν κανουν τιποτα
         //submit.setHorizontalAlignment(JButton.CENTER);
         //submit.setVerticalAlignment(JButton.CENTER);
@@ -55,7 +57,7 @@ public class Username implements ActionListener{
 
         submit.addActionListener(this);
 
-        textField.setBounds(650, 400, 300, 50);
+        textField.setBounds(325, 280, 300, 50);
         textField.setPreferredSize(new Dimension(300, 50));
         //Key Bind
         //submit.addKeyListener(this);
@@ -66,7 +68,7 @@ public class Username implements ActionListener{
         frame.getRootPane().setDefaultButton(submit);
         //-------test changes------//
         label.setIcon(Main.background);
-        label.setBounds(0,0,1600,1000);
+        label.setBounds(0,0,970,850);
         frame.add(label);
         //-------test changes end------//
 
