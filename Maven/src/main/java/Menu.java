@@ -69,7 +69,7 @@ public class Menu extends JFrame implements ActionListener {
         }
         button.setIcon(icon3);
         button.setHorizontalTextPosition(JButton.CENTER);
-        button.setFont(new Font("Calibri",Font.BOLD,25));
+        button.setFont(new Font("Calibri",Font.BOLD,20));
         button.setForeground(Color.black);
         //button.setHorizontalAlignment(JButton.CENTER);
         button.addActionListener(this);

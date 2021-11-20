@@ -15,7 +15,7 @@ public class QuizFrame implements ActionListener {
     private final int RADIOBUTTON_START=50;
     private final int RADIOBUTTON_Y=400;
     private final int RADIOBUTTON_WIDTH=50;
-    private final int RADIOBUTTON_HEIGHT=20;
+    private final int RADIOBUTTON_HEIGHT=50;
 
     public QuizFrame() {
         frame=new JFrame();

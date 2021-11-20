@@ -18,9 +18,8 @@ public class ReadText {
         //--Τέλος τρόπου Σπαν
         Scanner sc = new Scanner(new File("src/main/resources/testfile.txt"));
         List<String> lines = new ArrayList<String>();
-        while (sc.hasNextLine()) {
+        while (sc.hasNextLine())
             lines.add(sc.nextLine());
-        }
 
         System.out.println(lines);
 

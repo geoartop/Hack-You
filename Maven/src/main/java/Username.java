@@ -52,9 +52,6 @@ public class Username implements ActionListener{
         //submit.setHorizontalAlignment(JButton.CENTER);
         //submit.setVerticalAlignment(JButton.CENTER);
         submit.setFocusable(false);
-
-
-
         submit.addActionListener(this);
 
         textField.setBounds(325, 280, 300, 50);
