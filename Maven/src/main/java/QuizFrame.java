@@ -47,7 +47,6 @@ public class QuizFrame implements ActionListener {
 
     }
 
-
     //Θα γίνεται μέσω της μεθόδου radiobutton[i].isSelected()
     private boolean checkAns(){
         return true;
@@ -56,6 +55,7 @@ public class QuizFrame implements ActionListener {
     public void setRadioButton(int i, int x) {
             radioButtons[i].setBounds(x, RADIOBUTTON_Y, RADIOBUTTON_WIDTH, RADIOBUTTON_HEIGHT);
             radioButtons[i].setText(String.format("%d",i+1));
+            radioButtons[i].setFocusable(false);
     }
 
 

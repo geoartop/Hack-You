@@ -74,6 +74,7 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
         bar.setFont(new Font("Arial", Font.BOLD, 25));
         bar.setForeground(Color.red);
         bar.setBackground(Color.black);
+        bar.setVisible(false);
     }
 
     public LabyrinthFrame() {
@@ -159,6 +160,7 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == start) {
+            bar.setVisible(true);
             Thread fill_bar = new Thread(() -> fill(100));
             fill_bar.start();
             //JOptionPane.showMessageDialog(null,"working!!","test",JOptionPane.INFORMATION_MESSAGE);

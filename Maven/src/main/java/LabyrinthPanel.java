@@ -4,7 +4,6 @@ import java.awt.event.ActionListener;
 
 public class LabyrinthPanel extends JPanel implements ActionListener {
 
-
     public LabyrinthPanel() {
 
     }
