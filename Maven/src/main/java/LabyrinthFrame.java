@@ -14,15 +14,15 @@ import java.awt.event.KeyListener;
 
 /**
  * @author Panagiotis Spanakis kai synergates
- * <p>
- * Κλάση όπου θα τρέχει ο λαβίρυνθος
+ * <p> Κλάση όπου θα τρέχει ο λαβίρυνθος
  */
-public class LabyrinthFrame extends JFrame implements KeyListener, ActionListener {
+public class LabyrinthFrame implements KeyListener, ActionListener {
 
     //protected static File file;
     /**
      * ProgressBar
      */
+    JFrame frame;
     JProgressBar bar = new JProgressBar(0, 100);
     JButton start = new JButton("Start");
     JButton testQuestionFrame=new JButton("try me");
@@ -57,13 +57,14 @@ public class LabyrinthFrame extends JFrame implements KeyListener, ActionListene
      */
 
     private void createFrame(){
-        this.setTitle("Labyrinth"); //setTitle of frame
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(false);
-        this.setSize(600, 600);
-        this.setVisible(true);
-        this.setLayout(null);
-        this.setIconImage(Main.icon.getImage());
+        frame=new JFrame();
+        frame.setTitle("Labyrinth"); //setTitle of frame
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.setSize(600, 600);
+        frame.setVisible(true);
+        frame.setLayout(null);
+        frame.setIconImage(Main.icon.getImage());
     }
 
     private void createBar(){
@@ -84,14 +85,13 @@ public class LabyrinthFrame extends JFrame implements KeyListener, ActionListene
         goOn.setEnabled(false);*/
 
         //Key Bind
-        this.addKeyListener(this);
+        frame.addKeyListener(this);
 
-        this.add(bar);
-        this.add(start);
+        frame.add(bar);
+        frame.add(start);
 
         setButton(testQuestionFrame,400);
-        testQuestionFrame.addActionListener(this);
-        this.add(testQuestionFrame);
+        frame.add(testQuestionFrame);
         /*this.add(pause);
         this.add(goOn);*/
         //-------test changes------//

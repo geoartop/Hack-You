@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment=" add resources">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/buttons1234.jpg" afterDir="false" />
+    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Add QuizFrame">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Username.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Username.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Username.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Username.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LabyrinthFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LabyrinthFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Levels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Levels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Levels.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Menu.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +59,8 @@
       <recent name="C:\Users\geoar\Documents\GitHub\Hack-you3\Maven\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\geoar\Documents\GitHub\Hack-you3\Maven\src\main\resources" />
       <recent name="C:\Users\panagiotis\Desktop\GitHub\Hack-you\Maven\src\main\resources" />
+      <recent name="C:\Users\geoar\Documents\GitHub\Hack-you3\Maven\src\main\resources" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -227,7 +231,21 @@
       <option name="project" value="LOCAL" />
       <updated>1637336296756</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add QuizFrame">
+      <created>1637349421038</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1637349421038</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Add QuizFrame">
+      <created>1637349910630</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1637349910630</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -252,6 +270,7 @@
     <MESSAGE value="adjustments to gui" />
     <MESSAGE value="Add Icon" />
     <MESSAGE value=" add resources" />
-    <option name="LAST_COMMIT_MESSAGE" value=" add resources" />
+    <MESSAGE value="Add QuizFrame" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add QuizFrame" />
   </component>
 </project>
