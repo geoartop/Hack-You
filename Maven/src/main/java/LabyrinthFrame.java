@@ -23,17 +23,21 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
      * ProgressBar
      */
     JFrame frame;
-    JProgressBar bar = new JProgressBar(0, 100);
-    JButton start = new JButton("Start");
+    static JProgressBar bar = new JProgressBar(0, 100);
+    JButton start = new JButton("start");
     JButton testQuestionFrame=new JButton("try me");
-    /*JButton pause = new JButton("pause");
+    /* JButton pause = new JButton("pause");
     JButton goOn = new JButton("continue");*/
     //-------test changes------//
     JLabel label = new JLabel();
     //-------test changes end------//
-    private boolean go = true;
-    private int pause_count = 0;
-    private boolean hasStarted = false;
+
+    //Μεταβλητές χρήσιμες για την λειτουργία του progressBar
+    protected static boolean go = true; // Για το αν συνεχίζει το παιχνίδι ή βρίσκεται σε pause
+    private int pause_count = 0; //Για το πόσες φορές έχει πατήσει το spacebar
+    private boolean hasStarted = false; // Για το αν έχει αρχίσει το παιχνίδι
+
+    //--------------------------------------------------------------------------------------//
 
     protected static void setLabyrinth() {
         switch (Levels.difficulty) {
@@ -65,6 +69,8 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
         frame.setVisible(true);
         frame.setLayout(null);
         frame.setIconImage(Main.icon.getImage());
+        //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
+        frame.setLocationRelativeTo(null);
     }
 
     private void createBar(){
@@ -77,10 +83,12 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
         bar.setVisible(false);
     }
 
+
     public LabyrinthFrame() {
         createFrame();
         createBar();
-        setButton(start, 300);
+        setButton(start, 500);
+        start.setBackground(Color.green);
         /*setButton(pause, 400);
         setButton(goOn, 500);
         goOn.setEnabled(false);*/
@@ -92,6 +100,7 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
         frame.add(start);
 
         setButton(testQuestionFrame,400);
+        testQuestionFrame.setEnabled(false);
         frame.add(testQuestionFrame);
         /*this.add(pause);
         this.add(goOn);*/
@@ -105,7 +114,7 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
     /**
      * Μέθοδος λειτουργίας progressBar
      */
-    public void fill(int flg) {
+    private static void fill(int flg) {
         int counter = flg;
 
         while (counter > 0) {
@@ -115,7 +124,7 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
             }
             bar.setValue(counter);
             try {
-                Thread.sleep(100);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(null, "A problem has occurred", "Error", JOptionPane.ERROR_MESSAGE);
@@ -126,7 +135,7 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
     }
 
     public void setButton(JButton button, int y) {
-        button.setBounds(300, y, 150, 50);
+        button.setBounds(250, y, 100, 50);
         button.setFocusable(false);
         button.addActionListener(this);
         button.setHorizontalAlignment(JButton.CENTER);
@@ -157,24 +166,25 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
 
     }
 
+    protected static void updateBar(int time){
+        Thread fill_bar = new Thread(() -> fill(bar.getValue()+time));
+        fill_bar.start();
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == start) {
             bar.setVisible(true);
             Thread fill_bar = new Thread(() -> fill(100));
             fill_bar.start();
-            //JOptionPane.showMessageDialog(null,"working!!","test",JOptionPane.INFORMATION_MESSAGE);
             start.setEnabled(false);
-            //goOn.setEnabled(true);
             hasStarted = true;
+            testQuestionFrame.setEnabled(true);
         }else if(e.getSource() == testQuestionFrame){
+            //Ο χρόνος σταματάει μέχρι να απαντηθεί η ερώτηση
+            go=false;
             SwingUtilities.invokeLater(QuizFrame::new);
+
         }
-        /* else if (e.getSource() == pause) {
-            go = false;
-        } else {
-            Thread fill_bar2 = new Thread(() -> fill(bar.getValue()));
-            fill_bar2.start();
-        }*/
     }
 }

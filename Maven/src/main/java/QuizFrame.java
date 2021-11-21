@@ -27,6 +27,8 @@ public class QuizFrame implements ActionListener {
         frame.setVisible(true);
         frame.setLayout(null);
         frame.setIconImage(icon.getImage());
+        //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
+        frame.setLocationRelativeTo(null);
 
         label.setBounds(30,40,400,30);
         frame.add(label);
@@ -82,11 +84,9 @@ public class QuizFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Please select an answer", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
-            if(checkAns()){
-
-            }else {
-
-            }
+            //Thread update;
+            int time = radioButtons[3].isSelected() ? 5 : -5 ;
+            LabyrinthFrame.updateBar(time);
             frame.dispose();
         }
     }
