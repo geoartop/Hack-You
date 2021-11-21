@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
  * @author Panagiotis Spanakis kai synergates
  */
 
-public class Menu extends JFrame implements ActionListener {
+public class Menu implements ActionListener {
 
     /**Initialize μεταβλητών διαστάσεων*/
     private final int X=380;
@@ -18,6 +18,8 @@ public class Menu extends JFrame implements ActionListener {
     private final int HEIGHT=50;
     private int counter = 0;
     ImageIcon icon3;
+
+    JFrame frame=new JFrame();
     JButton start = new JButton("Start Game");
     JButton how2play = new JButton("How to Play");
     JButton credits = new JButton("Show Credits");
@@ -29,13 +31,15 @@ public class Menu extends JFrame implements ActionListener {
 
     public Menu() {
         // Εξατομίκευση παραθύρου
-        this.setTitle("Menu"); //setTitle of frame
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(false);
-        this.setSize(970, 850);
-        this.setVisible(true);
-        this.setLayout(null);
-        this.setIconImage(Main.icon.getImage());
+        frame.setTitle("Menu"); //setTitle of frame
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.setSize(970, 850);
+        frame.setVisible(true);
+        frame.setLayout(null);
+        frame.setIconImage(Main.icon.getImage());
+        //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
+        frame.setLocationRelativeTo(null);
 
         setButton(start,Y);
         setButton(how2play,Y+100);
@@ -43,15 +47,15 @@ public class Menu extends JFrame implements ActionListener {
         setButton(description,Y+300);
 
 
-        this.add(start);
-        this.add(how2play);
-        this.add(credits);
-        this.add(description);
-        this.add(label);
+        frame.add(start);
+        frame.add(how2play);
+        frame.add(credits);
+        frame.add(description);
+        frame.add(label);
         //-------test changes------//
         label2.setIcon(Main.background);
         label2.setBounds(0,0,1000,1000);
-        this.add(label2);
+        frame.add(label2);
         //-------test changes end------//
     }
 
@@ -83,7 +87,7 @@ public class Menu extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == start) {
             new Levels();
-            this.dispose();
+            frame.dispose();
         } else if (e.getSource() == how2play) {
             new Guide();
         } else if(e.getSource()==credits){

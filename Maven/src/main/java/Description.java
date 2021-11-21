@@ -1,11 +1,11 @@
 import javax.swing.*;
 
 /**
- * Κλάση που περιγράφει το παιχνίδι και την "πλοκή"
+ * Κλάση που περιγράφει το παιχνίδι και τη "πλοκή"
  *
  * @author Panagiotis Spanakis kai synergates
  */
-public class Description extends JFrame{
+public class Description{
 
     JFrame frame;
     //-------test changes------//
@@ -25,6 +25,8 @@ public class Description extends JFrame{
         label.setIcon(Main.background);
         label.setBounds(0,0,1000,1000);
         frame.add(label);
+        //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
+        frame.setLocationRelativeTo(null);
         //-------test changes end------//
     }
 }

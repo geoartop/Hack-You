@@ -11,7 +11,7 @@ public class Menu {
        System.out.println("Insert UserName:");
        String username=scanner.nextLine();
        UserName=username;
-       if(username.toLowerCase().equals("spyros")){
+       if(username.equalsIgnoreCase("spyros")){
            System.err.println("You lost, good paradise");
            System.exit(1);
        }

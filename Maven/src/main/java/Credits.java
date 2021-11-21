@@ -1,12 +1,12 @@
 import javax.swing.*;
 
-/*
+/**
  * Κλάση για παρουσίαση μελών και ρόλων αυτών
  *
  * @author Panagiotis Spanakis kai synergates
  */
 
-/**
+/*
  * Ιδέα να φορτώνουν τα credits όπως στις ταινίες
  */
 public class Credits {
@@ -28,8 +28,10 @@ public class Credits {
         frame.setIconImage(Main.icon.getImage());
         //-------test changes------//
         label.setIcon(Main.background); // set Icon for label
-        label.setBounds(0,0,1000,1000); // set x,y position within frame and dimensions
+        label.setBounds(0,0,600,600); // set x,y position within frame and dimensions
         frame.add(label);
+        //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
+        frame.setLocationRelativeTo(null);
         //-------test changes end------//
     }
 }

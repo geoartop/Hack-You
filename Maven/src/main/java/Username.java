@@ -40,6 +40,8 @@ public class Username implements ActionListener{
         frame.setLayout(null);
         frame.getContentPane().setBackground(Color.black);
         frame.setIconImage(Main.icon.getImage());
+        //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
+        frame.setLocationRelativeTo(null);
 
 
         icon2= new ImageIcon("src/main/resources/wood1.png");

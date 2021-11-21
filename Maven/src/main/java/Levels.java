@@ -1,6 +1,5 @@
 import javax.swing.*;
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -46,6 +45,8 @@ public class Levels implements ActionListener {
         frame.setVisible(true);
         frame.setLayout(null);
         frame.setIconImage(Main.icon.getImage());
+        //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
+        frame.setLocationRelativeTo(null);
 
         setButton(easy, BY);
         setButton(medium, BY + 100);
@@ -72,8 +73,13 @@ public class Levels implements ActionListener {
         frame.add(hard);
         frame.add(label);
         //-------test changes------//
-        label2.setIcon(Main.background);
-        label2.setBounds(0,0,1000,1000);
+        //Set Scaled Background
+        Image img=Main.background.getImage();
+        Image temp=img.getScaledInstance(585,600,Image.SCALE_SMOOTH);
+        ImageIcon back=new ImageIcon(temp);
+        label2.setIcon(back);
+        label2.setBounds(0,0,600,600);
+
         frame.add(label2);
         //-------test changes end------//
     }
@@ -88,11 +94,11 @@ public class Levels implements ActionListener {
         button.setHorizontalAlignment(JButton.CENTER);
         button.setHorizontalTextPosition(JButton.CENTER);
         button.setForeground(Color.BLACK);
-        button.setFont(new Font("Calibri", Font.ITALIC,20));
+        button.setFont(new Font("Calibri", Font.ITALIC,22));
     }
 
-    /*
-     * Ενέργεια όταν κάνουμε κλικ στο κουμπί
+    /**
+     * Ενέργεια όταν κάνουμε κλικ στα κουμπιά
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -108,7 +114,7 @@ public class Levels implements ActionListener {
         }
         frame.dispose();
         /*Δημιουργία λαβύρινθου και καθορισμός δυσκολίας ερωτήσεων*/
-        Labyrinth.setLabyrinth();
+        LabyrinthFrame.setLabyrinth();
         Questions.setQuestionsDifficulty();
         SwingUtilities.invokeLater(LabyrinthFrame::new);
         //TODO Κάθε κατηγορία λαβύρινθου να κάνει extend την κλάση Labyrinth!
