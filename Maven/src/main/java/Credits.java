@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Κλάση για παρουσίαση μελών και ρόλων αυτών
@@ -26,12 +27,19 @@ public class Credits {
         frame.setVisible(true);
         frame.setLayout(null);
         frame.setIconImage(Main.icon.getImage());
-        //-------test changes------//
-        label.setIcon(Main.background); // set Icon for label
-        label.setBounds(0,0,600,600); // set x,y position within frame and dimensions
-        frame.add(label);
-        //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
         frame.setLocationRelativeTo(null);
+        //-------test changes------//
+
+        //Set Scaled Background
+        Image img=Main.background.getImage();
+        Image temp=img.getScaledInstance(585,600,Image.SCALE_SMOOTH);
+        ImageIcon back=new ImageIcon(temp);
+        label.setIcon(back);
+        label.setBounds(0,0,600,600);
+        //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
+        frame.add(label);
+
+
         //-------test changes end------//
     }
 }

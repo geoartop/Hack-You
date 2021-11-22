@@ -1,5 +1,3 @@
-import javafx.scene.layout.Border;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -58,6 +56,8 @@ public class Username implements ActionListener{
 
         textField.setBounds(325, 280, 300, 50);
         textField.setPreferredSize(new Dimension(300, 50));
+        textField.setFont(new Font("Calibri",Font.BOLD,25));
+        textField.setSelectedTextColor(Color.green);
         //Key Bind
         //submit.addKeyListener(this);
 

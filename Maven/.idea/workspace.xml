@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="new username">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/gold2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/iron2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/wood1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/wood2.png" afterDir="false" />
+    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="QuestionFrame updates progressBar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Levels.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Credits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Credits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Description.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Description.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Guide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Guide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LabyrinthFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LabyrinthFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LabyrinthPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LabyrinthPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/QuizFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/QuizFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Username.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Username.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Levels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Levels.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Username.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Username.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +40,9 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="20xVOn3YTqvm2wi5F8tgNal13oY" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -247,14 +248,28 @@
       <option name="project" value="LOCAL" />
       <updated>1637349910630</updated>
     </task>
-    <task id="LOCAL-00017" summary="new username">
-      <created>1637374653338</created>
+    <task id="LOCAL-00017" summary="Update buttons at Levels">
+      <created>1637423835437</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1637374653338</updated>
+      <updated>1637423835437</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fix Background and windows show up at centre">
+      <created>1637508068415</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1637508068415</updated>
+    </task>
+    <task id="LOCAL-00019" summary="QuestionFrame updates progressBar">
+      <created>1637508102784</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1637508102784</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,6 +278,36 @@
         <entry key="MAIN">
           <value>
             <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="Γιώργος Αρτόπουλος" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="Theodoros Malikourtis" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="Emmanouil Dellatolas" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -280,7 +325,9 @@
     <MESSAGE value="Add Icon" />
     <MESSAGE value=" add resources" />
     <MESSAGE value="Add QuizFrame" />
-    <MESSAGE value="new username" />
-    <option name="LAST_COMMIT_MESSAGE" value="new username" />
+    <MESSAGE value="Update buttons at Levels" />
+    <MESSAGE value="Fix Background and windows show up at centre" />
+    <MESSAGE value="QuestionFrame updates progressBar" />
+    <option name="LAST_COMMIT_MESSAGE" value="QuestionFrame updates progressBar" />
   </component>
 </project>

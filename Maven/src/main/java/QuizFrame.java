@@ -84,8 +84,7 @@ public class QuizFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Please select an answer", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
-            //Thread update;
-            int time = radioButtons[3].isSelected() ? 5 : -5 ;
+            int time = radioButtons[3].isSelected() ? LabyrinthFrame.for_correct : LabyrinthFrame.for_wrong ;
             LabyrinthFrame.updateBar(time);
             frame.dispose();
         }

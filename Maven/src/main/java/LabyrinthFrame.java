@@ -37,18 +37,28 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
     private int pause_count = 0; //Για το πόσες φορές έχει πατήσει το spacebar
     private boolean hasStarted = false; // Για το αν έχει αρχίσει το παιχνίδι
 
+    //Μεταβλητές για πόσο χρόνο ο παίκτης θα κερδίζει χάνει ανάλογα με την απάντησή του στις ερωτήσεις
+    protected static int for_correct;
+    protected static int for_wrong;
+
     //--------------------------------------------------------------------------------------//
 
     protected static void setLabyrinth() {
         switch (Levels.difficulty) {
             case "easy":
                 //file=EasyLabyrinth.txt;
+                for_correct=5;
+                for_wrong=-2;
                 break;
             case "medium":
                 //file=MediumLabyrinth.txt;
+                for_correct=5;
+                for_wrong=-3;
                 break;
             default:
                 //file=HardLabyrinth.txt;
+                for_correct=3;
+                for_wrong=-5;
                 break;
         }
 
