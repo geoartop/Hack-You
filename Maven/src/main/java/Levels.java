@@ -17,23 +17,22 @@ public class Levels implements ActionListener {
     private final int BY = 200;
     private final int B_WIDTH = 150;
     private final int B_HEIGHT = 50;
-    private final ImageIcon easy_icon=new ImageIcon("src/main/resources/wood1.png");
-    private final ImageIcon medium_icon=new ImageIcon("src/main/resources/iron2.jpg");
-    private final ImageIcon hard_icon=new ImageIcon("src/main/resources/gold2.png");
+    private final ImageIcon easy_icon = new ImageIcon("src/main/resources/wood1.png");
+    private final ImageIcon medium_icon = new ImageIcon("src/main/resources/iron2.jpg");
+    private final ImageIcon hard_icon = new ImageIcon("src/main/resources/gold2.png");
 
     JFrame frame;
     JButton easy = new JButton("Easy");
     JButton medium = new JButton("Medium");
     JButton hard = new JButton("Hard");
-    JLabel label = new JLabel();
     //-------test changes------//
     JLabel label2 = new JLabel();
     // -------test changes end------//
 
     /*
-     * Θέλουμε να γνωρίζει η κλάση labyrinth το επίπεδο δυσκολίας που επίλεξε
+     * Θέλουμε να γνωρίζει η κλάση LabyrinthFrame το επίπεδο δυσκολίας που επίλεξε
      */
-    protected static String difficulty="";
+    protected static String difficulty = "";
 
     public Levels() {
         // Εξατομίκευση παραθύρου
@@ -52,34 +51,21 @@ public class Levels implements ActionListener {
         setButton(medium, BY + 100);
         setButton(hard, BY + 200);
 
-        //Τοποθέτηση χρωμάτων στα κουμπιά
-        /*easy.setBackground(Color.green);
-        medium.setBackground(Color.orange);
-        hard.setBackground(Color.red);*/
         easy.setIcon(easy_icon);
         medium.setIcon(medium_icon);
         hard.setIcon(hard_icon);
-
-        label.setBounds(0, 0, 100, 50);
-        label.setHorizontalAlignment(JLabel.CENTER);
-        label.setText("Select Difficulty");
-        //-------test changes------//
-        label.setForeground(Color.white);
-        //-------test changes end------//
 
         /*Προσθήκη συστατικών*/
         frame.add(easy);
         frame.add(medium);
         frame.add(hard);
-        frame.add(label);
         //-------test changes------//
         //Set Scaled Background
-        Image img=Main.background.getImage();
-        Image temp=img.getScaledInstance(585,600,Image.SCALE_SMOOTH);
-        ImageIcon back=new ImageIcon(temp);
+        Image img = Main.background.getImage();
+        Image temp = img.getScaledInstance(585, 600, Image.SCALE_SMOOTH);
+        ImageIcon back = new ImageIcon(temp);
         label2.setIcon(back);
-        label2.setBounds(0,0,600,600);
-
+        label2.setBounds(0, 0, 600, 600);
         frame.add(label2);
         //-------test changes end------//
     }
@@ -94,7 +80,7 @@ public class Levels implements ActionListener {
         button.setHorizontalAlignment(JButton.CENTER);
         button.setHorizontalTextPosition(JButton.CENTER);
         button.setForeground(Color.BLACK);
-        button.setFont(new Font("Calibri", Font.ITALIC,22));
+        button.setFont(new Font("Calibri", Font.ITALIC, 22));
     }
 
     /**
