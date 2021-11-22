@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Easy Questions">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Medium Answers.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Medium Options.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Medium Questions.txt" afterDir="false" />
+    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Medium Questions">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Hard Answers.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Hard Options.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Hard Questions.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -255,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637611184821</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Medium Questions">
+      <created>1637612837328</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1637612837328</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -283,6 +290,7 @@
     <MESSAGE value="Add QuizFrame" />
     <MESSAGE value="new username" />
     <MESSAGE value="Easy Questions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Easy Questions" />
+    <MESSAGE value="Medium Questions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Medium Questions" />
   </component>
 </project>
