@@ -3,6 +3,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Κλάση για τη φόρτωση random ερωτήσεων στον χρήστη προς απάντηση
+ *
+ * @author Team Hack-You
+ */
+
 public class QuizFrame implements ActionListener {
 
     JFrame frame;

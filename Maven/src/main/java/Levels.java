@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 /**
  * Επιλογή Επίπεδου δυσκολίας
  *
- * @author Panagiotis Spanakis k synergates
+ * @author Team Hack-You
  */
 public class Levels implements ActionListener {
 

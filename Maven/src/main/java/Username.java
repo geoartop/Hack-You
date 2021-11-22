@@ -7,7 +7,7 @@ import java.util.Locale;
 /**
  * Κλάση για εισαγωγή username χρήστη και έλεγχος εγκυρότητας
  *
- * @author Panagiotis Spanakis
+ * @author Team Hack-You
  */
 
 public class Username implements ActionListener{

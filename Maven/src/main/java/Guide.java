@@ -4,7 +4,7 @@ import java.awt.*;
 /**
  * Κλάση για περιγραφή οδηγιών
  *
- * @author Panagiotis Spanakis kai synergates
+ * @author Team Hack-You
  */
 
 public class Guide {

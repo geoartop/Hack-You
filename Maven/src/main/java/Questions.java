@@ -1,5 +1,5 @@
 /**
- * @author Panagiotis Spanakis kai synergates
+ * @author Team Hack-You
  * Λειτουργική κλάση για την λειτορυγία των ερωτήσεων
  */
 

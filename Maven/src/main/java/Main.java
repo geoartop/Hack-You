@@ -3,7 +3,7 @@ import javax.swing.*;
 /**
  * Σημείο Εκκίνησης παιχνιδιού
  *
- * @author Panagiotis Spanakis k synergates
+ * @author Team Hack-You
  */
 public class Main {
 

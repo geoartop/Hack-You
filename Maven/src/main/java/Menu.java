@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 /**
  * Κλάση για StartMenu
  *
- * @author Panagiotis Spanakis kai synergates
+ * @author Team Hack-You
  */
 
 public class Menu implements ActionListener {

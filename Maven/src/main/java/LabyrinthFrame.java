@@ -13,7 +13,7 @@ import java.awt.event.KeyListener;
 
 
 /**
- * @author Panagiotis Spanakis kai synergates
+ * @author Team Hack-You
  * <p> Κλάση όπου θα τρέχει ο λαβίρυνθος
  */
 public class LabyrinthFrame implements KeyListener, ActionListener {

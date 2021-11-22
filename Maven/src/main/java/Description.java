@@ -4,7 +4,7 @@ import java.awt.*;
 /**
  * Κλάση που περιγράφει το παιχνίδι και τη "πλοκή"
  *
- * @author Panagiotis Spanakis kai synergates
+ * @author Team Hack-You
  */
 public class Description{
 

@@ -4,7 +4,7 @@ import java.awt.*;
 /**
  * Κλάση για παρουσίαση μελών και ρόλων αυτών
  *
- * @author Panagiotis Spanakis kai synergates
+ * @author Team Hack-You
  */
 
 /*
