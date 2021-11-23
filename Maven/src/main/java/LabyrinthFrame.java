@@ -1,6 +1,5 @@
 import javax.swing.*;
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -16,16 +15,16 @@ import java.awt.event.KeyListener;
  * @author Team Hack-You
  * <p> Κλάση όπου θα τρέχει ο λαβίρυνθος
  */
-public class LabyrinthFrame implements KeyListener, ActionListener {
+public class LabyrinthFrame extends ButtonSetter implements KeyListener, ActionListener {
 
     //protected static File file;
     /**
      * ProgressBar
      */
     JFrame frame;
-    static JProgressBar bar = new JProgressBar(0, 100);
+    static JProgressBar bar;
     JButton start = new JButton("start");
-    JButton testQuestionFrame=new JButton("try me");
+    JButton testQuestionFrame = new JButton("try me");
     /* JButton pause = new JButton("pause");
     JButton goOn = new JButton("continue");*/
     //-------test changes------//
@@ -40,6 +39,8 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
     //Μεταβλητές για πόσο χρόνο ο παίκτης θα κερδίζει χάνει ανάλογα με την απάντησή του στις ερωτήσεις
     protected static int for_correct;
     protected static int for_wrong;
+    //Πόσο χρόνο σε seconds θα έχει ο παίκτης
+    private static int time;
 
     //--------------------------------------------------------------------------------------//
 
@@ -47,45 +48,44 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
         switch (Levels.difficulty) {
             case "easy":
                 //file=EasyLabyrinth.txt;
-                for_correct=5;
-                for_wrong=-2;
+                time = 200;
+                for_correct = 5;
+                for_wrong = -2;
                 break;
             case "medium":
                 //file=MediumLabyrinth.txt;
-                for_correct=5;
-                for_wrong=-3;
+                time = 150;
+                for_correct = 5;
+                for_wrong = -3;
                 break;
             default:
+                time = 100;
                 //file=HardLabyrinth.txt;
-                for_correct=3;
-                for_wrong=-5;
+                for_correct = 3;
+                for_wrong = -5;
                 break;
         }
 
     }
 
-    /**
-     * PROBLEM !
-     * TODO FIX LAGGING PROGRESS BAR
-     * <p> UPDATE -> FIXED Μέσα από Threading
-     */
 
-    private void createFrame(){
-        frame=new JFrame();
+    private void createFrame() {
+        frame = new JFrame();
         frame.setTitle("Labyrinth"); //setTitle of frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
+        frame.setResizable(true);
         frame.setSize(600, 600);
         frame.setVisible(true);
-        frame.setLayout(null);
+        frame.setLayout(new BorderLayout());
         frame.setIconImage(Main.icon.getImage());
         //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
         frame.setLocationRelativeTo(null);
     }
 
-    private void createBar(){
-        bar.setValue(100);
-        bar.setBounds(0, 0, 600, 50);
+    private void createBar() {
+        bar = new JProgressBar(0, time);
+        bar.setValue(time);
+        //bar.setSize(new Dimension(600,200));
         bar.setStringPainted(true);
         bar.setFont(new Font("Arial", Font.BOLD, 25));
         bar.setForeground(Color.red);
@@ -99,6 +99,7 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
         createBar();
         setButton(start, 500);
         start.setBackground(Color.green);
+        start.setFont(new Font("Calibri", Font.ITALIC, 25));
         /*setButton(pause, 400);
         setButton(goOn, 500);
         goOn.setEnabled(false);*/
@@ -106,20 +107,20 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
         //Key Bind
         frame.addKeyListener(this);
 
-        frame.add(bar);
-        frame.add(start);
+        frame.add(bar, BorderLayout.NORTH);
+        frame.add(start, BorderLayout.SOUTH);
 
-        setButton(testQuestionFrame,400);
+        setButton(testQuestionFrame, 400);
         testQuestionFrame.setEnabled(false);
         frame.add(testQuestionFrame);
-        /*this.add(pause);
-        this.add(goOn);*/
         //-------test changes------//
         //label.setIcon(Main.background);
         //label.setBounds(0,0,1000,1000);
         //this.add(label);
         //-------test changes end------//
+
     }
+
 
     /**
      * Μέθοδος λειτουργίας progressBar
@@ -147,9 +148,9 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
     public void setButton(JButton button, int y) {
         button.setBounds(250, y, 100, 50);
         button.setFocusable(false);
-        button.addActionListener(this);
         button.setHorizontalAlignment(JButton.CENTER);
         button.setFont(new Font("Calibri", Font.ITALIC, 20));
+        button.addActionListener(this);
     }
 
 
@@ -162,12 +163,18 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE && hasStarted) {
             pause_count++;
+            testQuestionFrame.setEnabled(true);
             if (pause_count % 2 != 0) {
                 go = false;
+                testQuestionFrame.setEnabled(false);
                 return;
             }
             Thread fill_bar2 = new Thread(() -> fill(bar.getValue()));
             fill_bar2.start();
+        } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            //Ο χρόνος σταματάει μέχρι να κλείσει το παράθυρο
+            go = false;
+            SwingUtilities.invokeLater(Options::new); // -> Πρόβλημα φόρτωσης στοιχείων
         }
     }
 
@@ -176,8 +183,8 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
 
     }
 
-    protected static void updateBar(int time){
-        Thread fill_bar = new Thread(() -> fill(bar.getValue()+time));
+    protected static void updateBar(int time) {
+        Thread fill_bar = new Thread(() -> fill(bar.getValue() + time));
         fill_bar.start();
     }
 
@@ -185,16 +192,17 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == start) {
             bar.setVisible(true);
-            Thread fill_bar = new Thread(() -> fill(100));
+            Thread fill_bar = new Thread(() -> fill(time));
             fill_bar.start();
             start.setEnabled(false);
             hasStarted = true;
             testQuestionFrame.setEnabled(true);
-        }else if(e.getSource() == testQuestionFrame){
+        } else if (e.getSource() == testQuestionFrame) {
             //Ο χρόνος σταματάει μέχρι να απαντηθεί η ερώτηση
-            go=false;
+            go = false;
             SwingUtilities.invokeLater(QuizFrame::new);
 
         }
     }
+
 }
