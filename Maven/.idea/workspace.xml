@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="new username">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/gold2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/iron2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/wood1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/wood2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Levels.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Username.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Username.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Levels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Levels.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Menu.class" afterDir="false" />
-    </list>
+    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="κλαση avatar με 2 διαφορετικους τρόπους υλοποιησης για τα κινουμενα γραφικα του αβαταρ καθως και τα καταλληλα αρχεία για την υλοποιηση του animation" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -254,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637374653338</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="κλαση avatar με 2 διαφορετικους τρόπους υλοποιησης για τα κινουμενα γραφικα του αβαταρ καθως και τα καταλληλα αρχεία για την υλοποιηση του animation">
+      <created>1637635727890</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1637635727890</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -281,6 +277,7 @@
     <MESSAGE value=" add resources" />
     <MESSAGE value="Add QuizFrame" />
     <MESSAGE value="new username" />
-    <option name="LAST_COMMIT_MESSAGE" value="new username" />
+    <MESSAGE value="κλαση avatar με 2 διαφορετικους τρόπους υλοποιησης για τα κινουμενα γραφικα του αβαταρ καθως και τα καταλληλα αρχεία για την υλοποιηση του animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="κλαση avatar με 2 διαφορετικους τρόπους υλοποιησης για τα κινουμενα γραφικα του αβαταρ καθως και τα καταλληλα αρχεία για την υλοποιηση του animation" />
   </component>
 </project>
