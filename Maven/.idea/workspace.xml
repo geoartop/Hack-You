@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="κλαση avatar με 2 διαφορετικους τρόπους υλοποιησης για τα κινουμενα γραφικα του αβαταρ καθως και τα καταλληλα αρχεία για την υλοποιηση του animation" />
+    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Hard Questions">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -243,14 +245,28 @@
       <option name="project" value="LOCAL" />
       <updated>1637374653338</updated>
     </task>
-    <task id="LOCAL-00018" summary="κλαση avatar με 2 διαφορετικους τρόπους υλοποιησης για τα κινουμενα γραφικα του αβαταρ καθως και τα καταλληλα αρχεία για την υλοποιηση του animation">
-      <created>1637635727890</created>
+    <task id="LOCAL-00018" summary="Easy Questions">
+      <created>1637611184821</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1637635727890</updated>
+      <updated>1637611184821</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Medium Questions">
+      <created>1637612837328</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1637612837328</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Hard Questions">
+      <created>1637614577017</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1637614577017</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -277,7 +293,9 @@
     <MESSAGE value=" add resources" />
     <MESSAGE value="Add QuizFrame" />
     <MESSAGE value="new username" />
-    <MESSAGE value="κλαση avatar με 2 διαφορετικους τρόπους υλοποιησης για τα κινουμενα γραφικα του αβαταρ καθως και τα καταλληλα αρχεία για την υλοποιηση του animation" />
-    <option name="LAST_COMMIT_MESSAGE" value="κλαση avatar με 2 διαφορετικους τρόπους υλοποιησης για τα κινουμενα γραφικα του αβαταρ καθως και τα καταλληλα αρχεία για την υλοποιηση του animation" />
+    <MESSAGE value="Easy Questions" />
+    <MESSAGE value="Medium Questions" />
+    <MESSAGE value="Hard Questions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hard Questions" />
   </component>
 </project>
