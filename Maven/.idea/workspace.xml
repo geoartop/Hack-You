@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Medium Questions">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Hard Answers.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Hard Options.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Hard Questions.txt" afterDir="false" />
+    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="new username">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/gold2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/iron2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/wood1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/wood2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Levels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Username.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Username.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Levels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Levels.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Menu.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,21 +254,7 @@
       <option name="project" value="LOCAL" />
       <updated>1637374653338</updated>
     </task>
-    <task id="LOCAL-00018" summary="Easy Questions">
-      <created>1637611184821</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1637611184821</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Medium Questions">
-      <created>1637612837328</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1637612837328</updated>
-    </task>
-    <option name="localTasksCounter" value="20" />
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -289,8 +281,6 @@
     <MESSAGE value=" add resources" />
     <MESSAGE value="Add QuizFrame" />
     <MESSAGE value="new username" />
-    <MESSAGE value="Easy Questions" />
-    <MESSAGE value="Medium Questions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Medium Questions" />
+    <option name="LAST_COMMIT_MESSAGE" value="new username" />
   </component>
 </project>
