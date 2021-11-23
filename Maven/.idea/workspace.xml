@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="κλαση avatar με 2 διαφορετικους τρόπους υλοποιησης για τα κινουμενα γραφικα του αβαταρ καθως και τα καταλληλα αρχεία για την υλοποιηση του animation" />
+    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="κλαση avatar με 2 διαφορετικους τρόπους υλοποιησης για τα κινουμενα γραφικα του αβαταρ καθως και τα καταλληλα αρχεία για την υλοποιηση του animation">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,8 +40,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -250,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637635727890</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="κλαση avatar με 2 διαφορετικους τρόπους υλοποιησης για τα κινουμενα γραφικα του αβαταρ καθως και τα καταλληλα αρχεία για την υλοποιηση του animation">
+      <created>1637635991634</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1637635991634</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
