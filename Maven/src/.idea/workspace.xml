@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="057ccd00-1fc0-4ee0-978b-92b8180c2776" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/ButtonSetter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/Credits.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/Description.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/Guide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/Labyrinth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/LabyrinthFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/LabyrinthPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/Levels.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/Options.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/Questions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/Quiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/QuizFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/Username.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/avatar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/Levels.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/Levels.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/Questions.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/Questions.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="21KfGCA64p0Rw8wVXrmE5PJNmTI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="057ccd00-1fc0-4ee0-978b-92b8180c2776" name="Changes" comment="" />
+      <created>1637694603604</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1637694603604</updated>
+      <workItem from="1637694605108" duration="16000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

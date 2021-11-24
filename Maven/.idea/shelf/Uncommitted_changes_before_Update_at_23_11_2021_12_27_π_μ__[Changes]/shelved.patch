@@ -1,0 +1,451 @@
+Index: src/main/java/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.swing.*;\r\n\r\n/**\r\n * Σημείο Εκκίνησης παιχνιδιού\r\n *\r\n * @author Team Hack-You\r\n */\r\npublic class Main {\r\n\r\n    protected static final ImageIcon icon = new ImageIcon(\"src/main/resources/maze-icon.png\");\r\n    protected static final ImageIcon background = new ImageIcon(\"src/main/resources/background-alt4 - Copy.jpg\");\r\n\r\n    public static void main(String[] args) {\r\n        SwingUtilities.invokeLater(Username::new);\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Main.java b/src/main/java/Main.java
+--- a/src/main/java/Main.java	(revision 1d1042f5910e3cf44c8d2e6f2a985c30a1dc3a4e)
++++ b/src/main/java/Main.java	(date 1637620035229)
+@@ -9,9 +9,18 @@
+ 
+     protected static final ImageIcon icon = new ImageIcon("src/main/resources/maze-icon.png");
+     protected static final ImageIcon background = new ImageIcon("src/main/resources/background-alt4 - Copy.jpg");
++    protected static int LabAct=0;
+ 
+     public static void main(String[] args) {
+         SwingUtilities.invokeLater(Username::new);
++        Thread check=new Thread(() -> {
++            while (true){
++                if(LabAct==1)
++                    break;
++            }
++            SwingUtilities.invokeLater(LabyrinthFrame::new);
++        });
++        check.start();
+     }
+ 
+ }
+\ No newline at end of file
+Index: src/main/java/LabyrinthFrame.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.swing.*;\r\nimport java.awt.Color;\r\nimport java.awt.Font;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.awt.event.KeyEvent;\r\nimport java.awt.event.KeyListener;\r\n\r\n/*\r\n * WARNING\r\n *  TODO Να φτιάξουμε νέα κλάση για το frame του παιχνιδιού, για το panel που θα παίζει ο λαβύρινθος\r\n */\r\n\r\n\r\n/**\r\n * @author Team Hack-You\r\n * <p> Κλάση όπου θα τρέχει ο λαβίρυνθος\r\n */\r\npublic class LabyrinthFrame implements KeyListener, ActionListener {\r\n\r\n    //protected static File file;\r\n    /**\r\n     * ProgressBar\r\n     */\r\n    JFrame frame;\r\n    static JProgressBar bar = new JProgressBar(0, 100);\r\n    JButton start = new JButton(\"start\");\r\n    JButton testQuestionFrame=new JButton(\"try me\");\r\n    /* JButton pause = new JButton(\"pause\");\r\n    JButton goOn = new JButton(\"continue\");*/\r\n    //-------test changes------//\r\n    JLabel label = new JLabel();\r\n    //-------test changes end------//\r\n\r\n    //Μεταβλητές χρήσιμες για την λειτουργία του progressBar\r\n    protected static boolean go = true; // Για το αν συνεχίζει το παιχνίδι ή βρίσκεται σε pause\r\n    private int pause_count = 0; //Για το πόσες φορές έχει πατήσει το spacebar\r\n    private boolean hasStarted = false; // Για το αν έχει αρχίσει το παιχνίδι\r\n\r\n    //Μεταβλητές για πόσο χρόνο ο παίκτης θα κερδίζει χάνει ανάλογα με την απάντησή του στις ερωτήσεις\r\n    protected static int for_correct;\r\n    protected static int for_wrong;\r\n\r\n    //--------------------------------------------------------------------------------------//\r\n\r\n    protected static void setLabyrinth() {\r\n        switch (Levels.difficulty) {\r\n            case \"easy\":\r\n                //file=EasyLabyrinth.txt;\r\n                for_correct=5;\r\n                for_wrong=-2;\r\n                break;\r\n            case \"medium\":\r\n                //file=MediumLabyrinth.txt;\r\n                for_correct=5;\r\n                for_wrong=-3;\r\n                break;\r\n            default:\r\n                //file=HardLabyrinth.txt;\r\n                for_correct=3;\r\n                for_wrong=-5;\r\n                break;\r\n        }\r\n\r\n    }\r\n\r\n    /**\r\n     * PROBLEM !\r\n     * TODO FIX LAGGING PROGRESS BAR\r\n     * <p> UPDATE -> FIXED Μέσα από Threading\r\n     */\r\n\r\n    private void createFrame(){\r\n        frame=new JFrame();\r\n        frame.setTitle(\"Labyrinth\"); //setTitle of frame\r\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        frame.setResizable(false);\r\n        frame.setSize(600, 600);\r\n        frame.setVisible(true);\r\n        frame.setLayout(null);\r\n        frame.setIconImage(Main.icon.getImage());\r\n        //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη\r\n        frame.setLocationRelativeTo(null);\r\n    }\r\n\r\n    private void createBar(){\r\n        bar.setValue(100);\r\n        bar.setBounds(0, 0, 600, 50);\r\n        bar.setStringPainted(true);\r\n        bar.setFont(new Font(\"Arial\", Font.BOLD, 25));\r\n        bar.setForeground(Color.red);\r\n        bar.setBackground(Color.black);\r\n        bar.setVisible(false);\r\n    }\r\n\r\n\r\n    public LabyrinthFrame() {\r\n        createFrame();\r\n        createBar();\r\n        setButton(start, 500);\r\n        start.setBackground(Color.green);\r\n        /*setButton(pause, 400);\r\n        setButton(goOn, 500);\r\n        goOn.setEnabled(false);*/\r\n\r\n        //Key Bind\r\n        frame.addKeyListener(this);\r\n\r\n        frame.add(bar);\r\n        frame.add(start);\r\n\r\n        setButton(testQuestionFrame,400);\r\n        testQuestionFrame.setEnabled(false);\r\n        frame.add(testQuestionFrame);\r\n        /*this.add(pause);\r\n        this.add(goOn);*/\r\n        //-------test changes------//\r\n        //label.setIcon(Main.background);\r\n        //label.setBounds(0,0,1000,1000);\r\n        //this.add(label);\r\n        //-------test changes end------//\r\n    }\r\n\r\n    /**\r\n     * Μέθοδος λειτουργίας progressBar\r\n     */\r\n    private static void fill(int flg) {\r\n        int counter = flg;\r\n\r\n        while (counter > 0) {\r\n            if (!go) {\r\n                go = true;\r\n                return;\r\n            }\r\n            bar.setValue(counter);\r\n            try {\r\n                Thread.sleep(1000);\r\n            } catch (InterruptedException e) {\r\n                e.printStackTrace();\r\n                JOptionPane.showMessageDialog(null, \"A problem has occurred\", \"Error\", JOptionPane.ERROR_MESSAGE);\r\n            }\r\n            counter--;\r\n        }\r\n        bar.setString(\"Game Over\");\r\n    }\r\n\r\n    public void setButton(JButton button, int y) {\r\n        button.setBounds(250, y, 100, 50);\r\n        button.setFocusable(false);\r\n        button.addActionListener(this);\r\n        button.setHorizontalAlignment(JButton.CENTER);\r\n        button.setFont(new Font(\"Calibri\", Font.ITALIC, 20));\r\n    }\r\n\r\n\r\n    @Override\r\n    public void keyTyped(KeyEvent e) {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void keyPressed(KeyEvent e) {\r\n        if (e.getKeyCode() == KeyEvent.VK_SPACE && hasStarted) {\r\n            pause_count++;\r\n            if (pause_count % 2 != 0) {\r\n                go = false;\r\n                return;\r\n            }\r\n            Thread fill_bar2 = new Thread(() -> fill(bar.getValue()));\r\n            fill_bar2.start();\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public void keyReleased(KeyEvent e) {\r\n\r\n    }\r\n\r\n    protected static void updateBar(int time){\r\n        Thread fill_bar = new Thread(() -> fill(bar.getValue()+time));\r\n        fill_bar.start();\r\n    }\r\n\r\n    @Override\r\n    public void actionPerformed(ActionEvent e) {\r\n        if (e.getSource() == start) {\r\n            bar.setVisible(true);\r\n            Thread fill_bar = new Thread(() -> fill(100));\r\n            fill_bar.start();\r\n            start.setEnabled(false);\r\n            hasStarted = true;\r\n            testQuestionFrame.setEnabled(true);\r\n        }else if(e.getSource() == testQuestionFrame){\r\n            //Ο χρόνος σταματάει μέχρι να απαντηθεί η ερώτηση\r\n            go=false;\r\n            SwingUtilities.invokeLater(QuizFrame::new);\r\n\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/LabyrinthFrame.java b/src/main/java/LabyrinthFrame.java
+--- a/src/main/java/LabyrinthFrame.java	(revision 1d1042f5910e3cf44c8d2e6f2a985c30a1dc3a4e)
++++ b/src/main/java/LabyrinthFrame.java	(date 1637619950006)
+@@ -1,6 +1,5 @@
+ import javax.swing.*;
+-import java.awt.Color;
+-import java.awt.Font;
++import java.awt.*;
+ import java.awt.event.ActionEvent;
+ import java.awt.event.ActionListener;
+ import java.awt.event.KeyEvent;
+@@ -16,16 +15,16 @@
+  * @author Team Hack-You
+  * <p> Κλάση όπου θα τρέχει ο λαβίρυνθος
+  */
+-public class LabyrinthFrame implements KeyListener, ActionListener {
++public class LabyrinthFrame extends ButtonSetter implements KeyListener, ActionListener {
+ 
+     //protected static File file;
+     /**
+      * ProgressBar
+      */
+     JFrame frame;
+-    static JProgressBar bar = new JProgressBar(0, 100);
++    static JProgressBar bar;
+     JButton start = new JButton("start");
+-    JButton testQuestionFrame=new JButton("try me");
++    JButton testQuestionFrame = new JButton("try me");
+     /* JButton pause = new JButton("pause");
+     JButton goOn = new JButton("continue");*/
+     //-------test changes------//
+@@ -40,6 +39,8 @@
+     //Μεταβλητές για πόσο χρόνο ο παίκτης θα κερδίζει χάνει ανάλογα με την απάντησή του στις ερωτήσεις
+     protected static int for_correct;
+     protected static int for_wrong;
++    //Πόσο χρόνο σε seconds θα έχει ο παίκτης
++    private static int time;
+ 
+     //--------------------------------------------------------------------------------------//
+ 
+@@ -47,18 +48,21 @@
+         switch (Levels.difficulty) {
+             case "easy":
+                 //file=EasyLabyrinth.txt;
+-                for_correct=5;
+-                for_wrong=-2;
++                time = 200;
++                for_correct = 5;
++                for_wrong = -2;
+                 break;
+             case "medium":
+                 //file=MediumLabyrinth.txt;
+-                for_correct=5;
+-                for_wrong=-3;
++                time = 150;
++                for_correct = 5;
++                for_wrong = -3;
+                 break;
+             default:
++                time = 10;
+                 //file=HardLabyrinth.txt;
+-                for_correct=3;
+-                for_wrong=-5;
++                for_correct = 3;
++                for_wrong = -5;
+                 break;
+         }
+ 
+@@ -70,22 +74,23 @@
+      * <p> UPDATE -> FIXED Μέσα από Threading
+      */
+ 
+-    private void createFrame(){
+-        frame=new JFrame();
++    private void createFrame() {
++        frame = new JFrame();
+         frame.setTitle("Labyrinth"); //setTitle of frame
+         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+-        frame.setResizable(false);
++        frame.setResizable(true);
+         frame.setSize(600, 600);
+         frame.setVisible(true);
+-        frame.setLayout(null);
++        frame.setLayout(new BorderLayout());
+         frame.setIconImage(Main.icon.getImage());
+         //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
+         frame.setLocationRelativeTo(null);
+     }
+ 
+-    private void createBar(){
+-        bar.setValue(100);
+-        bar.setBounds(0, 0, 600, 50);
++    private void createBar() {
++        bar = new JProgressBar(0, time);
++        bar.setValue(time);
++        //bar.setSize(new Dimension(600,200));
+         bar.setStringPainted(true);
+         bar.setFont(new Font("Arial", Font.BOLD, 25));
+         bar.setForeground(Color.red);
+@@ -99,6 +104,7 @@
+         createBar();
+         setButton(start, 500);
+         start.setBackground(Color.green);
++        start.setFont(new Font("Calibri", Font.ITALIC, 25));
+         /*setButton(pause, 400);
+         setButton(goOn, 500);
+         goOn.setEnabled(false);*/
+@@ -106,10 +112,10 @@
+         //Key Bind
+         frame.addKeyListener(this);
+ 
+-        frame.add(bar);
+-        frame.add(start);
++        frame.add(bar, BorderLayout.NORTH);
++        frame.add(start, BorderLayout.SOUTH);
+ 
+-        setButton(testQuestionFrame,400);
++        setButton(testQuestionFrame, 400);
+         testQuestionFrame.setEnabled(false);
+         frame.add(testQuestionFrame);
+         /*this.add(pause);
+@@ -119,6 +125,16 @@
+         //label.setBounds(0,0,1000,1000);
+         //this.add(label);
+         //-------test changes end------//
++        Thread check=new Thread(this::checkAction);
++        check.start();
++    }
++
++    private void checkAction(){
++        while (true){
++            if(Main.LabAct==1)
++                break;
++        }
++        frame.dispose();
+     }
+ 
+     /**
+@@ -145,11 +161,13 @@
+     }
+ 
+     public void setButton(JButton button, int y) {
+-        button.setBounds(250, y, 100, 50);
++        /*button.setBounds(250, y, 100, 50);
+         button.setFocusable(false);
+         button.addActionListener(this);
+         button.setHorizontalAlignment(JButton.CENTER);
+-        button.setFont(new Font("Calibri", Font.ITALIC, 20));
++        button.setFont(new Font("Calibri", Font.ITALIC, 20));*/
++        ButtonSetter.setButton(button,250,y,100,50,"Calibri",20);
++        button.addActionListener(this);
+     }
+ 
+ 
+@@ -164,10 +182,15 @@
+             pause_count++;
+             if (pause_count % 2 != 0) {
+                 go = false;
++                testQuestionFrame.setEnabled(false);
+                 return;
+             }
+             Thread fill_bar2 = new Thread(() -> fill(bar.getValue()));
+             fill_bar2.start();
++        }else if( e.getKeyCode() == KeyEvent.VK_ESCAPE ){
++            //Ο χρόνος σταματάει μέχρι να κλείσει το παράθυρο
++            go=false;
++            SwingUtilities.invokeLater(Options::new); // -> Πρόβλημα φόρτωσης στοιχείων
+         }
+     }
+ 
+@@ -176,8 +199,8 @@
+ 
+     }
+ 
+-    protected static void updateBar(int time){
+-        Thread fill_bar = new Thread(() -> fill(bar.getValue()+time));
++    protected static void updateBar(int time) {
++        Thread fill_bar = new Thread(() -> fill(bar.getValue() + time));
+         fill_bar.start();
+     }
+ 
+@@ -185,16 +208,17 @@
+     public void actionPerformed(ActionEvent e) {
+         if (e.getSource() == start) {
+             bar.setVisible(true);
+-            Thread fill_bar = new Thread(() -> fill(100));
++            Thread fill_bar = new Thread(() -> fill(time));
+             fill_bar.start();
+             start.setEnabled(false);
+             hasStarted = true;
+             testQuestionFrame.setEnabled(true);
+-        }else if(e.getSource() == testQuestionFrame){
++        } else if (e.getSource() == testQuestionFrame) {
+             //Ο χρόνος σταματάει μέχρι να απαντηθεί η ερώτηση
+-            go=false;
++            go = false;
+             SwingUtilities.invokeLater(QuizFrame::new);
+ 
+         }
+     }
++
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"8bd8264c-86bc-42b8-957d-e28ecafbda6b\" name=\"Changes\" comment=\"Small updates\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Credits.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Credits.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Description.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Description.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Guide.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Guide.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/LabyrinthFrame.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/LabyrinthFrame.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Levels.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Levels.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Main.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Menu.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Menu.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Questions.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Questions.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/QuizFrame.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/QuizFrame.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Username.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Username.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"JavaFXApplication\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"20xVOn3YTqvm2wi5F8tgNal13oY\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <OptionsSetting value=\"false\" id=\"Update\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/src/main/resources\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"copyright.profiles\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\geoar\\Documents\\GitHub\\Hack-you3\\Maven\\src\\main\\resources\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\panagiotis\\Desktop\\GitHub\\Hack-you\\Maven\\src\\main\\resources\" />\r\n      <recent name=\"C:\\Users\\geoar\\Documents\\GitHub\\Hack-you3\\Maven\\src\\main\\resources\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"Main (1)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"cli.Main\" />\r\n      <module name=\"Maven\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"Maven\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ReadText\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"cli.ReadText\" />\r\n      <module name=\"Maven\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"StopWatch\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"cli.StopWatch\" />\r\n      <module name=\"Maven\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Maven-1.0-SNAPSHOT.jar\" type=\"JarApplication\" temporary=\"true\">\r\n      <option name=\"JAR_PATH\" value=\"$PROJECT_DIR$/target/Maven-1.0-SNAPSHOT.jar\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"JAR Application.Maven-1.0-SNAPSHOT.jar\" />\r\n        <item itemvalue=\"Application.ReadText\" />\r\n        <item itemvalue=\"Application.Main (1)\" />\r\n        <item itemvalue=\"Application.StopWatch\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"8bd8264c-86bc-42b8-957d-e28ecafbda6b\" name=\"Changes\" comment=\"\" />\r\n      <created>1636986198885</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1636986198885</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Spinoll\">\r\n      <created>1636988697356</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636988697356</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Add Classes\">\r\n      <created>1636993545921</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636993545921</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Add Classes\">\r\n      <created>1637144510966</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637144510966</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Add Classes\">\r\n      <created>1637169742771</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637169742771</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Read files\">\r\n      <created>1637170029134</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637170029134</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Read files\">\r\n      <created>1637170873161</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637170873161</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"GUI\">\r\n      <created>1637177589097</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637177589097</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"GUI\">\r\n      <created>1637181985653</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637181985653</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Gui updated\">\r\n      <created>1637183524943</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637183524943</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Gui comments\">\r\n      <created>1637184936967</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637184936967</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Gui comments\">\r\n      <created>1637186963916</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637186963916</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"adjustments to gui\">\r\n      <created>1637188142753</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637188142753</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Add Icon\">\r\n      <created>1637232230868</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637232230868</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\" add resources\">\r\n      <created>1637336296756</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637336296756</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Add QuizFrame\">\r\n      <created>1637349421038</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637349421038</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"Add QuizFrame\">\r\n      <created>1637349910630</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637349910630</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"Update buttons at Levels\">\r\n      <created>1637423835437</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637423835437</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"Fix Background and windows show up at centre\">\r\n      <created>1637508068415</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637508068415</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"QuestionFrame updates progressBar\">\r\n      <created>1637508102784</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637508102784</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"Small updates\">\r\n      <created>1637605586748</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637605586748</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"21\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_FILTERS\">\r\n      <map>\r\n        <entry key=\"User\">\r\n          <value>\r\n            <list>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"*\" />\r\n                </option>\r\n              </RecentGroup>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"Γιώργος Αρτόπουλος\" />\r\n                </option>\r\n              </RecentGroup>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"Theodoros Malikourtis\" />\r\n                </option>\r\n              </RecentGroup>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"Emmanouil Dellatolas\" />\r\n                </option>\r\n              </RecentGroup>\r\n            </list>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Spinoll\" />\r\n    <MESSAGE value=\"Add Classes\" />\r\n    <MESSAGE value=\"Read files\" />\r\n    <MESSAGE value=\"GUI\" />\r\n    <MESSAGE value=\"Gui updated\" />\r\n    <MESSAGE value=\"Gui comments\" />\r\n    <MESSAGE value=\"adjustments to gui\" />\r\n    <MESSAGE value=\"Add Icon\" />\r\n    <MESSAGE value=\" add resources\" />\r\n    <MESSAGE value=\"Add QuizFrame\" />\r\n    <MESSAGE value=\"Update buttons at Levels\" />\r\n    <MESSAGE value=\"Fix Background and windows show up at centre\" />\r\n    <MESSAGE value=\"QuestionFrame updates progressBar\" />\r\n    <MESSAGE value=\"Small updates\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Small updates\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 1d1042f5910e3cf44c8d2e6f2a985c30a1dc3a4e)
++++ b/.idea/workspace.xml	(date 1637619908633)
+@@ -5,17 +5,13 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Small updates">
++      <change afterPath="$PROJECT_DIR$/src/main/java/ButtonSetter.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/Options.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Credits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Credits.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Description.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Description.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Guide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Guide.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/LabyrinthFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LabyrinthFrame.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Levels.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Questions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Questions.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/QuizFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/QuizFrame.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Username.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Username.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/Levels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Levels.class" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -278,7 +274,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1637605586748</updated>
+     </task>
+-    <option name="localTasksCounter" value="21" />
++    <task id="LOCAL-00021" summary="Small updates">
++      <created>1637606041802</created>
++      <option name="number" value="00021" />
++      <option name="presentableId" value="LOCAL-00021" />
++      <option name="project" value="LOCAL" />
++      <updated>1637606041802</updated>
++    </task>
++    <option name="localTasksCounter" value="22" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -286,7 +289,19 @@
+       <map>
+         <entry key="MAIN">
+           <value>
+-            <State />
++            <State>
++              <option name="FILTERS">
++                <map>
++                  <entry key="branch">
++                    <value>
++                      <list>
++                        <option value="main" />
++                      </list>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </State>
+           </value>
+         </entry>
+       </map>
+Index: src/main/java/Options.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Options.java b/src/main/java/Options.java
+new file mode 100644
+--- /dev/null	(date 1637619908673)
++++ b/src/main/java/Options.java	(date 1637619908673)
+@@ -0,0 +1,75 @@
++import javax.swing.*;
++import java.awt.*;
++import java.awt.event.ActionEvent;
++import java.awt.event.ActionListener;
++
++public class Options implements ActionListener {
++
++    JFrame frame;
++    JLabel label = new JLabel();
++    JButton returnBack = new JButton("Return");
++    JButton showGuide = new JButton("Show Guide");
++    JButton restart = new JButton("Restart");
++    JButton end = new JButton("Exit");
++
++
++    public Options() {
++        frame = new JFrame();
++        frame.setTitle("Options"); //setTitle of frame
++        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
++        frame.setResizable(false);
++        frame.setSize(500, 650);
++        frame.setVisible(true);
++        frame.setLayout(null);
++        frame.setIconImage(Main.icon.getImage());
++        frame.setLocationRelativeTo(null);
++
++        Image img = Main.background.getImage();
++        Image temp = img.getScaledInstance(485, 600, Image.SCALE_SMOOTH);
++        ImageIcon back = new ImageIcon(temp);
++        label.setIcon(back);
++        label.setBounds(0, 0, 500, 600);
++        frame.add(label);
++
++        /*ButtonSetter.setButton(returnBack, 200, 200, 150, 50, "Calibri", 15);
++        ButtonSetter.setButton(showGuide, 200, 300, 150, 50, "Calibri", 15);
++        ButtonSetter.setButton(restart, 200, 400, 150, 50, "Calibri", 15);
++        ButtonSetter.setButton(end, 200, 500, 150, 50, "Calibri", 15);
++        returnBack.addActionListener(this);
++        showGuide.addActionListener(this);
++        restart.addActionListener(this);
++        end.addActionListener(this);*/
++        setButton(returnBack,200);
++        setButton(showGuide,300);
++        setButton(restart,400);
++        setButton(end,500);
++
++        frame.add(returnBack);
++        frame.add(showGuide);
++        frame.add(restart);
++        frame.add(end);
++    }
++
++
++    public void setButton(JButton button,int y) {
++        button.setBounds(200,y,150,50);
++        button.setFocusable(false);
++        button.addActionListener(this);
++        button.setHorizontalAlignment(JButton.CENTER);
++        button.setFont(new Font("Calibri", Font.ITALIC,20));
++    }
++
++    @Override
++    public void actionPerformed(ActionEvent e) {
++        if(e.getSource() == returnBack ){
++            frame.dispose();
++        }else if(e.getSource() == showGuide){
++            SwingUtilities.invokeLater(Guide::new);
++        }else if( e.getSource() == restart){
++            Main.LabAct=1;
++            frame.dispose();
++        }else {
++            System.exit(1);
++        }
++    }
++}
+Index: src/main/java/ButtonSetter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/ButtonSetter.java b/src/main/java/ButtonSetter.java
+new file mode 100644
+--- /dev/null	(date 1637615292107)
++++ b/src/main/java/ButtonSetter.java	(date 1637615292107)
+@@ -0,0 +1,12 @@
++import javax.swing.*;
++import java.awt.*;
++
++public class ButtonSetter {
++
++      public static void setButton(JButton button, int x,int y,int width,int height,String font,int size) {
++        button.setBounds(x, y, width, height);
++        button.setFocusable(false);
++        button.setHorizontalAlignment(JButton.CENTER);
++        button.setFont(new Font(font, Font.ITALIC, size));
++    }
++}
+Index: src/main/java/Levels.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\n\r\n/**\r\n * Επιλογή Επίπεδου δυσκολίας\r\n *\r\n * @author Team Hack-You\r\n */\r\npublic class Levels implements ActionListener {\r\n\r\n    /*\r\n     * Initialize μεταβλητών διαστάσεων\r\n     */\r\n    private final int BX = 225;\r\n    private final int BY = 200;\r\n    private final int B_WIDTH = 150;\r\n    private final int B_HEIGHT = 50;\r\n    private final ImageIcon easy_icon=new ImageIcon(\"src/main/resources/wood1.png\");\r\n    private final ImageIcon medium_icon=new ImageIcon(\"src/main/resources/iron2.jpg\");\r\n    private final ImageIcon hard_icon=new ImageIcon(\"src/main/resources/gold2.png\");\r\n\r\n    JFrame frame;\r\n    JButton easy = new JButton(\"Easy\");\r\n    JButton medium = new JButton(\"Medium\");\r\n    JButton hard = new JButton(\"Hard\");\r\n    JLabel label = new JLabel();\r\n    //-------test changes------//\r\n    JLabel label2 = new JLabel();\r\n    // -------test changes end------//\r\n\r\n    /*\r\n     * Θέλουμε να γνωρίζει η κλάση labyrinth το επίπεδο δυσκολίας που επίλεξε\r\n     */\r\n    protected static String difficulty=\"\";\r\n\r\n    public Levels() {\r\n        // Εξατομίκευση παραθύρου\r\n        frame = new JFrame(); //create frame\r\n        frame.setTitle(\"Select Difficulty\"); //setTitle of frame\r\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        frame.setResizable(false);\r\n        frame.setSize(600, 600);\r\n        frame.setVisible(true);\r\n        frame.setLayout(null);\r\n        frame.setIconImage(Main.icon.getImage());\r\n        //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη\r\n        frame.setLocationRelativeTo(null);\r\n\r\n        setButton(easy, BY);\r\n        setButton(medium, BY + 100);\r\n        setButton(hard, BY + 200);\r\n\r\n        //Τοποθέτηση χρωμάτων στα κουμπιά\r\n        /*easy.setBackground(Color.green);\r\n        medium.setBackground(Color.orange);\r\n        hard.setBackground(Color.red);*/\r\n        easy.setIcon(easy_icon);\r\n        medium.setIcon(medium_icon);\r\n        hard.setIcon(hard_icon);\r\n\r\n        label.setBounds(0, 0, 100, 50);\r\n        label.setHorizontalAlignment(JLabel.CENTER);\r\n        label.setText(\"Select Difficulty\");\r\n        //-------test changes------//\r\n        label.setForeground(Color.white);\r\n        //-------test changes end------//\r\n\r\n        /*Προσθήκη συστατικών*/\r\n        frame.add(easy);\r\n        frame.add(medium);\r\n        frame.add(hard);\r\n        frame.add(label);\r\n        //-------test changes------//\r\n        //Set Scaled Background\r\n        Image img=Main.background.getImage();\r\n        Image temp=img.getScaledInstance(585,600,Image.SCALE_SMOOTH);\r\n        ImageIcon back=new ImageIcon(temp);\r\n        label2.setIcon(back);\r\n        label2.setBounds(0,0,600,600);\r\n\r\n        frame.add(label2);\r\n        //-------test changes end------//\r\n    }\r\n\r\n    /**\r\n     * Μέθοδος δημιουργίας Κουμπιών\r\n     */\r\n    public void setButton(JButton button, int y) {\r\n        button.setBounds(BX, y, B_WIDTH, B_HEIGHT);\r\n        button.setFocusable(false);\r\n        button.addActionListener(this);\r\n        button.setHorizontalAlignment(JButton.CENTER);\r\n        button.setHorizontalTextPosition(JButton.CENTER);\r\n        button.setForeground(Color.BLACK);\r\n        button.setFont(new Font(\"Calibri\", Font.ITALIC,22));\r\n    }\r\n\r\n    /**\r\n     * Ενέργεια όταν κάνουμε κλικ στα κουμπιά\r\n     */\r\n    @Override\r\n    public void actionPerformed(ActionEvent e) {\r\n        if (e.getSource() == easy) {\r\n            //new EasyLabyrinths();\r\n            difficulty = \"easy\";\r\n        } else if (e.getSource() == medium) {\r\n            //new MediumLabyrinths();\r\n            difficulty = \"medium\";\r\n        } else {\r\n            //new HardLabyrinths();\r\n            difficulty = \"hard\";\r\n        }\r\n        frame.dispose();\r\n        /*Δημιουργία λαβύρινθου και καθορισμός δυσκολίας ερωτήσεων*/\r\n        LabyrinthFrame.setLabyrinth();\r\n        Questions.setQuestionsDifficulty();\r\n        SwingUtilities.invokeLater(LabyrinthFrame::new);\r\n        //TODO Κάθε κατηγορία λαβύρινθου να κάνει extend την κλάση Labyrinth!\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Levels.java b/src/main/java/Levels.java
+--- a/src/main/java/Levels.java	(revision 1d1042f5910e3cf44c8d2e6f2a985c30a1dc3a4e)
++++ b/src/main/java/Levels.java	(date 1637619561995)
+@@ -25,7 +25,6 @@
+     JButton easy = new JButton("Easy");
+     JButton medium = new JButton("Medium");
+     JButton hard = new JButton("Hard");
+-    JLabel label = new JLabel();
+     //-------test changes------//
+     JLabel label2 = new JLabel();
+     // -------test changes end------//
+@@ -60,18 +59,11 @@
+         medium.setIcon(medium_icon);
+         hard.setIcon(hard_icon);
+ 
+-        label.setBounds(0, 0, 100, 50);
+-        label.setHorizontalAlignment(JLabel.CENTER);
+-        label.setText("Select Difficulty");
+-        //-------test changes------//
+-        label.setForeground(Color.white);
+-        //-------test changes end------//
+ 
+         /*Προσθήκη συστατικών*/
+         frame.add(easy);
+         frame.add(medium);
+         frame.add(hard);
+-        frame.add(label);
+         //-------test changes------//
+         //Set Scaled Background
+         Image img=Main.background.getImage();

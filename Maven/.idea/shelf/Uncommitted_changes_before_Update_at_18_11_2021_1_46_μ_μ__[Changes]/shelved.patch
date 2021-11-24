@@ -1,0 +1,197 @@
+Index: src/main/java/Username.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.*;\r\n\r\n/**\r\n * Κλάση για εισαγωγή username χρήστη και έλεγχος εγκυρότητας\r\n *\r\n * @author Panagiotis Spanakis\r\n */\r\n\r\npublic class Username implements ActionListener, KeyListener {\r\n\r\n    private JFrame frame;\r\n    private JButton submit = new JButton(\"Submit\");\r\n    private JTextField textField = new JTextField();\r\n    private ImageIcon Icon = new ImageIcon(\"src/main/resources/maze-icon.png\");\r\n    /**\r\n     * Θέλουμε να γνωρίζουν όλες οι κλάσεις το username του παίκτη ώστε να μπορεί να αποθηκευτεί πιο εύκολα\r\n     */\r\n    protected static String username;\r\n\r\n    public Username() {\r\n        // Εξατομίκευση παραθύρου\r\n        frame = new JFrame();\r\n        frame.setTitle(\"Set Username\");\r\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        frame.setResizable(false);\r\n        frame.setSize(300, 300);\r\n        frame.setVisible(true);\r\n        frame.setLayout(null);\r\n        frame.getContentPane().setBackground(Color.black);\r\n        frame.setIconImage(Icon.getImage());\r\n\r\n        submit.setBounds(100, 200, 100, 30);\r\n        submit.setHorizontalAlignment(JButton.CENTER);\r\n        submit.setFocusable(false);\r\n        submit.addActionListener(this);\r\n\r\n        textField.setBounds(75, 100, 150, 50);\r\n        textField.setPreferredSize(new Dimension(200, 50));\r\n        //Key Bind\r\n        submit.addKeyListener(this);\r\n\r\n        frame.add(submit);\r\n        frame.add(textField);\r\n        frame.getRootPane().setDefaultButton(submit);\r\n\r\n    }\r\n\r\n    /**\r\n     * Ενέργεια όταν κάνουμε κλικ στο κουμπί\r\n     */\r\n    @Override\r\n    public void actionPerformed(ActionEvent e) {\r\n        if (e.getSource() == submit) {\r\n            username = textField.getText();\r\n            if (username.equals(\"\")) {\r\n                JOptionPane.showMessageDialog(null, \"You must enter your username!\", \"Reminder\", JOptionPane.ERROR_MESSAGE);\r\n                return;\r\n            } else if (username.equals(\"spanakis\")) {\r\n                JOptionPane.showMessageDialog(null, \"Congrats you won already everything!\", \"Reminder\", JOptionPane.INFORMATION_MESSAGE);\r\n                System.exit(1);\r\n            }\r\n            new Menu();\r\n        }\r\n        frame.dispose();\r\n    }\r\n\r\n    //Απλά κουβαλιέται λόγω του implementation\r\n    @Override\r\n    public void keyTyped(KeyEvent e) {\r\n    }\r\n\r\n    /**\r\n     * Ενέργεια για όταν πατιέται το κουμπί enter\r\n     */\r\n    @Override\r\n    public void keyPressed(KeyEvent e) {\r\n        if (e.getKeyCode() == KeyEvent.VK_ENTER) {\r\n            username = textField.getText();\r\n            if (username.equals(\"\")) {\r\n                JOptionPane.showMessageDialog(null, \"You must enter your username!\", \"Reminder\", JOptionPane.ERROR_MESSAGE);\r\n                return;\r\n            }\r\n            JOptionPane.showMessageDialog(null, \"You've Submitted the name \" + username, \"Info\", JOptionPane.ERROR_MESSAGE);\r\n            new Menu();\r\n\r\n        }\r\n        frame.dispose();\r\n\r\n    }\r\n\r\n    //Απλά κουβαλιέται λόγω του implementation\r\n    @Override\r\n    public void keyReleased(KeyEvent e) {\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Username.java b/src/main/java/Username.java
+--- a/src/main/java/Username.java	(revision 5b77ca0197699cda329d809ec4039dee2d388a56)
++++ b/src/main/java/Username.java	(date 1637233428175)
+@@ -1,6 +1,7 @@
+ import javax.swing.*;
+ import java.awt.*;
+ import java.awt.event.*;
++import java.util.Locale;
+ 
+ /**
+  * Κλάση για εισαγωγή username χρήστη και έλεγχος εγκυρότητας
+@@ -57,9 +58,12 @@
+             if (username.equals("")) {
+                 JOptionPane.showMessageDialog(null, "You must enter your username!", "Reminder", JOptionPane.ERROR_MESSAGE);
+                 return;
+-            } else if (username.equals("spanakis")) {
++            } else if (username.toLowerCase().equals("spanakis")) {
+                 JOptionPane.showMessageDialog(null, "Congrats you won already everything!", "Reminder", JOptionPane.INFORMATION_MESSAGE);
+                 System.exit(1);
++            } else if(username.toLowerCase().equals("g.artop")){
++                JOptionPane.showMessageDialog(null, "You lost, good phimosis", "Error", JOptionPane.WARNING_MESSAGE);
++                System.exit(1);
+             }
+             new Menu();
+         }
+Index: src/main/java/Guide.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.swing.*;\r\n\r\n/**\r\n * Κλάση για περιγραφή οδηγιών\r\n *\r\n * @author Panagiotis Spanakis kai synergates\r\n */\r\n\r\npublic class Guide {\r\n\r\n    JFrame frame;\r\n    private ImageIcon Icon = new ImageIcon(\"src/main/resources/maze-icon.png\");\r\n    public Guide() {\r\n        // Εξατομίκευση παραθύρου\r\n        frame = new JFrame(); //create frame\r\n        frame.setTitle(\"Guide\"); //setTitle of frame\r\n        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);\r\n        frame.setResizable(false);\r\n        frame.setSize(600, 600);\r\n        frame.setVisible(true);\r\n        frame.setLayout(null);\r\n        frame.setIconImage(Icon.getImage());\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Guide.java b/src/main/java/Guide.java
+--- a/src/main/java/Guide.java	(revision 5b77ca0197699cda329d809ec4039dee2d388a56)
++++ b/src/main/java/Guide.java	(date 1637235846326)
+@@ -9,7 +9,7 @@
+ public class Guide {
+ 
+     JFrame frame;
+-    private ImageIcon Icon = new ImageIcon("src/main/resources/maze-icon.png");
++
+     public Guide() {
+         // Εξατομίκευση παραθύρου
+         frame = new JFrame(); //create frame
+@@ -19,7 +19,6 @@
+         frame.setSize(600, 600);
+         frame.setVisible(true);
+         frame.setLayout(null);
+-        frame.setIconImage(Icon.getImage());
+     }
+ 
+ }
+Index: src/main/java/Levels.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.swing.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\n\r\n/**\r\n * Επιλογή Επίπεδου δυσκολίας\r\n *\r\n * @author Panagiotis Spanakis k synergates\r\n */\r\npublic class Levels implements ActionListener {\r\n\r\n    /**\r\n     * Initialize μεταβλητών διαστάσεων\r\n     */\r\n    private final int BX = 225;\r\n    private final int BY = 200;\r\n    private final int B_WIDTH = 150;\r\n    private final int B_HEIGHT = 50;\r\n\r\n    JFrame frame;\r\n    JButton easy = new JButton(\"Easy\");\r\n    JButton medium = new JButton(\"Medium\");\r\n    JButton hard = new JButton(\"Hard\");\r\n    JLabel label = new JLabel();\r\n    private ImageIcon Icon = new ImageIcon(\"src/main/resources/maze-icon.png\");\r\n    /**\r\n     * Θέλουμε να γνωρίζει η κλάση labyrinth το επίπεδο δυσκολίας που επίλεξε\r\n     */\r\n    protected static String difficulty;\r\n\r\n    public Levels() {\r\n        // Εξατομίκευση παραθύρου\r\n        frame = new JFrame(); //create frame\r\n        frame.setTitle(\"Select Difficulty\"); //setTitle of frame\r\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        frame.setResizable(false);\r\n        frame.setSize(600, 600);\r\n        frame.setVisible(true);\r\n        frame.setLayout(null);\r\n        frame.setIconImage(Icon.getImage());\r\n\r\n        setButton(easy, BY);\r\n        setButton(medium, BY + 100);\r\n        setButton(hard, BY + 200);\r\n\r\n        label.setBounds(0, 0, 100, 50);\r\n        label.setHorizontalAlignment(JLabel.CENTER);\r\n        label.setText(\"Select Difficulty\");\r\n\r\n        /**Προσθήκη συστατικών*/\r\n        frame.add(easy);\r\n        frame.add(medium);\r\n        frame.add(hard);\r\n        frame.add(label);\r\n    }\r\n\r\n    /**\r\n     * Μέθοδος δημιουργίας Κουμπιών\r\n     */\r\n    public void setButton(JButton button, int y) {\r\n        button.setBounds(BX, y, B_WIDTH, B_HEIGHT);\r\n        button.setFocusable(false);\r\n        button.addActionListener(this);\r\n        button.setHorizontalAlignment(JButton.CENTER);\r\n    }\r\n\r\n    /**\r\n     * Ενέργεια όταν κάνουμε κλικ στο κουμπί\r\n     */\r\n    @Override\r\n    public void actionPerformed(ActionEvent e) {\r\n        if (e.getSource() == easy) {\r\n            //new EasyLabyrinths();\r\n            difficulty = \"easy\";\r\n        } else if (e.getSource() == medium) {\r\n            //new MediumLabyrinths();\r\n            difficulty = \"medium\";\r\n        } else {\r\n            //new HardLabyrinths();\r\n            difficulty = \"hard\";\r\n        }\r\n        //Κάθε κατηγορία λαβύρινθου να κάνει extend την κλάση Labyrinth!\r\n        frame.dispose();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Levels.java b/src/main/java/Levels.java
+--- a/src/main/java/Levels.java	(revision 5b77ca0197699cda329d809ec4039dee2d388a56)
++++ b/src/main/java/Levels.java	(date 1637235542881)
+@@ -71,6 +71,7 @@
+     public void actionPerformed(ActionEvent e) {
+         if (e.getSource() == easy) {
+             //new EasyLabyrinths();
++
+             difficulty = "easy";
+         } else if (e.getSource() == medium) {
+             //new MediumLabyrinths();
+Index: src/main/java/Labyrinth.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Labyrinth.java b/src/main/java/Labyrinth.java
+new file mode 100644
+--- /dev/null	(date 1637235542874)
++++ b/src/main/java/Labyrinth.java	(date 1637235542874)
+@@ -0,0 +1,53 @@
++import javax.swing.*;
++import java.awt.event.KeyEvent;
++import java.awt.event.KeyListener;
++
++public class Labyrinth implements KeyListener {
++
++    private char[][] labyrinth;
++    //private File file;
++    JFrame frame;
++
++    private void setLabyrinthSize(){
++        int size;
++        switch (Levels.difficulty) {
++            case "easy":
++                size=6;
++                labyrinth=new char[size][size];
++                //file=easyLabyrinth.txt
++                break;
++            case "medium":
++                size = 8;
++                labyrinth=new char[size][size];
++                //file=mediumLabyrinth.txt
++                break;
++            default:
++                size = 10;
++                labyrinth=new char[size][size];
++                //file=hardLabyrinth.txt
++                break;
++        }
++
++
++    }
++
++    public Labyrinth() {
++       setLabyrinthSize();
++
++    }
++
++    @Override
++    public void keyTyped(KeyEvent e) {
++
++    }
++
++    @Override
++    public void keyPressed(KeyEvent e) {
++
++    }
++
++    @Override
++    public void keyReleased(KeyEvent e) {
++
++    }
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"8bd8264c-86bc-42b8-957d-e28ecafbda6b\" name=\"Changes\" comment=\"adjustments to gui\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/Description.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/Icon.png\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Credits.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Credits.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Guide.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Guide.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Levels.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Levels.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Menu.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Menu.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Username.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Username.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/Levels.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/Levels.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/Menu.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/Menu.class\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"JavaFXApplication\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"20xVOn3YTqvm2wi5F8tgNal13oY\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"copyright.profiles\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\panagiotis\\Desktop\\GitHub\\Hack-you\\Maven\\src\\main\\resources\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"Main (1)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"cli.Main\" />\r\n      <module name=\"Maven\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"Maven\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ReadText\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"cli.ReadText\" />\r\n      <module name=\"Maven\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"StopWatch\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"cli.StopWatch\" />\r\n      <module name=\"Maven\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Maven-1.0-SNAPSHOT.jar\" type=\"JarApplication\" temporary=\"true\">\r\n      <option name=\"JAR_PATH\" value=\"$PROJECT_DIR$/target/Maven-1.0-SNAPSHOT.jar\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"JAR Application.Maven-1.0-SNAPSHOT.jar\" />\r\n        <item itemvalue=\"Application.ReadText\" />\r\n        <item itemvalue=\"Application.Main (1)\" />\r\n        <item itemvalue=\"Application.StopWatch\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"8bd8264c-86bc-42b8-957d-e28ecafbda6b\" name=\"Changes\" comment=\"\" />\r\n      <created>1636986198885</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1636986198885</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Spinoll\">\r\n      <created>1636988697356</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636988697356</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Add Classes\">\r\n      <created>1636993545921</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636993545921</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Add Classes\">\r\n      <created>1637144510966</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637144510966</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Add Classes\">\r\n      <created>1637169742771</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637169742771</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Read files\">\r\n      <created>1637170029134</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637170029134</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Read files\">\r\n      <created>1637170873161</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637170873161</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"GUI\">\r\n      <created>1637177589097</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637177589097</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"GUI\">\r\n      <created>1637181985653</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637181985653</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Gui updated\">\r\n      <created>1637183524943</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637183524943</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Gui comments\">\r\n      <created>1637184936967</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637184936967</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Gui comments\">\r\n      <created>1637186963916</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637186963916</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"adjustments to gui\">\r\n      <created>1637188142753</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637188142753</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"13\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Spinoll\" />\r\n    <MESSAGE value=\"Add Classes\" />\r\n    <MESSAGE value=\"Read files\" />\r\n    <MESSAGE value=\"GUI\" />\r\n    <MESSAGE value=\"Gui updated\" />\r\n    <MESSAGE value=\"Gui comments\" />\r\n    <MESSAGE value=\"adjustments to gui\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"adjustments to gui\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 5b77ca0197699cda329d809ec4039dee2d388a56)
++++ b/.idea/workspace.xml	(date 1637235080238)
+@@ -4,17 +4,15 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="adjustments to gui">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/Description.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/Icon.png" afterDir="false" />
++    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Update gui">
++      <change afterPath="$PROJECT_DIR$/src/main/java/Labyrinth.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Credits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Credits.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/Guide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Guide.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Levels.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/Username.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Username.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/Levels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Levels.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Menu.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/Username.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Username.class" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -214,7 +212,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1637188142753</updated>
+     </task>
+-    <option name="localTasksCounter" value="13" />
++    <task id="LOCAL-00013" summary="Update gui">
++      <created>1637231710648</created>
++      <option name="number" value="00013" />
++      <option name="presentableId" value="LOCAL-00013" />
++      <option name="project" value="LOCAL" />
++      <updated>1637231710648</updated>
++    </task>
++    <option name="localTasksCounter" value="14" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -237,6 +242,7 @@
+     <MESSAGE value="Gui updated" />
+     <MESSAGE value="Gui comments" />
+     <MESSAGE value="adjustments to gui" />
+-    <option name="LAST_COMMIT_MESSAGE" value="adjustments to gui" />
++    <MESSAGE value="Update gui" />
++    <option name="LAST_COMMIT_MESSAGE" value="Update gui" />
+   </component>
+ </project>
+\ No newline at end of file
