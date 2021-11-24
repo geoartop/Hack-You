@@ -1,6 +1,5 @@
 import javax.swing.*;
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -14,21 +13,61 @@ import java.awt.event.KeyListener;
 
 /**
  * @author Panagiotis Spanakis kai synergates
- *
+ * <p>
  * Κλάση όπου θα τρέχει ο λαβίρυνθος
  */
 public class Labyrinth implements KeyListener, ActionListener {
 
     JFrame frame;
     //protected static File file;
-    /**ProgressBar*/
+    /**
+     * ProgressBar
+     */
     JProgressBar bar = new JProgressBar(0, 100);
     JButton start = new JButton("Start");
     JButton pause = new JButton("pause");
     JButton goOn = new JButton("continue");
     private boolean go = true;
     private int pause_count = 0;
-    private boolean hasStarted=false;
+    private boolean hasStarted = false;
+
+    /**
+     * PROBLEM !
+     * TODO FIX LAGGING PROGRESS BAR
+     * <p>
+     * UPDATE -> FIXED Μέσα από Threading
+     */
+    public Labyrinth() {
+        frame = new JFrame(); //create frame
+        frame.setTitle("Labyrinth"); //setTitle of frame
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.setSize(600, 600);
+        frame.setVisible(true);
+        frame.setLayout(null);
+        frame.setIconImage(Main.icon.getImage());
+
+        bar.setValue(100);
+        bar.setBounds(0, 0, 600, 50);
+        bar.setStringPainted(true);
+        bar.setFont(new Font("Arial", Font.BOLD, 25));
+        bar.setForeground(Color.red);
+        bar.setBackground(Color.black);
+
+        setButton(start, 300);
+        setButton(pause, 400);
+        setButton(goOn, 500);
+        goOn.setEnabled(false);
+
+        //Key Bind
+        frame.addKeyListener(this);
+
+        frame.add(bar);
+        frame.add(start);
+        frame.add(pause);
+        frame.add(goOn);
+
+    }
 
     protected static void setLabyrinth() {
         switch (Levels.difficulty) {
@@ -66,45 +105,6 @@ public class Labyrinth implements KeyListener, ActionListener {
             counter--;
         }
         bar.setString("Game Over");
-    }
-
-
-    /**
-     * PROBLEM !
-     * TODO FIX LAGGING PROGRESS BAR
-     *
-     * UPDATE -> FIXED Μέσα από Threading
-     */
-    public Labyrinth() {
-        frame = new JFrame(); //create frame
-        frame.setTitle("Labyrinth"); //setTitle of frame
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-        frame.setSize(600, 600);
-        frame.setVisible(true);
-        frame.setLayout(null);
-        frame.setIconImage(Main.icon.getImage());
-
-        bar.setValue(100);
-        bar.setBounds(0, 0, 600, 50);
-        bar.setStringPainted(true);
-        bar.setFont(new Font("Arial", Font.BOLD, 25));
-        bar.setForeground(Color.red);
-        bar.setBackground(Color.black);
-
-        setButton(start, 300);
-        setButton(pause, 400);
-        setButton(goOn, 500);
-        goOn.setEnabled(false);
-
-        //Key Bind
-        frame.addKeyListener(this);
-
-        frame.add(bar);
-        frame.add(start);
-        frame.add(pause);
-        frame.add(goOn);
-
     }
 
     public void setButton(JButton button, int y) {
@@ -147,7 +147,7 @@ public class Labyrinth implements KeyListener, ActionListener {
             //JOptionPane.showMessageDialog(null,"working!!","test",JOptionPane.INFORMATION_MESSAGE);
             start.setEnabled(false);
             goOn.setEnabled(true);
-            hasStarted=true;
+            hasStarted = true;
         } else if (e.getSource() == pause) {
             go = false;
         } else {

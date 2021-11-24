@@ -7,7 +7,11 @@ public class Questions {
 
     //protected static File file;
 
-    protected static void setQuestionsDifficulty(){
+    public Questions() {
+
+    }
+
+    protected static void setQuestionsDifficulty() {
         switch (Levels.difficulty) {
             case "easy":
                 // JOptionPane.showMessageDialog(null,"1","ferwu",JOptionPane.INFORMATION_MESSAGE);
@@ -21,11 +25,6 @@ public class Questions {
                 break;
         }
     }
-
-    public Questions(){
-
-    }
-
 
 
 }

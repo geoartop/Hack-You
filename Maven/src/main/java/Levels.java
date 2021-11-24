@@ -11,6 +11,10 @@ import java.awt.event.ActionListener;
 public class Levels implements ActionListener {
 
     /*
+     * Θέλουμε να γνωρίζει η κλάση LabyrinthFrame το επίπεδο δυσκολίας που επίλεξε
+     */
+    protected static String difficulty = "";
+    /*
      * Initialize μεταβλητών διαστάσεων
      */
     private final int BX = 225;
@@ -20,19 +24,13 @@ public class Levels implements ActionListener {
     private final ImageIcon easy_icon = new ImageIcon("src/main/resources/wood1.png");
     private final ImageIcon medium_icon = new ImageIcon("src/main/resources/iron2.jpg");
     private final ImageIcon hard_icon = new ImageIcon("src/main/resources/gold2.png");
-
     JFrame frame;
     JButton easy = new JButton("Easy");
     JButton medium = new JButton("Medium");
     JButton hard = new JButton("Hard");
+    // -------test changes end------//
     //-------test changes------//
     JLabel label2 = new JLabel();
-    // -------test changes end------//
-
-    /*
-     * Θέλουμε να γνωρίζει η κλάση LabyrinthFrame το επίπεδο δυσκολίας που επίλεξε
-     */
-    protected static String difficulty = "";
 
     public Levels() {
         // Εξατομίκευση παραθύρου

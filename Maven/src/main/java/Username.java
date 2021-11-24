@@ -10,21 +10,19 @@ import java.util.Locale;
  * @author Team Hack-You
  */
 
-public class Username implements ActionListener{
-
-    private JFrame frame;
-    private JButton submit = new JButton("Submit");
-    private JTextField textField = new JTextField();
-    //-------test changes------//
-    JLabel label = new JLabel();
-
-    //-------test changes end------//
-    ImageIcon icon2;
+public class Username implements ActionListener {
 
     /**
      * Θέλουμε να γνωρίζουν όλες οι κλάσεις το username του παίκτη ώστε να μπορεί να αποθηκευτεί πιο εύκολα
      */
     protected static String username;
+    //-------test changes------//
+    JLabel label = new JLabel();
+    //-------test changes end------//
+    ImageIcon icon2;
+    private final JFrame frame;
+    private final JButton submit = new JButton("Submit");
+    private final JTextField textField = new JTextField();
 
     public Username() {
         // Εξατομίκευση παραθύρου
@@ -42,10 +40,10 @@ public class Username implements ActionListener{
         frame.setLocationRelativeTo(null);
 
 
-        icon2= new ImageIcon("src/main/resources/wood1.png");
+        icon2 = new ImageIcon("src/main/resources/wood1.png");
         submit.setIcon(icon2);
         submit.setHorizontalTextPosition(JButton.CENTER);
-        submit.setFont(new Font("Calibri",Font.BOLD,25));
+        submit.setFont(new Font("Calibri", Font.BOLD, 25));
         submit.setForeground(Color.black);
         submit.setBounds(400, 350, 150, 45);
         //δεν κανουν τιποτα
@@ -56,7 +54,7 @@ public class Username implements ActionListener{
 
         textField.setBounds(325, 280, 300, 50);
         textField.setPreferredSize(new Dimension(300, 50));
-        textField.setFont(new Font("Calibri",Font.BOLD,25));
+        textField.setFont(new Font("Calibri", Font.BOLD, 25));
         textField.setSelectedTextColor(Color.green);
         //Key Bind
         //submit.addKeyListener(this);
@@ -67,10 +65,9 @@ public class Username implements ActionListener{
         frame.getRootPane().setDefaultButton(submit);
         //-------test changes------//
         label.setIcon(Main.background);
-        label.setBounds(0,0,970,850);
+        label.setBounds(0, 0, 970, 850);
         frame.add(label);
         //-------test changes end------//
-
 
 
     }

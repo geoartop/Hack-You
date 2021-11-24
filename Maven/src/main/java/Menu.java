@@ -11,22 +11,23 @@ import java.awt.event.ActionListener;
 
 public class Menu implements ActionListener {
 
-    /**Initialize μεταβλητών διαστάσεων*/
-    private final int X=380;
-    private final int Y=200;
-    private final int WIDTH=200;
-    private final int HEIGHT=50;
-    private int counter = 0;
+    /**
+     * Initialize μεταβλητών διαστάσεων
+     */
+    private final int X = 380;
+    private final int Y = 200;
+    private final int WIDTH = 200;
+    private final int HEIGHT = 50;
     ImageIcon icon3;
-
-    JFrame frame=new JFrame();
+    JFrame frame = new JFrame();
     JButton start = new JButton("Start Game");
     JButton how2play = new JButton("How to Play");
     JButton credits = new JButton("Show Credits");
-    JButton description=new JButton("Game Description");
+    JButton description = new JButton("Game Description");
     JLabel label = new JLabel();
     //-------test changes------//
     JLabel label2 = new JLabel();
+    private int counter = 0;
     //-------test changes end------//
 
     public Menu() {
@@ -41,10 +42,10 @@ public class Menu implements ActionListener {
         //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
         frame.setLocationRelativeTo(null);
 
-        setButton(start,Y);
-        setButton(how2play,Y+100);
-        setButton(credits,Y+200);
-        setButton(description,Y+300);
+        setButton(start, Y);
+        setButton(how2play, Y + 100);
+        setButton(credits, Y + 200);
+        setButton(description, Y + 300);
 
 
         frame.add(start);
@@ -54,7 +55,7 @@ public class Menu implements ActionListener {
         frame.add(label);
         //-------test changes------//
         label2.setIcon(Main.background);
-        label2.setBounds(0,0,1000,1000);
+        label2.setBounds(0, 0, 1000, 1000);
         frame.add(label2);
         //-------test changes end------//
     }
@@ -62,7 +63,7 @@ public class Menu implements ActionListener {
     /**
      * Μέθοδος δημιουργίας Κουμπιών
      */
-    public void setButton(JButton button,int y) {
+    public void setButton(JButton button, int y) {
         counter++;
         button.setBounds(X, y, WIDTH, HEIGHT);
         button.setFocusable(false);
@@ -73,7 +74,7 @@ public class Menu implements ActionListener {
         }
         button.setIcon(icon3);
         button.setHorizontalTextPosition(JButton.CENTER);
-        button.setFont(new Font("Calibri",Font.BOLD,20));
+        button.setFont(new Font("Calibri", Font.BOLD, 20));
         button.setForeground(Color.black);
         //button.setHorizontalAlignment(JButton.CENTER);
         button.addActionListener(this);
@@ -90,9 +91,9 @@ public class Menu implements ActionListener {
             frame.dispose();
         } else if (e.getSource() == how2play) {
             new Guide();
-        } else if(e.getSource()==credits){
+        } else if (e.getSource() == credits) {
             new Credits();
-        }else {
+        } else {
             new Description();
         }
     }
