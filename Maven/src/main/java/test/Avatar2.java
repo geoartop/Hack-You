@@ -14,7 +14,6 @@ public class Avatar2 extends JFrame implements KeyListener {
     private int speed= 4;
     BufferedImage image;
     private String direction = "down";
-    //public BufferedImage down1, down2, down3, down4,down5,down6,down7,down8,down9,left1,right1,up1;
     private BufferedImage[] up=new BufferedImage[9];
     private BufferedImage[] down=new BufferedImage[9];
     private BufferedImage[] right=new BufferedImage[9];
@@ -22,18 +21,6 @@ public class Avatar2 extends JFrame implements KeyListener {
 
     public void getImage(){
         try{
-            /*up1= ImageIO.read(new File(""));
-            down1= ImageIO.read(new File())
-            right1= ImageIO.read(new File());
-            left1= ImageIO.read(new File())
-            down2= ImageIO.read(new File())
-            down3= ImageIO.read(new File())
-            down4= ImageIO.read(new File())
-            down5= ImageIO.read(new File())
-            down6= ImageIO.read(new File())
-            down7= ImageIO.read(new File())
-            down8= ImageIO.read(new File())
-            down9= ImageIO.read(new File())*/
             setMovement(up,"thiseaswalkingup");
             setMovement(down,"thiseaswalkingdown");
             setMovement(right,"thiseaswalkingright");
