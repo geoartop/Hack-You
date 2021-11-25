@@ -1,10 +1,12 @@
 package game;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.FileNotFoundException;
 
 /*
  * WARNING
@@ -22,6 +24,7 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
     /**
      * ProgressBar
      */
+    //Δηλώνω static το frame έτσι ώστε να μπορεί να ανοιγοκλείνει από τα Options
     static JFrame frame;
     static JProgressBar bar;
     JButton start = new JButton("start");
@@ -39,8 +42,8 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
     //Πόσο χρόνο σε seconds θα έχει ο παίκτης
     private static int time;
 
+    //Δηλώνω static και τα Threads ώστε να κλείνουν μαζί με το frame
     static Thread fill_bar;
-    static Thread fill_bar2;
 
     //--------------------------------------------------------------------------------------//
 
@@ -143,6 +146,8 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
             counter--;
         }
         bar.setString("Game Over");
+        SwingUtilities.invokeLater(DeathFrame::new);
+        frame.dispose();
     }
 
     public void setButton(JButton button, int y) {
@@ -169,12 +174,12 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
                 testQuestionFrame.setEnabled(false);
                 return;
             }
-            fill_bar2 = new Thread(() -> fill(bar.getValue()));
-            fill_bar2.start();
+            fill_bar = new Thread(() -> fill(bar.getValue()));
+            fill_bar.start();
         } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
             //Ο χρόνος σταματάει μέχρι να κλείσει το παράθυρο
             go = false;
-            SwingUtilities.invokeLater(Options::new); // -> Πρόβλημα φόρτωσης στοιχείων
+            SwingUtilities.invokeLater(Options::new);
         }
     }
 
@@ -189,7 +194,7 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
     }
 
     protected static void closeFrame(){
-
+        go=false;
         frame.dispose();
     }
 
@@ -207,8 +212,7 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
             //Ο χρόνος σταματάει μέχρι να απαντηθεί η ερώτηση
             go = false;
             SwingUtilities.invokeLater(QuizFrame::new);
-
         }
-    }
 
+    }
 }

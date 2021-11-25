@@ -18,7 +18,7 @@ public class Menu implements ActionListener {
     private final int WIDTH=200;
     private final int HEIGHT=50;
     private int counter = 0;
-    ImageIcon icon3;
+    private ImageIcon icon3;
 
     JFrame frame=new JFrame();
     JButton start = new JButton("Start Game");

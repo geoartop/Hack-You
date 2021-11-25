@@ -34,11 +34,7 @@ public class Options implements ActionListener {
         frame.add(restart);
         frame.add(end);
 
-        Image img = Main.background.getImage();
-        Image temp = img.getScaledInstance(485, 650, Image.SCALE_SMOOTH);
-        ImageIcon back = new ImageIcon(temp);
-        label.setIcon(back);
-        label.setBounds(0, 0, 500, 650);
+        FrameSetter.scaleBackground(label,500,650);
         frame.add(label);
     }
 
@@ -57,6 +53,7 @@ public class Options implements ActionListener {
             frame.dispose();
         }else if(e.getSource() == showGuide){
             SwingUtilities.invokeLater(Guide::new);
+            return;
         }else if( e.getSource() == restart){
             LabyrinthFrame.closeFrame();
             new LabyrinthFrame();

@@ -48,9 +48,12 @@ public class Levels implements ActionListener {
         //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
         frame.setLocationRelativeTo(null);
 
-        setButton(easy, BY);
+        /*setButton(easy, BY);
         setButton(medium, BY + 100);
-        setButton(hard, BY + 200);
+        setButton(hard, BY + 200);*/
+        ButtonSetter.setButton(easy,BX,BY,B_WIDTH,B_HEIGHT,"Calibri",22,this,2);
+        ButtonSetter.setButton(medium,BX,BY+100,B_WIDTH,B_HEIGHT,"Calibri",22,this,2);
+        ButtonSetter.setButton(hard,BX,BY+200,B_WIDTH,B_HEIGHT,"Calibri",22,this,2);
 
         easy.setIcon(easy_icon);
         medium.setIcon(medium_icon);
@@ -62,11 +65,7 @@ public class Levels implements ActionListener {
         frame.add(hard);
         //-------test changes------//
         //Set Scaled Background
-        Image img = Main.background.getImage();
-        Image temp = img.getScaledInstance(585, 600, Image.SCALE_SMOOTH);
-        ImageIcon back = new ImageIcon(temp);
-        label2.setIcon(back);
-        label2.setBounds(0, 0, 600, 600);
+        FrameSetter.scaleBackground(label2,600,600);
         frame.add(label2);
         //-------test changes end------//
     }
@@ -74,7 +73,7 @@ public class Levels implements ActionListener {
     /**
      * Μέθοδος δημιουργίας Κουμπιών
      */
-    public void setButton(JButton button, int y) {
+    /*public void setButton(JButton button, int y) {
         button.setBounds(BX, y, B_WIDTH, B_HEIGHT);
         button.setFocusable(false);
         button.addActionListener(this);
@@ -82,7 +81,7 @@ public class Levels implements ActionListener {
         button.setHorizontalTextPosition(JButton.CENTER);
         button.setForeground(Color.BLACK);
         button.setFont(new Font("Calibri", Font.ITALIC, 22));
-    }
+    }*/
 
     /**
      * Ενέργεια όταν κάνουμε κλικ στα κουμπιά

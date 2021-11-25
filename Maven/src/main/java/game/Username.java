@@ -1,4 +1,5 @@
 package game;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,7 +12,7 @@ import java.util.Locale;
  * @author Team Hack-You
  */
 
-public class Username implements ActionListener{
+public class Username implements ActionListener {
 
     private JFrame frame;
     private JButton submit = new JButton("Submit");
@@ -20,7 +21,8 @@ public class Username implements ActionListener{
     JLabel label = new JLabel();
 
     //-------test changes end------//
-    ImageIcon icon2;
+    ImageIcon icon2 = new ImageIcon("src/main/resources/wood1.png");
+
 
     /**
      * Θέλουμε να γνωρίζουν όλες οι κλάσεις το username του παίκτη ώστε να μπορεί να αποθηκευτεί πιο εύκολα
@@ -43,21 +45,25 @@ public class Username implements ActionListener{
         frame.setLocationRelativeTo(null);
 
 
-        icon2= new ImageIcon("src/main/resources/wood1.png");
-        submit.setIcon(icon2);
-        submit.setHorizontalTextPosition(JButton.CENTER);
+
+        /*submit.setHorizontalTextPosition(JButton.CENTER);
         submit.setFont(new Font("Calibri",Font.BOLD,25));
         submit.setForeground(Color.black);
-        submit.setBounds(400, 350, 150, 45);
+        submit.setBounds(400, 350, 150, 45);*/
         //δεν κανουν τιποτα
         //submit.setHorizontalAlignment(JButton.CENTER);
         //submit.setVerticalAlignment(JButton.CENTER);
-        submit.setFocusable(false);
-        submit.addActionListener(this);
+        //submit.setFocusable(false);
+
+        ButtonSetter.setButton(submit, 400, 350, 150, 45, "Calibri", 25,this,1);
+        //submit.addActionListener(this);
+        //submit.setForeground(Color.black);
+        submit.setIcon(icon2);
+
 
         textField.setBounds(325, 280, 300, 50);
         textField.setPreferredSize(new Dimension(300, 50));
-        textField.setFont(new Font("Calibri",Font.BOLD,25));
+        textField.setFont(new Font("Calibri", Font.BOLD, 25));
         textField.setSelectedTextColor(Color.green);
         //Key Bind
         //submit.addKeyListener(this);
@@ -68,10 +74,9 @@ public class Username implements ActionListener{
         frame.getRootPane().setDefaultButton(submit);
         //-------test changes------//
         label.setIcon(Main.background);
-        label.setBounds(0,0,970,850);
+        label.setBounds(0, 0, 970, 850);
         frame.add(label);
         //-------test changes end------//
-
 
 
     }

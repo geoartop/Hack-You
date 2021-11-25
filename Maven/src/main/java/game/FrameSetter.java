@@ -1,6 +1,7 @@
 package game;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class FrameSetter {
 
@@ -12,5 +13,13 @@ public class FrameSetter {
         frame.setLayout(null);
         frame.setIconImage(Main.icon.getImage());
         frame.setLocationRelativeTo(null);
+    }
+
+    public static void scaleBackground(JLabel label,int width,int height){
+        Image img = Main.background.getImage();
+        Image temp = img.getScaledInstance(width-15, height, Image.SCALE_SMOOTH);
+        ImageIcon back = new ImageIcon(temp);
+        label.setIcon(back);
+        label.setBounds(0, 0, width, height);
     }
 }
