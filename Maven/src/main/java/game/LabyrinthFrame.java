@@ -22,7 +22,7 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
     /**
      * ProgressBar
      */
-    JFrame frame;
+    static JFrame frame;
     static JProgressBar bar;
     JButton start = new JButton("start");
     JButton testQuestionFrame = new JButton("try me");
@@ -38,6 +38,9 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
     protected static int for_wrong;
     //Πόσο χρόνο σε seconds θα έχει ο παίκτης
     private static int time;
+
+    static Thread fill_bar;
+    static Thread fill_bar2;
 
     //--------------------------------------------------------------------------------------//
 
@@ -166,7 +169,7 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
                 testQuestionFrame.setEnabled(false);
                 return;
             }
-            Thread fill_bar2 = new Thread(() -> fill(bar.getValue()));
+            fill_bar2 = new Thread(() -> fill(bar.getValue()));
             fill_bar2.start();
         } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
             //Ο χρόνος σταματάει μέχρι να κλείσει το παράθυρο
@@ -181,9 +184,15 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
     }
 
     protected static void updateBar(int time) {
-        Thread fill_bar = new Thread(() -> fill(bar.getValue() + time));
+        fill_bar = new Thread(() -> fill(bar.getValue() + time));
         fill_bar.start();
     }
+
+    protected static void closeFrame(){
+
+        frame.dispose();
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
