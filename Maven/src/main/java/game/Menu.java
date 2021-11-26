@@ -68,9 +68,9 @@ public class Menu implements ActionListener {
         button.setBounds(X, y, WIDTH, HEIGHT);
         button.setFocusable(false);
         if (counter % 2 == 1) {
-            icon3 = new ImageIcon("src/main/resources/wood2.png");
+            icon3 = new ImageIcon("src/main/resources/buttons/wood2.png");
         } else {
-            icon3 = new ImageIcon("src/main/resources/wood1.png");
+            icon3 = new ImageIcon("src/main/resources/buttons/wood1.png");
         }
         button.setIcon(icon3);
         button.setHorizontalTextPosition(JButton.CENTER);

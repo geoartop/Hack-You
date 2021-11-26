@@ -138,15 +138,15 @@ public class Quiz implements ActionListener {
     }
 
     public void readQuestions() throws FileNotFoundException {
-        Scanner q = new Scanner(new File(String.format("src/main/resources/%s Questions.txt",Levels.difficulty)));
+        Scanner q = new Scanner(new File(String.format("src/main/resources/quiz/%s Questions.txt",Levels.difficulty)));
         while (q.hasNextLine()) {
             questions.add(q.nextLine());
         }
-        Scanner o = new Scanner(new File(String.format("src/main/resources/%s Options.txt",Levels.difficulty)));
+        Scanner o = new Scanner(new File(String.format("src/main/resources/quiz/%s Options.txt",Levels.difficulty)));
         while (o.hasNextLine()) {
             options.add(o.nextLine());
         }
-        Scanner a = new Scanner(new File(String.format("src/main/resources/%s Answers.txt",Levels.difficulty)));
+        Scanner a = new Scanner(new File(String.format("src/main/resources/quiz/%s Answers.txt",Levels.difficulty)));
         while (a.hasNext()) {
             answers.add(a.next().charAt(0));
         }

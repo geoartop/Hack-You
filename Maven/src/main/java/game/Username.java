@@ -21,7 +21,7 @@ public class Username implements ActionListener {
     JLabel label = new JLabel();
 
     //-------test changes end------//
-    ImageIcon icon2 = new ImageIcon("src/main/resources/wood1.png");
+    ImageIcon icon2 = new ImageIcon("src/main/resources/buttons/wood1.png");
 
 
     /**

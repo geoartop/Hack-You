@@ -18,9 +18,9 @@ public class Levels implements ActionListener {
     private final int BY = 200;
     private final int B_WIDTH = 150;
     private final int B_HEIGHT = 50;
-    private final ImageIcon easy_icon = new ImageIcon("src/main/resources/wood1.png");
-    private final ImageIcon medium_icon = new ImageIcon("src/main/resources/iron2.jpg");
-    private final ImageIcon hard_icon = new ImageIcon("src/main/resources/gold2.png");
+    private final ImageIcon easy_icon = new ImageIcon("src/main/resources/buttons/wood1.png");
+    private final ImageIcon medium_icon = new ImageIcon("src/main/resources/buttons/iron2.jpg");
+    private final ImageIcon hard_icon = new ImageIcon("src/main/resources/buttons/gold2.png");
 
     JFrame frame;
     JButton easy = new JButton("Easy");

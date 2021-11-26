@@ -16,7 +16,7 @@ public class QuizFrame implements ActionListener {
     JLabel label = new JLabel();
     JRadioButton[] radioButtons = new JRadioButton[4];
     ButtonGroup buttonGroup = new ButtonGroup();
-    private final ImageIcon icon = new ImageIcon("src/main/resources/question_mark.png");
+    private final ImageIcon icon = new ImageIcon("src/main/resources/icons/question_mark.png");
     JButton submit = new JButton("submit");
     private final int RADIOBUTTON_GAP=60;
     private final int RADIOBUTTON_START=50;
