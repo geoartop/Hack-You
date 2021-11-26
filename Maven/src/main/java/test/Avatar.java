@@ -44,9 +44,9 @@ public class Avatar extends JFrame implements KeyListener {
             case 'α':
                 c1 = c1 + 1;
                 move.setLocation(move.getX() - speed, move.getY());
-                if(c1>9) {
+                if(c1>17) {
                     c1 = 0;
-                    break;
+                   // break;
                 }
                 move.setIcon(left[(c1/2 +1 ) -1]);
                 break;
@@ -54,9 +54,9 @@ public class Avatar extends JFrame implements KeyListener {
             case 'ς':
                 c2=c2+1;
                 move.setLocation(move.getX(),move.getY()-speed);
-                if(c2>9) {
+                if(c2>17) {
                     c2 = 0;
-                    break;
+                    //break;
                 }
                 move.setIcon(up[(c2/2+1)-1]);
                 break;
@@ -64,9 +64,9 @@ public class Avatar extends JFrame implements KeyListener {
             case 'δ':
                 move.setLocation(move.getX()+speed,move.getY());
                 c3 = c3 + 1;
-                if(c3>9) {
+                if(c3>17) {
                     c3 = 0;
-                    break;
+                    //break;
                 }
                 move.setIcon(right[(c3/2+1)-1]);
                 break;
@@ -74,9 +74,9 @@ public class Avatar extends JFrame implements KeyListener {
             case 'σ':
                 c4 = c4 + 1;
                 move.setLocation(move.getX() , move.getY()+speed);
-                if(c4>9) {
+                if(c4>17) {
                     c4 = 0;
-                    break;
+                    //break;
                 }
                 move.setIcon(down[(c4/2+1)-1]);
                 break;
