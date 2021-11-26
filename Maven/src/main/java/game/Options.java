@@ -1,10 +1,9 @@
 package game;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
-public class Options implements ActionListener {
+public class Options implements ActionListener{
 
     JFrame frame;
     JLabel label = new JLabel();
@@ -16,6 +15,13 @@ public class Options implements ActionListener {
     public Options() {
         frame = new JFrame();
         frame.setTitle("Options"); //setTitle of frame
+        //Θέτω το κουμπί της εξόδου να κάνει αυτόματα click το return για να μην κολλήσει η ροή του LabyrinthFrame
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                returnBack.doClick();
+            }
+        });
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setResizable(false);
         frame.setSize(500, 650);
@@ -37,7 +43,6 @@ public class Options implements ActionListener {
         FrameSetter.scaleBackground(label,500,650);
         frame.add(label);
     }
-
 
     public void setButton(JButton button,int y) {
         button.setBounds(200,y,150,50);

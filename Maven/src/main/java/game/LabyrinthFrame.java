@@ -2,10 +2,7 @@ package game;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 import java.io.FileNotFoundException;
 
 /*
@@ -20,18 +17,17 @@ import java.io.FileNotFoundException;
  */
 public class LabyrinthFrame implements KeyListener, ActionListener {
 
-    //protected static File file;
     /**
      * ProgressBar
      */
     //Δηλώνω static το frame έτσι ώστε να μπορεί να ανοιγοκλείνει από τα Options
-    static JFrame frame;
+    protected static JFrame frame;
     static JProgressBar bar;
     JButton start = new JButton("start");
     JButton testQuestionFrame = new JButton("try me");
     //-------test changes end------//
 
-    //Μεταβλητές χρήσιμες για την λειτουργία του progressBar
+    //Μεταβλητές χρήσιμες για τη λειτουργία του progressBar
     protected static boolean go = true; // Για το αν συνεχίζει το παιχνίδι ή βρίσκεται σε pause
     private int pause_count = 0; //Για το πόσες φορές έχει πατήσει το spacebar
     private boolean hasStarted = false; // Για το αν έχει αρχίσει το παιχνίδι
@@ -43,26 +39,26 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
     private static int time;
 
     //Δηλώνω static και τα Threads ώστε να κλείνουν μαζί με το frame
-    static Thread fill_bar;
+    private static Thread fill_bar;
 
     //--------------------------------------------------------------------------------------//
 
     protected static void setLabyrinth() {
         switch (Levels.difficulty) {
-            case "easy":
+            case "Easy":
                 //file=EasyLabyrinth.txt;
                 time = 200;
                 for_correct = 5;
                 for_wrong = -2;
                 break;
-            case "medium":
+            case "Medium":
                 //file=MediumLabyrinth.txt;
                 time = 150;
                 for_correct = 5;
                 for_wrong = -3;
                 break;
             default:
-                time = 100;
+                time = 10;
                 //file=HardLabyrinth.txt;
                 for_correct = 3;
                 for_wrong = -5;
@@ -88,8 +84,9 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
     private void createBar() {
         bar = new JProgressBar(0, time);
         bar.setValue(time);
-        //bar.setSize(new Dimension(600,200));
         bar.setStringPainted(true);
+        //Θέτω το μέγεθος της progressBar
+        bar.setPreferredSize(new Dimension(600,50));
         bar.setFont(new Font("Arial", Font.BOLD, 25));
         bar.setForeground(Color.red);
         bar.setBackground(Color.black);
@@ -103,9 +100,6 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
         setButton(start, 500);
         start.setBackground(Color.green);
         start.setFont(new Font("Calibri", Font.ITALIC, 25));
-        /*setButton(pause, 400);
-        setButton(goOn, 500);
-        goOn.setEnabled(false);*/
 
         //Key Bind
         frame.addKeyListener(this);
@@ -116,11 +110,6 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
         setButton(testQuestionFrame, 400);
         testQuestionFrame.setEnabled(false);
         frame.add(testQuestionFrame);
-        //-------test changes------//
-        //label.setIcon(Main.background);
-        //label.setBounds(0,0,1000,1000);
-        //this.add(label);
-        //-------test changes end------//
 
     }
 
