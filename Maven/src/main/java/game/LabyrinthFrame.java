@@ -211,7 +211,13 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
         } else if (e.getSource() == testQuestionFrame) {
             //Ο χρόνος σταματάει μέχρι να απαντηθεί η ερώτηση
             go = false;
-            SwingUtilities.invokeLater(QuizFrame::new);
+            SwingUtilities.invokeLater(() -> {
+                try {
+                    new Quiz();
+                }catch (FileNotFoundException e1){
+                    e1.printStackTrace();
+                }
+            });
         }
 
     }

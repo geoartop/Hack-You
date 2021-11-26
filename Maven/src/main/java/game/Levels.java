@@ -90,13 +90,13 @@ public class Levels implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == easy) {
             //new EasyLabyrinths();
-            difficulty = "easy";
+            difficulty = "Easy";
         } else if (e.getSource() == medium) {
             //new MediumLabyrinths();
-            difficulty = "medium";
+            difficulty = "Medium";
         } else {
             //new HardLabyrinths();
-            difficulty = "hard";
+            difficulty = "Hard";
         }
         frame.dispose();
         /*Δημιουργία λαβύρινθου και καθορισμός δυσκολίας ερωτήσεων*/
