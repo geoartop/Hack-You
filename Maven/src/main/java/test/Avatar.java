@@ -8,14 +8,12 @@ public class Avatar extends JFrame implements KeyListener {
     private int c2=0;
     private int c3=0;
     private int c4=0;
-    private int[] c={0,0,0,0};
 
     private final int speed=4;
     private ImageIcon[] up=new ImageIcon[9];
     private ImageIcon[] down=new ImageIcon[9];
     private ImageIcon[] right=new ImageIcon[9];
     private ImageIcon[] left=new ImageIcon[9];
-
 
     JLabel move= new JLabel();
     public Avatar()  {
@@ -35,9 +33,8 @@ public class Avatar extends JFrame implements KeyListener {
     }
 
     public void setMovement(ImageIcon[] imageIcons,String move){
-        for(int i=0;i<imageIcons.length;i++){
+        for(int i=0;i<imageIcons.length;i++)
             imageIcons[i]=new ImageIcon(String.format("src/main/resources/thiseas2/%s%d.png",move,i+1));
-        }
     }
 
     @Override
@@ -84,7 +81,6 @@ public class Avatar extends JFrame implements KeyListener {
                 move.setIcon(down[c4-1]);
                 break;
         }
-
 
     }
 
