@@ -81,12 +81,13 @@ public class Quiz implements ActionListener {
 
     public void setButtons() {
         for (int i = 0; i < buttons.length; i++) {
-            buttons[i] = new JButton();
-            buttons[i].setBounds(0, (i + 1) * 100, 100, 100);
-            buttons[i].setFont(new Font("Calibri", Font.BOLD, 35));
-            buttons[i].setFocusable(false);
-            buttons[i].addActionListener(this);
-            buttons[i].setText(String.valueOf(symbols[i]));
+            buttons[i] = new JButton(String.valueOf(symbols[i]));
+            ButtonSetter.setButton(buttons[i],0, (i + 1) * 100, 100, 100,"Calibri",35,this,1);
+            //buttons[i].setBounds(0, (i + 1) * 100, 100, 100);
+            //buttons[i].setFont(new Font("Calibri", Font.BOLD, 35));
+            //buttons[i].setFocusable(false);
+            //buttons[i].addActionListener(this);
+            //buttons[i].setText(String.valueOf(symbols[i]));
         }
     }
 
