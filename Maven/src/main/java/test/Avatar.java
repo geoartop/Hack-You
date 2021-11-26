@@ -48,7 +48,7 @@ public class Avatar extends JFrame implements KeyListener {
                     c1 = 0;
                     break;
                 }
-                move.setIcon(left[c1-1]);
+                move.setIcon(left[(c1/2 +1 ) -1]);
                 break;
             case 'w':
             case 'ς':
@@ -58,7 +58,7 @@ public class Avatar extends JFrame implements KeyListener {
                     c2 = 0;
                     break;
                 }
-                move.setIcon(up[c2-1]);
+                move.setIcon(up[(c2/2+1)-1]);
                 break;
             case 'd':
             case 'δ':
@@ -68,7 +68,7 @@ public class Avatar extends JFrame implements KeyListener {
                     c3 = 0;
                     break;
                 }
-                move.setIcon(right[c3-1]);
+                move.setIcon(right[(c3/2+1)-1]);
                 break;
             case 's':
             case 'σ':
@@ -78,7 +78,7 @@ public class Avatar extends JFrame implements KeyListener {
                     c4 = 0;
                     break;
                 }
-                move.setIcon(down[c4-1]);
+                move.setIcon(down[(c4/2+1)-1]);
                 break;
         }
 

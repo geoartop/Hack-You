@@ -58,7 +58,7 @@ public class Avatar2 extends JFrame implements KeyListener {
                 }
                 image=left[c1-1];
                 x-=speed;
-                repaint();
+                //repaint();
                 break;
             case 'w':
                 c2 = c2 + 1;
@@ -68,7 +68,7 @@ public class Avatar2 extends JFrame implements KeyListener {
                 }
                 image=up[c2-1];
                 y-=speed;
-                repaint();
+                //repaint();
                 break;
             case 'd':
                 c3 = c3 + 1;
@@ -78,7 +78,7 @@ public class Avatar2 extends JFrame implements KeyListener {
                 }
                 image=right[c3-1];
                 x+=speed;
-                repaint();
+                //repaint();
                 break;
             case 's':
                 c4 = c4 + 1;
@@ -88,7 +88,7 @@ public class Avatar2 extends JFrame implements KeyListener {
                 }
                 image=down[c4-1];
                 y+=speed;
-                repaint();
+                //repaint();
                 break;
         }
         repaint();
