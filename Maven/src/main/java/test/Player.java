@@ -1,0 +1,103 @@
+package test;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+public class Player {
+
+    GamePanel gp;
+    KeyHandler keyH;
+
+    int x, y;
+    int speed;
+    private int spriteCounter=0;
+    private int spriteNum=1;
+
+    private int c1=0,c2=0,c3=0,c4=0;
+    public String direction;
+    private BufferedImage[] up=new BufferedImage[9];
+    private BufferedImage[] down=new BufferedImage[9];
+    private BufferedImage[] right=new BufferedImage[9];
+    private BufferedImage[] left=new BufferedImage[9];
+
+    public Player(GamePanel gp, KeyHandler keyH) {
+        this.gp = gp;
+        this.keyH = keyH;
+        setDefaultValues();
+        getImage();
+    }
+
+    public void getImage(){
+        try{
+            setMovement(up,"thiseaswalkingup");
+            setMovement(down,"thiseaswalkingdown");
+            setMovement(right,"thiseaswalkingright");
+            setMovement(left,"thiseaswalkingleft");
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setMovement(BufferedImage[] images, String move) throws IOException {
+        for(int i=0;i<images.length;i++)
+            images[i]= ImageIO.read(new File(String.format("src/main/resources/thiseas2/%s%d.png",move,i+1)));
+    }
+
+    public void setDefaultValues() {
+        x = 100;
+        y = 100;
+        speed = 4;
+        direction="down";
+    }
+
+    public void update() {
+        if (keyH.upPressed || keyH.downPressed || keyH.rightPressed || keyH.leftPressed) {
+            if (keyH.upPressed) {
+                direction = "up";
+                y -= speed;
+            } else if (keyH.downPressed) {
+                direction = "down";
+                y += speed;
+            } else if (keyH.leftPressed) {
+                direction = "left";
+                x -= speed;
+            } else {
+                direction = "right";
+                x += speed;
+            }
+
+            spriteCounter++;
+            if (spriteCounter > 12) {
+                if (spriteNum < 9) {
+                    spriteNum++;
+                } else {
+                    spriteNum = 1;
+                }
+                spriteCounter = 0;
+            }
+        }
+    }
+
+    public void draw(Graphics2D g2) {
+        BufferedImage image=null;
+
+        switch (direction){
+            case "up":
+                image=up[spriteNum-1];
+                break;
+            case "down":
+                image=down[spriteNum-1];
+                break;
+            case "left":
+                image=left[spriteNum-1];
+                break;
+            case "right":
+                image=right[spriteNum-1];
+                break;
+        }
+        g2.drawImage(image,x,y,gp.tileSize,gp.tileSize,null);
+    }
+}
