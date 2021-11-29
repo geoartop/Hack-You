@@ -41,10 +41,10 @@ public class Player extends Entity {
     }
 
     public void setDefaultValues() {
-        x = 60;
-        y = 100;
+        x = 50;
+        y = 500;
         speed = 2;
-        direction = "down";
+        direction = "up";
     }
 
     public void update() {

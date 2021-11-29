@@ -125,6 +125,7 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
                 go = true;
                 return;
             }
+            bar.setString(String.format("%d seconds left",counter));
             bar.setValue(counter);
             try {
                 Thread.sleep(1000);
@@ -139,14 +140,13 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
         frame.dispose();
     }
 
-    public void setButton(JButton button, int y) {
+    private void setButton(JButton button, int y) {
         button.setBounds(250, y, 100, 50);
         button.setFocusable(false);
         button.setHorizontalAlignment(JButton.CENTER);
         button.setFont(new Font("Calibri", Font.ITALIC, 20));
         button.addActionListener(this);
     }
-
 
     @Override
     public void keyTyped(KeyEvent e) {
