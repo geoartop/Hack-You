@@ -8,7 +8,7 @@ Georgios Artopoulos
 
 Elisavet Voulgari
 
-- Role: Level & Graphic Designer, Presentation Administrator 
+- Role: Level Designer, Presentation Administrator 
 
 Emmanouil Dellatolas 
 
@@ -16,7 +16,7 @@ Emmanouil Dellatolas
 
 Athanasia Koutra 
 
-- Role: Level & Question Designer, Presentation Administrator
+- Role: Question Designer, Presentation Administrator
 
 Theodoros Malikourtis
 
