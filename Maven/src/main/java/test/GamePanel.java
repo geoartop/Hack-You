@@ -20,7 +20,7 @@ public class GamePanel extends JPanel implements Runnable {
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     Player player = new Player(this, keyH);
-
+    public CollisionCheck collisionCheck = new CollisionCheck(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -36,7 +36,9 @@ public class GamePanel extends JPanel implements Runnable {
         gameThread.start();
     }
 
-
+    /**
+     * Game loop ώστε να τρέχει με 60 fps
+     */
     @Override
     public void run() {
 
@@ -56,8 +58,6 @@ public class GamePanel extends JPanel implements Runnable {
                 repaint();
                 delta--;
             }
-
-
         }
     }
 
