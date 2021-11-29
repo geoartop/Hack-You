@@ -9,6 +9,7 @@ public class Main2 {
         frame.setResizable(false);
 
         GamePanel gamePanel=new GamePanel();
+
         frame.add(gamePanel);
 
         frame.pack();

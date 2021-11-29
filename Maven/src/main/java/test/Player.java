@@ -3,7 +3,6 @@ package test;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 public class Player extends Entity {
@@ -17,9 +16,9 @@ public class Player extends Entity {
 
         solidArea = new Rectangle();
         solidArea.x=8;
-        solidArea.y=16;
-        solidArea.width=30;
-        solidArea.height=30;
+        solidArea.y=32;
+        solidArea.width=32;
+        solidArea.height=16;
 
         setDefaultValues();
         getImage();
@@ -38,7 +37,7 @@ public class Player extends Entity {
 
     public void setMovement(BufferedImage[] images, String move) throws IOException {
         for (int i = 0; i < images.length; i++)
-            images[i] = ImageIO.read(new File(String.format("src/main/resources/thiseas2/%s%d.png", move, i + 1)));
+            images[i] = ImageIO.read(getClass().getResourceAsStream(String.format("/thiseas2/%s%d.png", move, i + 1)));
     }
 
     public void setDefaultValues() {
@@ -82,7 +81,7 @@ public class Player extends Entity {
             }
 
             spriteCounter++;
-            if (spriteCounter > 6) {
+            if (spriteCounter > 5) {
                 if (spriteNum < 9) {
                     spriteNum++;
                 } else {
