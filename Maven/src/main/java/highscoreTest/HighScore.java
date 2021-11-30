@@ -3,6 +3,9 @@ package highscoreTest;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * Λειτουργική κλάση για την εμφάνιση των top 10 scores μαζί με τα username αντίστοιχα
+ */
 public class HighScore {
 
     protected static ArrayList<PlayerInfo> playerInfo = new ArrayList<>();

@@ -27,7 +27,7 @@ public class Options implements ActionListener {
         });
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setResizable(false);
-        frame.setSize(500, 650);
+        frame.setSize(600, 650);
         frame.setVisible(true);
         frame.setLayout(null);
         frame.setIconImage(Main.icon.getImage());
@@ -43,12 +43,12 @@ public class Options implements ActionListener {
         frame.add(restart);
         frame.add(end);
 
-        FrameSetter.scaleBackground(label, 500, 650);
+        FrameSetter.scaleBackground(label, 600, 650);
         frame.add(label);
     }
 
     public void setButton(JButton button, int y) {
-        button.setBounds(200, y, 150, 50);
+        button.setBounds(225, y, 150, 50);
         button.setFocusable(false);
         button.addActionListener(this);
         button.setHorizontalAlignment(JButton.CENTER);
@@ -70,8 +70,10 @@ public class Options implements ActionListener {
             System.exit(1);
         }
         //Για να μην κολλήσει το progressBar
-        gp.gameState = gp.playState;
-        LabyrinthFrame.updateBar(0);
+        if(LabyrinthFrame.hasStarted) {
+            gp.gameState = gp.playState;
+            LabyrinthFrame.updateBar(0);
+        }
 
     }
 }

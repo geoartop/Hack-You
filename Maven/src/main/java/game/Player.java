@@ -69,7 +69,8 @@ public class Player extends Entity {
                         y -= speed;
                         break;
                     case "down":
-                        y += speed;
+                        if (y < 520)
+                            y += speed;
                         break;
                     case "left":
                         x -= speed;
