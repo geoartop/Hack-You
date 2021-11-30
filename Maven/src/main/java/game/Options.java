@@ -1,10 +1,12 @@
 package game;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Options implements ActionListener{
+public class Options implements ActionListener {
 
+    public GamePanel gp;
     JFrame frame;
     JLabel label = new JLabel();
     JButton returnBack = new JButton("return");
@@ -12,7 +14,8 @@ public class Options implements ActionListener{
     JButton restart = new JButton("restart");
     JButton end = new JButton("exit");
 
-    public Options() {
+    public Options(GamePanel gp) {
+        this.gp = gp;
         frame = new JFrame();
         frame.setTitle("Options"); //setTitle of frame
         //Θέτω το κουμπί της εξόδου να κάνει αυτόματα click το return για να μην κολλήσει η ροή του LabyrinthFrame
@@ -30,43 +33,44 @@ public class Options implements ActionListener{
         frame.setIconImage(Main.icon.getImage());
         frame.setLocationRelativeTo(null);
 
-        setButton(returnBack,200);
-        setButton(showGuide,300);
-        setButton(restart,400);
-        setButton(end,500);
+        setButton(returnBack, 200);
+        setButton(showGuide, 300);
+        setButton(restart, 400);
+        setButton(end, 500);
 
         frame.add(returnBack);
         frame.add(showGuide);
         frame.add(restart);
         frame.add(end);
 
-        FrameSetter.scaleBackground(label,500,650);
+        FrameSetter.scaleBackground(label, 500, 650);
         frame.add(label);
     }
 
-    public void setButton(JButton button,int y) {
-        button.setBounds(200,y,150,50);
+    public void setButton(JButton button, int y) {
+        button.setBounds(200, y, 150, 50);
         button.setFocusable(false);
         button.addActionListener(this);
         button.setHorizontalAlignment(JButton.CENTER);
-        button.setFont(new Font("Calibri", Font.ITALIC,20));
+        button.setFont(new Font("Calibri", Font.ITALIC, 20));
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == returnBack ){
+        if (e.getSource() == returnBack) {
             frame.dispose();
-        }else if(e.getSource() == showGuide){
+        } else if (e.getSource() == showGuide) {
             SwingUtilities.invokeLater(Guide::new);
             return;
-        }else if( e.getSource() == restart){
+        } else if (e.getSource() == restart) {
             LabyrinthFrame.closeFrame();
             new LabyrinthFrame();
             frame.dispose();
-        }else {
+        } else {
             System.exit(1);
         }
         //Για να μην κολλήσει το progressBar
+        gp.gameState = gp.playState;
         LabyrinthFrame.updateBar(0);
 
     }

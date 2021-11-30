@@ -17,10 +17,15 @@ public class GamePanel extends JPanel implements Runnable {
     TileManager tileM = new TileManager(this);
     private final int FPS = 60;
 
-    KeyHandler keyH = new KeyHandler();
+    KeyHandler keyH = new KeyHandler(this);
     Thread gameThread;
     Player player = new Player(this, keyH);
     public CollisionCheck collisionCheck = new CollisionCheck(this);
+
+    //Κατάσταση παιχνιδιού
+    public int gameState;
+    public final int playState = 1;
+    public final int pauseState = 2;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -34,6 +39,8 @@ public class GamePanel extends JPanel implements Runnable {
     public void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start();
+        //Για να μην μπορεί να κουνηθεί ο παίκτης πριν πατηθεί το κουμπί start
+        gameState = pauseState;
     }
 
     /**
@@ -62,7 +69,8 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
-        player.update();
+        if (gameState == playState)
+            player.update();
     }
 
     public void paintComponent(Graphics g) {
@@ -71,6 +79,16 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2 = (Graphics2D) g;
         tileM.draw(g2);
         player.draw(g2);
+
+        //Για να ζωγραφίσει στην οθόνη τη λέξη ΠΑΥΣΗ
+        if (gameState == pauseState) {
+            g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 80F));
+            String text = "ΠΑΥΣΗ";
+            int length = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+            int x = screenWidth / 2 - length / 2;
+            int y = screenHeight / 2;
+            g2.drawString(text, x, y);
+        }
 
         g2.dispose();
     }
