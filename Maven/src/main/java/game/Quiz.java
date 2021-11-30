@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-//Waiting for explanation by mallikok
 public class Quiz implements ActionListener {
     ArrayList<String> questions = new ArrayList<String>();
     ArrayList<String> options = new ArrayList<String>();
@@ -29,7 +28,9 @@ public class Quiz implements ActionListener {
     JLabel label = new JLabel();
     JLabel[] labels = new JLabel[4];
 
-    public Quiz() throws FileNotFoundException {
+    GamePanel gp;
+    public Quiz(GamePanel gp) throws FileNotFoundException {
+        this.gp=gp;
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.setSize(700, 550);
         frame.setLayout(null);
@@ -42,6 +43,8 @@ public class Quiz implements ActionListener {
         textArea.setBounds(0, 0, 700, 100);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
+        // Για να γίνει διάφανο
+        textArea.setOpaque(false);
         //textArea.setBackground(new Color(25, 25, 25));
         textArea.setOpaque(true);
         textArea.setForeground(new Color(25, 255, 0));
@@ -72,7 +75,6 @@ public class Quiz implements ActionListener {
     }
 
     public void displayQuestion() {
-        //textField.setText("Game");
         textArea.setText(questions.get(index));
         for (int i = 0; i < labels.length; i++)
             labels[i].setText(options.get(4 * index + i));
@@ -115,12 +117,10 @@ public class Quiz implements ActionListener {
 
     public void correctAnswer() {
         JOptionPane.showMessageDialog(null, "Correct answer!", "Review", JOptionPane.INFORMATION_MESSAGE);
-
     }
 
     public void wrongAnswer() {
         JOptionPane.showMessageDialog(null, "Wrong answer!", "Review", JOptionPane.ERROR_MESSAGE);
-
     }
 
     public void checkAnswer() {
@@ -132,6 +132,8 @@ public class Quiz implements ActionListener {
             time=LabyrinthFrame.for_wrong;
             wrongAnswer();
         }
+        //Για να μην κολλήσει το progressBar
+        gp.gameState = gp.playState;
         LabyrinthFrame.updateBar(time);
         frame.dispose();
 
