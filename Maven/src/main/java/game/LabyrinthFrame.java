@@ -66,7 +66,6 @@ public class LabyrinthFrame implements ActionListener {
 
     }
 
-
     private void createFrame() {
         frame = new JFrame();
         frame.setTitle("Labyrinth"); //setTitle of frame
