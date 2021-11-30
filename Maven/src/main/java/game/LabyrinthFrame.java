@@ -23,9 +23,12 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
     //Δηλώνω static το frame έτσι ώστε να μπορεί να ανοιγοκλείνει από τα Options
     protected static JFrame frame;
     static JProgressBar bar;
+    GamePanel gamePanel = new GamePanel();
+
+
     JButton start = new JButton("start");
     JButton testQuestionFrame = new JButton("try me");
-    //-------test changes end------//
+
 
     //Μεταβλητές χρήσιμες για τη λειτουργία του progressBar
     protected static boolean go = true; // Για το αν συνεχίζει το παιχνίδι ή βρίσκεται σε pause
@@ -73,7 +76,7 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
         frame.setTitle("Labyrinth"); //setTitle of frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
-        frame.setSize(600, 600);
+        frame.setSize(780, 700);
         frame.setVisible(true);
         frame.setLayout(new BorderLayout());
         frame.setIconImage(Main.icon.getImage());
@@ -110,6 +113,7 @@ public class LabyrinthFrame implements KeyListener, ActionListener {
         setButton(testQuestionFrame, 400);
         testQuestionFrame.setEnabled(false);
         frame.add(testQuestionFrame);
+        frame.add(gamePanel);
 
     }
 
