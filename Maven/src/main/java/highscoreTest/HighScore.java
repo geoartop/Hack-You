@@ -1,5 +1,6 @@
 package highscoreTest;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -10,9 +11,15 @@ public class HighScore {
 
     protected static ArrayList<PlayerInfo> playerInfo = new ArrayList<>();
 
-    public HighScore() {
+    public HighScore(String name,int score) {
         try {
             load();
+            boolean checkForHigh = HighScore.checkForNewRegister(name,score);
+            sort();
+            playerInfo.clear();
+            load();
+            if (checkForHigh)
+                JOptionPane.showMessageDialog(null,"You managed to set a new HighScore to the highscore table","Congratulations",JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -79,11 +86,11 @@ public class HighScore {
         String currentLine = reader.readLine();
 
         while (currentLine != null) {
-            String[] studentDetail = currentLine.split(" ");
+            String[] playerDetails = currentLine.split(" ");
 
-            String name = studentDetail[0];
+            String name = playerDetails[0];
 
-            int score = Integer.parseInt(studentDetail[1]);
+            int score = Integer.parseInt(playerDetails[1]);
 
             //Creating PlayerInfo object for every student record and adding it to ArrayList
             playerInfo.add(new PlayerInfo(name, score));
@@ -111,8 +118,10 @@ public class HighScore {
 
             writer.newLine();
             counter++;
-            if (counter == 10)
+            if (counter == 10) {
+                playerInfo.remove(9);
                 break;
+            }
         }
 
         //Closing the resources
