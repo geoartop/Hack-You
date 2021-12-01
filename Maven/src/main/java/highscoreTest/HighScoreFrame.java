@@ -34,7 +34,7 @@ public class HighScoreFrame {
     public void setLabels() {
         for (int i = 0; i < labels.length; i++) {
             labels[i] = new JLabel();
-            labels[i].setBounds(800/2-100, (i + 3) * 75, 500, 30);
+            labels[i].setBounds(800/2-100, (i + 3) * 50, 500, 30);
             labels[i].setBackground(new Color(50, 50, 50));
             labels[i].setForeground(new Color(5, 5, 5));
             labels[i].setFont(new Font("Calibri", Font.BOLD, 25));

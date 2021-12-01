@@ -16,8 +16,6 @@ public class HighScore {
             load();
             boolean checkForHigh = HighScore.checkForNewRegister(name,score);
             sort();
-            playerInfo.clear();
-            load();
             if (checkForHigh)
                 JOptionPane.showMessageDialog(null,"You managed to set a new HighScore to the highscore table","Congratulations",JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException e) {
@@ -112,16 +110,17 @@ public class HighScore {
 
         int counter = 0;
         for (PlayerInfo player : playerInfo) {
+            if (counter == 10) {
+                playerInfo.remove(counter);
+                break;
+            }
             writer.write(player.getName());
 
             writer.write(" " + player.getScore());
 
             writer.newLine();
             counter++;
-            if (counter == 10) {
-                playerInfo.remove(9);
-                break;
-            }
+
         }
 
         //Closing the resources
