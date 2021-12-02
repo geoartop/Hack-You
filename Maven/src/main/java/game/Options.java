@@ -70,7 +70,7 @@ public class Options implements ActionListener {
             System.exit(1);
         }
         //Για να μην κολλήσει το progressBar
-        if(LabyrinthFrame.hasStarted) {
+        if (LabyrinthFrame.hasStarted) {
             gp.gameState = gp.playState;
             LabyrinthFrame.updateBar(0);
         }

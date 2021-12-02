@@ -44,7 +44,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     /**
-     * Game loop ώστε να τρέχει με 60 fps
+     * Game loop customized ώστε να τρέχει το παιχνίδι με 60 fps
      */
     @Override
     public void run() {
@@ -80,7 +80,7 @@ public class GamePanel extends JPanel implements Runnable {
         tileM.draw(g2);
         player.draw(g2);
 
-        //Για να ζωγραφίσει στην οθόνη τη λέξη ΠΑΥΣΗ
+        //Για να ζωγραφίσει στην οθόνη τη λέξη ΠΑΥΣΗ σε περίπτωση pause
         if (gameState == pauseState) {
             g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 80F));
             String text = "ΠΑΥΣΗ";

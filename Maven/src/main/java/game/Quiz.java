@@ -10,6 +10,11 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Κλάση για τη φόρτωση random ερωτήσεων στον χρήστη προς απάντηση
+ *
+ * @author Team Hack-You
+ */
 public class Quiz implements ActionListener {
     ArrayList<String> questions = new ArrayList<String>();
     ArrayList<String> options = new ArrayList<String>();
@@ -29,8 +34,10 @@ public class Quiz implements ActionListener {
     JLabel[] labels = new JLabel[4];
 
     GamePanel gp;
+
     public Quiz(GamePanel gp) throws FileNotFoundException {
         this.gp=gp;
+        //Για να μη γίνεται skip της ερώτησης
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.setSize(700, 550);
         frame.setLayout(null);
@@ -65,11 +72,12 @@ public class Quiz implements ActionListener {
         index = random.nextInt(questions.size());
         displayQuestion();
 
-        Image img = Main.background.getImage();
+        /*Image img = Main.background.getImage();
         Image temp = img.getScaledInstance(685, 550, Image.SCALE_SMOOTH);
         ImageIcon back = new ImageIcon(temp);
         label.setIcon(back);
-        label.setBounds(0, 0, 700, 550);
+        label.setBounds(0, 0, 700, 550);*/
+        FrameSetter.scaleBackground(label,700,550);
         //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
         frame.add(label);
     }
@@ -85,11 +93,6 @@ public class Quiz implements ActionListener {
         for (int i = 0; i < buttons.length; i++) {
             buttons[i] = new JButton(String.valueOf(symbols[i]));
             ButtonSetter.setButton(buttons[i],0, (i + 1) * 100, 100, 100,"Calibri",35,this,1);
-            //buttons[i].setBounds(0, (i + 1) * 100, 100, 100);
-            //buttons[i].setFont(new Font("Calibri", Font.BOLD, 35));
-            //buttons[i].setFocusable(false);
-            //buttons[i].addActionListener(this);
-            //buttons[i].setText(String.valueOf(symbols[i]));
         }
     }
 

@@ -10,7 +10,7 @@ import java.awt.event.KeyListener;
  */
 public class KeyHandler implements KeyListener {
 
-    public boolean upPressed, downPressed, leftPressed, rightPressed;
+    protected boolean upPressed, downPressed, leftPressed, rightPressed;
     public GamePanel gp;
 
     @Override
@@ -68,6 +68,5 @@ public class KeyHandler implements KeyListener {
         if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT)
             rightPressed = false;
 
-        System.out.printf("You pressed %c \n", e.getKeyChar());
     }
 }

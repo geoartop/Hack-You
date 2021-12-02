@@ -143,17 +143,27 @@ public class LabyrinthFrame implements ActionListener {
         button.addActionListener(this);
     }
 
+    /**
+     * Μέθοδος ανανέωσης progressBar
+     * @param time : ο χρόνος που προσθαφαιρείται από το χρόνο που απομένει
+     */
     protected static void updateBar(int time) {
         fill_bar = new Thread(() -> fill(bar.getValue() + time));
         fill_bar.start();
     }
 
+    /**
+     * Μέθοδος τερματισμού παιχνιδιού
+     */
     protected static void closeFrame() {
-        go = false;
+        hasStarted = false;
         frame.dispose();
     }
 
-    public static void stopBar() {
+    /**
+     * Μέθοδος παύσης progressBar
+     */
+    protected static void stopBar() {
         go = false;
     }
 

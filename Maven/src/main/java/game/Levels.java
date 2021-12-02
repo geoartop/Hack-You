@@ -101,7 +101,6 @@ public class Levels implements ActionListener {
         frame.dispose();
         /*Δημιουργία λαβύρινθου και καθορισμός δυσκολίας ερωτήσεων*/
         LabyrinthFrame.setLabyrinth();
-        //Quiz.setQuestionsDifficulty();
         SwingUtilities.invokeLater(LabyrinthFrame::new);
         //TODO Κάθε κατηγορία λαβύρινθου να κάνει extend την κλάση Labyrinth!
 
