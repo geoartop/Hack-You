@@ -1,34 +1,33 @@
 package game;
+
 import javax.swing.*;
-import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * Κλάση που περιγράφει το παιχνίδι και τη "πλοκή"
  *
  * @author Team Hack-You
  */
-public class Description{
+public class Description {
 
     JFrame frame;
-    //-------test changes------//
-    JLabel label = new JLabel();
-    //-------test changes end------//
+    JLabel backgroundLabel = new JLabel();
 
     public Description() {
         frame = new JFrame(); //create frame
-        frame.setTitle("Game description"); //setTitle of frame
-        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        frame.setResizable(false);
-        frame.setSize(600, 600);
-        frame.setVisible(true);
-        frame.setLayout(null);
-        frame.setIconImage(Main.icon.getImage());
-        frame.setLocationRelativeTo(null);
-        //-------test changes------//
-        //Set Scaled Background
-        FrameSetter.scaleBackground(label,600,600);
-        frame.add(label);
+        FrameSetter.setFrame(frame, "Game description", 600, 600);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                Menu.description.setEnabled(true);
+                frame.dispose();
+            }
+        });
 
-        //-------test changes end------//
+        //Set Scaled Background
+        FrameSetter.scaleBackground(backgroundLabel, 600, 600);
+        frame.add(backgroundLabel);
     }
 }

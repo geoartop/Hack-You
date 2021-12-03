@@ -32,57 +32,29 @@ public class Username implements ActionListener {
     public Username() {
         // Εξατομίκευση παραθύρου
         frame = new JFrame();
-        frame.setTitle("Set Username");
+        FrameSetter.setFrame(frame,"Set Username",970,850);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //Για να μη μεγαλώνει/μικραίνει το μέγεθος του παραθύρου
-        frame.setResizable(false);
-        frame.setSize(970, 850);
-        frame.setVisible(true);
-        frame.setLayout(null);
-        frame.getContentPane().setBackground(Color.black);
-        frame.setIconImage(Main.icon.getImage());
-        //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
-        frame.setLocationRelativeTo(null);
-
-
-
-        /*submit.setHorizontalTextPosition(JButton.CENTER);
-        submit.setFont(new Font("Calibri",Font.BOLD,25));
-        submit.setForeground(Color.black);
-        submit.setBounds(400, 350, 150, 45);*/
-        //δεν κανουν τιποτα
-        //submit.setHorizontalAlignment(JButton.CENTER);
-        //submit.setVerticalAlignment(JButton.CENTER);
-        //submit.setFocusable(false);
-
         ButtonSetter.setButton(submit, 400, 350, 150, 45, "Calibri", 25,this,1);
-        //submit.addActionListener(this);
-        //submit.setForeground(Color.black);
         submit.setIcon(icon2);
-
 
         textField.setBounds(325, 280, 300, 50);
         textField.setPreferredSize(new Dimension(300, 50));
         textField.setFont(new Font("Calibri", Font.BOLD, 25));
         textField.setSelectedTextColor(Color.green);
-        //Key Bind
-        //submit.addKeyListener(this);
 
         frame.add(submit);
         frame.add(textField);
         // Για να λειτουργεί το κουμπί enter
         frame.getRootPane().setDefaultButton(submit);
-        //-------test changes------//
-        label.setIcon(Main.background);
-        label.setBounds(0, 0, 970, 850);
+        FrameSetter.scaleBackground(label,970,850);
+        /*label.setIcon(Main.background);
+        label.setBounds(0, 0, 970, 850);*/
         frame.add(label);
-        //-------test changes end------//
-
-
     }
 
     /**
      * Ενέργεια όταν κάνουμε κλικ στο κουμπί ή όταν πατάμε enter
+     * +! Γίνεται έλεγχος για την ύπαρξη κενών ώστε να μην κολλήσει μετά η καταχώρηση HighScore
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -97,8 +69,13 @@ public class Username implements ActionListener {
             } else if (username.toLowerCase(Locale.ROOT).equals("artopoulos")) {
                 JOptionPane.showMessageDialog(null, "You lost already, good paradise", "Announcement", JOptionPane.WARNING_MESSAGE);
                 System.exit(1);
+            } else if (username.contains(" ")){
+                textField.setForeground(Color.red);
+                JOptionPane.showMessageDialog(null, "Your username cannot have whitespace", "Reminder", JOptionPane.ERROR_MESSAGE);
+                textField.setForeground(Color.black);
+                return;
             }
-            new Menu();
+            SwingUtilities.invokeLater(Menu::new);
         }
         frame.dispose();
     }

@@ -21,7 +21,7 @@ public class LabyrinthFrame implements ActionListener {
     /**
      * ProgressBar
      */
-    //Δηλώνω static το frame έτσι ώστε να μπορεί να ανοιγοκλείνει από τα Options
+    //Δηλώνω static το frame έτσι ώστε να μπορεί να ανανεώνεται από τα Options
     protected static JFrame frame;
     static JProgressBar bar;
     GamePanel gamePanel = new GamePanel();
@@ -70,7 +70,7 @@ public class LabyrinthFrame implements ActionListener {
         frame = new JFrame();
         frame.setTitle("Labyrinth"); //setTitle of frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(true);
+        frame.setResizable(false);
         frame.setSize(780, 680);
         frame.setVisible(true);
         frame.setLayout(new BorderLayout());

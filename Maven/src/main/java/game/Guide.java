@@ -1,6 +1,11 @@
 package game;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * Κλάση για περιγραφή οδηγιών
@@ -8,31 +13,34 @@ import java.awt.*;
  * @author Team Hack-You
  */
 
-public class Guide {
+public class Guide implements ActionListener {
 
     JFrame frame;
-    //-------test changes------//
-    JLabel label = new JLabel();
-    //-------test changes end------//
+    JLabel backgroundLabel = new JLabel();
 
     public Guide() {
+        frame = new JFrame();
         // Εξατομίκευση παραθύρου
-        frame = new JFrame(); //create frame
-        frame.setTitle("Guide"); //setTitle of frame
-        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        frame.setResizable(false);
-        frame.setSize(600, 600);
-        frame.setVisible(true);
-        frame.setLayout(null);
-        frame.setIconImage(Main.icon.getImage());
-        frame.setLocationRelativeTo(null);
-        //-------test changes------//
+        FrameSetter.setFrame(frame, "Guide", 600, 600);
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                Menu.how2play.setEnabled(true);
+                Options.showGuide.setEnabled(true);
+                frame.dispose();
+            }
+        });
         //Set Scaled Background
-        FrameSetter.scaleBackground(label,600,600);
-        frame.add(label);
+        FrameSetter.scaleBackground(backgroundLabel, 600, 600);
+        frame.add(backgroundLabel);
 
         //-------test changes end------//
-
     }
 
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
 }

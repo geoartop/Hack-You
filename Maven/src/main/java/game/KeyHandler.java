@@ -12,6 +12,7 @@ public class KeyHandler implements KeyListener {
 
     protected boolean upPressed, downPressed, leftPressed, rightPressed;
     public GamePanel gp;
+    protected static boolean escPressed = false;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -35,7 +36,8 @@ public class KeyHandler implements KeyListener {
         if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT)
             rightPressed = true;
 
-        if (code == KeyEvent.VK_SPACE && LabyrinthFrame.hasStarted) {
+        // Για να μην επιτρέπεται η συνέχιση του παιχνιδιού μέχρι να κλείσει το παράθυρο options
+        if (code == KeyEvent.VK_SPACE && LabyrinthFrame.hasStarted && !Options.isActive) {
             if (gp.gameState == gp.playState) {
                 LabyrinthFrame.stopBar();
                 gp.gameState = gp.pauseState;
@@ -45,6 +47,12 @@ public class KeyHandler implements KeyListener {
             }
         }
         if (code == KeyEvent.VK_ESCAPE) {
+            //Για να μπορεί ο χρήστης να ανοίξει μόνο ένα παράθυρο options χωρίς να διακόπτεται η ομαλή ροή του προγράμματος
+            if( !escPressed ){
+                escPressed=true;
+            }else {
+                return;
+            }
             if (gp.gameState == gp.pauseState) {
                 SwingUtilities.invokeLater(() -> new Options(gp));
                 return;

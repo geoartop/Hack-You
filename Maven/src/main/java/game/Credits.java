@@ -1,6 +1,9 @@
 package game;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * Κλάση για παρουσίαση μελών και ρόλων αυτών
@@ -14,26 +17,25 @@ import java.awt.*;
 public class Credits {
 
     JFrame frame;
-    //-------test changes------//
-    JLabel label = new JLabel(); //create label
-    //-------test changes end------//
+    JLabel backgroundLabel = new JLabel();
 
     public Credits() {
+        frame = new JFrame();
         // Εξατομίκευση παραθύρου
-        frame = new JFrame(); //create frame
-        frame.setTitle("Credits"); //setTitle of frame
-        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        frame.setResizable(false);
-        frame.setSize(600, 600);
-        frame.setVisible(true);
-        frame.setLayout(null);
-        frame.setIconImage(Main.icon.getImage());
-        frame.setLocationRelativeTo(null);
+        FrameSetter.setFrame(frame, "Credits", 600, 600);
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                Menu.credits.setEnabled(true);
+                frame.dispose();
+            }
+        });
         //-------test changes------//
 
         //Set Scaled Background
-        FrameSetter.scaleBackground(label,600,600);
-        frame.add(label);
+        FrameSetter.scaleBackground(backgroundLabel, 600, 600);
+        frame.add(backgroundLabel);
 
 
         //-------test changes end------//

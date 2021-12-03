@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Επιλογή Επίπεδου δυσκολίας
+ * Παράθυρο επιλογής επίπεδου δυσκολίας
  *
  * @author Team Hack-You
  */
@@ -26,31 +26,18 @@ public class Levels implements ActionListener {
     JButton easy = new JButton("Easy");
     JButton medium = new JButton("Medium");
     JButton hard = new JButton("Hard");
-    //-------test changes------//
-    JLabel label2 = new JLabel();
-    // -------test changes end------//
 
-    /*
-     * Θέλουμε να γνωρίζει η κλάση LabyrinthFrame το επίπεδο δυσκολίας που επίλεξε
-     */
+    JLabel backgroundLabel = new JLabel();
+
+    //Θέλουμε να γνωρίζει η κλάση LabyrinthFrame το επίπεδο δυσκολίας που επίλεξε ο παίκτης
     protected static String difficulty = "";
 
     public Levels() {
         // Εξατομίκευση παραθύρου
         frame = new JFrame(); //create frame
-        frame.setTitle("Select Difficulty"); //setTitle of frame
+        FrameSetter.setFrame(frame,"Select Difficulty",600,600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-        frame.setSize(600, 600);
-        frame.setVisible(true);
-        frame.setLayout(null);
-        frame.setIconImage(Main.icon.getImage());
-        //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
-        frame.setLocationRelativeTo(null);
 
-        /*setButton(easy, BY);
-        setButton(medium, BY + 100);
-        setButton(hard, BY + 200);*/
         ButtonSetter.setButton(easy,BX,BY,B_WIDTH,B_HEIGHT,"Calibri",22,this,2);
         ButtonSetter.setButton(medium,BX,BY+100,B_WIDTH,B_HEIGHT,"Calibri",22,this,2);
         ButtonSetter.setButton(hard,BX,BY+200,B_WIDTH,B_HEIGHT,"Calibri",22,this,2);
@@ -59,29 +46,14 @@ public class Levels implements ActionListener {
         medium.setIcon(medium_icon);
         hard.setIcon(hard_icon);
 
-        /*Προσθήκη συστατικών*/
+        //Προσθήκη συστατικών
         frame.add(easy);
         frame.add(medium);
         frame.add(hard);
-        //-------test changes------//
         //Set Scaled Background
-        FrameSetter.scaleBackground(label2,600,600);
-        frame.add(label2);
-        //-------test changes end------//
+        FrameSetter.scaleBackground(backgroundLabel,600,600);
+        frame.add(backgroundLabel);
     }
-
-    /**
-     * Μέθοδος δημιουργίας Κουμπιών
-     */
-    /*public void setButton(JButton button, int y) {
-        button.setBounds(BX, y, B_WIDTH, B_HEIGHT);
-        button.setFocusable(false);
-        button.addActionListener(this);
-        button.setHorizontalAlignment(JButton.CENTER);
-        button.setHorizontalTextPosition(JButton.CENTER);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Calibri", Font.ITALIC, 22));
-    }*/
 
     /**
      * Ενέργεια όταν κάνουμε κλικ στα κουμπιά
@@ -99,7 +71,7 @@ public class Levels implements ActionListener {
             difficulty = "Hard";
         }
         frame.dispose();
-        /*Δημιουργία λαβύρινθου και καθορισμός δυσκολίας ερωτήσεων*/
+        //Δημιουργία λαβύρινθου και καθορισμός δυσκολίας ερωτήσεων
         LabyrinthFrame.setLabyrinth();
         SwingUtilities.invokeLater(LabyrinthFrame::new);
         //TODO Κάθε κατηγορία λαβύρινθου να κάνει extend την κλάση Labyrinth!
