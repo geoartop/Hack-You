@@ -132,7 +132,7 @@ public class LabyrinthFrame implements ActionListener {
         }
         bar.setString("Game Over");
         SwingUtilities.invokeLater(DeathFrame::new);
-        frame.dispose();
+        closeFrame();
     }
 
     private void setButton(JButton button, int y) {
