@@ -9,6 +9,8 @@ public class Player extends Entity {
 
     GamePanel gp;
     KeyHandler keyH;
+    int worldX = 0;
+    int worldY = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;

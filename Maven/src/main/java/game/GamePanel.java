@@ -21,6 +21,9 @@ public class GamePanel extends JPanel implements Runnable {
     Thread gameThread;
     Player player = new Player(this, keyH);
     public CollisionCheck collisionCheck = new CollisionCheck(this);
+    public SuperObject[] obj = new SuperObject[2];
+    public AssetSetter aSetter = new AssetSetter(this);
+
 
     //Κατάσταση παιχνιδιού
     public int gameState;
@@ -34,6 +37,10 @@ public class GamePanel extends JPanel implements Runnable {
         this.addKeyListener(keyH);
         this.setFocusable(true);
         startGameThread();
+    }
+
+    public void setupGame() {
+        aSetter.setObject();
     }
 
     public void startGameThread() {
@@ -78,6 +85,12 @@ public class GamePanel extends JPanel implements Runnable {
 
         Graphics2D g2 = (Graphics2D) g;
         tileM.draw(g2);
+        for (SuperObject superObject : obj) {
+            if (superObject != null) {
+                superObject.draw(g2, this);
+            }
+
+        }
         player.draw(g2);
 
         //Για να ζωγραφίσει στην οθόνη τη λέξη ΠΑΥΣΗ σε περίπτωση pause

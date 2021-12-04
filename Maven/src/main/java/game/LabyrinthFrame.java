@@ -95,6 +95,7 @@ public class LabyrinthFrame implements ActionListener {
     public LabyrinthFrame() {
         createFrame();
         createBar();
+
         setButton(start, 500);
         start.setBackground(Color.green);
         start.setFont(new Font("Calibri", Font.ITALIC, 25));
@@ -105,6 +106,7 @@ public class LabyrinthFrame implements ActionListener {
         setButton(testQuestionFrame, 400);
         testQuestionFrame.setEnabled(false);
         frame.add(gamePanel, BorderLayout.CENTER);
+        gamePanel.setupGame();
 
     }
 
