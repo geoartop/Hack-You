@@ -13,15 +13,17 @@ public class Description {
 
     JFrame frame;
     JLabel backgroundLabel = new JLabel();
+    Menu menu;
 
-    public Description() {
+    public Description(Menu menu) {
+        this.menu = menu;
         frame = new JFrame(); //create frame
         FrameSetter.setFrame(frame, "Game description", 600, 600);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                Menu.description.setEnabled(true);
+                menu.description.setEnabled(true);
                 frame.dispose();
             }
         });

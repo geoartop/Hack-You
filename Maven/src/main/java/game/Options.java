@@ -10,7 +10,7 @@ public class Options implements ActionListener {
     JFrame frame;
     JLabel backgroundLabel = new JLabel();
     JButton returnBack = new JButton("return");
-    protected static JButton showGuide = new JButton("show Guide");
+    protected JButton showGuide = new JButton("show Guide");
     JButton restart = new JButton("restart");
     JButton end = new JButton("exit");
     protected static boolean isActive = false;
@@ -61,7 +61,7 @@ public class Options implements ActionListener {
         if (e.getSource() == returnBack) {
             frame.dispose();
         } else if (e.getSource() == showGuide) {
-            SwingUtilities.invokeLater(Guide::new);
+            new Guide(this);
             showGuide.setEnabled(false);
             return;
         } else if (e.getSource() == restart) {

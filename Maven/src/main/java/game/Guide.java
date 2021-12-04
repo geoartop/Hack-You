@@ -17,8 +17,11 @@ public class Guide implements ActionListener {
 
     JFrame frame;
     JLabel backgroundLabel = new JLabel();
+    Menu menu;
+    Options options;
 
-    public Guide() {
+    public Guide(Options options) {
+        this.options = options;
         frame = new JFrame();
         // Εξατομίκευση παραθύρου
         FrameSetter.setFrame(frame, "Guide", 600, 600);
@@ -26,8 +29,7 @@ public class Guide implements ActionListener {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                Menu.how2play.setEnabled(true);
-                Options.showGuide.setEnabled(true);
+                options.showGuide.setEnabled(true);
                 frame.dispose();
             }
         });
@@ -35,7 +37,25 @@ public class Guide implements ActionListener {
         FrameSetter.scaleBackground(backgroundLabel, 600, 600);
         frame.add(backgroundLabel);
 
-        //-------test changes end------//
+    }
+
+    public Guide(Menu menu) {
+        this.menu = menu;
+        frame = new JFrame();
+        // Εξατομίκευση παραθύρου
+        FrameSetter.setFrame(frame, "Guide", 600, 600);
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                menu.how2play.setEnabled(true);
+                frame.dispose();
+            }
+        });
+        //Set Scaled Background
+        FrameSetter.scaleBackground(backgroundLabel, 600, 600);
+        frame.add(backgroundLabel);
+
     }
 
 

@@ -25,9 +25,9 @@ public class Menu implements ActionListener {
 
     JFrame frame = new JFrame();
     JButton start = new JButton("Start Game");
-    static JButton how2play = new JButton("How to Play");
-    static JButton credits = new JButton("Show Credits");
-    static JButton description = new JButton("Game Description");
+    JButton how2play = new JButton("How to Play");
+    JButton credits = new JButton("Show Credits");
+    JButton description = new JButton("Game Description");
     JLabel label = new JLabel();
     //-------test changes------//
     JLabel label2 = new JLabel();
@@ -93,13 +93,13 @@ public class Menu implements ActionListener {
             new Levels();
             frame.dispose();
         } else if (e.getSource() == how2play) {
-            new Guide();
+            new Guide(this);
             how2play.setEnabled(false);
         } else if (e.getSource() == credits) {
-            new Credits();
+            new Credits(this);
             credits.setEnabled(false);
         } else {
-            new Description();
+            new Description(this);
             description.setEnabled(false);
         }
     }
