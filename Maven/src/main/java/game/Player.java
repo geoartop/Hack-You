@@ -1,8 +1,10 @@
 package game;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Player extends Entity {
@@ -11,6 +13,7 @@ public class Player extends Entity {
     KeyHandler keyH;
     int worldX = 0;
     int worldY = 0;
+    // int questionsAnswered = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
@@ -19,6 +22,8 @@ public class Player extends Entity {
         solidArea = new Rectangle();
         solidArea.x=8;
         solidArea.y=32;
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
         solidArea.width=32;
         solidArea.height=16;
 
@@ -61,8 +66,10 @@ public class Player extends Entity {
                 direction = "right";
             }
 
-            collisionOn=false;
+            collisionOn = false;
             gp.collisionCheck.checkTile(this);
+            int objIndex = gp.collisionCheck.checkObject(this, true);
+            interact(objIndex);
 
             //If collision is false only then can player move on
             if(!collisionOn){
@@ -91,6 +98,27 @@ public class Player extends Entity {
                     spriteNum = 1;
                 }
                 spriteCounter = 0;
+            }
+        }
+    }
+
+    public void interact(int index) {
+
+        if (index != 999) {
+            String objectName = gp.obj[index].name;
+            if (objectName == "Question") {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Quiz quiz = new Quiz(gp);
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                gp.obj[index] = null;
+
             }
         }
     }
