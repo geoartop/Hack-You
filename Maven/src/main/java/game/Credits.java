@@ -17,8 +17,10 @@ public class Credits {
 
     JFrame frame;
     JLabel backgroundLabel = new JLabel();
+    Menu menu;
 
-    public Credits() {
+    public Credits(Menu menu) {
+        this.menu = menu;
         frame = new JFrame();
         // Εξατομίκευση παραθύρου
         FrameSetter.setFrame(frame, "Credits", 600, 600);
@@ -26,17 +28,14 @@ public class Credits {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                Menu.credits.setEnabled(true);
+                menu.credits.setEnabled(true);
                 frame.dispose();
             }
         });
-        //-------test changes------//
 
         //Set Scaled Background
         FrameSetter.scaleBackground(backgroundLabel, 600, 600);
         frame.add(backgroundLabel);
 
-
-        //-------test changes end------//
     }
 }
