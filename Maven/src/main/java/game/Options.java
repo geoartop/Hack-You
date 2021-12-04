@@ -75,8 +75,8 @@ public class Options implements ActionListener {
         if (LabyrinthFrame.hasStarted) {
             gp.gameState = gp.playState;
             LabyrinthFrame.updateBar(0);
-            isActive = false;
         }
+        isActive = false;
         KeyHandler.escPressed = false;
 
     }
