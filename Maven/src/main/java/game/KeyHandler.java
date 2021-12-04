@@ -28,17 +28,16 @@ public class KeyHandler implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
 
-        if (!Options.isActive && !quizTrig) {
-            if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP)
-                upPressed = true;
-            if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)
-                downPressed = true;
-            if (code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT)
-                leftPressed = true;
-            if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT)
-                rightPressed = true;
-        }
-        // Για να μην επιτρέπεται η συνέχιση του παιχνιδιού μέχρι να κλείσει το παράθυρο options
+        if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP)
+            upPressed = true;
+        if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)
+            downPressed = true;
+        if (code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT)
+            leftPressed = true;
+        if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT)
+            rightPressed = true;
+
+        // Για να μην επιτρέπεται η συνέχιση του παιχνιδιού μέχρι να κλείσει το παράθυρο options/quiz
         if (code == KeyEvent.VK_SPACE && LabyrinthFrame.hasStarted && !Options.isActive && !quizTrig) {
             if (gp.gameState == gp.playState) {
                 LabyrinthFrame.stopBar();
@@ -61,6 +60,8 @@ public class KeyHandler implements KeyListener {
                 SwingUtilities.invokeLater(() -> new Options(gp));
                 return;
             }
+            //Για να μην κολλήσει η κίνηση του παίκτη
+            gp.player.stabilizePlayer();
             gp.gameState = gp.pauseState;
             LabyrinthFrame.stopBar();
             SwingUtilities.invokeLater(() -> new Options(gp));
@@ -71,7 +72,6 @@ public class KeyHandler implements KeyListener {
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();
 
-        //if(!Options.isActive && !quizTrig) {
         if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP)
             upPressed = false;
         if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)
@@ -80,7 +80,7 @@ public class KeyHandler implements KeyListener {
             leftPressed = false;
         if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT)
             rightPressed = false;
-        //}
+
 
     }
 }
