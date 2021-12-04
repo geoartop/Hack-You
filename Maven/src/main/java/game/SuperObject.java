@@ -13,8 +13,7 @@ public class SuperObject {
     public int solidAreaDefaultY = 0;
 
     public void draw(Graphics2D g2, GamePanel gp) {
-
         g2.drawImage(image, worldX, worldY, gp.tileSize, gp.tileSize, null);
-        }
-
     }
+
+}

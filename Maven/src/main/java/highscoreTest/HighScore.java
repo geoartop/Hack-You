@@ -14,10 +14,12 @@ public class HighScore {
     public HighScore(String name,int score) {
         try {
             load();
-            boolean checkForHigh = HighScore.checkForNewRegister(name,score);
-            sort();
-            if (checkForHigh)
-                JOptionPane.showMessageDialog(null,"You managed to set a new HighScore to the highscore table","Congratulations",JOptionPane.INFORMATION_MESSAGE);
+            boolean checkForNewHigh = HighScore.checkForNewRegister(name,score);
+            //sort();
+            if (checkForNewHigh) {
+                sort();
+                JOptionPane.showMessageDialog(null, "You managed to set a new HighScore to the highscore table", "Congratulations", JOptionPane.INFORMATION_MESSAGE);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -57,7 +59,7 @@ public class HighScore {
             fileWriter = new FileWriter("src/main/resources/HighScore.txt", true);
             bufferedWriter = new BufferedWriter(fileWriter);
             printWriter = new PrintWriter(bufferedWriter);
-            //Writing text to file
+            //Writing text to file με συγκεκριμένη μορφοποίηση
             printWriter.print(String.format("%s %d", name, score));
         } catch (IOException e) {
             e.printStackTrace();
@@ -75,12 +77,7 @@ public class HighScore {
 
 
     public static void load() throws IOException {
-        //Creating BufferedReader object to read the input text file
-
         BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/HighScore.txt"));
-
-        //Reading Players records one by one
-
         String currentLine = reader.readLine();
 
         while (currentLine != null) {
@@ -99,16 +96,12 @@ public class HighScore {
     }
 
     public static void sort() throws IOException {
-
         //Sorting ArrayList playerInfo based on scores
-
         playerInfo.sort(new scoresCompare());
-
-        //Creating BufferedWriter object to write into output text file
-
         BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/HighScore.txt"));
 
         int counter = 0;
+        //Ξαναδημιουργώ το αρχείο βάζοντας τα playerInfo σε σωστή σειρά και να είναι μέχρι 10
         for (PlayerInfo player : playerInfo) {
             if (counter == 10) {
                 playerInfo.remove(counter);
@@ -123,7 +116,6 @@ public class HighScore {
 
         }
 
-        //Closing the resources
         writer.close();
     }
 

@@ -125,6 +125,7 @@ public class Quiz implements ActionListener {
         gp.gameState = gp.playState;
         LabyrinthFrame.updateBar(time);
         frame.dispose();
+        KeyHandler.quizTrig = false;
 
     }
 

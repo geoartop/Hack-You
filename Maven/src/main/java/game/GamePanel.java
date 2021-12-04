@@ -25,7 +25,7 @@ public class GamePanel extends JPanel implements Runnable {
     public AssetSetter aSetter = new AssetSetter(this);
 
 
-    //Κατάσταση παιχνιδιού
+    //Μεταβλητές για την κατάσταση παιχνιδιού
     public int gameState;
     public final int playState = 1;
     public final int pauseState = 2;
@@ -43,6 +43,9 @@ public class GamePanel extends JPanel implements Runnable {
         aSetter.setObject();
     }
 
+    /**
+     * Μέθοδος εκκίνησης παιχνιδιού
+     */
     public void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start();
@@ -51,7 +54,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     /**
-     * Game loop customized ώστε να τρέχει το παιχνίδι με 60 fps
+     * Game loop εξατομικευμένο ώστε να τρέχει το παιχνίδι με 60 fps
      */
     @Override
     public void run() {
@@ -75,6 +78,9 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Μέθοδος ανανέωσης γραφικών χαρακτήρα
+     */
     public void update() {
         if (gameState == playState)
             player.update();
@@ -92,7 +98,6 @@ public class GamePanel extends JPanel implements Runnable {
 
         }
         player.draw(g2);
-
         //Για να ζωγραφίσει στην οθόνη τη λέξη ΠΑΥΣΗ σε περίπτωση pause
         if (gameState == pauseState) {
             g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 80F));

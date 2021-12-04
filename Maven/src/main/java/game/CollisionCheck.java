@@ -1,5 +1,8 @@
 package game;
 
+/**
+ * Κλάση για τον έλεγχο συγκρούσεων του παίκτη με τοίχους
+ */
 public class CollisionCheck {
 
     GamePanel gp;

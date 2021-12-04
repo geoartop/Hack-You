@@ -13,6 +13,7 @@ public class KeyHandler implements KeyListener {
     protected boolean upPressed, downPressed, leftPressed, rightPressed;
     public GamePanel gp;
     protected static boolean escPressed = false;
+    protected static boolean quizTrig = false;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -27,17 +28,18 @@ public class KeyHandler implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
 
-        if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP)
-            upPressed = true;
-        if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)
-            downPressed = true;
-        if (code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT)
-            leftPressed = true;
-        if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT)
-            rightPressed = true;
-
+        if (!Options.isActive && !quizTrig) {
+            if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP)
+                upPressed = true;
+            if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)
+                downPressed = true;
+            if (code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT)
+                leftPressed = true;
+            if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT)
+                rightPressed = true;
+        }
         // Για να μην επιτρέπεται η συνέχιση του παιχνιδιού μέχρι να κλείσει το παράθυρο options
-        if (code == KeyEvent.VK_SPACE && LabyrinthFrame.hasStarted && !Options.isActive) {
+        if (code == KeyEvent.VK_SPACE && LabyrinthFrame.hasStarted && !Options.isActive && !quizTrig) {
             if (gp.gameState == gp.playState) {
                 LabyrinthFrame.stopBar();
                 gp.gameState = gp.pauseState;
@@ -46,14 +48,16 @@ public class KeyHandler implements KeyListener {
                 LabyrinthFrame.updateBar(0);
             }
         }
-        if (code == KeyEvent.VK_ESCAPE) {
+        if (code == KeyEvent.VK_ESCAPE && !quizTrig) {
             //Για να μπορεί ο χρήστης να ανοίξει μόνο ένα παράθυρο options χωρίς να διακόπτεται η ομαλή ροή του προγράμματος
-            if( !escPressed ){
-                escPressed=true;
-            }else {
+            if (!escPressed) {
+                escPressed = true;
+            } else {
                 return;
             }
             if (gp.gameState == gp.pauseState) {
+                //Για να μην κολλήσει η κίνηση του παίκτη
+                gp.player.stabilizePlayer();
                 SwingUtilities.invokeLater(() -> new Options(gp));
                 return;
             }
@@ -67,6 +71,7 @@ public class KeyHandler implements KeyListener {
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();
 
+        //if(!Options.isActive && !quizTrig) {
         if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP)
             upPressed = false;
         if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)
@@ -75,6 +80,7 @@ public class KeyHandler implements KeyListener {
             leftPressed = false;
         if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT)
             rightPressed = false;
+        //}
 
     }
 }

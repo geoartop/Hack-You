@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Objects;
 
 public class Player extends Entity {
 
@@ -20,12 +21,12 @@ public class Player extends Entity {
         this.keyH = keyH;
 
         solidArea = new Rectangle();
-        solidArea.x=8;
-        solidArea.y=32;
+        solidArea.x = 8;
+        solidArea.y = 32;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
-        solidArea.width=32;
-        solidArea.height=16;
+        solidArea.width = 32;
+        solidArea.height = 16;
 
         setDefaultValues();
         getImage();
@@ -54,6 +55,9 @@ public class Player extends Entity {
         direction = "up";
     }
 
+    /**
+     * Μέθοδος ανανέωσης κίνησης παίκτη
+     */
     public void update() {
         if (keyH.upPressed || keyH.downPressed || keyH.rightPressed || keyH.leftPressed) {
             if (keyH.upPressed) {
@@ -72,8 +76,8 @@ public class Player extends Entity {
             interact(objIndex);
 
             //If collision is false only then can player move on
-            if(!collisionOn){
-                switch (direction){
+            if (!collisionOn) {
+                switch (direction) {
                     case "up":
                         y -= speed;
                         break;
@@ -102,19 +106,29 @@ public class Player extends Entity {
         }
     }
 
+    public void stabilizePlayer(){
+        keyH.upPressed = false;
+        keyH.downPressed = false;
+        keyH.rightPressed = false;
+        keyH.leftPressed = false;
+    }
+
     public void interact(int index) {
 
         if (index != 999) {
             String objectName = gp.obj[index].name;
-            if (objectName == "Question") {
-                SwingUtilities.invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Quiz quiz = new Quiz(gp);
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
+            if (Objects.equals(objectName, "Question")) {
+                //Για να μην κολλήσει το progressBar και η ροή του παιχνιδιού
+                LabyrinthFrame.stopBar();
+                gp.gameState = gp.pauseState;
+                KeyHandler.quizTrig = true;
+                //Για να μην κολλήσει η κίνηση του παίκτη
+                stabilizePlayer();
+                SwingUtilities.invokeLater(() -> {
+                    try {
+                        new Quiz(gp);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
                     }
                 });
                 gp.obj[index] = null;
