@@ -56,12 +56,12 @@ public class KeyHandler implements KeyListener {
             }
             if (gp.gameState == gp.pauseState) {
                 //Για να μην κολλήσει η κίνηση του παίκτη
-                gp.player.stabilizePlayer();
+                //gp.player.stabilizePlayer();
                 SwingUtilities.invokeLater(() -> new Options(gp));
                 return;
             }
             //Για να μην κολλήσει η κίνηση του παίκτη
-            gp.player.stabilizePlayer();
+            //gp.player.stabilizePlayer();
             gp.gameState = gp.pauseState;
             LabyrinthFrame.stopBar();
             SwingUtilities.invokeLater(() -> new Options(gp));

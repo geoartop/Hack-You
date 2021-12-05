@@ -79,7 +79,6 @@ public class LabyrinthFrame implements ActionListener {
         bar.setVisible(false);
     }
 
-
     public LabyrinthFrame() {
         createFrame();
         createBar();
@@ -96,9 +95,9 @@ public class LabyrinthFrame implements ActionListener {
 
     }
 
-
     /**
      * Μέθοδος λειτουργίας progressBar
+     *
      * @param flg : ο χρόνος που θα έχει ο παίκτης
      */
     private static void fill(int flg) {
@@ -134,6 +133,7 @@ public class LabyrinthFrame implements ActionListener {
 
     /**
      * Μέθοδος ανανέωσης progressBar
+     *
      * @param time : ο χρόνος που προσθαφαιρείται από το χρόνο που απομένει
      */
     protected static void updateBar(int time) {

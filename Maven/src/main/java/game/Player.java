@@ -47,8 +47,9 @@ public class Player extends Entity {
 
     /**
      * Διάβασμα αρχείων για τη φόρτωση των animation
+     *
      * @param images : ο πίνακας εικόνων κινήσεων
-     * @param move : καθορίζει την κατηγορία κίνησης
+     * @param move   : καθορίζει την κατηγορία κίνησης
      * @throws IOException
      */
     private void setMovement(BufferedImage[] images, String move) throws IOException {
@@ -120,7 +121,7 @@ public class Player extends Entity {
     /**
      * Μέθοδος σταθεροποίησης κίνησης παίκτη
      */
-    public void stabilizePlayer(){
+    public void stabilizePlayer() {
         keyH.upPressed = false;
         keyH.downPressed = false;
         keyH.rightPressed = false;
@@ -132,11 +133,11 @@ public class Player extends Entity {
             String objectName = gp.obj[index].name;
             if (Objects.equals(objectName, "Question")) {
                 //Για να μην κολλήσει το progressBar και η ροή του παιχνιδιού
+                //stabilizePlayer();
                 LabyrinthFrame.stopBar();
                 gp.gameState = gp.pauseState;
                 KeyHandler.quizTrig = true;
-                //Για να μην κολλήσει η κίνηση του παίκτη
-                stabilizePlayer();
+
                 SwingUtilities.invokeLater(() -> {
                     try {
                         new Quiz(gp);
