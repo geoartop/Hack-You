@@ -30,7 +30,7 @@ public class Menu implements ActionListener {
     JButton description = new JButton("Game Description");
     JLabel label = new JLabel();
     //-------test changes------//
-    JLabel label2 = new JLabel();
+    JLabel backgroundLabel = new JLabel();
     //-------test changes end------//
 
     public Menu() {
@@ -50,23 +50,22 @@ public class Menu implements ActionListener {
         setButton(credits, Y + 200);
         setButton(description, Y + 300);
 
-
         frame.add(start);
         frame.add(how2play);
         frame.add(credits);
         frame.add(description);
         frame.add(label);
         //-------test changes------//
-        label2.setIcon(Main.background);
-        label2.setBounds(0, 0, 1000, 1000);
-        frame.add(label2);
+        backgroundLabel.setIcon(Main.background);
+        backgroundLabel.setBounds(0, 0, 1000, 1000);
+        frame.add(backgroundLabel);
         //-------test changes end------//
     }
 
     /**
      * Μέθοδος δημιουργίας Κουμπιών
      */
-    public void setButton(JButton button, int y) {
+    private void setButton(JButton button, int y) {
         counter++;
         button.setBounds(X, y, WIDTH, HEIGHT);
         button.setFocusable(false);
