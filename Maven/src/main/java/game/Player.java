@@ -14,7 +14,6 @@ public class Player extends Entity {
     KeyHandler keyH;
     int worldX = 0;
     int worldY = 0;
-    // int questionsAnswered = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
@@ -32,7 +31,10 @@ public class Player extends Entity {
         getImage();
     }
 
-    public void getImage() {
+    /**
+     * Προετοιμασία των animation
+     */
+    private void getImage() {
         try {
             setMovement(up, "thiseaswalkingup");
             setMovement(down, "thiseaswalkingdown");
@@ -43,12 +45,21 @@ public class Player extends Entity {
         }
     }
 
-    public void setMovement(BufferedImage[] images, String move) throws IOException {
+    /**
+     * Διάβασμα αρχείων για τη φόρτωση των animation
+     * @param images : ο πίνακας εικόνων κινήσεων
+     * @param move : καθορίζει την κατηγορία κίνησης
+     * @throws IOException
+     */
+    private void setMovement(BufferedImage[] images, String move) throws IOException {
         for (int i = 0; i < images.length; i++)
             images[i] = ImageIO.read(getClass().getResourceAsStream(String.format("/thiseas2/%s%d.png", move, i + 1)));
     }
 
-    public void setDefaultValues() {
+    /**
+     * Μέθοδος καθορισμού αρχικής θέσης παίκτη
+     */
+    private void setDefaultValues() {
         x = 50;
         y = 500;
         speed = 2;
@@ -106,6 +117,9 @@ public class Player extends Entity {
         }
     }
 
+    /**
+     * Μέθοδος σταθεροποίησης κίνησης παίκτη
+     */
     public void stabilizePlayer(){
         keyH.upPressed = false;
         keyH.downPressed = false;
@@ -113,8 +127,7 @@ public class Player extends Entity {
         keyH.leftPressed = false;
     }
 
-    public void interact(int index) {
-
+    private void interact(int index) {
         if (index != 999) {
             String objectName = gp.obj[index].name;
             if (Objects.equals(objectName, "Question")) {

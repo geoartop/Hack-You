@@ -9,10 +9,6 @@ import java.awt.event.WindowEvent;
  *
  * @author Team Hack-You
  */
-
-/*
- * Ιδέα να φορτώνουν τα credits όπως στις ταινίες
- */
 public class Credits {
 
     JFrame frame;

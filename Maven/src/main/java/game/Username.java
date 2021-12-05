@@ -27,13 +27,18 @@ public class Username implements ActionListener {
     /**
      * Θέλουμε να γνωρίζουν όλες οι κλάσεις το username του παίκτη ώστε να μπορεί να αποθηκευτεί πιο εύκολα
      */
-    protected static String username;
+    private String username;
+
+    public String getUsername() {
+        return username;
+    }
 
     public Username() {
         // Εξατομίκευση παραθύρου
         frame = new JFrame();
         FrameSetter.setFrame(frame,"Set Username",970,850);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         ButtonSetter.setButton(submit, 400, 350, 150, 45, "Calibri", 25,this,1);
         submit.setIcon(icon2);
 
@@ -47,8 +52,6 @@ public class Username implements ActionListener {
         // Για να λειτουργεί το κουμπί enter
         frame.getRootPane().setDefaultButton(submit);
         FrameSetter.scaleBackground(label,970,850);
-        /*label.setIcon(Main.background);
-        label.setBounds(0, 0, 970, 850);*/
         frame.add(label);
     }
 

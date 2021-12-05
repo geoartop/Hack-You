@@ -39,6 +39,9 @@ public class GamePanel extends JPanel implements Runnable {
         startGameThread();
     }
 
+    /**
+     * Μέθοδος προετοιμασίας αντικειμένων παιχνιδιού
+     */
     public void setupGame() {
         aSetter.setObject();
     }
@@ -46,7 +49,7 @@ public class GamePanel extends JPanel implements Runnable {
     /**
      * Μέθοδος εκκίνησης παιχνιδιού
      */
-    public void startGameThread() {
+    private void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start();
         //Για να μην μπορεί να κουνηθεί ο παίκτης πριν πατηθεί το κουμπί start

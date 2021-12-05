@@ -3,6 +3,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+/**
+ * Κλάση η οποία παρέχει πρότυπο για την επεξεργασία buttons
+ */
 public class ButtonSetter {
 
     public static void setButton(JButton button, int x,int y,int width,int height,String font,int size,Object o,int style) {

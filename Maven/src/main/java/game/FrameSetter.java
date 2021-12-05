@@ -3,6 +3,9 @@ package game;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Κλάση η οποία παρέχει πρότυπο για την επεξεργασία frames
+ */
 public class FrameSetter {
 
     /**

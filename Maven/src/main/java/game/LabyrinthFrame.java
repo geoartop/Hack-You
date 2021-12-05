@@ -4,13 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-
-/*
- * WARNING
- *  TODO Να φτιάξουμε νέα κλάση για το frame του παιχνιδιού, για το panel που θα παίζει ο λαβύρινθος
- */
-
 
 /**
  * @author Team Hack-You
@@ -18,20 +11,15 @@ import java.io.FileNotFoundException;
  */
 public class LabyrinthFrame implements ActionListener {
 
-    /**
-     * ProgressBar
-     */
     //Δηλώνω static το frame έτσι ώστε να μπορεί να ανανεώνεται από τα Options
     protected static JFrame frame;
-    static JProgressBar bar;
-    GamePanel gamePanel = new GamePanel();
+    private static JProgressBar bar;
+    private GamePanel gamePanel = new GamePanel();
 
     JButton start = new JButton("start");
-    JButton testQuestionFrame = new JButton("try me");
 
     //Μεταβλητές χρήσιμες για τη λειτουργία του progressBar
-    protected static boolean go = true; // Για το αν συνεχίζει το παιχνίδι ή βρίσκεται σε pause
-    private int pause_count = 0; //Για το πόσες φορές έχει πατήσει το spacebar
+    private static boolean go = true; // Για το αν συνεχίζει το παιχνίδι ή βρίσκεται σε pause
     protected static boolean hasStarted = false; // Για το αν έχει αρχίσει το παιχνίδι
 
     //Μεταβλητές για πόσο χρόνο ο παίκτης θα κερδίζει χάνει ανάλογα με την απάντησή του στις ερωτήσεις
@@ -103,8 +91,6 @@ public class LabyrinthFrame implements ActionListener {
         frame.add(bar, BorderLayout.NORTH);
         frame.add(start, BorderLayout.SOUTH);
 
-        setButton(testQuestionFrame, 400);
-        testQuestionFrame.setEnabled(false);
         frame.add(gamePanel, BorderLayout.CENTER);
         gamePanel.setupGame();
 
@@ -113,6 +99,7 @@ public class LabyrinthFrame implements ActionListener {
 
     /**
      * Μέθοδος λειτουργίας progressBar
+     * @param flg : ο χρόνος που θα έχει ο παίκτης
      */
     private static void fill(int flg) {
         int counter = flg;
@@ -179,16 +166,6 @@ public class LabyrinthFrame implements ActionListener {
             hasStarted = true;
             //Για να μπορεί ο παίκτης να αρχίσει να κινείται
             gamePanel.gameState = gamePanel.playState;
-        } else if (e.getSource() == testQuestionFrame) {
-            //Ο χρόνος σταματάει μέχρι να απαντηθεί η ερώτηση
-            go = false;
-            SwingUtilities.invokeLater(() -> {
-                try {
-                    new Quiz(gamePanel);
-                } catch (FileNotFoundException e1) {
-                    e1.printStackTrace();
-                }
-            });
         }
 
     }

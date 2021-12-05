@@ -16,12 +16,13 @@ import java.util.Scanner;
  * @author Team Hack-You
  */
 public class Quiz implements ActionListener {
-    ArrayList<String> questions = new ArrayList<>();
-    ArrayList<String> options = new ArrayList<>();
-    ArrayList<Character> answers = new ArrayList<>();
+    private ArrayList<String> questions = new ArrayList<>();
+    private ArrayList<String> options = new ArrayList<>();
+    private ArrayList<Character> answers = new ArrayList<>();
     char answer;
+    //Για να επιλέγονται randomly οι ερωτήσεις
     private final Random random = new Random();
-    int index;
+    private int index;
 
     JFrame frame = new JFrame();
     JTextArea textArea = new JTextArea();
@@ -57,9 +58,9 @@ public class Quiz implements ActionListener {
         for (JButton button : buttons)
             frame.add(button);
         frame.add(textArea);
-        //frame.add(textField);
         frame.setVisible(true);
         readQuestions();
+        // Τυχαία επιλογή μιας ερώτησης
         index = random.nextInt(questions.size());
         displayQuestion();
 
@@ -68,21 +69,21 @@ public class Quiz implements ActionListener {
         frame.add(label);
     }
 
-    public void displayQuestion() {
+    private void displayQuestion() {
         textArea.setText(questions.get(index));
         for (int i = 0; i < labels.length; i++)
             labels[i].setText(options.get(4 * index + i));
 
     }
 
-    public void setButtons() {
+    private void setButtons() {
         for (int i = 0; i < buttons.length; i++) {
             buttons[i] = new JButton(String.valueOf(symbols[i]));
             ButtonSetter.setButton(buttons[i], 0, (i + 1) * 100, 100, 100, "Calibri", 35, this, 1);
         }
     }
 
-    public void setLabels() {
+    private void setLabels() {
         for (int i = 0; i < labels.length; i++) {
             labels[i] = new JLabel();
             labels[i].setBounds(125, (i + 1) * 100, 500, 100);
@@ -104,15 +105,15 @@ public class Quiz implements ActionListener {
         frame.dispose();
     }
 
-    public void correctAnswer() {
+    private void correctAnswer() {
         JOptionPane.showMessageDialog(null, "Correct answer!", "Review", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public void wrongAnswer() {
+    private void wrongAnswer() {
         JOptionPane.showMessageDialog(null, "Wrong answer!", "Review", JOptionPane.ERROR_MESSAGE);
     }
 
-    public void checkAnswer() {
+    private void checkAnswer() {
         int time;
         if (answer == answers.get(index)) {
             time = LabyrinthFrame.for_correct;
@@ -134,7 +135,7 @@ public class Quiz implements ActionListener {
      *
      * @throws FileNotFoundException
      */
-    public void readQuestions() throws FileNotFoundException {
+    private void readQuestions() throws FileNotFoundException {
         Scanner q = new Scanner(new File(String.format("src/main/resources/quiz/%s Questions.txt", Levels.difficulty)));
         while (q.hasNextLine()) {
             questions.add(q.nextLine());

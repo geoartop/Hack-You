@@ -11,7 +11,7 @@ import java.awt.event.KeyListener;
 public class KeyHandler implements KeyListener {
 
     protected boolean upPressed, downPressed, leftPressed, rightPressed;
-    public GamePanel gp;
+    private GamePanel gp;
     protected static boolean escPressed = false;
     protected static boolean quizTrig = false;
 

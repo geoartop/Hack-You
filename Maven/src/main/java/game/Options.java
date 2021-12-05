@@ -14,13 +14,15 @@ public class Options implements ActionListener {
     JButton restart = new JButton("restart");
     JButton end = new JButton("exit");
     protected static boolean isActive = false;
+    protected static boolean guideOpen = false;
+    static Guide guide;
 
     public Options(GamePanel gp) {
         isActive = true;
         this.gp = gp;
         frame = new JFrame();
         frame.setTitle("Options"); //setTitle of frame
-        FrameSetter.setFrame(frame,"Options",600,650);
+        FrameSetter.setFrame(frame, "Options", 600, 650);
         //Θέτω το κουμπί της εξόδου να κάνει αυτόματα click το return για να μην κολλήσει η ροή του LabyrinthFrame
         frame.addWindowListener(new WindowAdapter() {
             @Override
@@ -30,14 +32,10 @@ public class Options implements ActionListener {
         });
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        ButtonSetter.setButton(returnBack,225,200,150,50,"Calibri",20,this,2);
-        ButtonSetter.setButton(showGuide,225,300,150,50,"Calibri",20,this,2);
-        ButtonSetter.setButton(restart,225,400,150,50,"Calibri",20,this,2);
-        ButtonSetter.setButton(end,225,500,150,50,"Calibri",20,this,2);
-        /*setButton(returnBack, 200);
-        setButton(showGuide, 300);
-        setButton(restart, 400);
-        setButton(end, 500);*/
+        ButtonSetter.setButton(returnBack, 225, 200, 150, 50, "Calibri", 20, this, 2);
+        ButtonSetter.setButton(showGuide, 225, 300, 150, 50, "Calibri", 20, this, 2);
+        ButtonSetter.setButton(restart, 225, 400, 150, 50, "Calibri", 20, this, 2);
+        ButtonSetter.setButton(end, 225, 500, 150, 50, "Calibri", 20, this, 2);
 
         frame.add(returnBack);
         frame.add(showGuide);
@@ -48,24 +46,20 @@ public class Options implements ActionListener {
         frame.add(backgroundLabel);
     }
 
-    /*public void setButton(JButton button, int y) {
-        button.setBounds(225, y, 150, 50);
-        button.setFocusable(false);
-        button.addActionListener(this);
-        button.setHorizontalAlignment(JButton.CENTER);
-        button.setFont(new Font("Calibri", Font.ITALIC, 20));
-    }*/
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == returnBack) {
             frame.dispose();
         } else if (e.getSource() == showGuide) {
-            new Guide(this);
+            guide = new Guide(this);
+            guideOpen = true;
             showGuide.setEnabled(false);
             return;
         } else if (e.getSource() == restart) {
             LabyrinthFrame.closeFrame();
+            if (guideOpen)
+                guide.closeFrame();
             SwingUtilities.invokeLater(LabyrinthFrame::new);
             frame.dispose();
         } else {
@@ -76,6 +70,7 @@ public class Options implements ActionListener {
             gp.gameState = gp.playState;
             LabyrinthFrame.updateBar(0);
         }
+        // Ενημερώνουμε το gamepanel για το κλείσιμο του παραθύρου
         isActive = false;
         KeyHandler.escPressed = false;
 

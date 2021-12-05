@@ -31,7 +31,7 @@ public class HighScoreFrame {
         frame.add(backgroundLabel);
     }
 
-    public void setLabels() {
+    private void setLabels() {
         for (int i = 0; i < labels.length; i++) {
             labels[i] = new JLabel();
             labels[i].setBounds(800/2-100, (i + 3) * 50, 500, 30);
@@ -41,7 +41,7 @@ public class HighScoreFrame {
         }
     }
 
-    public void displayPlayerInfo() {
+    private void displayPlayerInfo() {
         for (int i = 0; i < labels.length; i++)
             labels[i].setText(String.format("%d) %s : %d", i + 1, HighScore.playerInfo.get(i).getName(), HighScore.playerInfo.get(i).getScore()));
 

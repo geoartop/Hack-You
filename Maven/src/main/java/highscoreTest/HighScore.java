@@ -11,22 +11,36 @@ public class HighScore {
 
     protected static ArrayList<PlayerInfo> playerInfo = new ArrayList<>();
 
+    /**
+     * Κατασκευαστής ο οποίος αρχικά κάνει writable το αρχείο των highscores και μετά την επεξεργασία
+     * του αρχείου το κάνει read-only ώστε να μην επιτρέπεται η κακόβουλη αλλαγή του
+     * @param name : όνομα παίκτη
+     * @param score : βαθμολογία παίκτη
+     */
     public HighScore(String name,int score) {
         try {
+            setFile(true);
             load();
-            boolean checkForNewHigh = HighScore.checkForNewRegister(name,score);
-            //sort();
+            boolean checkForNewHigh = checkForNewRegister(name,score);
             if (checkForNewHigh) {
                 sort();
                 JOptionPane.showMessageDialog(null, "You managed to set a new HighScore to the highscore table", "Congratulations", JOptionPane.INFORMATION_MESSAGE);
             }
+            setFile(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
-    public static boolean checkForNewRegister(String name, int score) throws IOException {
+
+    private void setFile(boolean status){
+        File file = new File("src/main/resources/HighScore.txt");
+        //making the file as read/read-only using setWritable(status) method
+        file.setWritable(status);
+    }
+
+    private boolean checkForNewRegister(String name, int score) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/HighScore.txt"));
         int lines = 0;
         while (reader.readLine() != null) lines++;
@@ -48,11 +62,9 @@ public class HighScore {
 
     }
 
-    public static void appendScore(String name, int score) {
+    private void appendScore(String name, int score) {
         FileWriter fileWriter = null;
-
         BufferedWriter bufferedWriter = null;
-
         PrintWriter printWriter = null;
 
         try {
@@ -76,7 +88,7 @@ public class HighScore {
     }
 
 
-    public static void load() throws IOException {
+    private void load() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/HighScore.txt"));
         String currentLine = reader.readLine();
 
@@ -95,7 +107,7 @@ public class HighScore {
 
     }
 
-    public static void sort() throws IOException {
+    private void sort() throws IOException {
         //Sorting ArrayList playerInfo based on scores
         playerInfo.sort(new scoresCompare());
         BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/HighScore.txt"));
