@@ -85,8 +85,11 @@ public class GamePanel extends JPanel implements Runnable {
      * Μέθοδος ανανέωσης γραφικών χαρακτήρα
      */
     public void update() {
-        if (gameState == playState)
+        if (gameState == playState) {
             player.update();
+        }else {
+            player.stabilizePlayer();
+        }
     }
 
     public void paintComponent(Graphics g) {
