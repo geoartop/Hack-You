@@ -130,6 +130,11 @@ public class Player extends Entity {
         keyH.leftPressed = false;
     }
 
+    /**
+     * Μέθοδος που είναι υπεύθυνη για τη διαχείριση interactions του παίκτη με αντικείμενα μέσα στο παιχνίδι
+     *
+     * @param index
+     */
     private void interact(int index) {
         if (index != 999) {
             String objectName = gp.obj[index].name;
@@ -151,10 +156,9 @@ public class Player extends Entity {
 
             }
             // Spanakh pls make the necessary changes here //
-            if (Objects.equals(objectName, "Exit")) {
-                LabyrinthFrame.stopBar();
-                SwingUtilities.invokeLater(WinFrame::new);
-            }
+            if (Objects.equals(objectName, "Exit"))
+                gp.gameState = gp.endState;
+
         }
     }
 
