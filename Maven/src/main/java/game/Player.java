@@ -150,6 +150,11 @@ public class Player extends Entity {
                 gp.obj[index] = null;
 
             }
+            // Spanakh pls make the necessary changes here //
+            if (Objects.equals(objectName, "Exit")) {
+                LabyrinthFrame.stopBar();
+                SwingUtilities.invokeLater(WinFrame::new);
+            }
         }
     }
 

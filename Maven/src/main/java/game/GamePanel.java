@@ -21,7 +21,7 @@ public class GamePanel extends JPanel implements Runnable {
     Thread gameThread;
     Player player = new Player(this, keyH);
     public CollisionCheck collisionCheck = new CollisionCheck(this);
-    public SuperObject[] obj = new SuperObject[6];
+    public SuperObject[] obj = new SuperObject[7];
     public AssetSetter aSetter = new AssetSetter(this);
 
     //Μεταβλητές για την κατάσταση παιχνιδιού
