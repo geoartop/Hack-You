@@ -28,6 +28,7 @@ public class GamePanel extends JPanel implements Runnable {
     public int gameState;
     public final int playState = 1;
     public final int pauseState = 2;
+    public final int endState = 3;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -74,6 +75,11 @@ public class GamePanel extends JPanel implements Runnable {
             lastTime = currentTime;
             if (delta >= 1) {
                 update();
+                //Τερματισμός παιχνιδιού σε περίπτωση νίκης
+                if (gameState == endState) {
+                    LabyrinthFrame.closeFrame(true);
+                    return;
+                }
                 repaint();
                 delta--;
             }
@@ -86,7 +92,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void update() {
         if (gameState == playState) {
             player.update();
-        }else {
+        } else {
             //Για να μην κολλάει η κίνηση του παίκτη όταν το παιχνίδι βρίσκεται σε κατάσταση παύσης
             player.stabilizePlayer();
         }

@@ -119,8 +119,8 @@ public class LabyrinthFrame implements ActionListener {
             counter--;
         }
         bar.setString("Game Over");
-        SwingUtilities.invokeLater(DeathFrame::new);
-        closeFrame();
+        //SwingUtilities.invokeLater(DeathFrame::new);
+        closeFrame(false);
     }
 
     private void setButton(JButton button, int y) {
@@ -142,11 +142,26 @@ public class LabyrinthFrame implements ActionListener {
     }
 
     /**
-     * Μέθοδος τερματισμού παιχνιδιού
+     * Μέθοδος κλεισίματος παραθύρου παιχνιδιού (διακοπή παιχνιδιού)
      */
     protected static void closeFrame() {
         hasStarted = false;
         frame.dispose();
+    }
+
+    /**
+     * Μέθοδος τερματισμού παιχνιδιού
+     * @param hasWon : true σε περίπτωση νίκης, false σε περίπτωση αποτυχίας
+     */
+    protected static void closeFrame(boolean hasWon) {
+        hasStarted = false;
+        if (hasWon) {
+            SwingUtilities.invokeLater(WinFrame::new);
+        } else {
+            SwingUtilities.invokeLater(DeathFrame::new);
+        }
+        frame.dispose();
+
     }
 
     /**

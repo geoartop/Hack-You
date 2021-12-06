@@ -2,7 +2,6 @@ package game;
 
 import highscoreTest.HighScore;
 import highscoreTest.HighScoreFrame;
-import sun.font.DelegatingShape;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -16,7 +15,7 @@ import java.awt.event.ActionListener;
 public class WinFrame implements ActionListener {
 
     JFrame frame;
-    JLabel backgroundLabel;
+    JLabel backgroundLabel = new JLabel();
     JButton playAgain = new JButton("try again");
     JButton seeHighScores = new JButton("check HighScore table");
     JButton back_to_menu = new JButton("back to Menu");

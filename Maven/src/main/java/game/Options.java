@@ -58,7 +58,7 @@ public class Options implements ActionListener {
             return;
         } else if (e.getSource() == restart) {
             LabyrinthFrame.closeFrame();
-            if(guide != null) {
+            if (guide != null) {
                 if (guide.getIsOpen())
                     guide.closeFrame();
             }
