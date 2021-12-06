@@ -1,8 +1,10 @@
 package game;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Options implements ActionListener {
 
@@ -15,7 +17,7 @@ public class Options implements ActionListener {
     JButton end = new JButton("exit");
     protected static boolean isActive = false;
     protected static boolean guideOpen = false;
-    static Guide guide;
+    static UtilityFrame guide;
 
     public Options(GamePanel gp) {
         isActive = true;
@@ -46,19 +48,17 @@ public class Options implements ActionListener {
         frame.add(backgroundLabel);
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == returnBack) {
             frame.dispose();
         } else if (e.getSource() == showGuide) {
             guide = new Guide(this);
-            guideOpen = true;
             showGuide.setEnabled(false);
             return;
         } else if (e.getSource() == restart) {
             LabyrinthFrame.closeFrame();
-            if (guideOpen)
+            if (guide.getIsOpen())
                 guide.closeFrame();
             SwingUtilities.invokeLater(LabyrinthFrame::new);
             frame.dispose();
