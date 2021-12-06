@@ -155,7 +155,7 @@ public class Player extends Entity {
                 gp.obj[index] = null;
 
             }
-            // Spanakh pls make the necessary changes here //
+            //Τερματισμός παιχνιδιού σε περίπτωση νίκης
             if (Objects.equals(objectName, "Exit"))
                 gp.gameState = gp.endState;
 
