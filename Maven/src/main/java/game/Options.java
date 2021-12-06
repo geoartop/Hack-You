@@ -58,8 +58,10 @@ public class Options implements ActionListener {
             return;
         } else if (e.getSource() == restart) {
             LabyrinthFrame.closeFrame();
-            if (guide.getIsOpen())
-                guide.closeFrame();
+            if(guide != null) {
+                if (guide.getIsOpen())
+                    guide.closeFrame();
+            }
             SwingUtilities.invokeLater(LabyrinthFrame::new);
             frame.dispose();
         } else {
