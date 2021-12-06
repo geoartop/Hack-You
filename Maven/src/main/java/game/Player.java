@@ -1,5 +1,7 @@
 package game;
 
+import javafx.scene.shape.Circle;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -169,5 +171,6 @@ public class Player extends Entity {
                 break;
         }
         g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
+
     }
 }

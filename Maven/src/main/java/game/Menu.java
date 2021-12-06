@@ -29,9 +29,13 @@ public class Menu implements ActionListener {
     JButton credits = new JButton("Show Credits");
     JButton description = new JButton("Game Description");
     JLabel label = new JLabel();
-    //-------test changes------//
     JLabel backgroundLabel = new JLabel();
-    //-------test changes end------//
+
+    //Αρχικοποίηση εξαρτημένων παραθύρων
+    Guide guide;
+    Credits creditsFrame;
+    Description descriptionFrame;
+    UtilityFrame[] utilityFrames = {guide,creditsFrame,descriptionFrame};
 
     public Menu() {
         // Εξατομίκευση παραθύρου
@@ -91,15 +95,22 @@ public class Menu implements ActionListener {
         if (e.getSource() == start) {
             new Levels();
             frame.dispose();
+            //Έλεγχος για το αν υπάρχουν ανοιχτά utilityFrames πριν την έναρξη του παιχνιδιού
+            for( UtilityFrame utilityFrame : utilityFrames){
+                if(utilityFrame == null)
+                    continue;
+                if(utilityFrame.getIsOpen())
+                    utilityFrame.closeFrame();
+            }
         } else if (e.getSource() == how2play) {
-            new Guide(this);
             how2play.setEnabled(false);
+            utilityFrames[0] = new Guide(this);
         } else if (e.getSource() == credits) {
-            new Credits(this);
             credits.setEnabled(false);
+            utilityFrames[1] = new Credits(this);
         } else {
-            new Description(this);
             description.setEnabled(false);
+            utilityFrames[2] = new Description(this);
         }
     }
 }

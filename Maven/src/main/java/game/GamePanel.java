@@ -24,7 +24,6 @@ public class GamePanel extends JPanel implements Runnable {
     public SuperObject[] obj = new SuperObject[6];
     public AssetSetter aSetter = new AssetSetter(this);
 
-
     //Μεταβλητές για την κατάσταση παιχνιδιού
     public int gameState;
     public final int playState = 1;
@@ -88,6 +87,7 @@ public class GamePanel extends JPanel implements Runnable {
         if (gameState == playState) {
             player.update();
         }else {
+            //Για να μην κολλάει η κίνηση του παίκτη όταν το παιχνίδι βρίσκεται σε κατάσταση παύσης
             player.stabilizePlayer();
         }
     }
@@ -98,9 +98,8 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2 = (Graphics2D) g;
         tileM.draw(g2);
         for (SuperObject superObject : obj) {
-            if (superObject != null) {
+            if (superObject != null)
                 superObject.draw(g2, this);
-            }
 
         }
         player.draw(g2);

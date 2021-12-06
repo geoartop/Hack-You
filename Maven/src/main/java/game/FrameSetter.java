@@ -32,4 +32,8 @@ public class FrameSetter {
         label.setIcon(back);
         label.setBounds(0, 0, width, height);
     }
+
+    public static void closeFrame(JFrame frame){
+        frame.dispose();
+    }
 }
