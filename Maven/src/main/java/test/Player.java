@@ -46,8 +46,8 @@ public class Player extends Entity {
     }
 
     public void setDefaultValues() {
-        worldx = 50;
-        worldy = 50;
+        worldx = 60;
+        worldy = 650;
         speed = 2;
         direction = "up";
     }
@@ -118,6 +118,26 @@ public class Player extends Entity {
                 image = right[spriteNum - 1];
                 break;
         }
-        g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+        int x=screenX;
+        int y=screenY;
+        if( screenX>worldx){
+            x=worldx;
+        }
+        if (screenY>worldy){
+            y=worldy;
+        }
+        int rightoffsetvalue = gp.screenWidth - screenX;
+
+        if (rightoffsetvalue > gp.WorldWidth - worldx) {
+            x = gp.screenWidth - (gp.WorldWidth - worldx);
+        }
+
+        int bottomoffsetvalue=gp.screenHeight-screenY;
+
+        if (bottomoffsetvalue > gp.WorldHeight - worldy) {
+            y = gp.screenHeight - (gp.WorldHeight - worldy);
+        }
+
+        g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
     }
 }

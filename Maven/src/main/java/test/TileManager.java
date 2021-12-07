@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+/* θα δω με νωλη καποια πραγματα*/
 
 public class TileManager {
     GamePanel gp;
@@ -20,7 +21,7 @@ public class TileManager {
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
-        loadMap("/maps/map.txt");
+        loadMap("/maps/map2.txt");
     }
 
     public void getTileImage() {
@@ -36,7 +37,7 @@ public class TileManager {
             tile[2] = new Tile();
             tile[2].image = ImageIO.read(getClass().getResourceAsStream("/tiles/question_mark.png"));
 
-        } catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -61,14 +62,14 @@ public class TileManager {
                     mapTileNum[col][row] = num; //store the integer
                     col++;
                 }
-                if(col == gp.maxWorldCol) {
+                if (col == gp.maxWorldCol) {
                     col = 0;
                     row++;
                 }
             }
             br.close(); //closing buffered reader
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -83,13 +84,31 @@ public class TileManager {
 
             int tileNum = mapTileNum[worldcol][worldrow]; // number of tile
 
-            int worldX= worldcol* gp.tileSize;
-            int worldY= worldrow*gp.tileSize;
-            int ScreenX=worldX-gp.player.worldx+gp.player.screenX;
-            int ScreenY=worldY-gp.player.worldy+gp.player.screenY;
+            int worldX = worldcol * gp.tileSize;
+            int worldY = worldrow * gp.tileSize;
+            int ScreenX = worldX - gp.player.worldx + gp.player.screenX;
+            int ScreenY = worldY - gp.player.worldy + gp.player.screenY;
+            // σταματημος καμερας στο edge
+            if (gp.player.screenX > gp.player.worldx) {
+                ScreenX = worldX;
+            }
+            if (gp.player.screenY > gp.player.worldy) {
+                ScreenY = worldY;
+            }
+            int rightoffsetvalue = gp.screenWidth - gp.player.screenX;
+
+            if (rightoffsetvalue > gp.WorldWidth - gp.player.worldx) {
+                ScreenX = gp.screenWidth - (gp.WorldWidth - worldX);
+            }
+
+            int bottomoffsetvalue=gp.screenHeight-gp.player.screenY;
+
+            if (bottomoffsetvalue > gp.WorldHeight - gp.player.worldy) {
+                ScreenY = gp.screenHeight - (gp.WorldHeight - worldY);
+            }
 
 
-            g2.drawImage(tile[tileNum].image,ScreenX,ScreenY,gp.tileSize,gp.tileSize,null);
+            g2.drawImage(tile[tileNum].image, ScreenX, ScreenY, gp.tileSize, gp.tileSize, null);
             worldcol++;
 
 
