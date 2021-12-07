@@ -8,7 +8,7 @@ Georgios Artopoulos
 
 Elisavet Voulgari
 
-- Role:
+- Role: Level Designer, Presentation Administrator 
 
 Emmanouil Dellatolas 
 
