@@ -4,8 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -34,12 +36,12 @@ public class Description extends UtilityFrame {
         });
         frame.setSize(800,800);
 
-        textArea.setBounds(0, 0, 800, 800);
+        textArea.setBounds(100, 0, 600, 800);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
         textArea.setOpaque(false);
         textArea.setForeground(Color.black);
-        textArea.setFont(new Font("Calibri", Font.LAYOUT_LEFT_TO_RIGHT, 15));
+        textArea.setFont(new Font("Calibri", Font.BOLD, 20));
         textArea.setEditable(false);
 
         try {
@@ -53,10 +55,15 @@ public class Description extends UtilityFrame {
     }
 
     private void load() throws FileNotFoundException {
-        Scanner q = new Scanner(new File("src/main/resources/Mythos.txt"));
+        /*Scanner q = new Scanner(new File("src/main/resources/Mythos.txt"));
         while (q.hasNextLine())
             description.add(q.nextLine());
-        textArea.setText(String.valueOf(description));
+        textArea.setText(String.valueOf(description));*/
+
+        Scanner q = new Scanner(new File("src/main/resources/Mythos.txt"));
+        while (q.hasNextLine()){
+            textArea.append(q.nextLine() + " ");
+        }
     }
 
 }
