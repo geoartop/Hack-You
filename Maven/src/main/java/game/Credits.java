@@ -14,6 +14,7 @@ public class Credits extends UtilityFrame{
 
     public Credits(Menu menu) {
         super();
+        super.frame.setTitle("Credits");
         this.menu = menu;
         super.frame.addWindowListener(new WindowAdapter() {
             @Override

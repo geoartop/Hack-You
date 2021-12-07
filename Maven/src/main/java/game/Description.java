@@ -25,6 +25,7 @@ public class Description extends UtilityFrame {
     public Description(Menu menu) {
         super();
         this.menu = menu;
+        super.frame.setTitle("Description");
         super.frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -39,7 +40,7 @@ public class Description extends UtilityFrame {
         textArea.setWrapStyleWord(true);
         textArea.setOpaque(false);
         textArea.setForeground(Color.black);
-        textArea.setFont(new Font("Calibri", Font.BOLD, 20));
+        textArea.setFont(new Font("Calibri", Font.LAYOUT_LEFT_TO_RIGHT, 15));
         textArea.setEditable(false);
 
         try {

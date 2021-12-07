@@ -19,6 +19,7 @@ public class Guide extends UtilityFrame{
      */
     public Guide(Options options) {
         super();
+        super.frame.setTitle("Guide");
         this.options = options;
         frame.addWindowListener(new WindowAdapter() {
             @Override
@@ -37,6 +38,7 @@ public class Guide extends UtilityFrame{
      */
     public Guide(Menu menu) {
         super();
+        super.frame.setTitle("Guide");
         this.menu = menu;
         super.frame.addWindowListener(new WindowAdapter() {
             @Override

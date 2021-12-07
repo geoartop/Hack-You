@@ -17,7 +17,7 @@ public class UtilityFrame {
         isOpen = true;
         frame = new JFrame();
         // Εξατομίκευση παραθύρου
-        FrameSetter.setFrame(frame, "Guide", 800, 800);
+        FrameSetter.setFrame(frame, "", 800, 800);
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         //Set Scaled Background
         FrameSetter.scaleBackground(backgroundLabel, 800, 800);
