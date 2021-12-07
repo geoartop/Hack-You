@@ -16,7 +16,7 @@ public class WinFrame implements ActionListener {
 
     JFrame frame;
     JLabel backgroundLabel = new JLabel();
-    JButton playAgain = new JButton("try again");
+    JButton playAgain = new JButton("play again");
     JButton seeHighScores = new JButton("check HighScore table");
     JButton back_to_menu = new JButton("back to Menu");
     JButton exit = new JButton("exit");
@@ -24,15 +24,22 @@ public class WinFrame implements ActionListener {
 
     public WinFrame() {
         frame = new JFrame();
-        FrameSetter.setFrame(frame, "Victory", 600, 600);
+        FrameSetter.setFrame(frame, "Victory", 800, 800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //Έλεγχος για το αν ο παίκτης έκανε νέο highscore
         new HighScore(Username.getUsername(), calculateScore());
+
+        ButtonSetter.setButton(playAgain,275,200,250,50,"Calibri",20,this,2);
+        ButtonSetter.setButton(seeHighScores,275,300,250,50,"Calibri",20,this,2);
+        ButtonSetter.setButton(back_to_menu,275,400,250,50,"Calibri",20,this,2);
+        ButtonSetter.setButton(exit,275,500,250,50,"Calibri",20,this,2);
 
         frame.add(playAgain);
         frame.add(seeHighScores);
         frame.add(back_to_menu);
         frame.add(exit);
-        FrameSetter.scaleBackground(backgroundLabel, 600, 600);
+
+        FrameSetter.scaleBackground(backgroundLabel, 800, 800);
         frame.add(backgroundLabel);
     }
 

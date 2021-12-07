@@ -77,6 +77,8 @@ public class GamePanel extends JPanel implements Runnable {
                 update();
                 //Τερματισμός παιχνιδιού σε περίπτωση νίκης
                 if (gameState == endState) {
+                    //Για να μην κολλήσει η λειτουργία της μπάρας
+                    LabyrinthFrame.stopBar();
                     LabyrinthFrame.closeFrame(true);
                     return;
                 }
