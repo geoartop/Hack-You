@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
 
-    final int originalTileSize = 16;
+    final int originalTileSize = 20;
     final int scale = 3;
 
     public final int tileSize = originalTileSize * scale;
@@ -14,8 +14,8 @@ public class GamePanel extends JPanel implements Runnable {
     public final int screenWidth = tileSize * maxScreenCol;
     public final int screenHeight = tileSize * maxScreenRow;
 
-    public final int maxWorldCol= 16;
-    public final int maxWorldRow= 12;
+    public final int maxWorldCol= 32;
+    public final int maxWorldRow= 17;
     public final int WorldWidth= tileSize*maxWorldCol;
     public final int WorldHeight= tileSize*maxWorldRow;
 
@@ -28,7 +28,7 @@ public class GamePanel extends JPanel implements Runnable {
     public CollisionCheck collisionCheck = new CollisionCheck(this);
 
     public GamePanel() {
-        this.setPreferredSize(new Dimension(WorldWidth,WorldHeight));
+        this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
