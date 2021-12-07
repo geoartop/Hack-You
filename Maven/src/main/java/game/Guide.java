@@ -18,8 +18,7 @@ public class Guide extends UtilityFrame{
      * @param options : Το παράθυρο options από το οποίο κλήθηκε ο guide
      */
     public Guide(Options options) {
-        super();
-        super.frame.setTitle("Guide");
+        super("Guide",800,800);
         this.options = options;
         frame.addWindowListener(new WindowAdapter() {
             @Override
@@ -29,6 +28,7 @@ public class Guide extends UtilityFrame{
                 frame.dispose();
             }
         });
+        frame.add(backgroundLabel);
 
     }
 
@@ -37,8 +37,7 @@ public class Guide extends UtilityFrame{
      * @param menu : Το παράθυρο menu από το οποίο κλήθηκε ο guide
      */
     public Guide(Menu menu) {
-        super();
-        super.frame.setTitle("Guide");
+        super("Guide",800,800);
         this.menu = menu;
         super.frame.addWindowListener(new WindowAdapter() {
             @Override
@@ -47,6 +46,7 @@ public class Guide extends UtilityFrame{
                 Guide.super.frame.dispose();
             }
         });
+        frame.add(backgroundLabel);
     }
 
 }

@@ -13,8 +13,7 @@ public class Credits extends UtilityFrame{
     Menu menu;
 
     public Credits(Menu menu) {
-        super();
-        super.frame.setTitle("Credits");
+        super("Credits",800,800);
         this.menu = menu;
         super.frame.addWindowListener(new WindowAdapter() {
             @Override
@@ -23,6 +22,7 @@ public class Credits extends UtilityFrame{
                 Credits.super.frame.dispose();
             }
         });
+        frame.add(backgroundLabel);
     }
 
 }

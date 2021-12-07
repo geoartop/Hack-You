@@ -23,9 +23,8 @@ public class Description extends UtilityFrame {
     JTextArea textArea = new JTextArea();
 
     public Description(Menu menu) {
-        super();
+        super("Description",800,800);
         this.menu = menu;
-        super.frame.setTitle("Description");
         super.frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
