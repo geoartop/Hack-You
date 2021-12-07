@@ -21,7 +21,7 @@ import java.util.Scanner;
 public class Description extends UtilityFrame {
 
     Menu menu;
-    private ArrayList<String> description = new ArrayList<>();
+    //private ArrayList<String> description = new ArrayList<>();
     JTextArea textArea = new JTextArea();
 
     public Description(Menu menu) {
@@ -34,7 +34,6 @@ public class Description extends UtilityFrame {
                 Description.super.closeFrame();
             }
         });
-        frame.setSize(800,800);
 
         textArea.setBounds(100, 0, 600, 800);
         textArea.setLineWrap(true);
@@ -45,7 +44,7 @@ public class Description extends UtilityFrame {
         textArea.setEditable(false);
 
         try {
-            load();
+            super.load("src/main/resources/Mythos.txt",textArea);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -54,16 +53,6 @@ public class Description extends UtilityFrame {
         frame.add(backgroundLabel);
     }
 
-    private void load() throws FileNotFoundException {
-        /*Scanner q = new Scanner(new File("src/main/resources/Mythos.txt"));
-        while (q.hasNextLine())
-            description.add(q.nextLine());
-        textArea.setText(String.valueOf(description));*/
 
-        Scanner q = new Scanner(new File("src/main/resources/Mythos.txt"));
-        while (q.hasNextLine()){
-            textArea.append(q.nextLine() + " ");
-        }
-    }
 
 }
