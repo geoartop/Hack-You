@@ -10,18 +10,17 @@ import javax.swing.*;
 public class UtilityFrame {
 
     private boolean isOpen;
-    public JFrame frame;
+    protected JFrame frame;
     JLabel backgroundLabel = new JLabel();
 
     public UtilityFrame() {
         isOpen = true;
         frame = new JFrame();
         // Εξατομίκευση παραθύρου
-        FrameSetter.setFrame(frame, "Guide", 600, 600);
+        FrameSetter.setFrame(frame, "Guide", 800, 800);
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         //Set Scaled Background
-        FrameSetter.scaleBackground(backgroundLabel, 600, 600);
-        frame.add(backgroundLabel);
+        FrameSetter.scaleBackground(backgroundLabel, 800, 800);
     }
 
     public boolean getIsOpen() {
