@@ -1,24 +1,32 @@
 package highscoreTest;
 
-import game.FrameSetter;
+import game.UtilityFrame;
+import game.WinFrame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-public class HighScoreFrame {
-    JFrame frame;
-    JLabel backgroundLabel = new JLabel();
+public class HighScoreFrame extends UtilityFrame {
+
     JLabel[] labels = new JLabel[HighScore.playerInfo.size()];
-    JLabel headLabel=new JLabel();
+    JLabel headLabel = new JLabel();
+    WinFrame winFrame;
 
-    public HighScoreFrame() {
-        frame = new JFrame();
-        FrameSetter.setFrame(frame, "HighScore Table", 800, 1200);
-        FrameSetter.scaleBackground(backgroundLabel, 800, 1200);
-
+    public HighScoreFrame(WinFrame winFrame) {
+        super("HighScore Table",800,1000);
+        this.winFrame = winFrame;
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                winFrame.seeHighScores.setEnabled(true);
+                frame.dispose();
+            }
+        });
         setLabels();
 
-        headLabel.setBounds(275,100,500,50);
+        headLabel.setBounds(275, 100, 500, 50);
         headLabel.setForeground(Color.black);
         headLabel.setFont(new Font("Calibri", Font.BOLD, 35));
         headLabel.setText("Πίνακας Ηighscore");
@@ -31,10 +39,11 @@ public class HighScoreFrame {
         frame.add(backgroundLabel);
     }
 
+
     private void setLabels() {
         for (int i = 0; i < labels.length; i++) {
             labels[i] = new JLabel();
-            labels[i].setBounds(800/2-100, (i + 3) * 50, 500, 30);
+            labels[i].setBounds(800 / 2 - 100, (i + 3) * 50, 500, 30);
             labels[i].setBackground(new Color(50, 50, 50));
             labels[i].setForeground(new Color(5, 5, 5));
             labels[i].setFont(new Font("Calibri", Font.BOLD, 25));

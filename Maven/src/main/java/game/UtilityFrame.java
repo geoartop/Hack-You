@@ -11,14 +11,13 @@ public class UtilityFrame {
 
     private boolean isOpen;
     protected JFrame frame;
-    JLabel backgroundLabel = new JLabel();
+    public JLabel backgroundLabel = new JLabel();
 
     public UtilityFrame(String title,int width,int height) {
         isOpen = true;
         frame = new JFrame();
         // Εξατομίκευση παραθύρου
         FrameSetter.setFrame(frame, title, width, height);
-        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         //Set Scaled Background
         FrameSetter.scaleBackground(backgroundLabel, width, height);
     }

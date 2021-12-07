@@ -17,9 +17,10 @@ public class WinFrame implements ActionListener {
     JFrame frame;
     JLabel backgroundLabel = new JLabel();
     JButton playAgain = new JButton("play again");
-    JButton seeHighScores = new JButton("check HighScore table");
+    public JButton seeHighScores = new JButton("check HighScore table");
     JButton back_to_menu = new JButton("back to Menu");
     JButton exit = new JButton("exit");
+    HighScoreFrame highScoreFrame;
 
 
     public WinFrame() {
@@ -29,10 +30,10 @@ public class WinFrame implements ActionListener {
         //Έλεγχος για το αν ο παίκτης έκανε νέο highscore
         new HighScore(Username.getUsername(), calculateScore());
 
-        ButtonSetter.setButton(playAgain,275,200,250,50,"Calibri",20,this,2);
-        ButtonSetter.setButton(seeHighScores,275,300,250,50,"Calibri",20,this,2);
-        ButtonSetter.setButton(back_to_menu,275,400,250,50,"Calibri",20,this,2);
-        ButtonSetter.setButton(exit,275,500,250,50,"Calibri",20,this,2);
+        ButtonSetter.setButton(playAgain, 275, 200, 250, 50, "Calibri", 20, this, 2);
+        ButtonSetter.setButton(seeHighScores, 275, 300, 250, 50, "Calibri", 20, this, 2);
+        ButtonSetter.setButton(back_to_menu, 275, 400, 250, 50, "Calibri", 20, this, 2);
+        ButtonSetter.setButton(exit, 275, 500, 250, 50, "Calibri", 20, this, 2);
 
         frame.add(playAgain);
         frame.add(seeHighScores);
@@ -48,13 +49,24 @@ public class WinFrame implements ActionListener {
         return 0;
     }
 
+    public void check() {
+        if (highScoreFrame == null)
+            return;
+        if (highScoreFrame.getIsOpen())
+            highScoreFrame.closeFrame();
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == playAgain) {
+            check();
             SwingUtilities.invokeLater(LabyrinthFrame::new);
         } else if (e.getSource() == seeHighScores) {
-            SwingUtilities.invokeLater(HighScoreFrame::new);
+            highScoreFrame = new HighScoreFrame(this);
+            seeHighScores.setEnabled(false);
+            return;
         } else if (e.getSource() == back_to_menu) {
+            check();
             SwingUtilities.invokeLater(Menu::new);
         } else {
             System.exit(1);
