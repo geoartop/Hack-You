@@ -20,16 +20,15 @@ public class Username implements ActionListener {
     //-------test changes------//
     JLabel label = new JLabel();
 
-    //-------test changes end------//
     ImageIcon icon2 = new ImageIcon("src/main/resources/buttons/wood1.png");
 
 
     /**
      * Θέλουμε να γνωρίζουν όλες οι κλάσεις το username του παίκτη ώστε να μπορεί να αποθηκευτεί πιο εύκολα
      */
-    private String username;
+    private static String username;
 
-    public String getUsername() {
+    public static String getUsername() {
         return username;
     }
 
@@ -66,7 +65,7 @@ public class Username implements ActionListener {
             if (username.equals("")) {
                 JOptionPane.showMessageDialog(null, "You must enter your username!", "Reminder", JOptionPane.ERROR_MESSAGE);
                 return;
-            } else if (username.toLowerCase(Locale.ROOT).equals("spanakis")) {
+            } else if (username.toLowerCase(Locale.ROOT).equals("spanakis") || username.toLowerCase(Locale.ROOT).equals("panos")) {
                 JOptionPane.showMessageDialog(null, "Congrats you won already on everything!", "Reminder", JOptionPane.INFORMATION_MESSAGE);
                 System.exit(1);
             } else if (username.toLowerCase(Locale.ROOT).equals("artopoulos")) {
@@ -77,6 +76,9 @@ public class Username implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Your username cannot have whitespace", "Reminder", JOptionPane.ERROR_MESSAGE);
                 textField.setForeground(Color.black);
                 return;
+            }else if (username.toLowerCase(Locale.ROOT).equals("athanasia")){
+                JOptionPane.showMessageDialog(null, "What are you doing here, why are you not with natassa", "Announcement", JOptionPane.WARNING_MESSAGE);
+                System.exit(1);
             }
             SwingUtilities.invokeLater(Menu::new);
         }
