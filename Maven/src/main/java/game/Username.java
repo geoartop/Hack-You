@@ -77,7 +77,7 @@ public class Username implements ActionListener {
                 textField.setForeground(Color.black);
                 return;
             }else if (username.toLowerCase(Locale.ROOT).equals("athanasia")){
-                JOptionPane.showMessageDialog(null, "What are you doing here, why are you not with natassa", "Announcement", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "What are you doing here, why are you not with natassa (CRINGEEEEEEEEEEEEEEEEEEEEEEEEEEEEE)", "Announcement", JOptionPane.WARNING_MESSAGE);
                 System.exit(1);
             }
             SwingUtilities.invokeLater(Menu::new);
