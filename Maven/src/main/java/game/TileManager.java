@@ -17,10 +17,14 @@ public class TileManager {
         this.gp = gp;
 
         tile = new Tile[3];
-        mapTileNum = new int[gp.maxScreenCol][gp.maxScreenRow];
+        mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
         loadMap("/maps/map.txt");
+        /* or
+        loadMap("/maps/map2.txt");
+        */
+
     }
 
     public void getTileImage() {
@@ -36,7 +40,7 @@ public class TileManager {
             tile[2] = new Tile();
             tile[2].image = ImageIO.read(getClass().getResourceAsStream("/tiles/question_mark.png"));
 
-        } catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -50,10 +54,10 @@ public class TileManager {
             int col = 0;
             int row = 0;
 
-            while (col < gp.maxScreenCol && row < gp.maxScreenRow) {
+            while (col < gp.maxWorldCol && row < gp.maxWorldRow) {
                 String line = br.readLine();
 
-                while (col < gp.maxScreenCol) {
+                while (col < gp.maxWorldCol) {
 
                     String[] numbers = line.split(" "); //splits the line with spaces
 
@@ -61,14 +65,14 @@ public class TileManager {
                     mapTileNum[col][row] = num; //store the integer
                     col++;
                 }
-                if(col == gp.maxScreenCol) {
+                if (col == gp.maxWorldCol) {
                     col = 0;
                     row++;
                 }
             }
             br.close(); //closing buffered reader
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -76,22 +80,53 @@ public class TileManager {
     //draws the tiles
     public void draw(Graphics2D g2) {
 
-        int col = 0;
-        int row = 0;
-        int x = 0;
-        int y = 0;
-        while (col < gp.maxScreenCol && row < gp.maxScreenRow) {
+        int worldCol = 0;
+        int worldRow = 0;
 
-            int tileNum = mapTileNum[col][row]; // number of tile
-            g2.drawImage(tile[tileNum].image,x,y,gp.tileSize,gp.tileSize,null);
-            col++;
-            x += gp.tileSize;
+        while (worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow) {
 
-            if (col == gp.maxScreenCol) {
-                col = 0;
-                x = 0;
-                row++;
-                y += gp.tileSize;
+            int tileNum = mapTileNum[worldCol][worldRow]; // number of tile
+
+            int worldX = worldCol * gp.tileSize;
+            int worldY = worldRow * gp.tileSize;
+            int screenX = worldX - gp.player.x + gp.player.screenX;
+            int screenY = worldY - gp.player.y + gp.player.screenY;
+
+            // σταματημος καμερας στο edge
+            if (gp.player.screenX > gp.player.x) {
+                screenX = worldX;
+            }
+            if (gp.player.screenY > gp.player.y) {
+                screenY = worldY;
+            }
+            int rightOffsetValue = gp.screenWidth - gp.player.screenX;
+
+            if (rightOffsetValue > gp.WorldWidth - gp.player.x) {
+                screenX = gp.screenWidth - (gp.WorldWidth - worldX);
+            }
+
+            int bottomOffsetValue = gp.screenHeight - gp.player.screenY;
+
+            if (bottomOffsetValue > gp.WorldHeight - gp.player.y) {
+                screenY = gp.screenHeight - (gp.WorldHeight - worldY);
+            }
+
+            if (worldX + gp.tileSize > gp.player.x - gp.player.screenX &&
+                    worldX - gp.tileSize > gp.player.x + gp.player.screenX &&
+                    worldY + gp.tileSize > gp.player.y - gp.player.screenY &&
+                    worldY - gp.tileSize > gp.player.y + gp.player.screenY) {
+                g2.drawImage(tile[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+            }
+
+
+            g2.drawImage(tile[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+            worldCol++;
+
+
+            if (worldCol == gp.maxWorldCol) {
+                worldCol = 0;
+                worldRow++;
+
             }
         }
 

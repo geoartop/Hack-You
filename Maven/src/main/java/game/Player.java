@@ -1,7 +1,5 @@
 package game;
 
-import javafx.scene.shape.Circle;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -14,12 +12,14 @@ public class Player extends Entity {
 
     GamePanel gp;
     KeyHandler keyH;
-    int worldX = 0;
-    int worldY = 0;
+    public final int screenX;
+    public final int screenY;
 
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
         this.keyH = keyH;
+        screenX = gp.screenWidth / 2 - (gp.tileSize / 2);
+        screenY = gp.screenHeight / 2 - (gp.tileSize / 2);
 
         solidArea = new Rectangle();
         solidArea.x = 8;
@@ -96,8 +96,8 @@ public class Player extends Entity {
                         y -= speed;
                         break;
                     case "down":
-                        if (y < 520)
-                            y += speed;
+                        //if (y < 520)
+                        y += speed;
                         break;
                     case "left":
                         x -= speed;
@@ -179,7 +179,26 @@ public class Player extends Entity {
                 image = right[spriteNum - 1];
                 break;
         }
-        g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
+        int a = screenX;
+        int b = screenY;
+        if (screenX > x) {
+            a = x;
+        }
+        if (screenY > y) {
+            b = y;
+        }
+        int rightOffsetValue = gp.screenWidth - screenX;
 
+        if (rightOffsetValue > gp.WorldWidth - x) {
+            a = gp.screenWidth - (gp.WorldWidth - x);
+        }
+
+        int bottomOffsetValue = gp.screenHeight - screenY;
+
+        if (bottomOffsetValue > gp.WorldHeight - y) {
+            b = gp.screenHeight - (gp.WorldHeight - y);
+        }
+
+        g2.drawImage(image, a, b, gp.tileSize, gp.tileSize, null);
     }
 }

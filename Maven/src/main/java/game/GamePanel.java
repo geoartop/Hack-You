@@ -14,6 +14,12 @@ public class GamePanel extends JPanel implements Runnable {
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
 
+    //change to match map size (32, 20)
+    public final int maxWorldCol = 16;
+    public final int maxWorldRow = 12;
+    public final int WorldWidth = tileSize * maxWorldCol;
+    public final int WorldHeight = tileSize * maxWorldRow;
+
     TileManager tileM = new TileManager(this);
     private final int FPS = 60;
 
@@ -105,11 +111,13 @@ public class GamePanel extends JPanel implements Runnable {
 
         Graphics2D g2 = (Graphics2D) g;
         tileM.draw(g2);
+
         for (SuperObject superObject : obj) {
             if (superObject != null)
                 superObject.draw(g2, this);
 
         }
+
         player.draw(g2);
         //Για να ζωγραφίσει στην οθόνη τη λέξη ΠΑΥΣΗ σε περίπτωση pause
         if (gameState == pauseState) {
