@@ -10,18 +10,18 @@ import java.awt.event.ActionListener;
  *
  * @author Team Hack-You
  */
-
 public class Menu implements ActionListener {
 
     /**
      * Initialize μεταβλητών διαστάσεων
      */
     private final int X = 380;
-    private final int Y = 200;
+    private final int Y = 300;
     private final int WIDTH = 200;
     private final int HEIGHT = 50;
     private int counter = 0;
     private ImageIcon icon3;
+    private final ImageIcon title = new ImageIcon("src/main/resources/Title.png");
 
     JFrame frame = new JFrame();
     JButton start = new JButton("Start Game");
@@ -35,7 +35,7 @@ public class Menu implements ActionListener {
     Guide guide;
     Credits creditsFrame;
     Description descriptionFrame;
-    UtilityFrame[] utilityFrames = {guide,creditsFrame,descriptionFrame};
+    UtilityFrame[] utilityFrames = {guide, creditsFrame, descriptionFrame};
 
     public Menu() {
         // Εξατομίκευση παραθύρου
@@ -58,10 +58,13 @@ public class Menu implements ActionListener {
         frame.add(how2play);
         frame.add(credits);
         frame.add(description);
+
+        FrameSetter.scaleImage(label, 500, 300, title);
         frame.add(label);
         //-------test changes------//
-        backgroundLabel.setIcon(Main.background);
-        backgroundLabel.setBounds(0, 0, 1000, 1000);
+        FrameSetter.scaleBackground(backgroundLabel, 1000, 1000);
+        /*backgroundLabel.setIcon(Main.background);
+        backgroundLabel.setBounds(0, 0, 1000, 1000);*/
         frame.add(backgroundLabel);
         //-------test changes end------//
     }
@@ -96,10 +99,10 @@ public class Menu implements ActionListener {
             new Levels();
             frame.dispose();
             //Έλεγχος για το αν υπάρχουν ανοιχτά utilityFrames πριν την έναρξη του παιχνιδιού
-            for( UtilityFrame utilityFrame : utilityFrames){
-                if(utilityFrame == null)
+            for (UtilityFrame utilityFrame : utilityFrames) {
+                if (utilityFrame == null)
                     continue;
-                if(utilityFrame.getIsOpen())
+                if (utilityFrame.getIsOpen())
                     utilityFrame.closeFrame();
             }
         } else if (e.getSource() == how2play) {
