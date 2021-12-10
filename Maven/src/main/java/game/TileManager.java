@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class TileManager {
+
     GamePanel gp;
     public Tile[] tile;
     public int[][] mapTileNum;
@@ -20,14 +21,14 @@ public class TileManager {
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
-        loadMap("/maps/map.txt");
+        loadMap("/maps/map2.txt");
         /* or
         loadMap("/maps/map2.txt");
         */
 
     }
 
-    public void getTileImage() {
+    private void getTileImage() {
         try {
 
             tile[0] = new Tile();
@@ -37,14 +38,16 @@ public class TileManager {
             tile[1].image = ImageIO.read(getClass().getResourceAsStream("/tiles/wall.PNG"));
             tile[1].collision = true;
 
-            tile[2] = new Tile();
-            tile[2].image = ImageIO.read(getClass().getResourceAsStream("/tiles/question_mark.png"));
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Μέθοδος φόρτωσης λαβυρίνθου
+     *
+     * @param FilePath
+     */
     public void loadMap(String FilePath) {
 
         try {
@@ -77,7 +80,7 @@ public class TileManager {
         }
     }
 
-    //draws the tiles
+
     public void draw(Graphics2D g2) {
 
         int worldCol = 0;
@@ -92,24 +95,24 @@ public class TileManager {
             int screenX = worldX - gp.player.x + gp.player.screenX;
             int screenY = worldY - gp.player.y + gp.player.screenY;
 
-            // σταματημος καμερας στο edge
-            if (gp.player.screenX > gp.player.x) {
+            // παύση κίνησης της κάμερας στο edge του window
+            if (gp.player.screenX > gp.player.x)
                 screenX = worldX;
-            }
-            if (gp.player.screenY > gp.player.y) {
+
+            if (gp.player.screenY > gp.player.y)
                 screenY = worldY;
-            }
+
             int rightOffsetValue = gp.screenWidth - gp.player.screenX;
 
-            if (rightOffsetValue > gp.WorldWidth - gp.player.x) {
+            if (rightOffsetValue > gp.WorldWidth - gp.player.x)
                 screenX = gp.screenWidth - (gp.WorldWidth - worldX);
-            }
+
 
             int bottomOffsetValue = gp.screenHeight - gp.player.screenY;
 
-            if (bottomOffsetValue > gp.WorldHeight - gp.player.y) {
+            if (bottomOffsetValue > gp.WorldHeight - gp.player.y)
                 screenY = gp.screenHeight - (gp.WorldHeight - worldY);
-            }
+
 
             if (worldX + gp.tileSize > gp.player.x - gp.player.screenX &&
                     worldX - gp.tileSize > gp.player.x + gp.player.screenX &&

@@ -2,6 +2,7 @@ package game;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.LinkedList;
 
 public class GamePanel extends JPanel implements Runnable {
 
@@ -15,8 +16,8 @@ public class GamePanel extends JPanel implements Runnable {
     final int screenHeight = tileSize * maxScreenRow;
 
     //change to match map size (32, 20)
-    public final int maxWorldCol = 16;
-    public final int maxWorldRow = 12;
+    public final int maxWorldCol = 32;
+    public final int maxWorldRow = 20;
     public final int WorldWidth = tileSize * maxWorldCol;
     public final int WorldHeight = tileSize * maxWorldRow;
 
@@ -27,7 +28,8 @@ public class GamePanel extends JPanel implements Runnable {
     Thread gameThread;
     Player player = new Player(this, keyH);
     public CollisionCheck collisionCheck = new CollisionCheck(this);
-    public SuperObject[] obj = new SuperObject[7];
+    //public SuperObject[] obj = new SuperObject[7];
+    public LinkedList<SuperObject> obj = new LinkedList<>();
     public AssetSetter aSetter = new AssetSetter(this);
 
     //Μεταβλητές για την κατάσταση παιχνιδιού
@@ -115,7 +117,6 @@ public class GamePanel extends JPanel implements Runnable {
         for (SuperObject superObject : obj) {
             if (superObject != null)
                 superObject.draw(g2, this);
-
         }
 
         player.draw(g2);

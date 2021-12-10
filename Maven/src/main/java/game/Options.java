@@ -17,7 +17,7 @@ public class Options implements ActionListener {
     JButton end = new JButton("exit");
     protected static boolean isActive = false;
     protected static boolean guideOpen = false;
-    static UtilityFrame guide;
+    static Guide guide;
 
     public Options(GamePanel gp) {
         isActive = true;
@@ -48,9 +48,17 @@ public class Options implements ActionListener {
         frame.add(backgroundLabel);
     }
 
+    private void check(){
+        if (guide != null) {
+            if (guide.getIsOpen())
+                guide.closeFrame();
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == returnBack) {
+            check();
             frame.dispose();
         } else if (e.getSource() == showGuide) {
             guide = new Guide(this);
@@ -58,10 +66,7 @@ public class Options implements ActionListener {
             return;
         } else if (e.getSource() == restart) {
             LabyrinthFrame.closeFrame();
-            if (guide != null) {
-                if (guide.getIsOpen())
-                    guide.closeFrame();
-            }
+            check();
             SwingUtilities.invokeLater(LabyrinthFrame::new);
             frame.dispose();
         } else {

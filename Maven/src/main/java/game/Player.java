@@ -137,7 +137,7 @@ public class Player extends Entity {
      */
     private void interact(int index) {
         if (index != 999) {
-            String objectName = gp.obj[index].name;
+            String objectName = gp.obj.get(index).name;
             if (Objects.equals(objectName, "Question")) {
                 //Για να μην κολλήσει το progressBar και η ροή του παιχνιδιού
                 //stabilizePlayer();
@@ -152,7 +152,7 @@ public class Player extends Entity {
                         e.printStackTrace();
                     }
                 });
-                gp.obj[index] = null;
+                gp.obj.set(index, null);
 
             }
             //Τερματισμός παιχνιδιού σε περίπτωση νίκης

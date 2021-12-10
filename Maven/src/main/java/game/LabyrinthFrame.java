@@ -34,23 +34,28 @@ public class LabyrinthFrame implements ActionListener {
     //--------------------------------------------------------------------------------------//
 
     protected static void setLabyrinth() {
+        //String name;
         switch (Levels.difficulty) {
             case "Easy":
                 time = 200;
                 for_correct = 5;
                 for_wrong = -2;
+                //name = "E1";
                 break;
             case "Medium":
                 time = 150;
                 for_correct = 5;
-                for_wrong = -3;
+                for_wrong = -5;
+                //name = "M1";
                 break;
             default:
                 time = 10;
                 for_correct = 3;
                 for_wrong = -5;
+                //name = "H1";
                 break;
         }
+        //return String.format("/maps/%s.txt",name);
 
     }
 
