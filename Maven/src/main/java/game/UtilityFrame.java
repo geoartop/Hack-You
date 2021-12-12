@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * Χρησιμότητα : εύκολο μαζικό κλείσιμο frame + ευκολία υλοποίησης
  */
-public class UtilityFrame {
+public abstract class UtilityFrame {
 
     private boolean isOpen;
     protected JFrame frame;
@@ -35,7 +35,8 @@ public class UtilityFrame {
         return isOpen;
     }
 
-    public JScrollPane createScrollPane(JTextArea textArea,int width,int height){
+    protected JScrollPane createScrollPane(JTextArea textArea,int width,int height){
+        textArea.setCaretPosition(0);
         JScrollPane scrollPane = new JScrollPane(textArea);
         scrollPane.setOpaque(false);
         scrollPane.createVerticalScrollBar();

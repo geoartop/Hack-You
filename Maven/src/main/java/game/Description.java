@@ -4,12 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Κλάση που περιγράφει το παιχνίδι και τη "πλοκή"
@@ -49,13 +44,6 @@ public class Description extends UtilityFrame {
             e.printStackTrace();
         }
 
-        /*JScrollPane scrollPane = new JScrollPane(textArea);
-        scrollPane.setOpaque(false);
-        scrollPane.createVerticalScrollBar();
-        scrollPane.setBounds(100, 0, 600, 500);
-
-        scrollPane.setViewportView(textArea);
-        scrollPane.getViewport().setOpaque(false);*/
         scrollPane = super.createScrollPane(textArea, 600, 500);
 
         frame.getContentPane().add(scrollPane);
