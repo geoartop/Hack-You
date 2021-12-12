@@ -35,6 +35,17 @@ public class UtilityFrame {
         return isOpen;
     }
 
+    public JScrollPane createScrollPane(JTextArea textArea,int width,int height){
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        scrollPane.setOpaque(false);
+        scrollPane.createVerticalScrollBar();
+        scrollPane.setBounds(100, 0, width, height);
+        scrollPane.setViewportView(textArea);
+        //Για να γίνει διάφανο το πλαίσιο εμφάνισης κειμένου
+        scrollPane.getViewport().setOpaque(false);
+        return scrollPane;
+    }
+
     public void closeFrame() {
         frame.dispose();
     }

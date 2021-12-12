@@ -32,10 +32,7 @@ public class Menu implements ActionListener {
     JLabel backgroundLabel = new JLabel();
 
     //Αρχικοποίηση εξαρτημένων παραθύρων
-    Guide guide;
-    Credits creditsFrame;
-    Description descriptionFrame;
-    UtilityFrame[] utilityFrames = {guide, creditsFrame, descriptionFrame};
+    UtilityFrame[] utilityFrames = new UtilityFrame[3];
 
     public Menu() {
         // Εξατομίκευση παραθύρου

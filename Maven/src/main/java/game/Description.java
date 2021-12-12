@@ -21,11 +21,11 @@ import java.util.Scanner;
 public class Description extends UtilityFrame {
 
     Menu menu;
-    //private ArrayList<String> description = new ArrayList<>();
     JTextArea textArea = new JTextArea();
+    JScrollPane scrollPane;
 
     public Description(Menu menu) {
-        super("Description",800,800);
+        super("Description", 800, 600);
         this.menu = menu;
         super.frame.addWindowListener(new WindowAdapter() {
             @Override
@@ -44,15 +44,23 @@ public class Description extends UtilityFrame {
         textArea.setEditable(false);
 
         try {
-            super.load("src/main/resources/Mythos.txt",textArea);
+            super.load("src/main/resources/Mythos.txt", textArea);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
-        frame.add(textArea);
+        /*JScrollPane scrollPane = new JScrollPane(textArea);
+        scrollPane.setOpaque(false);
+        scrollPane.createVerticalScrollBar();
+        scrollPane.setBounds(100, 0, 600, 500);
+
+        scrollPane.setViewportView(textArea);
+        scrollPane.getViewport().setOpaque(false);*/
+        scrollPane = super.createScrollPane(textArea, 600, 500);
+
+        frame.getContentPane().add(scrollPane);
         frame.add(backgroundLabel);
     }
-
 
 
 }
