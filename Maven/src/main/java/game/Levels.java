@@ -55,9 +55,6 @@ public class Levels implements ActionListener {
         frame.add(backgroundLabel);
     }
 
-    /**
-     * Ενέργεια όταν κάνουμε κλικ στα κουμπιά
-     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == easy) {

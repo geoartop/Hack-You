@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+/**
+ * Παράθυρο επιλόγων που προκαλεί παύση του παιχνιδιού όταν εμφανίζεται
+ */
 public class Options implements ActionListener {
 
     public GamePanel gp;
@@ -16,7 +19,6 @@ public class Options implements ActionListener {
     JButton restart = new JButton("restart");
     JButton end = new JButton("exit");
     protected static boolean isActive = false;
-    protected static boolean guideOpen = false;
     static Guide guide;
 
     public Options(GamePanel gp) {
@@ -48,11 +50,15 @@ public class Options implements ActionListener {
         frame.add(backgroundLabel);
     }
 
-    private void check(){
-        if (guide != null) {
-            if (guide.getIsOpen())
-                guide.closeFrame();
-        }
+    /**
+     * Έλεγχος για τον αν υπάρχει ανοιχτό παράθυρο guide
+     * Σε περίπτωση που υπάρχει το παράθυρο αυτό κλείνει
+     */
+    private void check() {
+        if (guide == null)
+            return;
+        if (guide.getIsOpen())
+            guide.closeFrame();
     }
 
     @Override

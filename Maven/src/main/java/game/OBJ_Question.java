@@ -3,6 +3,9 @@ package game;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
+/**
+ * Αντικείμενο ερώτησης στο παιχνίδι
+ */
 public class OBJ_Question extends SuperObject {
 
     public OBJ_Question() {

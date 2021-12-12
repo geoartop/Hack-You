@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+/**
+ * Λειτουργική κλάση για το configuration του χάρτη, των μπλοκ και των χαρακτηριστικών αυτών
+ */
 public class TileManager {
 
     GamePanel gp;
@@ -17,13 +20,13 @@ public class TileManager {
 
         this.gp = gp;
 
-        tile = new Tile[3];
+        tile = new Tile[2];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
         loadMap("/maps/map2.txt");
         /* or
-        loadMap("/maps/map2.txt");
+        loadMap(String.format("/maps/%s.txt",Levels.difficulty));
         */
 
     }
@@ -48,7 +51,7 @@ public class TileManager {
      *
      * @param FilePath
      */
-    public void loadMap(String FilePath) {
+    private void loadMap(String FilePath) {
 
         try {
             InputStream is = getClass().getResourceAsStream(FilePath);
@@ -129,7 +132,6 @@ public class TileManager {
             if (worldCol == gp.maxWorldCol) {
                 worldCol = 0;
                 worldRow++;
-
             }
         }
 

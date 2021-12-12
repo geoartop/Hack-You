@@ -34,7 +34,6 @@ public class LabyrinthFrame implements ActionListener {
     //--------------------------------------------------------------------------------------//
 
     protected static void setLabyrinth() {
-        //String name;
         switch (Levels.difficulty) {
             case "Easy":
                 time = 200;
@@ -55,7 +54,6 @@ public class LabyrinthFrame implements ActionListener {
                 //name = "H1";
                 break;
         }
-        //return String.format("/maps/%s.txt",name);
 
     }
 
@@ -124,7 +122,6 @@ public class LabyrinthFrame implements ActionListener {
             counter--;
         }
         bar.setString("Game Over");
-        //SwingUtilities.invokeLater(DeathFrame::new);
         closeFrame(false);
     }
 

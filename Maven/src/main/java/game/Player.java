@@ -8,6 +8,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * Φόρτωση του παίκτη και εγγραφή των κινήσεών του στην οθόνη
+ */
 public class Player extends Entity {
 
     GamePanel gp;

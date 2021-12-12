@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Παράθυρο που εμφανίζεται όταν ο παίκτης χάνει
+ */
 public class DeathFrame implements ActionListener {
 
     JFrame frame;
@@ -35,7 +38,6 @@ public class DeathFrame implements ActionListener {
         } else if (e.getSource() == back_to_menu) {
             SwingUtilities.invokeLater(Menu::new);
         } else {
-            //ΙΔΕΑ -> ερώτηση για το αν θέλει να κάνει save progress για high score
             System.exit(0);
         }
         frame.dispose();

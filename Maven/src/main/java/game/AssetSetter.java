@@ -1,5 +1,8 @@
 package game;
 
+/**
+ * Κλάση που θέτει τη θέση των αντικειμένων στο gamepanel
+ */
 public class AssetSetter {
     GamePanel gp;
 

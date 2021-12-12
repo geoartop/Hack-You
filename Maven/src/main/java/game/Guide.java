@@ -24,7 +24,6 @@ public class Guide extends UtilityFrame{
             @Override
             public void windowClosing(WindowEvent e) {
                 options.showGuide.setEnabled(true);
-                Options.guideOpen = false;
                 frame.dispose();
             }
         });
@@ -39,11 +38,11 @@ public class Guide extends UtilityFrame{
     public Guide(Menu menu) {
         super("Guide",800,800);
         this.menu = menu;
-        super.frame.addWindowListener(new WindowAdapter() {
+        frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 menu.how2play.setEnabled(true);
-                Guide.super.frame.dispose();
+                frame.dispose();
             }
         });
         frame.add(backgroundLabel);

@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedList;
 
+/**
+ * Panel όπου γίνεται η αναπαράσταση του παιχνιδιού
+ */
 public class GamePanel extends JPanel implements Runnable {
 
     final int originalTileSize = 16;

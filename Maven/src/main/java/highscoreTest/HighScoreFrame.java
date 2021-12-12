@@ -8,10 +8,14 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+/**
+ * Παράθυρο στο οποίο εμφανίζονται τα highscores
+ */
 public class HighScoreFrame extends UtilityFrame {
 
     JLabel[] labels = new JLabel[HighScore.playerInfo.size()];
     JLabel headLabel = new JLabel();
+    //Δηλώνουμε το παράθυρο από το οποίο καλείται το HighScoreFrame
     WinFrame winFrame;
 
     public HighScoreFrame(WinFrame winFrame) {

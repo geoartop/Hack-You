@@ -6,13 +6,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Κλάση για StartMenu
+ * Παράθυρο για StartMenu
  *
  * @author Team Hack-You
  */
 public class Menu implements ActionListener {
 
-    /**
+    /*
      * Initialize μεταβλητών διαστάσεων
      */
     private final int X = 380;
