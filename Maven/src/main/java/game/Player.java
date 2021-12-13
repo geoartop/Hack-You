@@ -66,8 +66,8 @@ public class Player extends Entity {
      * Μέθοδος καθορισμού αρχικής θέσης παίκτη
      */
     private void setDefaultValues() {
-        x = 50;
-        y = 500;
+        x = 100;
+        y = 50;
         speed = 2;
         direction = "up";
     }
