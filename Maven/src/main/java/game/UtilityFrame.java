@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 /**
  * SuperClass για τις κλάσεις Credits, Description, Guide, HighScoreFrame
- *
+ * <p>
  * Χρησιμότητα : εύκολο μαζικό κλείσιμο frame + ευκολία υλοποίησης
  */
 public abstract class UtilityFrame {
@@ -16,7 +16,7 @@ public abstract class UtilityFrame {
     protected JFrame frame;
     public JLabel backgroundLabel = new JLabel();
 
-    public UtilityFrame(String title,int width,int height) {
+    public UtilityFrame(String title, int width, int height) {
         isOpen = true;
         frame = new JFrame();
         // Εξατομίκευση παραθύρου
@@ -25,7 +25,7 @@ public abstract class UtilityFrame {
         FrameSetter.scaleBackground(backgroundLabel, width, height);
     }
 
-    public void load(String pathname,JTextArea textArea) throws FileNotFoundException {
+    public void load(String pathname, JTextArea textArea) throws FileNotFoundException {
         Scanner q = new Scanner(new File(pathname));
         while (q.hasNextLine())
             textArea.append(q.nextLine() + "\n");
@@ -35,13 +35,13 @@ public abstract class UtilityFrame {
         return isOpen;
     }
 
-    protected JScrollPane createScrollPane(JTextArea textArea,int width,int height){
+    protected JScrollPane createScrollPane(JTextArea textArea, int width, int height) {
         //Για να εμφανίζεται το περιεχόμενο του textArea από την αρχή
         textArea.setCaretPosition(0);
         JScrollPane scrollPane = new JScrollPane(textArea);
         scrollPane.setOpaque(false);
         scrollPane.createVerticalScrollBar();
-        scrollPane.setBounds(100, 0, width, height);
+        scrollPane.setBounds(100, 25, width, height);
         scrollPane.setViewportView(textArea);
         //Για να γίνει διάφανο το πλαίσιο εμφάνισης κειμένου
         scrollPane.getViewport().setOpaque(false);

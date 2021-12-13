@@ -134,6 +134,7 @@ public class LabyrinthFrame implements ActionListener {
         button.setHorizontalAlignment(JButton.CENTER);
         button.setFont(new Font("Calibri", Font.ITALIC, 20));
         button.addActionListener(this);
+        start.setVisible(true);
     }
 
     /**
@@ -187,6 +188,7 @@ public class LabyrinthFrame implements ActionListener {
             fill_bar.start();
             start.setEnabled(false);
             hasStarted = true;
+            start.setVisible(false);
             //Για να μπορεί ο παίκτης να αρχίσει να κινείται
             gamePanel.gameState = gamePanel.playState;
         }
