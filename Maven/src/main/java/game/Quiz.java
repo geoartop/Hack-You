@@ -22,8 +22,7 @@ public class Quiz implements ActionListener {
     private static ArrayList<Character> answers = new ArrayList<>();
     char answer;
     //Για να επιλέγονται randomly οι ερωτήσεις
-    private final Random r1 = new Random();
-    private final Random random = new Random(100L * r1.nextInt());
+    private final Random random = new Random();
     private int index;
 
     JFrame frame = new JFrame();
