@@ -83,6 +83,9 @@ public class LabyrinthFrame implements ActionListener {
     }
 
     public LabyrinthFrame() {
+        if(!Menu.music.clip.isActive() && ButtonSetter.playSound)
+            Menu.playMusic();
+
         createFrame();
         createBar();
 
@@ -147,6 +150,7 @@ public class LabyrinthFrame implements ActionListener {
      * Μέθοδος κλεισίματος παραθύρου παιχνιδιού (διακοπή παιχνιδιού)
      */
     protected static void closeFrame() {
+        Menu.stopMusic();
         hasStarted = false;
         frame.dispose();
     }
@@ -156,6 +160,7 @@ public class LabyrinthFrame implements ActionListener {
      * @param hasWon : true σε περίπτωση νίκης, false σε περίπτωση αποτυχίας
      */
     protected static void closeFrame(boolean hasWon) {
+        Menu.stopMusic();
         hasStarted = false;
         if (hasWon) {
             SwingUtilities.invokeLater(WinFrame::new);
@@ -176,6 +181,7 @@ public class LabyrinthFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == start) {
+            //gamePanel.playMusic();
             bar.setVisible(true);
             Thread fill_bar = new Thread(() -> fill(time));
             fill_bar.start();

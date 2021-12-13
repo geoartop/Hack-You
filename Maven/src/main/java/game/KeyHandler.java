@@ -32,9 +32,11 @@ public class KeyHandler implements KeyListener {
         // Για να μην επιτρέπεται η συνέχιση του παιχνιδιού μέχρι να κλείσει το παράθυρο options/quiz
         if (code == KeyEvent.VK_SPACE && LabyrinthFrame.hasStarted && !Options.isActive && !quizTrig) {
             if (gp.gameState == gp.playState) {
+                Menu.stopMusic();
                 LabyrinthFrame.stopBar();
                 gp.gameState = gp.pauseState;
             } else {
+                Menu.continuePlaying();
                 gp.gameState = gp.playState;
                 LabyrinthFrame.updateBar(0);
             }
@@ -51,6 +53,7 @@ public class KeyHandler implements KeyListener {
                 return;
             }
             gp.gameState = gp.pauseState;
+            Menu.stopMusic();
             LabyrinthFrame.stopBar();
             SwingUtilities.invokeLater(() -> new Options(gp));
         }

@@ -36,6 +36,7 @@ public abstract class UtilityFrame {
     }
 
     protected JScrollPane createScrollPane(JTextArea textArea,int width,int height){
+        //Για να εμφανίζεται το περιεχόμενο του textArea από την αρχή
         textArea.setCaretPosition(0);
         JScrollPane scrollPane = new JScrollPane(textArea);
         scrollPane.setOpaque(false);

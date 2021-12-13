@@ -23,11 +23,15 @@ public class Menu implements ActionListener {
     private ImageIcon icon3;
     private final ImageIcon title = new ImageIcon("src/main/resources/Title.png");
 
+    static Sound music = new Sound();
+
     JFrame frame = new JFrame();
     JButton start = new JButton("Start Game");
     JButton how2play = new JButton("How to Play");
     JButton credits = new JButton("Show Credits");
     JButton description = new JButton("Game Description");
+    JButton musicOn_Off = new JButton("Sound off");
+    private int times = 0;
     JLabel label = new JLabel();
     JLabel backgroundLabel = new JLabel();
 
@@ -35,6 +39,7 @@ public class Menu implements ActionListener {
     UtilityFrame[] utilityFrames = new UtilityFrame[3];
 
     public Menu() {
+        playMusic();
         // Εξατομίκευση παραθύρου
         frame.setTitle("Menu"); //setTitle of frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,11 +55,14 @@ public class Menu implements ActionListener {
         setButton(how2play, Y + 100);
         setButton(credits, Y + 200);
         setButton(description, Y + 300);
+        setButton(musicOn_Off, Y + 400);
+        //ButtonSetter.setButton(musicOn_Off, 0, 0, 50, 50, "Calibri", 10, this, 2);
 
         frame.add(start);
         frame.add(how2play);
         frame.add(credits);
         frame.add(description);
+        frame.add(musicOn_Off);
 
         FrameSetter.scaleImage(label, 500, 300, title);
         frame.add(label);
@@ -92,6 +100,21 @@ public class Menu implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
+        ButtonSetter.playSE();
+        if (e.getSource() == musicOn_Off) {
+            times++;
+            if (times % 2 != 0) {
+                musicOn_Off.setText("Sound on");
+                ButtonSetter.setPlaySound(false);
+                stopMusic();
+            } else {
+                musicOn_Off.setText("Sound off");
+                ButtonSetter.setPlaySound(true);
+                playMusic();
+            }
+            return;
+        }
+
         if (e.getSource() == start) {
             new Levels();
             frame.dispose();
@@ -113,4 +136,20 @@ public class Menu implements ActionListener {
             utilityFrames[2] = new Description(this);
         }
     }
+
+    public static void continuePlaying() {
+        music.play();
+    }
+
+   public static void playMusic() {
+        music.setFile(0);
+        music.play();
+        music.loop();
+    }
+
+    public static void stopMusic() {
+        music.stop();
+    }
+
+
 }

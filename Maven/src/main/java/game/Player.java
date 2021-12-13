@@ -149,11 +149,7 @@ public class Player extends Entity {
                 KeyHandler.quizTrig = true;
 
                 SwingUtilities.invokeLater(() -> {
-                    try {
-                        new Quiz(gp);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
+                    new Quiz(gp);
                 });
                 gp.obj.set(index, null);
 

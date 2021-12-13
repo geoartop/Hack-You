@@ -30,7 +30,6 @@ public class SuperObject {
         if (rightOffsetValue > gp.WorldWidth - gp.player.x)
             screenX = gp.screenWidth - (gp.WorldWidth - worldX);
 
-
         int bottomOffsetValue = gp.screenHeight - gp.player.screenY;
 
         if (bottomOffsetValue > gp.WorldHeight - gp.player.y)

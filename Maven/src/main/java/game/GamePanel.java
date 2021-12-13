@@ -27,6 +27,8 @@ public class GamePanel extends JPanel implements Runnable {
     TileManager tileM = new TileManager(this);
     private final int FPS = 60;
 
+    //Sound sound = new Sound();
+
     KeyHandler keyH = new KeyHandler(this);
     Thread gameThread;
     Player player = new Player(this, keyH);
@@ -88,6 +90,7 @@ public class GamePanel extends JPanel implements Runnable {
                 update();
                 //Τερματισμός παιχνιδιού σε περίπτωση νίκης
                 if (gameState == endState) {
+                    Menu.stopMusic();
                     //Για να μην κολλήσει η λειτουργία της μπάρας
                     LabyrinthFrame.stopBar();
                     LabyrinthFrame.closeFrame(true);

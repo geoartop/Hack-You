@@ -63,6 +63,7 @@ public class Options implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        ButtonSetter.playSE();
         if (e.getSource() == returnBack) {
             check();
             frame.dispose();
@@ -86,6 +87,8 @@ public class Options implements ActionListener {
         // Ενημερώνουμε το gamepanel για το κλείσιμο του παραθύρου
         isActive = false;
         KeyHandler.escPressed = false;
+        if(ButtonSetter.playSound)
+            Menu.continuePlaying();
 
     }
 }
