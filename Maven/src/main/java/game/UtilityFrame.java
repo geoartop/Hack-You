@@ -28,7 +28,7 @@ public abstract class UtilityFrame {
     public void load(String pathname,JTextArea textArea) throws FileNotFoundException {
         Scanner q = new Scanner(new File(pathname));
         while (q.hasNextLine())
-            textArea.append(q.nextLine() + " ");
+            textArea.append(q.nextLine() + "\n");
     }
 
     public boolean getIsOpen() {
