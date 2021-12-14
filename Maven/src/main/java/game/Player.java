@@ -14,6 +14,7 @@ public class Player extends Entity {
     KeyHandler keyH;
     public final int screenX;
     public final int screenY;
+    private static boolean hasLoaded;
 
     private int timesPassed = 0;
 
@@ -32,7 +33,10 @@ public class Player extends Entity {
         solidArea.height = 16;
 
         setDefaultValues();
-        getImage();
+        if (!hasLoaded) {
+            getImage();
+            hasLoaded = true;
+        }
     }
 
     /**
@@ -69,7 +73,7 @@ public class Player extends Entity {
             if (!collisionOn) {
                 switch (direction) {
                     case "up":
-                        if( y < 15 )
+                        if (y < 15)
                             break;
                         y -= speed;
                         break;
@@ -119,13 +123,11 @@ public class Player extends Entity {
             if (Objects.equals(objectName, "Question")) {
                 //Για να μην κολλήσει το progressBar και η ροή του παιχνιδιού
                 //stabilizePlayer();
-                LabyrinthFrame.stopBar();
+                gp.labyrinthFrame.stopBar();
                 gp.gameState = gp.pauseState;
                 KeyHandler.quizTrig = true;
 
-                SwingUtilities.invokeLater(() -> {
-                    new Quiz(gp);
-                });
+                SwingUtilities.invokeLater(() -> new Quiz(gp));
                 gp.obj.set(index, null);
 
             }
@@ -171,7 +173,7 @@ public class Player extends Entity {
 
     public void draw(Graphics2D g2) {
 
-        if (LabyrinthFrame.hasLost) {
+        if (gp.labyrinthFrame.hasLost) {
             drawDeathAnimation(g2);
             timesPassed++;
             return;

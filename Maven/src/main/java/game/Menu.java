@@ -103,18 +103,10 @@ public class Menu implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         ButtonSetter.playSE();
         if (e.getSource() == musicOn_Off) {
-            times++;
-            if (ButtonSetter.playSound && times % 2 != 0) {
-                ButtonSetter.setPlaySound(false);
-                stopMusic();
-            } else if (ButtonSetter.playSound) {
-                ButtonSetter.setPlaySound(true);
-                playMusic();
-            } else if (times % 2 == 0) {
-                ButtonSetter.setPlaySound(true);
+            ButtonSetter.setPlaySound(!ButtonSetter.playSound);
+            if (ButtonSetter.playSound) {
                 playMusic();
             } else {
-                ButtonSetter.setPlaySound(false);
                 stopMusic();
             }
             musicOn_Off.setText(String.format("Sound %s", ButtonSetter.playSound ? "off" : "on"));

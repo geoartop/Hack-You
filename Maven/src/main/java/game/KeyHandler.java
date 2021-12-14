@@ -30,16 +30,16 @@ public class KeyHandler implements KeyListener {
         setKeys(true, code);
 
         // Για να μην επιτρέπεται η συνέχιση του παιχνιδιού μέχρι να κλείσει το παράθυρο options/quiz
-        if (code == KeyEvent.VK_SPACE && LabyrinthFrame.hasStarted && !Options.isActive && !quizTrig) {
+        if (code == KeyEvent.VK_SPACE && gp.labyrinthFrame.hasStarted && !Options.isActive && !quizTrig) {
             if (gp.gameState == gp.playState) {
                 Menu.stopMusic();
-                LabyrinthFrame.stopBar();
+                gp.labyrinthFrame.stopBar();
                 gp.gameState = gp.pauseState;
             } else {
                 if(ButtonSetter.playSound)
                     Menu.continuePlaying();
                 gp.gameState = gp.playState;
-                LabyrinthFrame.updateBar(0);
+                gp.labyrinthFrame.updateBar(0);
             }
         }
         if (code == KeyEvent.VK_ESCAPE && !quizTrig) {
@@ -55,7 +55,7 @@ public class KeyHandler implements KeyListener {
             }
             gp.gameState = gp.pauseState;
             Menu.stopMusic();
-            LabyrinthFrame.stopBar();
+            gp.labyrinthFrame.stopBar();
             SwingUtilities.invokeLater(() -> new Options(gp));
         }
     }

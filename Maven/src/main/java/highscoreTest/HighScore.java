@@ -2,14 +2,16 @@ package highscoreTest;
 
 import javax.swing.*;
 import java.io.*;
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * Λειτουργική κλάση για την εμφάνιση των top 10 scores μαζί με τα username αντίστοιχα
  */
 public class HighScore {
 
-    protected static ArrayList<PlayerInfo> playerInfo = new ArrayList<>();
+    protected static LinkedList<PlayerInfo> playerInfo = new LinkedList<>();
+    private String name;
+    private int score;
 
     /**
      * Κατασκευαστής ο οποίος αρχικά κάνει writable το αρχείο των highscores και μετά την επεξεργασία
@@ -19,10 +21,12 @@ public class HighScore {
      * @param score : βαθμολογία παίκτη
      */
     public HighScore(String name, int score) {
+        this.name = name;
+        this.score = score;
         try {
             setFile(true);
             load();
-            boolean checkForNewHigh = checkForNewRegister(name, score);
+            boolean checkForNewHigh = checkForNewRegister();
             if (checkForNewHigh) {
                 sort();
                 JOptionPane.showMessageDialog(null, "You managed to set a new HighScore to the highscore table", "Congratulations", JOptionPane.INFORMATION_MESSAGE);
@@ -34,26 +38,38 @@ public class HighScore {
 
     }
 
+    /**
+     * Μέθοδος πυ μεταβάλει την κατάσταση του αρχείου σε writable/not-writable
+     *
+     * @param status : true -> writable , false -> not-writable
+     */
     private void setFile(boolean status) {
         File file = new File("src/main/resources/HighScore.txt");
         //making the file as read/read-only using setWritable(status) method
         file.setWritable(status);
     }
 
-    private boolean checkForNewRegister(String name, int score) throws IOException {
+    /**
+     * Έλεγχος για το αν το score που δίδεται είναι αρκετά μεγάλο
+     * για να καταγραφεί στον πίνακα των top 10 ή όχι
+     *
+     * @return : true αν έγινε η καταχώρηση επιτυχώς, false αν δεν έγινε νέα καταχώρηση
+     * @throws IOException
+     */
+    private boolean checkForNewRegister() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/HighScore.txt"));
         int lines = 0;
         while (reader.readLine() != null) lines++;
         reader.close();
         if (lines < 10) {
-            appendScore(name, score);
+            appendScore();
             playerInfo.add(new PlayerInfo(name, score));
             return true;
         }
 
         for (PlayerInfo player : playerInfo) {
             if (score > player.getScore()) {
-                appendScore(name, score);
+                appendScore();
                 playerInfo.add(new PlayerInfo(name, score));
                 return true;
             }
@@ -62,7 +78,10 @@ public class HighScore {
 
     }
 
-    private void appendScore(String name, int score) {
+    /**
+     * Προσθήκη στοιχείων στο αρχείο txt των highscores
+     */
+    private void appendScore() {
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         PrintWriter printWriter = null;
@@ -87,7 +106,10 @@ public class HighScore {
         }
     }
 
-
+    /**
+     * Φόρτωση πληροφοριών αρχείου στη συνδεδεμένη λίστα playerInfo
+     * @throws IOException
+     */
     private void load() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/HighScore.txt"));
         String currentLine = reader.readLine();
@@ -107,6 +129,10 @@ public class HighScore {
 
     }
 
+    /**
+     * Ταξινόμηση playerInfo και αρχείου με φθίνουσα σειρά με βάση τα scores
+     * @throws IOException
+     */
     private void sort() throws IOException {
         //Sorting ArrayList playerInfo based on scores
         playerInfo.sort(new scoresCompare());

@@ -72,7 +72,7 @@ public class Options implements ActionListener {
             showGuide.setEnabled(false);
             return;
         } else if (e.getSource() == restart) {
-            LabyrinthFrame.closeFrame();
+            gp.labyrinthFrame.closeFrame();
             check();
             SwingUtilities.invokeLater(LabyrinthFrame::new);
             frame.dispose();
@@ -80,9 +80,9 @@ public class Options implements ActionListener {
             System.exit(1);
         }
         //Για να μην κολλήσει το progressBar
-        if (LabyrinthFrame.hasStarted) {
+        if (gp.labyrinthFrame.hasStarted) {
             gp.gameState = gp.playState;
-            LabyrinthFrame.updateBar(0);
+            gp.labyrinthFrame.updateBar(0);
         }
         // Ενημερώνουμε το gamepanel για το κλείσιμο του παραθύρου
         isActive = false;

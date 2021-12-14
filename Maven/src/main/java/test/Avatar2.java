@@ -4,19 +4,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-//Awaiting for g.artop explanation
+
 public class Avatar2 extends JFrame implements KeyListener {
     private int x=100;
     private int y=100;
     private int speed= 4;
-    Image image;
+    private BufferedImage image;
     private String direction = "down";
-    private Image[] up=new Image[9];
-    private Image[] down=new Image[9];
-    private Image[] right=new Image[9];
-    private Image[] left=new Image[9];
+    private BufferedImage[] up=new BufferedImage[9];
+    private BufferedImage[] down=new BufferedImage[9];
+    private BufferedImage[] right=new BufferedImage[9];
+    private BufferedImage[] left=new BufferedImage[9];
 
     private int c1=0,c2=0,c3=0,c4=0;
     public void getImage(){
@@ -29,9 +30,8 @@ public class Avatar2 extends JFrame implements KeyListener {
             e.printStackTrace();
         }
     }
-    JLabel label;
 
-    public void setMovement(Image[] images,String move) throws IOException {
+    public void setMovement(BufferedImage[] images,String move) throws IOException {
         for(int i=0;i<images.length;i++)
             images[i]=ImageIO.read(new File(String.format("src/main/resources/thiseas2/%s%d.png",move,i+1)));
     }
@@ -41,14 +41,13 @@ public class Avatar2 extends JFrame implements KeyListener {
         this.setSize(500,500);
         this.setLayout(null);
         this.addKeyListener(this);
-        this.getContentPane().setBackground(Color.black);
         this.setVisible(true);
         this.setBackground(Color.white);
         getImage();
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
+    public void keyTyped(KeyEvent e) {
         switch (e.getKeyChar()){
             case 'a':
                 c1 = c1 + 1;
@@ -58,7 +57,7 @@ public class Avatar2 extends JFrame implements KeyListener {
                 }
                 image=left[c1-1];
                 x-=speed;
-                //repaint();
+                repaint();
                 break;
             case 'w':
                 c2 = c2 + 1;
@@ -68,7 +67,7 @@ public class Avatar2 extends JFrame implements KeyListener {
                 }
                 image=up[c2-1];
                 y-=speed;
-                //repaint();
+                repaint();
                 break;
             case 'd':
                 c3 = c3 + 1;
@@ -78,7 +77,7 @@ public class Avatar2 extends JFrame implements KeyListener {
                 }
                 image=right[c3-1];
                 x+=speed;
-                //repaint();
+                repaint();
                 break;
             case 's':
                 c4 = c4 + 1;
@@ -88,14 +87,13 @@ public class Avatar2 extends JFrame implements KeyListener {
                 }
                 image=down[c4-1];
                 y+=speed;
-                //repaint();
+                repaint();
                 break;
         }
-        repaint();
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
+    public void keyPressed(KeyEvent e) {
     }
 
     @Override
@@ -104,11 +102,12 @@ public class Avatar2 extends JFrame implements KeyListener {
     }
 
     public void paint(Graphics g){
-        //super.paint(g);
+        super.paint(g);
 
         Graphics2D g2D= (Graphics2D) g;
 
-        g2D.drawImage(image,x,y,null);
+        g2D.drawImage(image,x,y,64,65,null);
+        g2D.dispose();
     }
 
 

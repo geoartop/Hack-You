@@ -7,7 +7,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.Objects;
 
 public class Avatar3 extends JFrame implements KeyListener {
     private int x = 100;
@@ -34,10 +33,10 @@ public class Avatar3 extends JFrame implements KeyListener {
 
     public void setMovement(BufferedImage[] images, String move) throws IOException {
         for (int i = 0; i < images.length; i++)
-            images[i] = ImageIO.read((getClass().getResourceAsStream(String.format("src/main/resources/thiseas3/%s%d.png", move, i + 1))));
+            images[i] = ImageIO.read((this.getClass()
+                    .getClassLoader().getResource(String.format("src/main/resources/thiseas2/%s%d.png", move, i + 1))));
     }
 
-    JLabel label;
 
     public Avatar3() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,6 +68,7 @@ public class Avatar3 extends JFrame implements KeyListener {
                 y += speed;
                 break;
         }
+        repaint();
     }
 
     @Override

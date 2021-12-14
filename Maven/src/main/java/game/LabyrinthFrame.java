@@ -11,16 +11,15 @@ import java.awt.event.ActionListener;
  */
 public class LabyrinthFrame implements ActionListener {
 
-    //Δηλώνω static το frame έτσι ώστε να μπορεί να ανανεώνεται από τα Options
-    protected static JFrame frame;
-    private static JProgressBar bar;
-    private GamePanel gamePanel = new GamePanel();
+    private JFrame frame;
+    private JProgressBar bar;
+    private GamePanel gamePanel = new GamePanel(this);
 
-    JButton start = new JButton("start");
+    private JButton start = new JButton("start");
 
     //Μεταβλητές χρήσιμες για τη λειτουργία του progressBar
-    private static boolean go = true; // Για το αν συνεχίζει το παιχνίδι ή βρίσκεται σε pause
-    protected static boolean hasStarted = false; // Για το αν έχει αρχίσει το παιχνίδι
+    private boolean go = true; // Για το αν συνεχίζει το παιχνίδι ή βρίσκεται σε pause
+    protected boolean hasStarted = false; // Για το αν έχει αρχίσει το παιχνίδι
 
     //Μεταβλητές για πόσο χρόνο ο παίκτης θα κερδίζει χάνει ανάλογα με την απάντησή του στις ερωτήσεις
     protected static int for_correct;
@@ -28,10 +27,9 @@ public class LabyrinthFrame implements ActionListener {
     //Πόσο χρόνο σε seconds θα έχει ο παίκτης
     private static int time;
 
-    protected static boolean hasLost = false;
+    protected boolean hasLost = false;
 
-    //Δηλώνω static και τα Threads ώστε να κλείνουν μαζί με το frame
-    private static Thread fill_bar;
+    private Thread fill_bar;
 
     //--------------------------------------------------------------------------------------//
 
@@ -84,7 +82,7 @@ public class LabyrinthFrame implements ActionListener {
     }
 
     public LabyrinthFrame() {
-        if(!Menu.music.clip.isActive() && ButtonSetter.playSound)
+        if (!Menu.music.clip.isActive() && ButtonSetter.playSound)
             Menu.playMusic();
 
         createFrame();
@@ -107,7 +105,7 @@ public class LabyrinthFrame implements ActionListener {
      *
      * @param flg : ο χρόνος που θα έχει ο παίκτης
      */
-    private synchronized static void fill(int flg) {
+    private void fill(int flg) {
         int counter = flg;
 
         while (counter > 0) {
@@ -126,8 +124,8 @@ public class LabyrinthFrame implements ActionListener {
             counter--;
         }
         bar.setValue(0);
-        bar.setString("Game Over");
         hasLost = true;
+        bar.setString("Game Over");
 
     }
 
@@ -145,7 +143,7 @@ public class LabyrinthFrame implements ActionListener {
      *
      * @param time : ο χρόνος που προσθαφαιρείται από το χρόνο που απομένει
      */
-    protected synchronized static void updateBar(int time) {
+    protected void updateBar(int time) {
         fill_bar = new Thread(() -> fill(bar.getValue() + time));
         fill_bar.start();
     }
@@ -153,7 +151,7 @@ public class LabyrinthFrame implements ActionListener {
     /**
      * Μέθοδος κλεισίματος παραθύρου παιχνιδιού (διακοπή παιχνιδιού)
      */
-    protected static void closeFrame() {
+    protected void closeFrame() {
         //Menu.stopMusic();
         hasStarted = false;
         frame.dispose();
@@ -161,15 +159,18 @@ public class LabyrinthFrame implements ActionListener {
 
     /**
      * Μέθοδος τερματισμού παιχνιδιού
+     *
      * @param hasWon : true σε περίπτωση νίκης, false σε περίπτωση αποτυχίας
      */
-    protected static void closeFrame(boolean hasWon) {
+    protected void closeFrame(boolean hasWon) {
         Menu.stopMusic();
         hasStarted = false;
         if (hasWon) {
+            stopBar();
             SwingUtilities.invokeLater(WinFrame::new);
         } else {
             SwingUtilities.invokeLater(DeathFrame::new);
+            //hasLost = false;
         }
         frame.dispose();
 
@@ -178,14 +179,13 @@ public class LabyrinthFrame implements ActionListener {
     /**
      * Μέθοδος παύσης progressBar
      */
-    protected static void stopBar() {
+    protected void stopBar() {
         go = false;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == start) {
-            //gamePanel.playMusic();
             bar.setVisible(true);
             Thread fill_bar = new Thread(() -> fill(time));
             fill_bar.start();

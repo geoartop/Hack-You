@@ -1,13 +1,14 @@
 package game;
 
 import javax.swing.*;
+import javax.swing.text.SimpleAttributeSet;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -22,11 +23,11 @@ public class Quiz implements ActionListener {
     private static ArrayList<Character> answers = new ArrayList<>();
     char answer;
     //Για να επιλέγονται randomly οι ερωτήσεις
-    private final Random random = new Random();
+    private final SecureRandom random = new SecureRandom();
     private int index;
 
     JFrame frame = new JFrame();
-    JLabel textArea = new JLabel();
+    JTextArea textArea = new JTextArea();
 
     JButton[] buttons = new JButton[4];
     char[] symbols = {'A', 'B', 'C', 'D'};
@@ -42,16 +43,18 @@ public class Quiz implements ActionListener {
         //Για να μη γίνεται skip της ερώτησης
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
-        textArea.setBounds(200, 0, 700, 100);
-        textArea.setHorizontalTextPosition(JLabel.CENTER);
-        //textArea.setLineWrap(true);
-        //textArea.setWrapStyleWord(true);
-        //textArea.setBackground(new Color(25, 25, 25));
+        /*StyledDocument doc = textPane.getStyledDocument();
+        SimpleAttributeSet center = new SimpleAttributeSet();
+        StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
+        doc.setParagraphAttributes(0, doc.getLength(), center, false);*/
+        textArea.setBounds(100, 0, 600, 100);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
         textArea.setOpaque(false);
         textArea.setForeground(Color.black);
         textArea.setFont(new Font("Calibri", Font.BOLD, 20));
         //textArea.setBorder(BorderFactory.createBevelBorder(1));
-        //textArea.setEditable(false);
+        textArea.setEditable(false);
 
         setLabels();
         setButtons();
@@ -126,7 +129,7 @@ public class Quiz implements ActionListener {
         }
         //Για να μην κολλήσει το progressBar
         gp.gameState = gp.playState;
-        LabyrinthFrame.updateBar(time);
+        gp.labyrinthFrame.updateBar(time);
         frame.dispose();
         KeyHandler.quizTrig = false;
 

@@ -11,11 +11,11 @@ public class Entity {
     public int speed;
 
     //Animations
-    public BufferedImage[] up = new BufferedImage[9];
-    public BufferedImage[] down = new BufferedImage[9];
-    public BufferedImage[] right = new BufferedImage[9];
-    public BufferedImage[] left = new BufferedImage[9];
-    public BufferedImage[] death = new BufferedImage[6];
+    public static BufferedImage[] up = new BufferedImage[9];
+    public static BufferedImage[] down = new BufferedImage[9];
+    public static BufferedImage[] right = new BufferedImage[9];
+    public static BufferedImage[] left = new BufferedImage[9];
+    public static BufferedImage[] death = new BufferedImage[7];
 
     public String direction;
 
@@ -35,7 +35,9 @@ public class Entity {
             setMovement(down, "thiseaswalkingdown");
             setMovement(right, "thiseaswalkingright");
             setMovement(left, "thiseaswalkingleft");
-            setMovement(death, "deadthiseas");
+            for (int i = 0; i < death.length - 1; i++)
+                death[i] = ImageIO.read(getClass().getResourceAsStream(String.format("/deadthiseas/dead%d.png", i + 1)));
+            death[death.length - 1] = death[death.length - 2];
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -50,11 +52,8 @@ public class Entity {
      */
     private void setMovement(BufferedImage[] images, String move) throws IOException {
         for (int i = 0; i < images.length; i++)
-            if (move.equals("deadthiseas")) {
-                images[i] = ImageIO.read(getClass().getResourceAsStream(String.format("/%s/dead%d.png", move, i + 1)));
-            } else {
-                images[i] = ImageIO.read(getClass().getResourceAsStream(String.format("/thiseas2/%s%d.png", move, i + 1)));
-            }
+            images[i] = ImageIO.read(getClass().getResourceAsStream(String.format("/thiseas2/%s%d.png", move, i + 1)));
+
     }
 
 }

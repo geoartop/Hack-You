@@ -26,6 +26,7 @@
             <!-- this dependency is only used for running and compiling tests -->
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <reporting>
@@ -34,7 +35,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.13</version>
+                <version>RELEASE</version>
                 <reportSets>
                     <reportSet>
                         <reports>
@@ -84,7 +85,7 @@
                         <nohelp>true</nohelp>
                     </configuration>
                 </plugin>
-
+                <!-- For encoding configuration -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>

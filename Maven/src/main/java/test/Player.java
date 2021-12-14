@@ -16,14 +16,14 @@ public class Player extends Entity {
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
         this.keyH = keyH;
-        screenX=gp.screenWidth/2 -(gp.tileSize/2);
-        screenY=gp.screenHeight/2 -(gp.tileSize/2);
+        screenX = gp.screenWidth / 2 - (gp.tileSize / 2);
+        screenY = gp.screenHeight / 2 - (gp.tileSize / 2);
 
         solidArea = new Rectangle();
-        solidArea.x=8;
-        solidArea.y=32;
-        solidArea.width=32;
-        solidArea.height=16;
+        solidArea.x = 8;
+        solidArea.y = 32;
+        solidArea.width = 32;
+        solidArea.height = 16;
 
         setDefaultValues();
         getImage();
@@ -68,12 +68,12 @@ public class Player extends Entity {
 
             }
 
-            collisionOn=false;
+            collisionOn = false;
             gp.collisionCheck.checkTile(this);
 
             //If collision is false only then can player move on
-            if(!collisionOn){
-                switch (direction){
+            if (!collisionOn) {
+                switch (direction) {
                     case "up":
                         worldy -= speed;
                         break;

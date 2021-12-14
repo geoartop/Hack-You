@@ -29,19 +29,21 @@ public class GamePanel extends JPanel implements Runnable {
     private final int FPS = 60;
 
     KeyHandler keyH = new KeyHandler(this);
-    Thread gameThread;
+    static Thread gameThread;
     Player player = new Player(this, keyH);
     public CollisionCheck collisionCheck = new CollisionCheck(this);
     public LinkedList<SuperObject> obj = new LinkedList<>();
     public AssetSetter aSetter = new AssetSetter(this);
 
+    public LabyrinthFrame labyrinthFrame;
     //Μεταβλητές για την κατάσταση παιχνιδιού
     public int gameState;
     public final int playState = 1;
     public final int pauseState = 2;
     public final int endState = 3;
 
-    public GamePanel() {
+    public GamePanel(LabyrinthFrame labyrinthFrame) {
+        this.labyrinthFrame = labyrinthFrame;
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
@@ -78,7 +80,6 @@ public class GamePanel extends JPanel implements Runnable {
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
-        int times = 0;
 
         while (gameThread != null) {
             //UPDATE && DRAW
@@ -92,33 +93,37 @@ public class GamePanel extends JPanel implements Runnable {
                 if (gameState == endState) {
                     Menu.stopMusic();
                     //Για να μην κολλήσει η λειτουργία της μπάρας
-                    LabyrinthFrame.stopBar();
-                    LabyrinthFrame.closeFrame(true);
+                    labyrinthFrame.closeFrame(true);
                     return;
-                //Ενέργεια που εκτελείται όταν χάνει ο παίκτης
-                } else if (LabyrinthFrame.hasLost) {
-                    if (times == 0)
-                        Menu.stopMusic();
-                    times++;
-                    //Για να απεικονιστεί φανερά ο "θάνατος" του παίκτη
+                    //Ενέργεια που εκτελείται όταν χάνει ο παίκτης
+                }else if (labyrinthFrame.hasLost) {
+                    for (int times = 0; times < 6; times++) {
+                        if (times == 0)
+                            Menu.stopMusic();
+                        //Για να απεικονιστεί φανερά ο "θάνατος" του παίκτη
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        update();
+                        repaint();
+                    }
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(2 * 1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-
+                    labyrinthFrame.closeFrame(false);
+                    return;
                 }
                 repaint();
                 delta--;
 
-                if (times == 6) {
-                    LabyrinthFrame.closeFrame(false);
-                    LabyrinthFrame.hasLost = false;
-                    return;
-                }
             }
         }
     }
+
 
     /**
      * Μέθοδος ανανέωσης γραφικών χαρακτήρα

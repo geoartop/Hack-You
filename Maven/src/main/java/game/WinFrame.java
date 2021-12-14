@@ -58,6 +58,7 @@ public class WinFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        ButtonSetter.playSE();
         if (e.getSource() == playAgain) {
             check();
             SwingUtilities.invokeLater(LabyrinthFrame::new);

@@ -4,32 +4,107 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Add Options to LabyrinthFrame">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_11_2021_7_15_____Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_11_2021_7_15_μ_μ__[Changes]/shelved.patch" beforeDir="false" />
+    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Minor update to bar">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/HighScore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_11_2021_12_33_____Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_11_2021_12_33_μ_μ__[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_11_2021_12_44_____Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_11_2021_12_44_μ_μ__[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_11_2021_4_42_____Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_11_2021_4_42_μ_μ__[Changes]/question_mark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_11_2021_4_42_μ_μ__[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_12_42_____Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_12_42_μ_μ__[Changes]/Levels.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_12_42_μ_μ__[Changes]/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_12_42_μ_μ__[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_4_17_____Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_4_17_π_μ__[Changes]/Levels.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_4_17_π_μ__[Changes]/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_4_17_π_μ__[Changes]/Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_4_17_π_μ__[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2021_12_27_____Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2021_12_27_π_μ__[Changes]/Levels.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2021_12_27_π_μ__[Changes]/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2021_12_27_π_μ__[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2021_12_58_____Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2021_12_58_π_μ__[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2021_6_04_____Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2021_6_04_μ_μ__[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2021_6_49_____Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2021_6_49_μ_μ__[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2021_6_55_____Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2021_6_55_μ_μ__[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2021_9_05_____Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2021_9_05_μ_μ__[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ButtonSetter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Credits.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Description.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Guide.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Labyrinth.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LabyrinthFrame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LabyrinthPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Levels.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Options.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Questions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Quiz.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QuizFrame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Username.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/avatar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Levels.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Menu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Questions.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Username.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Maven.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/CollisionCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/CollisionCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/DeathFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/DeathFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/LabyrinthFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/LabyrinthFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Options.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Options.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Quiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/QuizFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/QuizFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/WinFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/WinFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/highscoreTest/HighScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/highscoreTest/HighScore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Avatar2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Avatar2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Avatar3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Avatar3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/TileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/HighScore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/HighScore.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/maps/map2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/maps/map2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/testfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/testfile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/12345 - Copy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Easy Answers.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Easy Options.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Easy Questions.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Hard Answers.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Hard Options.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Hard Questions.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Medium Answers.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Medium Options.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Medium Questions.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/background-alt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/background-alt2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/background-alt4 - Copy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/buttons123 - Copy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/buttons1234.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Avatar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/ButtonSetter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/ButtonSetter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Credits.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Credits.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Description.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Description.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Guide.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Guide.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/LabyrinthFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/LabyrinthFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Levels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Levels.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Options.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Options.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Questions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Quiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Quiz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/QuizFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/QuizFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Username.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Username.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gold2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/iron2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/question_mark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Avatar2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Avatar2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/TileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/TileManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/testfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/testfile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/wood1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/wood2.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +132,53 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/test/Player.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Username.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Entity.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/FrameSetter.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/QuizFrame.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Quiz.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/maps/map.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Description.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/DeathFrame.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/highscoreTest/HighScoreFrame.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Credits.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/CollisionCheck.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/test/GamePanel.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Guide.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/Mythos.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/GamePanel.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/LabyrinthFrame.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/test/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/test/KeyHandler.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Player.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Options.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/WinFrame.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Tile.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/UtilityFrame.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Levels.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/ButtonSetter.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/TileManager.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/OBJ_Question.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/HighScore.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/OBJ_Exit.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/highscoreTest/HighScore.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/highscoreTest/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/KeyHandler.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/testfile.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/maps/map2.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/SuperObject.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/AssetSetter.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Menu.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/test/CollisionCheck.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Sound.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="20xVOn3YTqvm2wi5F8tgNal13oY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
@@ -66,27 +188,49 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlserver" />
     <property name="DefaultPlantUmlFileTemplate" value="UML Class" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="tms.main" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\panagiotis\Desktop\GitHub\Hack-you\Maven\src\main\resources" />
       <recent name="C:\Users\geoar\Documents\GitHub\Hack-you3\Maven\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\panagiotis\Desktop\GitHub\Hack-you\Maven\src\main\resources" />
       <recent name="C:\Users\geoar\Documents\GitHub\Hack-you3\Maven\src\main\resources" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="test2" />
+      <recent name="test" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Main (3)">
+  <component name="RunManager" selected="Application.Main (2)">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test2.Main" />
+      <module name="Maven" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game.Main" />
       <module name="Maven" />
@@ -113,19 +257,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Maven" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReadText" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cli.ReadText" />
+    <configuration name="Main (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="highscoreTest.Main" />
       <module name="Maven" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cli.*" />
+          <option name="PATTERN" value="highscoreTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -133,17 +270,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Maven-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/target/Maven-1.0-SNAPSHOT.jar" />
-      <method v="2" />
+    <configuration name="Main2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.Main2" />
+      <module name="Maven" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main (3)" />
         <item itemvalue="Application.Main (2)" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JAR Application.Maven-1.0-SNAPSHOT.jar" />
-        <item itemvalue="Application.ReadText" />
+        <item itemvalue="Application.Main2" />
+        <item itemvalue="Application.Main (3)" />
+        <item itemvalue="Application.Main (4)" />
+        <item itemvalue="Application.Main (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -159,149 +305,413 @@
       <workItem from="1637695458384" duration="5941000" />
       <workItem from="1637704772573" duration="132000" />
       <workItem from="1637704936175" duration="2000" />
-      <workItem from="1637777155201" duration="8690000" />
+      <workItem from="1637777155201" duration="14273000" />
+      <workItem from="1637798364886" duration="2868000" />
+      <workItem from="1637801276113" duration="105000" />
+      <workItem from="1637801407653" duration="292000" />
+      <workItem from="1637836469913" duration="2981000" />
+      <workItem from="1637866026370" duration="7750000" />
+      <workItem from="1637921815285" duration="18201000" />
+      <workItem from="1638012026690" duration="2641000" />
+      <workItem from="1638114626844" duration="18594000" />
+      <workItem from="1638202679375" duration="13500000" />
+      <workItem from="1638228239096" duration="774000" />
+      <workItem from="1638285763389" duration="10569000" />
+      <workItem from="1638301884944" duration="8459000" />
+      <workItem from="1638356774319" duration="9333000" />
+      <workItem from="1638384447633" duration="7254000" />
+      <workItem from="1638403375955" duration="11000" />
+      <workItem from="1638446375790" duration="50000" />
+      <workItem from="1638446641561" duration="2683000" />
+      <workItem from="1638451922085" duration="477000" />
+      <workItem from="1638465517214" duration="850000" />
+      <workItem from="1638469737160" duration="6000" />
+      <workItem from="1638478329261" duration="7429000" />
+      <workItem from="1638489805630" duration="174000" />
+      <workItem from="1638492413383" duration="621000" />
+      <workItem from="1638532423891" duration="1055000" />
+      <workItem from="1638533836544" duration="434000" />
+      <workItem from="1638536094272" duration="1911000" />
+      <workItem from="1638544555697" duration="1310000" />
+      <workItem from="1638627107659" duration="3060000" />
+      <workItem from="1638631462179" duration="7957000" />
+      <workItem from="1638641055531" duration="385000" />
+      <workItem from="1638656994509" duration="4867000" />
+      <workItem from="1638666518678" duration="688000" />
+      <workItem from="1638703617456" duration="524000" />
+      <workItem from="1638718618776" duration="20230000" />
+      <workItem from="1638826722415" duration="1790000" />
+      <workItem from="1638864266452" duration="4755000" />
+      <workItem from="1638870934762" duration="6503000" />
+      <workItem from="1638898740443" duration="4498000" />
+      <workItem from="1638974710714" duration="248000" />
+      <workItem from="1638983196940" duration="1103000" />
+      <workItem from="1638988268338" duration="9301000" />
+      <workItem from="1639083844417" duration="20000" />
+      <workItem from="1639135599282" duration="2589000" />
+      <workItem from="1639142993212" duration="396000" />
+      <workItem from="1639148042742" duration="1948000" />
+      <workItem from="1639223680991" duration="1435000" />
+      <workItem from="1639231384182" duration="8000" />
+      <workItem from="1639231583199" duration="1718000" />
+      <workItem from="1639234116441" duration="738000" />
+      <workItem from="1639241521005" duration="149000" />
+      <workItem from="1639319881709" duration="653000" />
+      <workItem from="1639320813469" duration="671000" />
+      <workItem from="1639326620402" duration="2620000" />
+      <workItem from="1639330590200" duration="925000" />
+      <workItem from="1639336877783" duration="35000" />
+      <workItem from="1639339844034" duration="1018000" />
+      <workItem from="1639344530249" duration="6353000" />
+      <workItem from="1639414503620" duration="16924000" />
+      <workItem from="1639486578335" duration="1142000" />
+      <workItem from="1639497581335" duration="3703000" />
+      <workItem from="1639506467324" duration="10135000" />
     </task>
-    <task id="LOCAL-00001" summary="Spinoll">
-      <created>1636988697356</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
+    <task id="LOCAL-00045" summary="Fixing small details">
+      <created>1638309505467</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
       <option name="project" value="LOCAL" />
-      <updated>1636988697356</updated>
+      <updated>1638309505467</updated>
     </task>
-    <task id="LOCAL-00002" summary="Add Classes">
-      <created>1636993545921</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
+    <task id="LOCAL-00046" summary="Fixing issues with HighScore playerInfo arraylist functionality">
+      <created>1638371208101</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
       <option name="project" value="LOCAL" />
-      <updated>1636993545921</updated>
+      <updated>1638371208101</updated>
     </task>
-    <task id="LOCAL-00003" summary="Add Classes">
-      <created>1637144510966</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
+    <task id="LOCAL-00047" summary="Fixing issues with HighScore playerInfo arraylist functionality">
+      <created>1638378501111</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
       <option name="project" value="LOCAL" />
-      <updated>1637144510966</updated>
+      <updated>1638378501111</updated>
     </task>
-    <task id="LOCAL-00004" summary="Add Classes">
-      <created>1637169742771</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
+    <task id="LOCAL-00048" summary="Add .travis.yml">
+      <created>1638386307225</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
       <option name="project" value="LOCAL" />
-      <updated>1637169742771</updated>
+      <updated>1638386307225</updated>
     </task>
-    <task id="LOCAL-00005" summary="Read files">
-      <created>1637170029134</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
+    <task id="LOCAL-00049" summary="Add githubActions">
+      <created>1638387181676</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
       <option name="project" value="LOCAL" />
-      <updated>1637170029134</updated>
+      <updated>1638387181676</updated>
     </task>
-    <task id="LOCAL-00006" summary="Read files">
-      <created>1637170873161</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
+    <task id="LOCAL-00050" summary="Add new features to pom.xml">
+      <created>1638403183245</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
       <option name="project" value="LOCAL" />
-      <updated>1637170873161</updated>
+      <updated>1638403183245</updated>
     </task>
-    <task id="LOCAL-00007" summary="GUI">
-      <created>1637177589097</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
+    <task id="LOCAL-00051" summary="Fix restart bug">
+      <created>1638450834345</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
       <option name="project" value="LOCAL" />
-      <updated>1637177589097</updated>
+      <updated>1638450834355</updated>
     </task>
-    <task id="LOCAL-00008" summary="GUI">
-      <created>1637181985653</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
+    <task id="LOCAL-00052" summary="Adding minor features">
+      <created>1638489603514</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
       <option name="project" value="LOCAL" />
-      <updated>1637181985653</updated>
+      <updated>1638489603514</updated>
     </task>
-    <task id="LOCAL-00009" summary="Gui updated">
-      <created>1637183524943</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
+    <task id="LOCAL-00053" summary="Remove Questions.java">
+      <created>1638489740272</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
       <option name="project" value="LOCAL" />
-      <updated>1637183524943</updated>
+      <updated>1638489740272</updated>
     </task>
-    <task id="LOCAL-00010" summary="Gui comments">
-      <created>1637184936967</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
+    <task id="LOCAL-00054" summary="Fix try again bug">
+      <created>1638544957503</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
       <option name="project" value="LOCAL" />
-      <updated>1637184936967</updated>
+      <updated>1638544957504</updated>
     </task>
-    <task id="LOCAL-00011" summary="Gui comments">
-      <created>1637186963916</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
+    <task id="LOCAL-00055" summary="Fix issue with Quiz triggering and with player movement">
+      <created>1638629980625</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
       <option name="project" value="LOCAL" />
-      <updated>1637186963916</updated>
+      <updated>1638629980625</updated>
     </task>
-    <task id="LOCAL-00012" summary="adjustments to gui">
-      <created>1637188142753</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
+    <task id="LOCAL-00056" summary="Update Options">
+      <created>1638631677093</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
       <option name="project" value="LOCAL" />
-      <updated>1637188142753</updated>
+      <updated>1638631677093</updated>
     </task>
-    <task id="LOCAL-00013" summary="Add Icon">
-      <created>1637232230868</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
+    <task id="LOCAL-00057" summary="Update KeyHandler">
+      <created>1638633050133</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
       <option name="project" value="LOCAL" />
-      <updated>1637232230868</updated>
+      <updated>1638633050133</updated>
     </task>
-    <task id="LOCAL-00014" summary=" add resources">
-      <created>1637336296756</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
+    <task id="LOCAL-00058" summary="Fix popup window bug">
+      <created>1638634147271</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
       <option name="project" value="LOCAL" />
-      <updated>1637336296756</updated>
+      <updated>1638634147271</updated>
     </task>
-    <task id="LOCAL-00015" summary="Add QuizFrame">
-      <created>1637349421038</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
+    <task id="LOCAL-00059" summary="Fix popup window bug">
+      <created>1638634323967</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
       <option name="project" value="LOCAL" />
-      <updated>1637349421038</updated>
+      <updated>1638634323967</updated>
     </task>
-    <task id="LOCAL-00016" summary="Add QuizFrame">
-      <created>1637349910630</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
+    <task id="LOCAL-00060" summary="Fix dumbass mistake">
+      <created>1638638996432</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
       <option name="project" value="LOCAL" />
-      <updated>1637349910630</updated>
+      <updated>1638638996432</updated>
     </task>
-    <task id="LOCAL-00017" summary="new username">
-      <created>1637374653338</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
+    <task id="LOCAL-00061" summary="Add comments and small updates">
+      <created>1638704078548</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
       <option name="project" value="LOCAL" />
-      <updated>1637374653338</updated>
+      <updated>1638704078548</updated>
     </task>
-    <task id="LOCAL-00018" summary="Easy Questions">
-      <created>1637611184821</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
+    <task id="LOCAL-00062" summary="Add comments and small updates">
+      <created>1638704124828</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
       <option name="project" value="LOCAL" />
-      <updated>1637611184821</updated>
+      <updated>1638704124828</updated>
     </task>
-    <task id="LOCAL-00019" summary="Medium Questions">
-      <created>1637612837328</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
+    <task id="LOCAL-00063" summary="Fix Player stabilization bug">
+      <created>1638726937029</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
       <option name="project" value="LOCAL" />
-      <updated>1637612837328</updated>
+      <updated>1638726937030</updated>
     </task>
-    <task id="LOCAL-00020" summary="Hard Questions">
-      <created>1637614577017</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
+    <task id="LOCAL-00064" summary="Διόρθωση ορθογραφίας">
+      <created>1638727003862</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
       <option name="project" value="LOCAL" />
-      <updated>1637614577017</updated>
+      <updated>1638727003862</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00065" summary="Update">
+      <created>1638727352756</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1638727352756</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Add WinFrame and optimize Menu functionality">
+      <created>1638753126537</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1638753126537</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Add WinFrame and optimize Menu functionality">
+      <created>1638753542937</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1638753542937</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Add WinFrame and optimize Menu functionality">
+      <created>1638753656442</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1638753656442</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Fix restart bug">
+      <created>1638826878024</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1638826878024</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Fix exit from labyrinth issue">
+      <created>1638828281589</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1638828281589</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Fix exit from labyrinth issue">
+      <created>1638828314076</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1638828314076</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Fix exit from labyrinth issue">
+      <created>1638828350300</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1638828350300</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Fix restart issue from WinFrame">
+      <created>1638867516059</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1638867516060</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Fix restart issue from WinFrame">
+      <created>1638868622245</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1638868622245</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Load Mythos.txt to Description">
+      <created>1638869778955</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1638869778955</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Fix title bug">
+      <created>1638870475595</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1638870475595</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Minor fixes">
+      <created>1638870805484</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1638870805485</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Update HighScoreFrame">
+      <created>1638875710193</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1638875710193</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Delete Avatar.java">
+      <created>1638902894675</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1638902894675</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Add load function to UtilityFrame">
+      <created>1638903794645</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1638903794645</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Add transparent title">
+      <created>1638994393025</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1638994393026</updated>
+    </task>
+    <task id="LOCAL-00082" summary="SuperObject array made to a LinkedList and some minor updates">
+      <created>1639143370440</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1639143370440</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Rename Title">
+      <created>1639148164968</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1639148164968</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Add title to menu">
+      <created>1639149183393</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1639149183393</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Minor update to Scrollpane @UtilityFrame">
+      <created>1639321170179</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1639321170179</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Minor updates">
+      <created>1639330882460</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1639330882460</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Add Sound functionality">
+      <created>1639417120623</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1639417120624</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Add Sound functionality 2">
+      <created>1639417177651</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1639417177652</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Add Sound functionality 3">
+      <created>1639417414564</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1639417414564</updated>
+    </task>
+    <task id="LOCAL-00090" summary="New start button feature">
+      <created>1639421581969</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1639421581969</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Fix music pause bug">
+      <created>1639421965083</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1639421965083</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Implement death animation">
+      <created>1639501148124</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1639501148124</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Minor update to bar">
+      <created>1639501718581</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1639501718581</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,24 +727,38 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Spinoll" />
-    <MESSAGE value="Add Classes" />
-    <MESSAGE value="Read files" />
-    <MESSAGE value="GUI" />
-    <MESSAGE value="Gui updated" />
-    <MESSAGE value="Gui comments" />
-    <MESSAGE value="adjustments to gui" />
-    <MESSAGE value="Add Icon" />
-    <MESSAGE value=" add resources" />
-    <MESSAGE value="Add QuizFrame" />
-    <MESSAGE value="new username" />
-    <MESSAGE value="Easy Questions" />
-    <MESSAGE value="Medium Questions" />
-    <MESSAGE value="Hard Questions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hard Questions" />
+    <MESSAGE value="Διόρθωση ορθογραφίας" />
+    <MESSAGE value="Update" />
+    <MESSAGE value="Add WinFrame and optimize Menu functionality" />
+    <MESSAGE value="Fix restart bug" />
+    <MESSAGE value="Fix exit from labyrinth issue" />
+    <MESSAGE value="Fix restart issue from WinFrame" />
+    <MESSAGE value="Load Mythos.txt to Description" />
+    <MESSAGE value="Fix title bug" />
+    <MESSAGE value="Minor fixes" />
+    <MESSAGE value="Update HighScoreFrame" />
+    <MESSAGE value="Delete Avatar.java" />
+    <MESSAGE value="Add load function to UtilityFrame" />
+    <MESSAGE value="Add transparent title" />
+    <MESSAGE value="SuperObject array made to a LinkedList and some minor updates" />
+    <MESSAGE value="Rename Title" />
+    <MESSAGE value="Add title to menu" />
+    <MESSAGE value="Minor update to Scrollpane @UtilityFrame" />
+    <MESSAGE value="Minor updates" />
+    <MESSAGE value="Add Sound functionality" />
+    <MESSAGE value="Add Sound functionality 2" />
+    <MESSAGE value="Add Sound functionality 3" />
+    <MESSAGE value="New start button feature" />
+    <MESSAGE value="Fix music pause bug" />
+    <MESSAGE value="Implement death animation" />
+    <MESSAGE value="Minor update to bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor update to bar" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Maven$Main.ic" NAME="Main Coverage Results" MODIFIED="1637701809465" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
