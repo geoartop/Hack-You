@@ -18,7 +18,7 @@ public class GamePanel extends JPanel implements Runnable {
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
 
-    //change to match map size (32, 20)
+    //change to match map size (28, 28)
     public final int maxWorldCol = 28;
     public final int maxWorldRow = 28;
     public final int WorldWidth = tileSize * maxWorldCol;
@@ -27,13 +27,10 @@ public class GamePanel extends JPanel implements Runnable {
     TileManager tileM = new TileManager(this);
     private final int FPS = 60;
 
-    //Sound sound = new Sound();
-
     KeyHandler keyH = new KeyHandler(this);
     Thread gameThread;
     Player player = new Player(this, keyH);
     public CollisionCheck collisionCheck = new CollisionCheck(this);
-    //public SuperObject[] obj = new SuperObject[7];
     public LinkedList<SuperObject> obj = new LinkedList<>();
     public AssetSetter aSetter = new AssetSetter(this);
 
@@ -59,6 +56,7 @@ public class GamePanel extends JPanel implements Runnable {
         aSetter.setObject();
     }
 
+
     /**
      * Μέθοδος εκκίνησης παιχνιδιού
      */
@@ -79,6 +77,7 @@ public class GamePanel extends JPanel implements Runnable {
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
+        int times = 0;
 
         while (gameThread != null) {
             //UPDATE && DRAW
@@ -95,9 +94,27 @@ public class GamePanel extends JPanel implements Runnable {
                     LabyrinthFrame.stopBar();
                     LabyrinthFrame.closeFrame(true);
                     return;
+                //Ενέργεια που εκτελείται όταν χάνει ο παίκτης
+                } else if (LabyrinthFrame.hasLost) {
+                    if (times == 0)
+                        Menu.stopMusic();
+                    times++;
+                    //Για να απεικονιστεί φανερά ο "θάνατος" του παίκτη
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
                 }
                 repaint();
                 delta--;
+
+                if (times == 6) {
+                    LabyrinthFrame.closeFrame(false);
+                    LabyrinthFrame.hasLost = false;
+                    return;
+                }
             }
         }
     }

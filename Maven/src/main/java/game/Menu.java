@@ -30,7 +30,7 @@ public class Menu implements ActionListener {
     JButton how2play = new JButton("How to Play");
     JButton credits = new JButton("Show Credits");
     JButton description = new JButton("Game Description");
-    JButton musicOn_Off = new JButton("Sound off");
+    JButton musicOn_Off = new JButton(String.format("Sound %s", ButtonSetter.playSound ? "off" : "on"));
     private int times = 0;
     JLabel label = new JLabel();
     JLabel backgroundLabel = new JLabel();
@@ -39,7 +39,8 @@ public class Menu implements ActionListener {
     UtilityFrame[] utilityFrames = new UtilityFrame[3];
 
     public Menu() {
-        playMusic();
+        if (ButtonSetter.playSound)
+            playMusic();
         // Εξατομίκευση παραθύρου
         frame.setTitle("Menu"); //setTitle of frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -103,15 +104,20 @@ public class Menu implements ActionListener {
         ButtonSetter.playSE();
         if (e.getSource() == musicOn_Off) {
             times++;
-            if (times % 2 != 0) {
-                musicOn_Off.setText("Sound on");
+            if (ButtonSetter.playSound && times % 2 != 0) {
                 ButtonSetter.setPlaySound(false);
                 stopMusic();
-            } else {
-                musicOn_Off.setText("Sound off");
+            } else if (ButtonSetter.playSound) {
                 ButtonSetter.setPlaySound(true);
                 playMusic();
+            } else if (times % 2 == 0) {
+                ButtonSetter.setPlaySound(true);
+                playMusic();
+            } else {
+                ButtonSetter.setPlaySound(false);
+                stopMusic();
             }
+            musicOn_Off.setText(String.format("Sound %s", ButtonSetter.playSound ? "off" : "on"));
             return;
         }
 
@@ -141,7 +147,7 @@ public class Menu implements ActionListener {
         music.play();
     }
 
-   public static void playMusic() {
+    public static void playMusic() {
         music.setFile(0);
         music.play();
         music.loop();

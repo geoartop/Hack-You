@@ -60,6 +60,7 @@ public class Username implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
+        ButtonSetter.playSE();
         if (e.getSource() == submit) {
             username = textField.getText();
             if (username.equals("")) {

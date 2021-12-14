@@ -1,11 +1,8 @@
 package game;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Objects;
 
 /**
@@ -17,6 +14,8 @@ public class Player extends Entity {
     KeyHandler keyH;
     public final int screenX;
     public final int screenY;
+
+    private int timesPassed = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
@@ -37,39 +36,13 @@ public class Player extends Entity {
     }
 
     /**
-     * Προετοιμασία των animation
-     */
-    private void getImage() {
-        try {
-            setMovement(up, "thiseaswalkingup");
-            setMovement(down, "thiseaswalkingdown");
-            setMovement(right, "thiseaswalkingright");
-            setMovement(left, "thiseaswalkingleft");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Διάβασμα αρχείων για τη φόρτωση των animation
-     *
-     * @param images : ο πίνακας εικόνων κινήσεων
-     * @param move   : καθορίζει την κατηγορία κίνησης
-     * @throws IOException
-     */
-    private void setMovement(BufferedImage[] images, String move) throws IOException {
-        for (int i = 0; i < images.length; i++)
-            images[i] = ImageIO.read(getClass().getResourceAsStream(String.format("/thiseas2/%s%d.png", move, i + 1)));
-    }
-
-    /**
      * Μέθοδος καθορισμού αρχικής θέσης παίκτη
      */
     private void setDefaultValues() {
         x = 100;
         y = 50;
         speed = 2;
-        direction = "up";
+        direction = "down";
     }
 
     /**
@@ -96,6 +69,8 @@ public class Player extends Entity {
             if (!collisionOn) {
                 switch (direction) {
                     case "up":
+                        if( y < 15 )
+                            break;
                         y -= speed;
                         break;
                     case "down":
@@ -161,7 +136,47 @@ public class Player extends Entity {
         }
     }
 
+    public void drawDeathAnimation(Graphics2D g2) {
+        BufferedImage image;
+
+        image = death[timesPassed];
+
+        setValues(g2, image);
+
+    }
+
+    private void setValues(Graphics2D g2, BufferedImage image) {
+        int a = screenX;
+        int b = screenY;
+
+        if (screenX > x)
+            a = x;
+
+        if (screenY > y)
+            b = y;
+
+        int rightOffsetValue = gp.screenWidth - screenX;
+
+        if (rightOffsetValue > gp.WorldWidth - x)
+            a = gp.screenWidth - (gp.WorldWidth - x);
+
+        int bottomOffsetValue = gp.screenHeight - screenY;
+
+        if (bottomOffsetValue > gp.WorldHeight - y)
+            b = gp.screenHeight - (gp.WorldHeight - y);
+
+        g2.drawImage(image, a, b, gp.tileSize, gp.tileSize, null);
+    }
+
+
     public void draw(Graphics2D g2) {
+
+        if (LabyrinthFrame.hasLost) {
+            drawDeathAnimation(g2);
+            timesPassed++;
+            return;
+        }
+
         BufferedImage image = null;
 
         switch (direction) {
@@ -178,26 +193,7 @@ public class Player extends Entity {
                 image = right[spriteNum - 1];
                 break;
         }
-        int a = screenX;
-        int b = screenY;
-        if (screenX > x) {
-            a = x;
-        }
-        if (screenY > y) {
-            b = y;
-        }
-        int rightOffsetValue = gp.screenWidth - screenX;
 
-        if (rightOffsetValue > gp.WorldWidth - x) {
-            a = gp.screenWidth - (gp.WorldWidth - x);
-        }
-
-        int bottomOffsetValue = gp.screenHeight - screenY;
-
-        if (bottomOffsetValue > gp.WorldHeight - y) {
-            b = gp.screenHeight - (gp.WorldHeight - y);
-        }
-
-        g2.drawImage(image, a, b, gp.tileSize, gp.tileSize, null);
+        setValues(g2, image);
     }
 }

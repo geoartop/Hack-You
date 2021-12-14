@@ -16,6 +16,11 @@ public class DeathFrame implements ActionListener {
     JButton exit = new JButton("exit");
 
     public DeathFrame() {
+        try {
+            Thread.sleep(2 * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         frame = new JFrame();
         FrameSetter.setFrame(frame, "Defeat", 600, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,6 +42,7 @@ public class DeathFrame implements ActionListener {
             SwingUtilities.invokeLater(LabyrinthFrame::new);
         } else if (e.getSource() == back_to_menu) {
             SwingUtilities.invokeLater(Menu::new);
+            System.out.println(ButtonSetter.playSound);
         } else {
             System.exit(0);
         }
