@@ -24,7 +24,7 @@ public class TileManager {
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
-        loadMap("/maps/Easy.txt");
+        loadMap("/maps/Medium.txt");
         /* or
         loadMap(String.format("/maps/%s.txt",Levels.difficulty));
         */

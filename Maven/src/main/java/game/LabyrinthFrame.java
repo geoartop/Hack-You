@@ -63,7 +63,7 @@ public class LabyrinthFrame implements ActionListener {
         frame.setTitle("Labyrinth"); //setTitle of frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
-        frame.setSize(780, 680);
+        frame.setSize(780, 660);
         frame.setVisible(true);
         frame.setLayout(new BorderLayout());
         frame.setIconImage(Main.icon.getImage());
