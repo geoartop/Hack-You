@@ -28,6 +28,8 @@ public class LabyrinthFrame implements ActionListener {
     //Πόσο χρόνο σε seconds θα έχει ο παίκτης
     private static int time;
 
+    protected static boolean hasLost = false;
+
     //Δηλώνω static και τα Threads ώστε να κλείνουν μαζί με το frame
     private static Thread fill_bar;
 
@@ -39,19 +41,16 @@ public class LabyrinthFrame implements ActionListener {
                 time = 200;
                 for_correct = 5;
                 for_wrong = -2;
-                //name = "E1";
                 break;
             case "Medium":
                 time = 150;
                 for_correct = 5;
                 for_wrong = -5;
-                //name = "M1";
                 break;
             default:
                 time = 10;
                 for_correct = 3;
                 for_wrong = -5;
-                //name = "H1";
                 break;
         }
 
@@ -59,6 +58,8 @@ public class LabyrinthFrame implements ActionListener {
 
     private void createFrame() {
         frame = new JFrame();
+        //Για να μην κουνιέται το παράθυρο
+        //frame.setUndecorated(true);
         frame.setTitle("Labyrinth"); //setTitle of frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
@@ -106,7 +107,7 @@ public class LabyrinthFrame implements ActionListener {
      *
      * @param flg : ο χρόνος που θα έχει ο παίκτης
      */
-    private static void fill(int flg) {
+    private synchronized static void fill(int flg) {
         int counter = flg;
 
         while (counter > 0) {
@@ -124,8 +125,10 @@ public class LabyrinthFrame implements ActionListener {
             }
             counter--;
         }
+        bar.setValue(0);
         bar.setString("Game Over");
-        closeFrame(false);
+        hasLost = true;
+
     }
 
     private void setButton(JButton button, int y) {
@@ -142,7 +145,7 @@ public class LabyrinthFrame implements ActionListener {
      *
      * @param time : ο χρόνος που προσθαφαιρείται από το χρόνο που απομένει
      */
-    protected static void updateBar(int time) {
+    protected synchronized static void updateBar(int time) {
         fill_bar = new Thread(() -> fill(bar.getValue() + time));
         fill_bar.start();
     }
@@ -151,7 +154,7 @@ public class LabyrinthFrame implements ActionListener {
      * Μέθοδος κλεισίματος παραθύρου παιχνιδιού (διακοπή παιχνιδιού)
      */
     protected static void closeFrame() {
-        Menu.stopMusic();
+        //Menu.stopMusic();
         hasStarted = false;
         frame.dispose();
     }
