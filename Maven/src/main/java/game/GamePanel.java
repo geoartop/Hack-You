@@ -18,18 +18,18 @@ public class GamePanel extends JPanel implements Runnable {
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
 
-    // change to easy map size (28, 28)
-    // change to medium map size (34, 34)
-    public final int maxWorldCol = 34;
-    public final int maxWorldRow = 34;
+    //Καθορισμός των διαστάσεων του κόσμου του λαβυρίνθου ανάλογα με την επιλεγμένη δυσκολία
+    public final int maxWorldCol = 28
+            + (Levels.difficulty.equals("Medium") ? 6 : 0)
+            + (Levels.difficulty.equals("Hard") ? 12 : 0);
+    public final int maxWorldRow = maxWorldCol;
     public final int WorldWidth = tileSize * maxWorldCol;
     public final int WorldHeight = tileSize * maxWorldRow;
 
     TileManager tileM = new TileManager(this);
-    private final int FPS = 60;
 
     KeyHandler keyH = new KeyHandler(this);
-    static Thread gameThread;
+    Thread gameThread;
     Player player = new Player(this, keyH);
     public CollisionCheck collisionCheck = new CollisionCheck(this);
     public LinkedList<SuperObject> obj = new LinkedList<>();
@@ -41,6 +41,7 @@ public class GamePanel extends JPanel implements Runnable {
     public final int playState = 1;
     public final int pauseState = 2;
     public final int endState = 3;
+
 
     public GamePanel(LabyrinthFrame labyrinthFrame) {
         this.labyrinthFrame = labyrinthFrame;
@@ -76,7 +77,8 @@ public class GamePanel extends JPanel implements Runnable {
     @Override
     public void run() {
 
-        double drawInterval = 1000000000 / FPS;
+        int FPS = 60;
+        double drawInterval = (double) 1000000000 / FPS;
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
@@ -96,24 +98,16 @@ public class GamePanel extends JPanel implements Runnable {
                     labyrinthFrame.closeFrame(true);
                     return;
                     //Ενέργεια που εκτελείται όταν χάνει ο παίκτης
-                }else if (labyrinthFrame.hasLost) {
+                } else if (labyrinthFrame.hasLost) {
                     for (int times = 0; times < 6; times++) {
                         if (times == 0)
                             Menu.stopMusic();
                         //Για να απεικονιστεί φανερά ο "θάνατος" του παίκτη
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+                        sleep(1);
                         update();
                         repaint();
                     }
-                    try {
-                        Thread.sleep(2 * 1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    sleep(1);
                     labyrinthFrame.closeFrame(false);
                     return;
                 }
@@ -124,6 +118,13 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
+    public void sleep(double seconds) {
+        try {
+            Thread.sleep((long) (1000L * seconds));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Μέθοδος ανανέωσης γραφικών χαρακτήρα
