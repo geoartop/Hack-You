@@ -13,10 +13,10 @@ public class CollisionCheck {
 
     public void checkTile(Entity entity) {
 
-        int entityLeftWorldX = entity.x + entity.solidArea.x;
-        int entityRightWorldX = entity.x + entity.solidArea.x + entity.solidArea.width;
-        int entityTopWorldY = entity.y + entity.solidArea.y;
-        int entityBottomWorldY = entity.y + entity.solidArea.y + entity.solidArea.height;
+        int entityLeftWorldX = entity.worldx + entity.solidArea.x;
+        int entityRightWorldX = entity.worldx + entity.solidArea.x + entity.solidArea.width;
+        int entityTopWorldY = entity.worldy + entity.solidArea.y;
+        int entityBottomWorldY = entity.worldy + entity.solidArea.y + entity.solidArea.height;
 
         int entityLeftCol = entityLeftWorldX / gp.tileSize;
         int entityRightCol = entityRightWorldX / gp.tileSize;
@@ -66,8 +66,8 @@ public class CollisionCheck {
         for (SuperObject object : gp.obj) {
             if (object != null) {
                 // get entity's solid area position
-                entity.solidArea.x = entity.x + entity.solidArea.x;
-                entity.solidArea.y = entity.y + entity.solidArea.y;
+                entity.solidArea.x = entity.worldx + entity.solidArea.x;
+                entity.solidArea.y = entity.worldy + entity.solidArea.y;
                 // get the object solid area position
                 object.solidArea.x = object.worldX + object.solidArea.x;
                 object.solidArea.y = object.worldY + object.solidArea.y;

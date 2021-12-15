@@ -16,35 +16,41 @@ public class SuperObject {
     public int solidAreaDefaultY = 0;
 
     public void draw(Graphics2D g2, GamePanel gp) {
-        int screenX = worldX - gp.player.x + gp.player.screenX;
-        int screenY = worldY - gp.player.y + gp.player.screenY;
+        int screenX = worldX - gp.player.worldx + gp.player.screenX;
+        int screenY = worldY - gp.player.worldy + gp.player.screenY;
 
-        if (gp.player.screenX > gp.player.x)
+        if (gp.player.screenX > gp.player.worldx)
             screenX = worldX;
 
-        if (gp.player.screenY > gp.player.y)
+        if (gp.player.screenY > gp.player.worldy)
             screenY = worldY;
 
         int rightOffsetValue = gp.screenWidth - gp.player.screenX;
 
-        if (rightOffsetValue > gp.WorldWidth - gp.player.x)
+        if (rightOffsetValue > gp.WorldWidth - gp.player.worldx)
             screenX = gp.screenWidth - (gp.WorldWidth - worldX);
 
         int bottomOffsetValue = gp.screenHeight - gp.player.screenY;
 
-        if (bottomOffsetValue > gp.WorldHeight - gp.player.y)
+        if (bottomOffsetValue > gp.WorldHeight - gp.player.worldy) {
             screenY = gp.screenHeight - (gp.WorldHeight - worldY);
+        }
+        if(worldX + gp.tileSize > gp.player.worldx - gp.player.screenX &&
+                worldX - gp.tileSize < gp.player.worldx + gp.player.screenX &&
+                worldY + gp.tileSize > gp.player.worldy - gp.player.screenY &&
+                worldY - gp.tileSize < gp.player.worldy + gp.player.screenY) {
 
-
-        if (worldX + gp.tileSize > gp.player.x - gp.player.screenX &&
-                worldX - gp.tileSize > gp.player.x + gp.player.screenX &&
-                worldY + gp.tileSize > gp.player.y - gp.player.screenY &&
-                worldY - gp.tileSize > gp.player.y + gp.player.screenY) {
+            g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+        }
+        // If player is around the edge, draw everything
+        else if(gp.player.worldx < gp.player.screenX ||
+                gp.player.worldy < gp.player.screenY ||
+                rightOffsetValue > gp.WorldWidth - gp.player.worldx ||
+                bottomOffsetValue > gp.WorldHeight - gp.player.worldy) {
             g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
         }
 
 
-        g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
     }
 }
 

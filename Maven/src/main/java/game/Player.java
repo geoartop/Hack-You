@@ -43,8 +43,8 @@ public class Player extends Entity {
      * Μέθοδος καθορισμού αρχικής θέσης παίκτη
      */
     private void setDefaultValues() {
-        x = 100;
-        y = 50;
+        worldx = 100;
+        worldy = 50;
         speed = 2;
         direction = "down";
     }
@@ -73,19 +73,19 @@ public class Player extends Entity {
             if (!collisionOn) {
                 switch (direction) {
                     case "up":
-                        if (y < 15)
+                        if (worldy < 15)
                             break;
-                        y -= speed;
+                        worldy -= speed;
                         break;
                     case "down":
                         //if (y < 520)
-                        y += speed;
+                        worldy += speed;
                         break;
                     case "left":
-                        x -= speed;
+                        worldx -= speed;
                         break;
                     case "right":
-                        x += speed;
+                        worldx += speed;
                         break;
                 }
             }
@@ -151,23 +151,42 @@ public class Player extends Entity {
         int a = screenX;
         int b = screenY;
 
-        if (screenX > x)
-            a = x;
+        if (screenX > worldx)
+            a = worldx;
 
-        if (screenY > y)
-            b = y;
+        if (screenY > worldy)
+            b = worldy;
 
         int rightOffsetValue = gp.screenWidth - screenX;
 
-        if (rightOffsetValue > gp.WorldWidth - x)
-            a = gp.screenWidth - (gp.WorldWidth - x);
+        if (rightOffsetValue > gp.WorldWidth - worldx)
+            a = gp.screenWidth - (gp.WorldWidth - worldx);
 
         int bottomOffsetValue = gp.screenHeight - screenY;
 
-        if (bottomOffsetValue > gp.WorldHeight - y)
-            b = gp.screenHeight - (gp.WorldHeight - y);
+        if (bottomOffsetValue > gp.WorldHeight - worldy)
+            b = gp.screenHeight - (gp.WorldHeight - worldy);
 
-        g2.drawImage(image, a, b, gp.tileSize, gp.tileSize, null);
+        int x1= screenX;
+        int y1= screenY;
+
+        if(screenX>worldx)  {
+            x1=worldx;
+        }
+        if(screenY>worldy){
+            y1=worldy;
+        }
+        int rightOffsetValue1 = gp.screenWidth - screenX;
+
+        if (rightOffsetValue1 > gp.WorldWidth - worldx)
+            x1 = gp.screenWidth - (gp.WorldWidth - worldx);
+
+        int bottomOffsetValue1 = gp.screenHeight - screenY;
+
+        if (bottomOffsetValue1 > gp.WorldHeight - worldy)
+            y1 = gp.screenHeight - (gp.WorldHeight - worldy);
+
+        g2.drawImage(image, x1, y1, gp.tileSize, gp.tileSize, null);
     }
 
 

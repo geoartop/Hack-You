@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class Entity {
 
-    public int x, y;
+    public int worldx, worldy;
     public int speed;
 
     //Animations
