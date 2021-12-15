@@ -24,10 +24,13 @@ public class TileManager {
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
-        loadMap("/maps/Medium.txt");
-        /* or
-        loadMap(String.format("/maps/%s.txt",Levels.difficulty));
-        */
+        //loadMap("/maps/Medium.txt");
+        if (!Levels.difficulty.equals("Hard")) {
+            loadMap(String.format("/maps/%s.txt", Levels.difficulty));
+        } else {
+            loadMap("/maps/Medium.txt");
+        }
+
 
     }
 
@@ -55,6 +58,7 @@ public class TileManager {
 
         try {
             InputStream is = getClass().getResourceAsStream(FilePath);
+            //assert is != null;
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
             int col = 0;
@@ -110,12 +114,10 @@ public class TileManager {
             if (rightOffsetValue > gp.WorldWidth - gp.player.x)
                 screenX = gp.screenWidth - (gp.WorldWidth - worldX);
 
-
             int bottomOffsetValue = gp.screenHeight - gp.player.screenY;
 
             if (bottomOffsetValue > gp.WorldHeight - gp.player.y)
                 screenY = gp.screenHeight - (gp.WorldHeight - worldY);
-
 
             if (worldX + gp.tileSize > gp.player.x - gp.player.screenX &&
                     worldX - gp.tileSize > gp.player.x + gp.player.screenX &&
