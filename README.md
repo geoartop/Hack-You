@@ -12,7 +12,7 @@ Elisavet Voulgari
 
 Emmanouil Dellatolas 
 
-- Role: Software Engineer, QA Engineer 
+- Role: Software Engineer, QA Engineer , Level Developer
 
 Athanasia Koutra 
 
