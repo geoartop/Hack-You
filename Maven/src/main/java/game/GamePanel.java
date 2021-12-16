@@ -20,8 +20,8 @@ public class GamePanel extends JPanel implements Runnable {
 
     //Καθορισμός των διαστάσεων του κόσμου του λαβυρίνθου ανάλογα με την επιλεγμένη δυσκολία
     public final int maxWorldCol = 28
-            + (Levels.difficulty.equals("Medium") ? 6 : 0)
-            + (Levels.difficulty.equals("Hard") ? 12 : 0);
+            + (Levels.difficulty.equals("Medium") ? 6
+            : (Levels.difficulty.equals("Hard") ? 12 : 0));
     public final int maxWorldRow = maxWorldCol;
     public final int WorldWidth = tileSize * maxWorldCol;
     public final int WorldHeight = tileSize * maxWorldRow;
@@ -59,7 +59,6 @@ public class GamePanel extends JPanel implements Runnable {
     public void setupGame() {
         aSetter.setObject();
     }
-
 
     /**
      * Μέθοδος εκκίνησης παιχνιδιού
@@ -99,7 +98,7 @@ public class GamePanel extends JPanel implements Runnable {
                     return;
                     //Ενέργεια που εκτελείται όταν χάνει ο παίκτης
                 } else if (labyrinthFrame.hasLost) {
-                    for (int times = 0; times < 6; times++) {
+                    for (int times = 0; times < Entity.death.length - 1; times++) {
                         if (times == 0)
                             Menu.stopMusic();
                         //Για να απεικονιστεί φανερά ο "θάνατος" του παίκτη
@@ -150,7 +149,7 @@ public class GamePanel extends JPanel implements Runnable {
         }
 
         player.draw(g2);
-        //Για να ζωγραφίσει στην οθόνη τη λέξη ΠΑΥΣΗ σε περίπτωση pause
+        //Για να ζωγραφιστεί στην οθόνη τη λέξη ΠΑΥΣΗ σε περίπτωση pause
         if (gameState == pauseState) {
             g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 80F));
             String text = "ΠΑΥΣΗ";

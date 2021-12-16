@@ -4,7 +4,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
- * Κλάση για περιγραφή οδηγιών
+ * Περιγραφή οδηγιών
  *
  * @author Team Hack-You
  */

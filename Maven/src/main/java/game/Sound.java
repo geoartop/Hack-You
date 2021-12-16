@@ -4,6 +4,9 @@ import javax.sound.sampled.*;
 import java.io.IOException;
 import java.net.URL;
 
+/**
+ * Αναπαραγωγή ήχου και ηχητικών εφέ
+ */
 public class Sound {
 
     Clip clip;

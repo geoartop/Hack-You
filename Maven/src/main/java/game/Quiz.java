@@ -1,7 +1,6 @@
 package game;
 
 import javax.swing.*;
-import javax.swing.text.SimpleAttributeSet;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,11 +11,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Κλάση για τη φόρτωση random ερωτήσεων στον χρήστη προς απάντηση
+ * Παράθυρο φόρτωσης random ερωτήσεων στον χρήστη προς απάντηση
  *
  * @author Team Hack-You
  */
-//TODO(Mallikoko): Φτιάξε καλύτερα την εμφάνιση του παραθύρου
+//TODO(Mallikoko): Φτιάξε καλύτερα την εμφάνιση του παραθύρου !!!!!
 public class Quiz implements ActionListener {
     private static ArrayList<String> questions = new ArrayList<>();
     private static ArrayList<String> options = new ArrayList<>();
@@ -43,10 +42,6 @@ public class Quiz implements ActionListener {
         //Για να μη γίνεται skip της ερώτησης
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
-        /*StyledDocument doc = textPane.getStyledDocument();
-        SimpleAttributeSet center = new SimpleAttributeSet();
-        StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
-        doc.setParagraphAttributes(0, doc.getLength(), center, false);*/
         textArea.setBounds(100, 0, 600, 100);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
@@ -131,7 +126,7 @@ public class Quiz implements ActionListener {
         gp.gameState = gp.playState;
         gp.labyrinthFrame.updateBar(time);
         frame.dispose();
-        KeyHandler.quizTrig = false;
+        gp.keyH.quizTrig = false;
 
     }
 

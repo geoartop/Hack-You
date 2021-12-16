@@ -60,13 +60,10 @@ public class Levels implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         ButtonSetter.playSE();
         if (e.getSource() == easy) {
-            //new EasyLabyrinths();
             difficulty = "Easy";
         } else if (e.getSource() == medium) {
-            //new MediumLabyrinths();
             difficulty = "Medium";
         } else {
-            //new HardLabyrinths();
             difficulty = "Hard";
         }
         frame.dispose();
@@ -78,7 +75,5 @@ public class Levels implements ActionListener {
             ex.printStackTrace();
         }
         SwingUtilities.invokeLater(LabyrinthFrame::new);
-        //TODO Κάθε κατηγορία λαβύρινθου να κάνει extend την κλάση Labyrinth!
-
     }
 }

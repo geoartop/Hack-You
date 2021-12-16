@@ -48,7 +48,6 @@ public class Entity {
      *
      * @param images : ο πίνακας εικόνων κινήσεων
      * @param move   : καθορίζει την κατηγορία κίνησης
-     * @throws IOException
      */
     private void setMovement(BufferedImage[] images, String move) throws IOException {
         for (int i = 0; i < images.length; i++)

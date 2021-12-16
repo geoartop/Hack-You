@@ -1,7 +1,7 @@
 package highscoreTest;
 
 /**
- * Κλάση για τον ορισμό κάθε δεδομένων που θα γράφεται σε κάθε γραμμή του HighScore.txt
+ * Ορισμός δεδομένων που θα γράφονται σε κάθε γραμμή του HighScore.txt
  */
 public class PlayerInfo {
     private String name;

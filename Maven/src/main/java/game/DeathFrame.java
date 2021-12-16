@@ -37,7 +37,6 @@ public class DeathFrame implements ActionListener {
             SwingUtilities.invokeLater(LabyrinthFrame::new);
         } else if (e.getSource() == back_to_menu) {
             SwingUtilities.invokeLater(Menu::new);
-            System.out.println(ButtonSetter.playSound);
         } else {
             System.exit(0);
         }

@@ -6,8 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * Παράθυρο όπου τρέχει ο λαβύρινθος
+ *
  * @author Team Hack-You
- * <p> Κλάση όπου θα τρέχει ο λαβύρινθος
  */
 public class LabyrinthFrame implements ActionListener {
 
@@ -33,6 +34,9 @@ public class LabyrinthFrame implements ActionListener {
 
     //--------------------------------------------------------------------------------------//
 
+    /**
+     * Αρχικοποίηση μεταβλητών για χρόνο παιχνιδιού και win/loss χρόνου ανάλογα με την απάντηση στις ερωτήσεις
+     */
     protected static void setLabyrinth() {
         switch (Levels.difficulty) {
             case "Easy":
@@ -56,8 +60,6 @@ public class LabyrinthFrame implements ActionListener {
 
     private void createFrame() {
         frame = new JFrame();
-        //Για να μην κουνιέται το παράθυρο
-        //frame.setUndecorated(true);
         frame.setTitle("Labyrinth"); //setTitle of frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
@@ -119,7 +121,6 @@ public class LabyrinthFrame implements ActionListener {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
-                JOptionPane.showMessageDialog(null, "A problem has occurred", "Error", JOptionPane.ERROR_MESSAGE);
             }
             counter--;
         }
@@ -152,7 +153,6 @@ public class LabyrinthFrame implements ActionListener {
      * Μέθοδος κλεισίματος παραθύρου παιχνιδιού (διακοπή παιχνιδιού)
      */
     protected void closeFrame() {
-        //Menu.stopMusic();
         hasStarted = false;
         frame.dispose();
     }
@@ -170,14 +170,13 @@ public class LabyrinthFrame implements ActionListener {
             SwingUtilities.invokeLater(WinFrame::new);
         } else {
             SwingUtilities.invokeLater(DeathFrame::new);
-            //hasLost = false;
         }
         frame.dispose();
 
     }
 
     /**
-     * Μέθοδος παύσης progressBar
+     * Παύση progressBar
      */
     protected void stopBar() {
         go = false;
@@ -186,6 +185,7 @@ public class LabyrinthFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == start) {
+            //Εμφάνιση progressBar και έναρξη countdown
             bar.setVisible(true);
             Thread fill_bar = new Thread(() -> fill(time));
             fill_bar.start();

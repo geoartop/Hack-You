@@ -40,7 +40,7 @@ public class Player extends Entity {
     }
 
     /**
-     * Μέθοδος καθορισμού αρχικής θέσης παίκτη
+     * Καθορισμός αρχικής θέσης παίκτη
      */
     private void setDefaultValues() {
         worldx = 100;
@@ -50,7 +50,7 @@ public class Player extends Entity {
     }
 
     /**
-     * Μέθοδος ανανέωσης κίνησης παίκτη
+     * Ανανέωση κίνησης παίκτη
      */
     public void update() {
         if (keyH.upPressed || keyH.downPressed || keyH.rightPressed || keyH.leftPressed) {
@@ -103,7 +103,7 @@ public class Player extends Entity {
     }
 
     /**
-     * Μέθοδος σταθεροποίησης κίνησης παίκτη
+     * Σταθεροποίηση κίνησης παίκτη
      */
     public void stabilizePlayer() {
         keyH.upPressed = false;
@@ -113,7 +113,7 @@ public class Player extends Entity {
     }
 
     /**
-     * Μέθοδος που είναι υπεύθυνη για τη διαχείριση interactions του παίκτη με αντικείμενα μέσα στο παιχνίδι
+     * Διαχείριση interactions του παίκτη με αντικείμενα μέσα στο παιχνίδι
      *
      * @param index
      */
@@ -125,7 +125,7 @@ public class Player extends Entity {
                 //stabilizePlayer();
                 gp.labyrinthFrame.stopBar();
                 gp.gameState = gp.pauseState;
-                KeyHandler.quizTrig = true;
+                gp.keyH.quizTrig = true;
 
                 SwingUtilities.invokeLater(() -> new Quiz(gp));
                 gp.obj.set(index, null);
@@ -148,43 +148,26 @@ public class Player extends Entity {
     }
 
     private void setValues(Graphics2D g2, BufferedImage image) {
-        int a = screenX;
-        int b = screenY;
+        int x1 = screenX;
+        int y1 = screenY;
 
-        if (screenX > worldx)
-            a = worldx;
-
-        if (screenY > worldy)
-            b = worldy;
-
-        int rightOffsetValue = gp.screenWidth - screenX;
-
-        if (rightOffsetValue > gp.WorldWidth - worldx)
-            a = gp.screenWidth - (gp.WorldWidth - worldx);
-
-        int bottomOffsetValue = gp.screenHeight - screenY;
-
-        if (bottomOffsetValue > gp.WorldHeight - worldy)
-            b = gp.screenHeight - (gp.WorldHeight - worldy);
-
-        int x1= screenX;
-        int y1= screenY;
-
-        if(screenX>worldx)  {
-            x1=worldx;
+        if (screenX > worldx) {
+            x1 = worldx;
         }
-        if(screenY>worldy){
-            y1=worldy;
+        if (screenY > worldy) {
+            y1 = worldy;
         }
         int rightOffsetValue1 = gp.screenWidth - screenX;
 
-        if (rightOffsetValue1 > gp.WorldWidth - worldx)
+        if (rightOffsetValue1 > gp.WorldWidth - worldx) {
             x1 = gp.screenWidth - (gp.WorldWidth - worldx);
+        }
 
         int bottomOffsetValue1 = gp.screenHeight - screenY;
 
-        if (bottomOffsetValue1 > gp.WorldHeight - worldy)
+        if (bottomOffsetValue1 > gp.WorldHeight - worldy) {
             y1 = gp.screenHeight - (gp.WorldHeight - worldy);
+        }
 
         g2.drawImage(image, x1, y1, gp.tileSize, gp.tileSize, null);
     }

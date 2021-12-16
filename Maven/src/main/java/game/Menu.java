@@ -30,8 +30,9 @@ public class Menu implements ActionListener {
     JButton how2play = new JButton("How to Play");
     JButton credits = new JButton("Show Credits");
     JButton description = new JButton("Game Description");
+    /*Προσδιορισμός για τον αν παίζεται μουσική στο παιχνίδι ή όχι
+    ώστε να απεικονιστεί η κατάσταση ήχου στο κουμπί*/
     JButton musicOn_Off = new JButton(String.format("Sound %s", ButtonSetter.playSound ? "off" : "on"));
-    private int times = 0;
     JLabel label = new JLabel();
     JLabel backgroundLabel = new JLabel();
 
@@ -65,12 +66,10 @@ public class Menu implements ActionListener {
         frame.add(description);
         frame.add(musicOn_Off);
 
+        //Εισαγωγή τίτλου παιχνιδιού
         FrameSetter.scaleImage(label, 500, 300, title);
         frame.add(label);
-        //-------test changes------//
-        FrameSetter.scaleBackground(backgroundLabel, 1000, 1000);
-        /*backgroundLabel.setIcon(Main.background);
-        backgroundLabel.setBounds(0, 0, 1000, 1000);*/
+        FrameSetter.scaleBackground(backgroundLabel, 970, 850);
         frame.add(backgroundLabel);
         //-------test changes end------//
     }

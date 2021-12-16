@@ -1,10 +1,12 @@
 package game;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 /**
- * Υπερκλάση για τη δημιουργία αντικειμένων στο παιχνίδι
+ * Δημιουργία αντικειμένων στο παιχνίδι
  */
 public class SuperObject {
     public BufferedImage image;
@@ -14,6 +16,14 @@ public class SuperObject {
     public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
     public int solidAreaDefaultX = 0;
     public int solidAreaDefaultY = 0;
+
+    public SuperObject(String path) {
+        try {
+            image = ImageIO.read(getClass().getResourceAsStream(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void draw(Graphics2D g2, GamePanel gp) {
         int screenX = worldX - gp.player.worldx + gp.player.screenX;
@@ -35,7 +45,7 @@ public class SuperObject {
         if (bottomOffsetValue > gp.WorldHeight - gp.player.worldy) {
             screenY = gp.screenHeight - (gp.WorldHeight - worldY);
         }
-        if(worldX + gp.tileSize > gp.player.worldx - gp.player.screenX &&
+        if (worldX + gp.tileSize > gp.player.worldx - gp.player.screenX &&
                 worldX - gp.tileSize < gp.player.worldx + gp.player.screenX &&
                 worldY + gp.tileSize > gp.player.worldy - gp.player.screenY &&
                 worldY - gp.tileSize < gp.player.worldy + gp.player.screenY) {
@@ -43,7 +53,7 @@ public class SuperObject {
             g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
         }
         // If player is around the edge, draw everything
-        else if(gp.player.worldx < gp.player.screenX ||
+        else if (gp.player.worldx < gp.player.screenX ||
                 gp.player.worldy < gp.player.screenY ||
                 rightOffsetValue > gp.WorldWidth - gp.player.worldx ||
                 bottomOffsetValue > gp.WorldHeight - gp.player.worldy) {

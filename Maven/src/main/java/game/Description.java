@@ -7,12 +7,10 @@ import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 
 /**
- * Κλάση που περιγράφει το παιχνίδι και τη "πλοκή"
+ * Περιγραφή παιχνιδιού και "πλοκής"
  *
  * @author Team Hack-You
  */
-
-//TODO(Mallikoko): Φτιάξε καλύτερα την εμφάνιση του κειμένου
 public class Description extends UtilityFrame {
 
     Menu menu;
@@ -22,7 +20,7 @@ public class Description extends UtilityFrame {
     public Description(Menu menu) {
         super("Description", 800, 600);
         this.menu = menu;
-        super.frame.addWindowListener(new WindowAdapter() {
+        frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 menu.description.setEnabled(true);
@@ -45,6 +43,7 @@ public class Description extends UtilityFrame {
         }
 
         scrollPane = super.createScrollPane(textArea, 600, 500);
+        scrollPane.setBorder(null);
 
         frame.getContentPane().add(scrollPane);
         frame.add(backgroundLabel);

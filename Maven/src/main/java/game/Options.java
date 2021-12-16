@@ -86,7 +86,7 @@ public class Options implements ActionListener {
         }
         // Ενημερώνουμε το gamepanel για το κλείσιμο του παραθύρου
         isActive = false;
-        KeyHandler.escPressed = false;
+        gp.keyH.escPressed = false;
         if(ButtonSetter.playSound)
             Menu.continuePlaying();
 

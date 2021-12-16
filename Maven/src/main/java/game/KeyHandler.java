@@ -5,15 +5,15 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- * Κλάση η οποία διαχειρίζεται τις λειτουργίες των κουμπιών του υπολογιστή
- * WASD, Arrows, PAUSE, ESCAPE
+ * Διαχείριση λειτουργιών των κουμπιών
+ * WASD, Arrows, PAUSE, ESCAPE στο παιχνίδι
  */
 public class KeyHandler implements KeyListener {
 
     protected boolean upPressed, downPressed, leftPressed, rightPressed;
     private GamePanel gp;
-    protected static boolean escPressed = false;
-    protected static boolean quizTrig = false;
+    protected boolean escPressed = false;
+    protected boolean quizTrig = false;
 
     @Override
     public void keyTyped(KeyEvent e) {
