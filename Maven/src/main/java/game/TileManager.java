@@ -30,7 +30,6 @@ public class TileManager {
             loadMap("/maps/Medium.txt");
         }
 
-
     }
 
 

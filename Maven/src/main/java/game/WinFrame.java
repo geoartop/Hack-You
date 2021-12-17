@@ -3,11 +3,8 @@ package game;
 import highscoreTest.HighScore;
 import highscoreTest.HighScoreFrame;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingUtilities;
-import java.awt.Color;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -52,7 +49,7 @@ public class WinFrame implements ActionListener {
         frame.add(backgroundLabel);
     }
 
-    //TODO
+    //TODO(all) προσθήκη συνάρτησης υπολογισμού score
     public int calculateScore() {
 
         return 0;

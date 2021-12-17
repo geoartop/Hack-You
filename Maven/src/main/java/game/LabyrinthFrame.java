@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 /**
  * Παράθυρο όπου τρέχει ο λαβύρινθος
@@ -19,18 +21,23 @@ public class LabyrinthFrame implements ActionListener {
     private JButton start = new JButton("start");
 
     //Μεταβλητές χρήσιμες για τη λειτουργία του progressBar
-    private boolean go = true; // Για το αν συνεχίζει το παιχνίδι ή βρίσκεται σε pause
+    private boolean go = true; // Για το αν συνεχίζει το progressBar ή βρίσκεται σε pause
     protected boolean hasStarted = false; // Για το αν έχει αρχίσει το παιχνίδι
 
     //Μεταβλητές για πόσο χρόνο ο παίκτης θα κερδίζει χάνει ανάλογα με την απάντησή του στις ερωτήσεις
     protected static int for_correct;
     protected static int for_wrong;
+
     //Πόσο χρόνο σε seconds θα έχει ο παίκτης
     private static int time;
 
+    // Αν ο παίκτης έχει χάσει ή όχι
     protected boolean hasLost = false;
 
+    //Thread το οποίο τρέχει τη "φόρτωση" του εναπομένοντος χρόνου του παίκτη
     private Thread fill_bar;
+    //Δευτερόλεπτα που απομένουν στον παίκτη για να δραπετεύσει από τον λαβύρινθο
+    private int counter;
 
     //--------------------------------------------------------------------------------------//
 
@@ -40,12 +47,12 @@ public class LabyrinthFrame implements ActionListener {
     protected static void setLabyrinth() {
         switch (Levels.difficulty) {
             case "Easy":
-                time = 200;
+                time = 100;
                 for_correct = 5;
                 for_wrong = -2;
                 break;
             case "Medium":
-                time = 150;
+                time = 75;
                 for_correct = 5;
                 for_wrong = -5;
                 break;
@@ -58,6 +65,9 @@ public class LabyrinthFrame implements ActionListener {
 
     }
 
+    /**
+     * Δημιουργία frame
+     */
     private void createFrame() {
         frame = new JFrame();
         frame.setTitle("Labyrinth"); //setTitle of frame
@@ -71,6 +81,9 @@ public class LabyrinthFrame implements ActionListener {
         frame.setLocationRelativeTo(null);
     }
 
+    /**
+     * Δημιουργία progressBar
+     */
     private void createBar() {
         bar = new JProgressBar(0, time);
         bar.setValue(time);
@@ -90,6 +103,16 @@ public class LabyrinthFrame implements ActionListener {
         createFrame();
         createBar();
 
+        /*Για να μην υπάρχει καμία περίπτωση να κολλήσει
+        η κίνηση του παίκτη σε περίπτωση μετακίνησης του παραθύρου*/
+        frame.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentMoved(ComponentEvent e) {
+                super.componentMoved(e);
+                gamePanel.player.stabilizePlayer();
+            }
+        });
+
         setButton(start, 500);
         start.setBackground(Color.green);
         start.setFont(new Font("Calibri", Font.ITALIC, 25));
@@ -108,13 +131,15 @@ public class LabyrinthFrame implements ActionListener {
      * @param flg : ο χρόνος που θα έχει ο παίκτης
      */
     private void fill(int flg) {
-        int counter = flg;
-
-        while (counter > 0) {
+        counter = flg;
+        // counter >= 0 : Για να γίνεται το activation του quiz και με 1 second left
+        while (counter >= 0) {
             if (!go) {
                 go = true;
                 return;
             }
+            if (counter == 0)
+                break;
             bar.setString(String.format("%d seconds left", counter));
             bar.setValue(counter);
             try {
@@ -123,11 +148,23 @@ public class LabyrinthFrame implements ActionListener {
                 e.printStackTrace();
             }
             counter--;
+
         }
         bar.setValue(0);
         hasLost = true;
         bar.setString("Game Over");
 
+    }
+
+    /**
+     * Ανανέωση του χρόνου του progressBar χωρίς την παύση λειτουργίας του
+     *
+     * @param time : ο χρόνος που προσθαφαιρείται από το χρόνο που απομένει
+     */
+    protected void editBarTime(int time) {
+        counter += time;
+        bar.setString(String.format("%d seconds left", counter));
+        bar.setValue(counter);
     }
 
     private void setButton(JButton button, int y) {

@@ -34,6 +34,13 @@ public class FrameSetter {
         label.setBounds(0, 0, width, height);
     }
 
+    /**
+     * Scaling εικόνας με δεδομένο width ,height
+     * @param original η εικόνα στην οποία θα γίνει το scaling
+     * @param width πλάτος
+     * @param height μήκος
+     * @return η original scaled
+     */
     public static BufferedImage scaleImage(BufferedImage original, int width, int height) {
         BufferedImage scaledImage = new BufferedImage(width, height, original.getType());
         Graphics2D g2 = scaledImage.createGraphics();
@@ -42,6 +49,9 @@ public class FrameSetter {
         return scaledImage;
     }
 
+    /**
+     * Μέθοδος που τοποθετεί μια εικόνα scaled σε ένα label
+     */
     public static void scaleImgToLabel(JLabel label,int x , int y,int width, int height, ImageIcon imageIcon) {
         Image img = imageIcon.getImage();
         Image temp = img.getScaledInstance(width - 15, height, Image.SCALE_SMOOTH);

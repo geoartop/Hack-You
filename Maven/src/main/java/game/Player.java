@@ -3,6 +3,8 @@ package game;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.lang.reflect.InvocationTargetException;
+import java.sql.Time;
 import java.util.Objects;
 
 /**
@@ -10,8 +12,8 @@ import java.util.Objects;
  */
 public class Player extends Entity {
 
-    GamePanel gp;
-    KeyHandler keyH;
+    private GamePanel gp;
+    private KeyHandler keyH;
     public final int screenX;
     public final int screenY;
     private static boolean hasLoaded;
@@ -33,6 +35,7 @@ public class Player extends Entity {
         solidArea.height = 16;
 
         setDefaultValues();
+
         if (!hasLoaded) {
             getImage();
             hasLoaded = true;
@@ -115,7 +118,7 @@ public class Player extends Entity {
     /**
      * Διαχείριση interactions του παίκτη με αντικείμενα μέσα στο παιχνίδι
      *
-     * @param index
+     * @param index θέση του παίκτη στον χάρτη
      */
     private void interact(int index) {
         if (index != 999) {
@@ -131,18 +134,28 @@ public class Player extends Entity {
                 gp.obj.set(index, null);
 
             }
-            //Τερματισμός παιχνιδιού σε περίπτωση νίκης
+            //Τερματισμός παιχνιδιού σε περίπτωση νίκης TODO(all) ίσως προσθήκη νικητήριου ήχου
             if (Objects.equals(objectName, "Exit"))
                 gp.gameState = gp.endState;
+            //Προσθήκη χρόνου (ίσως και πόντων) όταν ο παίκτης βρίσκει coins
+            if (Objects.equals(objectName, "Coin")) {
+                if(!ButtonSetter.playSound) {
+                    OBJ_Coin coin = (OBJ_Coin) gp.obj.get(index);
+                    coin.playSE();
+                }
+                gp.labyrinthFrame.editBarTime(LabyrinthFrame.for_correct);
+                gp.obj.set(index, null);
+            }
 
         }
     }
 
+    /**
+     * Απεικόνιση "θανάτου" παίκτη
+     */
     public void drawDeathAnimation(Graphics2D g2) {
         BufferedImage image;
-
         image = death[timesPassed];
-
         setValues(g2, image);
 
     }
@@ -169,7 +182,7 @@ public class Player extends Entity {
             y1 = gp.screenHeight - (gp.WorldHeight - worldy);
         }
 
-        g2.drawImage(image, x1, y1,null);
+        g2.drawImage(image, x1, y1, null);
     }
 
 
@@ -200,4 +213,5 @@ public class Player extends Entity {
 
         setValues(g2, image);
     }
+
 }

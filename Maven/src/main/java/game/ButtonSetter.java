@@ -9,7 +9,8 @@ import java.awt.event.ActionListener;
  */
 public class ButtonSetter {
 
-    public static Sound se = new Sound();
+    private static Sound se = new Sound();
+    //Αν θα αναπαράγεται ήχος από το παιχνίδι ή όχι
     public static boolean playSound = true;
 
     public static void setButton(JButton button, int x, int y, int width, int height, String font, int size, Object o, int style) {
@@ -25,6 +26,9 @@ public class ButtonSetter {
         ButtonSetter.playSound = playSound;
     }
 
+    /**
+     * Αναπαραγωγή sound effect κλικ κουμπιού
+     */
     public static void playSE() {
         if (!playSound)
             return;

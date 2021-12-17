@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 /**
  * Παράθυρο που εμφανίζεται όταν ο παίκτης χάνει
+ * TODO(g.artop) Βρες εικόνα Μινώταυρου
  */
 public class DeathFrame implements ActionListener {
 

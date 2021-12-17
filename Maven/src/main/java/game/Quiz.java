@@ -1,7 +1,8 @@
 package game;
 
 import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -63,8 +64,7 @@ public class Quiz extends JFrame implements ActionListener {
         // Τυχαία επιλογή μιας ερώτησης
         index = random.nextInt(questions.size());
 
-        GraphicPane graphicPane = new GraphicPane(questions.get(index),700,50,Color.black,17,2);
-        System.out.println(questions.get(index).length());
+        GraphicPane graphicPane = new GraphicPane(questions.get(index), 700, 50, Color.black, 17, 2);
         graphicPane.setBounds(0, 0, 700, 100);
         frame.add(graphicPane);
 
@@ -75,6 +75,9 @@ public class Quiz extends JFrame implements ActionListener {
         frame.add(label);
     }
 
+    /**
+     * Εμφάνιση απαντήσεων
+     */
     private void displayAnswers() {
         for (int i = 0; i < labels.length; i++)
             labels[i].setText(options.get(4 * index + i));
@@ -104,14 +107,14 @@ public class Quiz extends JFrame implements ActionListener {
         ButtonSetter.playSE();
         for (int i = 0; i < buttons.length; i++) {
             //Για να εμφανιστούν η σωστή και οι λάθος απαντήσεις
-            if(symbols[i] == answers.get(index)){
+            if (symbols[i] == answers.get(index)) {
                 buttons[i].setBackground(Color.green);
-            }else {
+            } else {
                 buttons[i].setBackground(Color.red);
             }
-            if (e.getSource() == buttons[i]) {
+            if (e.getSource() == buttons[i])
                 answer = symbols[i];
-            }
+
         }
         checkAnswer();
         frame.dispose();
@@ -143,7 +146,7 @@ public class Quiz extends JFrame implements ActionListener {
     }
 
     /**
-     * Μέθοδος φόρτωσης αρχείων στα ArrayList
+     * Φόρτωση αρχείων στα ArrayList
      */
     protected static void readQuestions() throws FileNotFoundException {
         Scanner q = new Scanner(new File(String.format("src/main/resources/quiz/%s Questions.txt", Levels.difficulty)));

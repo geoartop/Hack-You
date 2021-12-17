@@ -40,5 +40,9 @@ public class AssetSetter {
         gp.obj.get(6).worldX = 15 * gp.tileSize;
         gp.obj.get(6).worldY = 4 * gp.tileSize;
 
+        gp.obj.add(new OBJ_Coin());
+        gp.obj.get(7).worldX = 2 * gp.tileSize;
+        gp.obj.get(7).worldY = 10 * gp.tileSize;
+
     }
 }

@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * Δημιουργία αντικειμένων στο παιχνίδι
  */
-public class SuperObject {
+public abstract class SuperObject {
     public BufferedImage image;
     public String name;
     public boolean collision = false;
@@ -17,14 +17,16 @@ public class SuperObject {
     public int solidAreaDefaultX = 0;
     public int solidAreaDefaultY = 0;
 
-    public SuperObject(String path) {
+    public SuperObject(String path,int width_height) {
         try {
             image = ImageIO.read(getClass().getResourceAsStream(path));
-            image = FrameSetter.scaleImage(image, 48, 48);
+            image = FrameSetter.scaleImage(image, width_height, width_height);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    //public abstract void playSE();
 
     public void draw(Graphics2D g2, GamePanel gp) {
         int screenX = worldX - gp.player.worldx + gp.player.screenX;
@@ -52,9 +54,8 @@ public class SuperObject {
                 worldY - gp.tileSize < gp.player.worldy + gp.player.screenY) {
 
             g2.drawImage(image, screenX, screenY, null);
-        }
-        // If player is around the edge, draw everything
-        else if (gp.player.worldx < gp.player.screenX ||
+            // If player is around the edge, draw everything
+        } else if (gp.player.worldx < gp.player.screenX ||
                 gp.player.worldy < gp.player.screenY ||
                 rightOffsetValue > gp.WorldWidth - gp.player.worldx ||
                 bottomOffsetValue > gp.WorldHeight - gp.player.worldy) {

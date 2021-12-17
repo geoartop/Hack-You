@@ -1,12 +1,6 @@
 package game;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.plaf.ScrollBarUI;
-import javax.swing.plaf.basic.BasicScrollBarUI;
-import java.awt.*;
+import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -31,6 +25,11 @@ public abstract class UtilityFrame {
         FrameSetter.scaleBackground(backgroundLabel, width, height);
     }
 
+    /**
+     * Φόρτωση αρχείου κειμένου
+     * @param pathname το path του αρχείου
+     * @param textArea το textArea στο οποίο θα φορτωθεί το κείμενο
+     */
     public void load(String pathname, JTextArea textArea) throws FileNotFoundException {
         Scanner q = new Scanner(new File(pathname));
         while (q.hasNextLine())
@@ -41,20 +40,20 @@ public abstract class UtilityFrame {
         return isOpen;
     }
 
+    /**
+     * Δημιουργία scrollable textArea
+     * @param textArea το text που θέλουμε να εμφανιστεί
+     * @param width πλάτος textArea που επιθυμούμε
+     * @param height ύψος textArea που επιθυμούμε
+     * @return scrollPane
+     */
     protected JScrollPane createScrollPane(JTextArea textArea, int width, int height) {
         //Για να εμφανίζεται το περιεχόμενο του textArea από την αρχή
         textArea.setCaretPosition(0);
         JScrollPane scrollPane = new JScrollPane(textArea);
         scrollPane.setOpaque(false);
         scrollPane.createVerticalScrollBar();
-        scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
-            @Override
-            protected void configureScrollBarColors() {
-                this.thumbColor = new Color(93, 91, 91);
-            }
-        });
         scrollPane.getVerticalScrollBar().setOpaque(false);
-        //scrollPane.getVerticalScrollBar().setUI();
         scrollPane.setBounds(100, 25, width, height);
         scrollPane.setViewportView(textArea);
         scrollPane.setBorder(null);

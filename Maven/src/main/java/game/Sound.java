@@ -10,15 +10,17 @@ import java.net.URL;
 
 /**
  * Αναπαραγωγή ήχου και ηχητικών εφέ
+ * TODO(Emmanouil Dellatolis) Προσθήκη Coin Sound Effect
  */
 public class Sound {
 
     Clip clip;
-    URL[] soundURL = new URL[2];
+    URL[] soundURL = new URL[3];
 
     public Sound() {
         soundURL[0] = getClass().getResource("/audio_thiseas.wav");
         soundURL[1] = getClass().getResource("/sound_effect.wav");
+        //soundURL[2] = getClass().getResource();
     }
 
     public void setFile(int i) {
@@ -41,7 +43,7 @@ public class Sound {
         clip.loop(Clip.LOOP_CONTINUOUSLY);
     }
 
-    public void stop(){
+    public void stop() {
         clip.stop();
     }
 

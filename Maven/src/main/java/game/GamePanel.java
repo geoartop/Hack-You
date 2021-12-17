@@ -42,7 +42,6 @@ public class GamePanel extends JPanel implements Runnable {
     public final int pauseState = 2;
     public final int endState = 3;
 
-
     public GamePanel(LabyrinthFrame labyrinthFrame) {
         this.labyrinthFrame = labyrinthFrame;
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -90,19 +89,19 @@ public class GamePanel extends JPanel implements Runnable {
             lastTime = currentTime;
             if (delta >= 1) {
                 update();
-                //Τερματισμός παιχνιδιού σε περίπτωση νίκης
+                //Τερματισμός παιχνιδιού σε περίπτωση νίκης TODO(span+g.artop) προσθήκη win animation
                 if (gameState == endState) {
                     Menu.stopMusic();
                     //Για να μην κολλήσει η λειτουργία της μπάρας
                     labyrinthFrame.closeFrame(true);
                     return;
-                    //Ενέργεια που εκτελείται όταν χάνει ο παίκτης
+                    //Ενέργεια που εκτελείται όταν χάνει ο παίκτης TODO(all) add death sound
                 } else if (labyrinthFrame.hasLost) {
                     for (int times = 0; times < Entity.death.length - 1; times++) {
                         if (times == 0)
                             Menu.stopMusic();
                         //Για να απεικονιστεί φανερά ο "θάνατος" του παίκτη
-                        sleep(1);
+                        sleep(0.75);
                         update();
                         repaint();
                     }
@@ -117,7 +116,7 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
-    public void sleep(double seconds) {
+    private void sleep(double seconds) {
         try {
             Thread.sleep((long) (1000L * seconds));
         } catch (InterruptedException e) {
@@ -143,6 +142,7 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2 = (Graphics2D) g;
         tileM.draw(g2);
 
+        //Απεικόνιση αντικειμένων παιχνιδιού
         for (SuperObject superObject : obj) {
             if (superObject != null)
                 superObject.draw(g2, this);
