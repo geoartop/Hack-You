@@ -3,7 +3,11 @@ package game;
 import highscoreTest.HighScore;
 import highscoreTest.HighScoreFrame;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -30,20 +34,25 @@ public class WinFrame implements ActionListener {
         //Έλεγχος για το αν ο παίκτης έκανε νέο highscore
         new HighScore(Username.getUsername(), calculateScore());
 
-        ButtonSetter.setButton(playAgain, 275, 200, 250, 50, "Calibri", 20, this, 2);
-        ButtonSetter.setButton(seeHighScores, 275, 300, 250, 50, "Calibri", 20, this, 2);
-        ButtonSetter.setButton(back_to_menu, 275, 400, 250, 50, "Calibri", 20, this, 2);
-        ButtonSetter.setButton(exit, 275, 500, 250, 50, "Calibri", 20, this, 2);
+        ButtonSetter.setButton(playAgain, 275, 300, 250, 50, "Calibri", 20, this, 2);
+        ButtonSetter.setButton(seeHighScores, 275, 400, 250, 50, "Calibri", 20, this, 2);
+        ButtonSetter.setButton(back_to_menu, 275, 500, 250, 50, "Calibri", 20, this, 2);
+        ButtonSetter.setButton(exit, 275, 600, 250, 50, "Calibri", 20, this, 2);
 
         frame.add(playAgain);
         frame.add(seeHighScores);
         frame.add(back_to_menu);
         frame.add(exit);
 
+        GraphicPane graphicPane = new GraphicPane("VICTORY!",800,100,new Color(136, 201, 87),60,1);
+        graphicPane.setBounds(0,50,800,150);
+        frame.add(graphicPane);
+
         FrameSetter.scaleBackground(backgroundLabel, 800, 800);
         frame.add(backgroundLabel);
     }
 
+    //TODO
     public int calculateScore() {
 
         return 0;

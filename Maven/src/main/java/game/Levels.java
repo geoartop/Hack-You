@@ -47,6 +47,10 @@ public class Levels implements ActionListener {
         medium.setIcon(medium_icon);
         hard.setIcon(hard_icon);
 
+        GraphicPane graphicPane = new GraphicPane("Choose difficulty",600,50,new Color(112, 96, 61),35,1);
+        graphicPane.setBounds(0,50,600,100);
+        frame.add(graphicPane);
+
         //Προσθήκη συστατικών
         frame.add(easy);
         frame.add(medium);

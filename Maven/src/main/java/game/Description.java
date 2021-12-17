@@ -43,7 +43,6 @@ public class Description extends UtilityFrame {
         }
 
         scrollPane = super.createScrollPane(textArea, 600, 500);
-        scrollPane.setBorder(null);
 
         frame.getContentPane().add(scrollPane);
         frame.add(backgroundLabel);

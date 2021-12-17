@@ -16,7 +16,8 @@ import java.util.Scanner;
  * @author Team Hack-You
  */
 //TODO(Mallikoko): Φτιάξε καλύτερα την εμφάνιση του παραθύρου !!!!!
-public class Quiz implements ActionListener {
+public class Quiz extends JFrame implements ActionListener {
+
     private static ArrayList<String> questions = new ArrayList<>();
     private static ArrayList<String> options = new ArrayList<>();
     private static ArrayList<Character> answers = new ArrayList<>();
@@ -38,7 +39,7 @@ public class Quiz implements ActionListener {
 
     public Quiz(GamePanel gp) {
         this.gp = gp;
-        FrameSetter.setFrame(frame, "Question", 700, 550);
+        FrameSetter.setFrame(frame, "Question", 700, 540);
         //Για να μη γίνεται skip της ερώτησης
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
@@ -61,15 +62,20 @@ public class Quiz implements ActionListener {
         frame.setVisible(true);
         // Τυχαία επιλογή μιας ερώτησης
         index = random.nextInt(questions.size());
-        displayQuestion();
+
+        GraphicPane graphicPane = new GraphicPane(questions.get(index),700,50,Color.black,17,2);
+        System.out.println(questions.get(index).length());
+        graphicPane.setBounds(0, 0, 700, 100);
+        frame.add(graphicPane);
+
+        displayAnswers();
 
         FrameSetter.scaleBackground(label, 700, 550);
         //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
         frame.add(label);
     }
 
-    private void displayQuestion() {
-        textArea.setText(questions.get(index));
+    private void displayAnswers() {
         for (int i = 0; i < labels.length; i++)
             labels[i].setText(options.get(4 * index + i));
 
@@ -92,13 +98,19 @@ public class Quiz implements ActionListener {
         }
     }
 
+
     @Override
     public void actionPerformed(ActionEvent e) {
         ButtonSetter.playSE();
         for (int i = 0; i < buttons.length; i++) {
+            //Για να εμφανιστούν η σωστή και οι λάθος απαντήσεις
+            if(symbols[i] == answers.get(index)){
+                buttons[i].setBackground(Color.green);
+            }else {
+                buttons[i].setBackground(Color.red);
+            }
             if (e.getSource() == buttons[i]) {
                 answer = symbols[i];
-                break;
             }
         }
         checkAnswer();
@@ -132,8 +144,6 @@ public class Quiz implements ActionListener {
 
     /**
      * Μέθοδος φόρτωσης αρχείων στα ArrayList
-     *
-     * @throws FileNotFoundException
      */
     protected static void readQuestions() throws FileNotFoundException {
         Scanner q = new Scanner(new File(String.format("src/main/resources/quiz/%s Questions.txt", Levels.difficulty)));
@@ -146,4 +156,5 @@ public class Quiz implements ActionListener {
         while (a.hasNext())
             answers.add(a.next().charAt(0));
     }
+
 }

@@ -35,8 +35,10 @@ public class Entity {
             setMovement(down, "thiseaswalkingdown");
             setMovement(right, "thiseaswalkingright");
             setMovement(left, "thiseaswalkingleft");
-            for (int i = 0; i < death.length - 1; i++)
-                death[i] = ImageIO.read(getClass().getResourceAsStream(String.format("/deadthiseas/dead%d.png", i + 1)));
+            for (int i = 0; i < death.length - 1; i++) {
+                BufferedImage image = ImageIO.read(getClass().getResourceAsStream(String.format("/deadthiseas/dead%d.png", i + 1)));
+                death[i] = FrameSetter.scaleImage(image, 48, 48);
+            }
             death[death.length - 1] = death[death.length - 2];
         } catch (IOException e) {
             e.printStackTrace();
@@ -50,8 +52,10 @@ public class Entity {
      * @param move   : καθορίζει την κατηγορία κίνησης
      */
     private void setMovement(BufferedImage[] images, String move) throws IOException {
-        for (int i = 0; i < images.length; i++)
-            images[i] = ImageIO.read(getClass().getResourceAsStream(String.format("/thiseas2/%s%d.png", move, i + 1)));
+        for (int i = 0; i < images.length; i++) {
+            BufferedImage image = ImageIO.read(getClass().getResourceAsStream(String.format("/thiseas2/%s%d.png", move, i + 1)));
+            images[i] = FrameSetter.scaleImage(image, 48, 48);
+        }
 
     }
 

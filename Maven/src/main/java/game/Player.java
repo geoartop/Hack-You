@@ -169,7 +169,7 @@ public class Player extends Entity {
             y1 = gp.screenHeight - (gp.WorldHeight - worldy);
         }
 
-        g2.drawImage(image, x1, y1, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(image, x1, y1,null);
     }
 
 

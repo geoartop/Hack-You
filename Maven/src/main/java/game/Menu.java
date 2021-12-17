@@ -67,7 +67,7 @@ public class Menu implements ActionListener {
         frame.add(musicOn_Off);
 
         //Εισαγωγή τίτλου παιχνιδιού
-        FrameSetter.scaleImage(label, 500, 300, title);
+        FrameSetter.scaleImgToLabel(label, 250, 0, 500, 300, title);
         frame.add(label);
         FrameSetter.scaleBackground(backgroundLabel, 970, 850);
         frame.add(backgroundLabel);

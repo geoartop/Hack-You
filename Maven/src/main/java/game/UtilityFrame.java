@@ -1,6 +1,12 @@
 package game;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.plaf.ScrollBarUI;
+import javax.swing.plaf.basic.BasicScrollBarUI;
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -41,8 +47,17 @@ public abstract class UtilityFrame {
         JScrollPane scrollPane = new JScrollPane(textArea);
         scrollPane.setOpaque(false);
         scrollPane.createVerticalScrollBar();
+        scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
+            @Override
+            protected void configureScrollBarColors() {
+                this.thumbColor = new Color(93, 91, 91);
+            }
+        });
+        scrollPane.getVerticalScrollBar().setOpaque(false);
+        //scrollPane.getVerticalScrollBar().setUI();
         scrollPane.setBounds(100, 25, width, height);
         scrollPane.setViewportView(textArea);
+        scrollPane.setBorder(null);
         //Για να γίνει διάφανο το πλαίσιο εμφάνισης κειμένου
         scrollPane.getViewport().setOpaque(false);
         return scrollPane;

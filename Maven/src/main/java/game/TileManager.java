@@ -24,7 +24,6 @@ public class TileManager {
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
-        //loadMap("/maps/Medium.txt");
         if (!Levels.difficulty.equals("Hard")) {
             loadMap(String.format("/maps/%s.txt", Levels.difficulty));
         } else {
@@ -34,16 +33,27 @@ public class TileManager {
 
     }
 
+
     private void getTileImage() {
+        setup(0, "/tiles/floor.png", false);
+        setup(1, "/tiles/wall.PNG", true);
+    }
+
+    /**
+     * Κάνουμε scale τις εικόνες των tiles έτσι
+     * ώστε να μη χρειάζεται να γίνεται η διαδικασία αυτή μέσα στο gameloop
+     * Λόγος : Improved rendering performance
+     *
+     * @param index     : θέση πίνακα tile
+     * @param path      : path του image
+     * @param collision : αν το tile θα είναι εμπόδιο ή οχι
+     */
+    private void setup(int index, String path, boolean collision) {
         try {
-
-            tile[0] = new Tile();
-            tile[0].image = ImageIO.read(getClass().getResourceAsStream("/tiles/floor.png"));
-
-            tile[1] = new Tile();
-            tile[1].image = ImageIO.read(getClass().getResourceAsStream("/tiles/wall.PNG"));
-            tile[1].collision = true;
-
+            tile[index] = new Tile();
+            tile[index].image = ImageIO.read(getClass().getResourceAsStream(path));
+            tile[index].image = FrameSetter.scaleImage(tile[index].image, gp.tileSize, gp.tileSize);
+            tile[index].collision = collision;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -58,7 +68,6 @@ public class TileManager {
 
         try {
             InputStream is = getClass().getResourceAsStream(FilePath);
-            //assert is != null;
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
             int col = 0;
@@ -123,12 +132,12 @@ public class TileManager {
                     worldX - gp.tileSize < gp.player.worldx + gp.player.screenX &&
                     worldY + gp.tileSize > gp.player.worldy - gp.player.screenY &&
                     worldY - gp.tileSize < gp.player.worldy + gp.player.screenY) {
-                g2.drawImage(tile[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
-            } else if(gp.player.worldx < gp.player.screenX ||
+                g2.drawImage(tile[tileNum].image, screenX, screenY, null);
+            } else if (gp.player.worldx < gp.player.screenX ||
                     gp.player.worldy < gp.player.screenY ||
                     rightOffsetValue > gp.WorldWidth - gp.player.worldx ||
                     bottomOffsetValue > gp.WorldHeight - gp.player.worldy) {
-                g2.drawImage(tile[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+                g2.drawImage(tile[tileNum].image, screenX, screenY, null);
             }
 
             worldCol++;

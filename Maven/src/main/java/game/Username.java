@@ -46,6 +46,10 @@ public class Username implements ActionListener {
         textField.setFont(new Font("Calibri", Font.BOLD, 25));
         textField.setSelectedTextColor(Color.green);
 
+        GraphicPane graphicPane = new GraphicPane("Enter your username!",970,100,new Color(112, 96, 61),45,1);
+        graphicPane.setBounds(0,100,970,150);
+        frame.add(graphicPane);
+
         frame.add(submit);
         frame.add(textField);
         // Για να λειτουργεί το κουμπί enter

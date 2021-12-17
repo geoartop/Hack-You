@@ -20,6 +20,7 @@ public class SuperObject {
     public SuperObject(String path) {
         try {
             image = ImageIO.read(getClass().getResourceAsStream(path));
+            image = FrameSetter.scaleImage(image, 48, 48);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -50,14 +51,14 @@ public class SuperObject {
                 worldY + gp.tileSize > gp.player.worldy - gp.player.screenY &&
                 worldY - gp.tileSize < gp.player.worldy + gp.player.screenY) {
 
-            g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+            g2.drawImage(image, screenX, screenY, null);
         }
         // If player is around the edge, draw everything
         else if (gp.player.worldx < gp.player.screenX ||
                 gp.player.worldy < gp.player.screenY ||
                 rightOffsetValue > gp.WorldWidth - gp.player.worldx ||
                 bottomOffsetValue > gp.WorldHeight - gp.player.worldy) {
-            g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+            g2.drawImage(image, screenX, screenY, null);
         }
 
 

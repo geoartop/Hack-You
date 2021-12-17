@@ -2,6 +2,7 @@ package game;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * Πρότυπο για την επεξεργασία frames
@@ -33,12 +34,20 @@ public class FrameSetter {
         label.setBounds(0, 0, width, height);
     }
 
-    public static void scaleImage(JLabel label, int width, int height, ImageIcon imageIcon) {
+    public static BufferedImage scaleImage(BufferedImage original, int width, int height) {
+        BufferedImage scaledImage = new BufferedImage(width, height, original.getType());
+        Graphics2D g2 = scaledImage.createGraphics();
+        g2.drawImage(original, 0, 0, width, height, null);
+        g2.dispose();
+        return scaledImage;
+    }
+
+    public static void scaleImgToLabel(JLabel label,int x , int y,int width, int height, ImageIcon imageIcon) {
         Image img = imageIcon.getImage();
         Image temp = img.getScaledInstance(width - 15, height, Image.SCALE_SMOOTH);
         ImageIcon back = new ImageIcon(temp);
         label.setIcon(back);
-        label.setBounds(250, 0, width, height);
+        label.setBounds(x, y, width, height);
     }
 
 }
