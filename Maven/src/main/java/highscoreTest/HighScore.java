@@ -97,6 +97,7 @@ public class HighScore {
         } finally {
             //Closing the resources
             try {
+                assert printWriter != null;
                 printWriter.close();
                 bufferedWriter.close();
                 fileWriter.close();

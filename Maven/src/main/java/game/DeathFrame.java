@@ -27,7 +27,7 @@ public class DeathFrame implements ActionListener {
         ButtonSetter.setButton(back_to_menu, 215, 300, 150, 50, "Calibri", 20, this, 2);
         ButtonSetter.setButton(exit, 215, 400, 150, 50, "Calibri", 20, this, 2);
 
-        GraphicPane graphicPane = new GraphicPane("YOU DIED",600,50,Color.red,40,1);
+        GraphicPane graphicPane = new GraphicPane("GAME OVER",600,50,Color.red,40,1);
 
         graphicPane.setBounds(0, 100, 600, 125);
         frame.add(graphicPane);

@@ -13,14 +13,11 @@ import java.awt.event.WindowEvent;
  */
 public class HighScoreFrame extends UtilityFrame {
 
-    JLabel[] labels = new JLabel[HighScore.playerInfo.size()];
-    JLabel headLabel = new JLabel();
-    //Δηλώνουμε το παράθυρο από το οποίο καλείται το HighScoreFrame
-    WinFrame winFrame;
+    private JLabel[] labels = new JLabel[HighScore.playerInfo.size()];
+    private JLabel headLabel = new JLabel();
 
     public HighScoreFrame(WinFrame winFrame) {
         super("HighScore Table",800,1000);
-        this.winFrame = winFrame;
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {

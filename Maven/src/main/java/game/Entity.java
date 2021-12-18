@@ -7,24 +7,24 @@ import java.io.IOException;
 
 public class Entity {
 
-    public int worldx, worldy;
-    public int speed;
+    protected int worldx, worldy;
+    protected int speed;
 
     //Animations
-    public static BufferedImage[] up = new BufferedImage[9];
-    public static BufferedImage[] down = new BufferedImage[9];
-    public static BufferedImage[] right = new BufferedImage[9];
-    public static BufferedImage[] left = new BufferedImage[9];
-    public static BufferedImage[] death = new BufferedImage[7];
+    protected final static BufferedImage[] up = new BufferedImage[9];
+    protected final static BufferedImage[] down = new BufferedImage[9];
+    protected final static BufferedImage[] right = new BufferedImage[9];
+    protected final static BufferedImage[] left = new BufferedImage[9];
+    protected final static BufferedImage[] death = new BufferedImage[7];
 
-    public String direction;
+    protected String direction;
 
     //Μεταβλητές παίκτη
-    public int spriteCounter = 0;
-    public int spriteNum = 1;
-    public int solidAreaDefaultX, solidAreaDefaultY;
-    public Rectangle solidArea;
-    public boolean collisionOn = false;
+    protected int spriteCounter = 0;
+    protected int spriteNum = 1;
+    protected int solidAreaDefaultX, solidAreaDefaultY;
+    protected Rectangle solidArea;
+    protected boolean collisionOn = false;
 
     /**
      * Προετοιμασία των animation

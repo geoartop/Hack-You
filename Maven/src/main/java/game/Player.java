@@ -14,8 +14,8 @@ public class Player extends Entity {
 
     private GamePanel gp;
     private KeyHandler keyH;
-    public final int screenX;
-    public final int screenY;
+    protected final int screenX;
+    protected final int screenY;
     private static boolean hasLoaded;
 
     private int timesPassed = 0;
@@ -141,7 +141,7 @@ public class Player extends Entity {
             if (Objects.equals(objectName, "Coin")) {
                 if(!ButtonSetter.playSound) {
                     OBJ_Coin coin = (OBJ_Coin) gp.obj.get(index);
-                    coin.playSE();
+                    //coin.playSE();
                 }
                 gp.labyrinthFrame.editBarTime(LabyrinthFrame.for_correct);
                 gp.obj.set(index, null);

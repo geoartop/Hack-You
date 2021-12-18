@@ -15,7 +15,7 @@ import java.net.URL;
 public class Sound {
 
     Clip clip;
-    URL[] soundURL = new URL[3];
+    private URL[] soundURL = new URL[3];
 
     public Sound() {
         soundURL[0] = getClass().getResource("/audio_thiseas.wav");

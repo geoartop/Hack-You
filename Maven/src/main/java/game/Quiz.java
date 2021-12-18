@@ -30,13 +30,13 @@ public class Quiz extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
     JTextArea textArea = new JTextArea();
 
-    JButton[] buttons = new JButton[4];
-    char[] symbols = {'A', 'B', 'C', 'D'};
+    private JButton[] buttons = new JButton[4];
+    private char[] symbols = {'A', 'B', 'C', 'D'};
 
-    JLabel label = new JLabel();
-    JLabel[] labels = new JLabel[4];
+    private JLabel label = new JLabel();
+    private JLabel[] labels = new JLabel[4];
 
-    GamePanel gp;
+    private GamePanel gp;
 
     public Quiz(GamePanel gp) {
         this.gp = gp;
@@ -151,13 +151,13 @@ public class Quiz extends JFrame implements ActionListener {
      * Φόρτωση αρχείων στα ArrayList
      */
     protected static void readQuestions() throws FileNotFoundException {
-        Scanner q = new Scanner(new File(String.format("src/main/resources/quiz/%s Questions.txt", Levels.difficulty)));
+        Scanner q = new Scanner(new File(String.format("src/main/resources/quiz/%s Questions.txt", Levels.difficulty)),"UTF-8");
         while (q.hasNextLine())
             questions.add(q.nextLine());
-        Scanner o = new Scanner(new File(String.format("src/main/resources/quiz/%s Options.txt", Levels.difficulty)));
+        Scanner o = new Scanner(new File(String.format("src/main/resources/quiz/%s Options.txt", Levels.difficulty)),"UTF-8");
         while (o.hasNextLine())
             options.add(o.nextLine());
-        Scanner a = new Scanner(new File(String.format("src/main/resources/quiz/%s Answers.txt", Levels.difficulty)));
+        Scanner a = new Scanner(new File(String.format("src/main/resources/quiz/%s Answers.txt", Levels.difficulty)),"UTF-8");
         while (a.hasNext())
             answers.add(a.next().charAt(0));
     }
