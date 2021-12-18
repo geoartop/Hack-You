@@ -4,7 +4,7 @@ The team is :
 
 Georgios Artopoulos 
 
-- Role: Software Engineer , QA Engineer
+- Role: Software Engineer 
 
 Elisavet Voulgari
 
