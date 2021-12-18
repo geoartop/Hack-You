@@ -44,13 +44,14 @@ public class Quiz extends JFrame implements ActionListener {
         //Για να μη γίνεται skip της ερώτησης
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
-        textArea.setBounds(100, 0, 600, 100);
+        textArea.setBounds(100, 0, 520, 100);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
         textArea.setOpaque(false);
         textArea.setForeground(Color.black);
-        textArea.setFont(new Font("Calibri", Font.BOLD, 20));
+        textArea.setFont(new Font("Calibri", Font.BOLD, 25));
         //textArea.setBorder(BorderFactory.createBevelBorder(1));
+        textArea.setBorder(BorderFactory.createEmptyBorder());
         textArea.setEditable(false);
 
         setLabels();
@@ -64,9 +65,9 @@ public class Quiz extends JFrame implements ActionListener {
         // Τυχαία επιλογή μιας ερώτησης
         index = random.nextInt(questions.size());
 
-        GraphicPane graphicPane = new GraphicPane(questions.get(index), 700, 50, Color.black, 17, 2);
+        /*GraphicPane graphicPane = new GraphicPane(questions.get(index), 700, 50, Color.black, 17, 2);
         graphicPane.setBounds(0, 0, 700, 100);
-        frame.add(graphicPane);
+        frame.add(graphicPane);*/
 
         displayAnswers();
 
@@ -79,6 +80,7 @@ public class Quiz extends JFrame implements ActionListener {
      * Εμφάνιση απαντήσεων
      */
     private void displayAnswers() {
+        textArea.setText(questions.get(index));
         for (int i = 0; i < labels.length; i++)
             labels[i].setText(options.get(4 * index + i));
 
@@ -96,8 +98,8 @@ public class Quiz extends JFrame implements ActionListener {
             labels[i] = new JLabel();
             labels[i].setBounds(125, (i + 1) * 100, 500, 100);
             labels[i].setBackground(new Color(50, 50, 50));
-            labels[i].setForeground(new Color(0, 72, 255));
-            labels[i].setFont(new Font("Calibri", Font.PLAIN, 20));
+            labels[i].setForeground(new Color(134, 1, 1, 196));
+            labels[i].setFont(new Font("Calibri", Font.BOLD, 25));
         }
     }
 
