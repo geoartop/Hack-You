@@ -10,11 +10,8 @@ import java.awt.event.WindowEvent;
  */
 public class Credits extends UtilityFrame {
 
-    Menu menu;
-
     public Credits(Menu menu) {
         super("Credits", 800, 800);
-        this.menu = menu;
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {

@@ -9,7 +9,7 @@ import java.util.LinkedList;
  */
 public class GamePanel extends JPanel implements Runnable {
 
-    final int originalTileSize = 16;
+    transient final int originalTileSize = 16;
     final int scale = 3;
 
     public final int tileSize = originalTileSize * scale;

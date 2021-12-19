@@ -24,14 +24,14 @@ public class Levels implements ActionListener {
     private final ImageIcon hard_icon = new ImageIcon("src/main/resources/buttons/gold2.png");
 
     JFrame frame;
-    JButton easy = new JButton("Easy");
-    JButton medium = new JButton("Medium");
-    JButton hard = new JButton("Hard");
+    private JButton easy = new JButton("Easy");
+    private JButton medium = new JButton("Medium");
+    private JButton hard = new JButton("Hard");
 
     JLabel backgroundLabel = new JLabel();
 
     //Θέλουμε να γνωρίζει η κλάση LabyrinthFrame το επίπεδο δυσκολίας που επίλεξε ο παίκτης
-    protected static String difficulty = "";
+    protected static String difficulty;
 
     public Levels() {
         // Εξατομίκευση παραθύρου

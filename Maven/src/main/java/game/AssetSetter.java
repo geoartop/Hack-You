@@ -4,6 +4,7 @@ package game;
  * Τοποθέτηση των αντικειμένων του παιχνιδιού στο gamepanel
  */
 public class AssetSetter {
+
     GamePanel gp;
 
     public AssetSetter(GamePanel gp) {

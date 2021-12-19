@@ -31,7 +31,7 @@ public abstract class UtilityFrame {
      * @param textArea το textArea στο οποίο θα φορτωθεί το κείμενο
      */
     public void load(String pathname, JTextArea textArea) throws FileNotFoundException {
-        Scanner q = new Scanner(new File(pathname));
+        Scanner q = new Scanner(new File(pathname),"UTF-8");
         while (q.hasNextLine())
             textArea.append(q.nextLine() + "\n");
     }

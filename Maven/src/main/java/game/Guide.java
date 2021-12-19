@@ -10,16 +10,12 @@ import java.awt.event.WindowEvent;
  */
 public class Guide extends UtilityFrame{
 
-    Menu menu;
-    Options options;
-
     /**
      * Κατασκευαστής που καλείται όταν το guide ανοίγει από το παράθυρο options
      * @param options : Το παράθυρο options από το οποίο κλήθηκε ο guide
      */
     public Guide(Options options) {
         super("Guide",800,800);
-        this.options = options;
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -37,7 +33,6 @@ public class Guide extends UtilityFrame{
      */
     public Guide(Menu menu) {
         super("Guide",800,800);
-        this.menu = menu;
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
