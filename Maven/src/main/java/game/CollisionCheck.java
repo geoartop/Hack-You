@@ -3,9 +3,9 @@ package game;
 /**
  * Έλεγχος συγκρούσεων του παίκτη με τοίχους
  */
-public class CollisionCheck {
+public final class CollisionCheck {
 
-    GamePanel gp;
+    private final GamePanel gp;
 
     public CollisionCheck(GamePanel gp) {
         this.gp = gp;
@@ -58,7 +58,6 @@ public class CollisionCheck {
         }
     }
 
-
     public int checkObject(Entity entity, boolean player) {
         int index = 999;
         //Object counter
@@ -104,14 +103,14 @@ public class CollisionCheck {
     }
 
     private int check(Entity entity, boolean player, int index, int i) {
+        //if (entity.solidArea.intersects(gp.obj.get(i).solidArea)) {
         if (entity.solidArea.intersects(gp.obj.get(i).solidArea)) {
-            if (entity.solidArea.intersects(gp.obj.get(i).solidArea)) {
-                if (gp.obj.get(i).collision)
-                    entity.collisionOn = true;
-                if (player)
-                    index = i;
-            }
+            if (gp.obj.get(i).collision)
+                entity.collisionOn = true;
+            if (player)
+                index = i;
         }
+        //}
         return index;
     }
 }

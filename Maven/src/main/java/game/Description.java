@@ -13,8 +13,8 @@ import java.io.FileNotFoundException;
  */
 public class Description extends UtilityFrame {
 
-    JTextArea textArea = new JTextArea();
-    JScrollPane scrollPane;
+    private final JTextArea textArea = new JTextArea();
+    private final JScrollPane scrollPane;
 
     public Description(Menu menu) {
         super("Description", 800, 600);

@@ -7,16 +7,17 @@ import java.awt.event.ActionListener;
 
 /**
  * Παράθυρο που εμφανίζεται όταν ο παίκτης χάνει
- * TODO(g.artop) Βρες εικόνα Μινώταυρου
+ *
  */
-public class DeathFrame implements ActionListener {
+public final class DeathFrame implements ActionListener {
 
-    JFrame frame;
-    JLabel backgroundLabel = new JLabel();
-    JButton tryAgain = new JButton("try again");
-    JButton back_to_menu = new JButton("back to Menu");
-    JButton exit = new JButton("exit");
-    JLabel headLabel = new JLabel();
+    private final JFrame frame;
+    private final JLabel backgroundLabel = new JLabel();
+    private final JButton tryAgain = new JButton("try again");
+    private final JButton back_to_menu = new JButton("back to Menu");
+    private final JButton exit = new JButton("exit");
+    private final JLabel headLabel = new JLabel();
+    private final JLabel minLabel = new JLabel();
 
     public DeathFrame() {
         frame = new JFrame();
@@ -32,7 +33,9 @@ public class DeathFrame implements ActionListener {
         graphicPane.setBounds(0, 100, 600, 125);
         frame.add(graphicPane);
 
-        FrameSetter.scaleImgToLabel(headLabel,235,0,125,125,new ImageIcon("src/main/resources/deadthiseas/dead3.png"));
+        FrameSetter.scaleImgToLabel(headLabel,220,20,100,80,new ImageIcon("src/main/resources/deadthiseas/dead3.png"));
+        FrameSetter.scaleImgToLabel(minLabel,300,0,125,100,new ImageIcon("src/main/resources/minotaur/minotaurwin.png"));
+        frame.add(minLabel);
         frame.add(headLabel);
         frame.add(tryAgain);
         frame.add(back_to_menu);

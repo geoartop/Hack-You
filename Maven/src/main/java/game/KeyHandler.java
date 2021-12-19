@@ -10,10 +10,18 @@ import java.awt.event.KeyListener;
  */
 public class KeyHandler implements KeyListener {
 
-    protected boolean upPressed, downPressed, leftPressed, rightPressed;
-    private GamePanel gp;
-    protected boolean escPressed = false;
-    protected boolean quizTrig = false;
+    boolean upPressed, downPressed, leftPressed, rightPressed;
+    private final GamePanel gp;
+    private boolean escPressed = false;
+    private boolean quizTrig = false;
+
+    public void setEscPressed(boolean escPressed) {
+        this.escPressed = escPressed;
+    }
+
+    public void setQuizTrig(boolean quizTrig) {
+        this.quizTrig = quizTrig;
+    }
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -30,13 +38,13 @@ public class KeyHandler implements KeyListener {
         setKeys(true, code);
 
         // Για να μην επιτρέπεται η συνέχιση του παιχνιδιού μέχρι να κλείσει το παράθυρο options/quiz
-        if (code == KeyEvent.VK_SPACE && gp.labyrinthFrame.hasStarted && !Options.isActive && !quizTrig) {
+        if (code == KeyEvent.VK_SPACE && gp.labyrinthFrame.getHasStarted() && !Options.getIsActive() && !quizTrig) {
             if (gp.gameState == gp.playState) {
                 Menu.stopMusic();
                 gp.labyrinthFrame.stopBar();
                 gp.gameState = gp.pauseState;
             } else {
-                if(ButtonSetter.playSound)
+                if (ButtonSetter.playSound)
                     Menu.continuePlaying();
                 gp.gameState = gp.playState;
                 gp.labyrinthFrame.updateBar(0);

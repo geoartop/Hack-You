@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
  *
  * @author Team Hack-You
  */
-public class Levels implements ActionListener {
+public final class Levels implements ActionListener {
 
     /*
      * Initialize μεταβλητών διαστάσεων
@@ -23,15 +23,19 @@ public class Levels implements ActionListener {
     private final ImageIcon medium_icon = new ImageIcon("src/main/resources/buttons/iron2.jpg");
     private final ImageIcon hard_icon = new ImageIcon("src/main/resources/buttons/gold2.png");
 
-    JFrame frame;
-    private JButton easy = new JButton("Easy");
-    private JButton medium = new JButton("Medium");
-    private JButton hard = new JButton("Hard");
+    private final JFrame frame;
+    private final JButton easy = new JButton("Easy");
+    private final JButton medium = new JButton("Medium");
+    private final JButton hard = new JButton("Hard");
 
-    JLabel backgroundLabel = new JLabel();
+    private final JLabel backgroundLabel = new JLabel();
 
     //Θέλουμε να γνωρίζει η κλάση LabyrinthFrame το επίπεδο δυσκολίας που επίλεξε ο παίκτης
-    protected static String difficulty;
+    private static String difficulty;
+
+    public static String getDifficulty() {
+        return difficulty;
+    }
 
     public Levels() {
         // Εξατομίκευση παραθύρου

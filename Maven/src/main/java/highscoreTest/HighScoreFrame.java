@@ -11,17 +11,17 @@ import java.awt.event.WindowEvent;
 /**
  * Παράθυρο στο οποίο εμφανίζονται τα highscores
  */
-public class HighScoreFrame extends UtilityFrame {
+public final class HighScoreFrame extends UtilityFrame {
 
-    private JLabel[] labels = new JLabel[HighScore.playerInfo.size()];
-    private JLabel headLabel = new JLabel();
+    private final JLabel[] labels = new JLabel[HighScore.playerInfo.size()];
+    private final JLabel headLabel = new JLabel();
 
     public HighScoreFrame(WinFrame winFrame) {
         super("HighScore Table",800,1000);
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                winFrame.seeHighScores.setEnabled(true);
+                winFrame.getSeeHighScores().setEnabled(true);
                 frame.dispose();
             }
         });

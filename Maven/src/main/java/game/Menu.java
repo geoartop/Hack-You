@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  *
  * @author Team Hack-You
  */
-public class Menu implements ActionListener {
+public final class Menu implements ActionListener {
 
     /*
      * Initialize μεταβλητών διαστάσεων

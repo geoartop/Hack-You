@@ -12,15 +12,15 @@ import java.util.Locale;
  * @author Team Hack-You
  */
 
-public class Username implements ActionListener {
+public final class Username implements ActionListener {
 
-    private JFrame frame;
-    private JButton submit = new JButton("Submit");
-    private JTextField textField = new JTextField();
+    private final JFrame frame;
+    private final JButton submit = new JButton("Submit");
+    private final JTextField textField = new JTextField();
     //-------test changes------//
-    JLabel label = new JLabel();
+    private final JLabel label = new JLabel();
 
-    ImageIcon icon2 = new ImageIcon("src/main/resources/buttons/wood1.png");
+    private final ImageIcon icon2 = new ImageIcon("src/main/resources/buttons/wood1.png");
 
 
     /**

@@ -12,9 +12,9 @@ import java.util.Scanner;
  */
 public abstract class UtilityFrame {
 
-    private boolean isOpen;
+    private final boolean isOpen;
     protected JFrame frame;
-    public JLabel backgroundLabel = new JLabel();
+    protected JLabel backgroundLabel = new JLabel();
 
     public UtilityFrame(String title, int width, int height) {
         isOpen = true;
@@ -30,7 +30,7 @@ public abstract class UtilityFrame {
      * @param pathname το path του αρχείου
      * @param textArea το textArea στο οποίο θα φορτωθεί το κείμενο
      */
-    public void load(String pathname, JTextArea textArea) throws FileNotFoundException {
+    protected void load(String pathname, JTextArea textArea) throws FileNotFoundException {
         Scanner q = new Scanner(new File(pathname),"UTF-8");
         while (q.hasNextLine())
             textArea.append(q.nextLine() + "\n");
@@ -47,7 +47,7 @@ public abstract class UtilityFrame {
      * @param height ύψος textArea που επιθυμούμε
      * @return scrollPane
      */
-    protected JScrollPane createScrollPane(JTextArea textArea, int width, int height) {
+    JScrollPane createScrollPane(JTextArea textArea, int width, int height) {
         //Για να εμφανίζεται το περιεχόμενο του textArea από την αρχή
         textArea.setCaretPosition(0);
         JScrollPane scrollPane = new JScrollPane(textArea);

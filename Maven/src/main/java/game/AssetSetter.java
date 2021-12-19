@@ -3,9 +3,9 @@ package game;
 /**
  * Τοποθέτηση των αντικειμένων του παιχνιδιού στο gamepanel
  */
-public class AssetSetter {
+public final class AssetSetter {
 
-    GamePanel gp;
+    private final GamePanel gp;
 
     public AssetSetter(GamePanel gp) {
         this.gp = gp;

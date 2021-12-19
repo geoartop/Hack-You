@@ -12,27 +12,27 @@ import java.awt.event.ComponentEvent;
  *
  * @author Team Hack-You
  */
-public class LabyrinthFrame implements ActionListener {
+public final class LabyrinthFrame implements ActionListener {
 
     private JFrame frame;
     private JProgressBar bar;
-    private GamePanel gamePanel = new GamePanel(this);
+    private final GamePanel gamePanel = new GamePanel(this);
 
-    private JButton start = new JButton("start");
+    private final JButton start = new JButton("start");
 
     //Μεταβλητές χρήσιμες για τη λειτουργία του progressBar
     private boolean go = true; // Για το αν συνεχίζει το progressBar ή βρίσκεται σε pause
-    protected boolean hasStarted = false; // Για το αν έχει αρχίσει το παιχνίδι
+    private boolean hasStarted = false; // Για το αν έχει αρχίσει το παιχνίδι
 
     //Μεταβλητές για πόσο χρόνο ο παίκτης θα κερδίζει χάνει ανάλογα με την απάντησή του στις ερωτήσεις
-    protected static int for_correct;
-    protected static int for_wrong;
+    static int for_correct;
+    static int for_wrong;
 
     //Πόσο χρόνο σε seconds θα έχει ο παίκτης
     private static int time;
 
     // Αν ο παίκτης έχει χάσει ή όχι
-    protected boolean hasLost = false;
+    private boolean hasLost = false;
 
     //Thread το οποίο τρέχει τη "φόρτωση" του εναπομένοντος χρόνου του παίκτη
     private Thread fill_bar;
@@ -41,18 +41,27 @@ public class LabyrinthFrame implements ActionListener {
 
     //--------------------------------------------------------------------------------------//
 
+
+    public boolean getHasLost() {
+        return hasLost;
+    }
+
+    public boolean getHasStarted() {
+        return hasStarted;
+    }
+
     /**
      * Αρχικοποίηση μεταβλητών για χρόνο παιχνιδιού και win/loss χρόνου ανάλογα με την απάντηση στις ερωτήσεις
      */
-    protected static void setLabyrinth() {
-        switch (Levels.difficulty) {
+    static void setLabyrinth() {
+        switch (Levels.getDifficulty()) {
             case "Easy":
                 time = 100;
                 for_correct = 5;
                 for_wrong = -2;
                 break;
             case "Medium":
-                time = 75;
+                time = 5;
                 for_correct = 5;
                 for_wrong = -5;
                 break;
@@ -161,7 +170,7 @@ public class LabyrinthFrame implements ActionListener {
      *
      * @param time : ο χρόνος που προσθαφαιρείται από το χρόνο που απομένει
      */
-    protected void editBarTime(int time) {
+    void editBarTime(int time) {
         counter += time;
         bar.setString(String.format("%d seconds left", counter));
         bar.setValue(counter);
@@ -181,7 +190,7 @@ public class LabyrinthFrame implements ActionListener {
      *
      * @param time : ο χρόνος που προσθαφαιρείται από το χρόνο που απομένει
      */
-    protected void updateBar(int time) {
+    void updateBar(int time) {
         fill_bar = new Thread(() -> fill(bar.getValue() + time));
         fill_bar.start();
     }
@@ -189,7 +198,7 @@ public class LabyrinthFrame implements ActionListener {
     /**
      * Μέθοδος κλεισίματος παραθύρου παιχνιδιού (διακοπή παιχνιδιού)
      */
-    protected void closeFrame() {
+    void closeFrame() {
         hasStarted = false;
         frame.dispose();
     }
@@ -199,7 +208,7 @@ public class LabyrinthFrame implements ActionListener {
      *
      * @param hasWon : true σε περίπτωση νίκης, false σε περίπτωση αποτυχίας
      */
-    protected void closeFrame(boolean hasWon) {
+    void closeFrame(boolean hasWon) {
         Menu.stopMusic();
         hasStarted = false;
         if (hasWon) {
@@ -215,7 +224,7 @@ public class LabyrinthFrame implements ActionListener {
     /**
      * Παύση progressBar
      */
-    protected void stopBar() {
+    void stopBar() {
         go = false;
     }
 

@@ -12,10 +12,10 @@ import java.util.Objects;
  */
 public class Player extends Entity {
 
-    private GamePanel gp;
-    private KeyHandler keyH;
-    protected final int screenX;
-    protected final int screenY;
+    private final GamePanel gp;
+    private final KeyHandler keyH;
+    final int screenX;
+    final int screenY;
     private static boolean hasLoaded;
 
     private int timesPassed = 0;
@@ -128,7 +128,7 @@ public class Player extends Entity {
                 //stabilizePlayer();
                 gp.labyrinthFrame.stopBar();
                 gp.gameState = gp.pauseState;
-                gp.keyH.quizTrig = true;
+                gp.keyH.setQuizTrig(true);
 
                 SwingUtilities.invokeLater(() -> new Quiz(gp));
                 gp.obj.set(index, null);
@@ -139,9 +139,9 @@ public class Player extends Entity {
                 gp.gameState = gp.endState;
             //Προσθήκη χρόνου (ίσως και πόντων) όταν ο παίκτης βρίσκει coins
             if (Objects.equals(objectName, "Coin")) {
-                if(!ButtonSetter.playSound) {
+                if(ButtonSetter.playSound) {
                     OBJ_Coin coin = (OBJ_Coin) gp.obj.get(index);
-                    //coin.playSE();
+                    coin.playSE();
                 }
                 gp.labyrinthFrame.editBarTime(LabyrinthFrame.for_correct);
                 gp.obj.set(index, null);
@@ -188,7 +188,7 @@ public class Player extends Entity {
 
     public void draw(Graphics2D g2) {
 
-        if (gp.labyrinthFrame.hasLost) {
+        if (gp.labyrinthFrame.getHasLost()) {
             drawDeathAnimation(g2);
             timesPassed++;
             return;

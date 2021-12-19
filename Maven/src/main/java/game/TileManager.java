@@ -11,28 +11,25 @@ import java.nio.charset.StandardCharsets;
 /**
  * Λειτουργική κλάση για το configuration του χάρτη, των μπλοκ και των χαρακτηριστικών αυτών
  */
-public class TileManager {
+public final class TileManager {
 
-    GamePanel gp;
-    public Tile[] tile;
-    public int[][] mapTileNum;
+    private final GamePanel gp;
+    final Tile[] tile;
+    final int[][] mapTileNum;
 
     public TileManager(GamePanel gp) {
-
         this.gp = gp;
-
         tile = new Tile[2];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
-        if (!Levels.difficulty.equals("Hard")) {
-            loadMap(String.format("/maps/%s.txt", Levels.difficulty));
+        if (!Levels.getDifficulty().equals("Hard")) {
+            loadMap(String.format("/maps/%s.txt", Levels.getDifficulty()));
         } else {
             loadMap("/maps/Medium.txt");
         }
 
     }
-
 
     private void getTileImage() {
         setup(0, "/tiles/floor.png", false);
@@ -68,6 +65,7 @@ public class TileManager {
 
         try {
             InputStream is = getClass().getResourceAsStream(FilePath);
+            assert is != null;
             BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
 
             int col = 0;
@@ -91,7 +89,7 @@ public class TileManager {
             }
             br.close(); //closing buffered reader
 
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

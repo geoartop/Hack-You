@@ -12,15 +12,16 @@ import java.net.URL;
  * Αναπαραγωγή ήχου και ηχητικών εφέ
  * TODO(Emmanouil Dellatolis) Προσθήκη Coin Sound Effect
  */
-public class Sound {
+public final class Sound {
 
     Clip clip;
-    private URL[] soundURL = new URL[3];
+    private final URL[] soundURL = new URL[3];
 
     public Sound() {
-        soundURL[0] = getClass().getResource("/audio_thiseas.wav");
-        soundURL[1] = getClass().getResource("/sound_effect.wav");
-        //soundURL[2] = getClass().getResource();
+        soundURL[0] = getClass().getResource("/sound/audio_thiseas.wav");
+        //soundURL[1] = getClass().getResource("/sound/click-3.wav");
+        soundURL[1] = getClass().getResource("/sound/sound_effect.wav");
+        soundURL[2] = getClass().getResource("/sound/Coin_1.wav");
     }
 
     public void setFile(int i) {

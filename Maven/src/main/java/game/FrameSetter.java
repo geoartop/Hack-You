@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 /**
  * Πρότυπο για την επεξεργασία frames
  */
-public class FrameSetter {
+public final class FrameSetter {
 
     /**
      * Μέθοδος εξατομίκευσης frames

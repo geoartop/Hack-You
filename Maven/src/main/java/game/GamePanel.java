@@ -7,40 +7,40 @@ import java.util.LinkedList;
 /**
  * Panel όπου γίνεται η αναπαράσταση του παιχνιδιού
  */
-public class GamePanel extends JPanel implements Runnable {
+public final class GamePanel extends JPanel implements Runnable {
 
-    transient final int originalTileSize = 16;
+    final int originalTileSize = 16;
     final int scale = 3;
 
-    public final int tileSize = originalTileSize * scale;
+    final int tileSize = originalTileSize * scale;
     final int maxScreenCol = 16;
     final int maxScreenRow = 12;
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
 
     //Καθορισμός των διαστάσεων του κόσμου του λαβυρίνθου ανάλογα με την επιλεγμένη δυσκολία
-    public final int maxWorldCol = 28
-            + (Levels.difficulty.equals("Medium") ? 6
-            : (Levels.difficulty.equals("Hard") ? 12 : 0));
-    public final int maxWorldRow = maxWorldCol;
-    public final int WorldWidth = tileSize * maxWorldCol;
-    public final int WorldHeight = tileSize * maxWorldRow;
+    final int maxWorldCol = 28
+            + (Levels.getDifficulty().equals("Medium") ? 6
+            : (Levels.getDifficulty().equals("Hard") ? 6 : 0));
+    final int maxWorldRow = maxWorldCol;
+    final int WorldWidth = tileSize * maxWorldCol;
+    final int WorldHeight = tileSize * maxWorldRow;
 
-    TileManager tileM = new TileManager(this);
+    final TileManager tileM = new TileManager(this);
 
-    KeyHandler keyH = new KeyHandler(this);
-    Thread gameThread;
-    Player player = new Player(this, keyH);
-    public CollisionCheck collisionCheck = new CollisionCheck(this);
-    public LinkedList<SuperObject> obj = new LinkedList<>();
-    public AssetSetter aSetter = new AssetSetter(this);
+    final KeyHandler keyH = new KeyHandler(this);
+    private Thread gameThread;
+    final Player player = new Player(this, keyH);
+    final CollisionCheck collisionCheck = new CollisionCheck(this);
+    final LinkedList<SuperObject> obj = new LinkedList<>();
+    private final AssetSetter aSetter = new AssetSetter(this);
 
-    public LabyrinthFrame labyrinthFrame;
+    final LabyrinthFrame labyrinthFrame;
     //Μεταβλητές για την κατάσταση παιχνιδιού
-    public int gameState;
-    public final int playState = 1;
-    public final int pauseState = 2;
-    public final int endState = 3;
+    int gameState;
+    final int playState = 1;
+    final int pauseState = 2;
+    final int endState = 3;
 
     public GamePanel(LabyrinthFrame labyrinthFrame) {
         this.labyrinthFrame = labyrinthFrame;
@@ -96,7 +96,7 @@ public class GamePanel extends JPanel implements Runnable {
                     labyrinthFrame.closeFrame(true);
                     return;
                     //Ενέργεια που εκτελείται όταν χάνει ο παίκτης TODO(all) add death sound
-                } else if (labyrinthFrame.hasLost) {
+                } else if (labyrinthFrame.getHasLost()) {
                     for (int times = 0; times < Entity.death.length - 1; times++) {
                         if (times == 0)
                             Menu.stopMusic();
@@ -136,6 +136,7 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
@@ -144,9 +145,15 @@ public class GamePanel extends JPanel implements Runnable {
 
         //Απεικόνιση αντικειμένων παιχνιδιού
         for (SuperObject superObject : obj) {
-            if (superObject != null)
+            if (superObject != null && !superObject.name.equals("Coin")) {
                 superObject.draw(g2, this);
+            } else if (superObject != null) {
+                //Downcast για την απεικόνιση του animation του coin
+                OBJ_Coin coin = (OBJ_Coin) superObject;
+                coin.drawCoin(g2, this);
+            }
         }
+
 
         player.draw(g2);
         //Για να ζωγραφιστεί στην οθόνη τη λέξη ΠΑΥΣΗ σε περίπτωση pause
@@ -158,7 +165,6 @@ public class GamePanel extends JPanel implements Runnable {
             int y = screenHeight / 2;
             g2.drawString(text, x, y);
         }
-
         g2.dispose();
     }
 

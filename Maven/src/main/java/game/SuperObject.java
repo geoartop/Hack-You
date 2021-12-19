@@ -9,15 +9,15 @@ import java.io.IOException;
  * Δημιουργία αντικειμένων στο παιχνίδι
  */
 public abstract class SuperObject {
-    public BufferedImage image;
-    public String name;
-    public boolean collision = false;
-    public int worldX, worldY;
-    public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
-    public int solidAreaDefaultX = 0;
-    public int solidAreaDefaultY = 0;
+    protected BufferedImage image;
+    protected String name;
+    protected boolean collision = false;
+    protected int worldX, worldY;
+    protected final Rectangle solidArea = new Rectangle(0, 0, 48, 48);
+    protected final int solidAreaDefaultX = 0;
+    protected final int solidAreaDefaultY = 0;
 
-    public SuperObject(String path,int width_height) {
+    public SuperObject(String path, int width_height) {
         try {
             image = ImageIO.read(getClass().getResourceAsStream(path));
             image = FrameSetter.scaleImage(image, width_height, width_height);
@@ -26,9 +26,11 @@ public abstract class SuperObject {
         }
     }
 
-    //public abstract void playSE();
+    public SuperObject() {
+        image = null;
+    }
 
-    public void draw(Graphics2D g2, GamePanel gp) {
+    protected void setValues(Graphics2D g2,GamePanel gp,BufferedImage image){
         int screenX = worldX - gp.player.worldx + gp.player.screenX;
         int screenY = worldY - gp.player.worldy + gp.player.screenY;
 
@@ -62,7 +64,11 @@ public abstract class SuperObject {
             g2.drawImage(image, screenX, screenY, null);
         }
 
-
     }
+
+    public void draw(Graphics2D g2, GamePanel gp) {
+       setValues(g2,gp,image);
+    }
+
 }
 

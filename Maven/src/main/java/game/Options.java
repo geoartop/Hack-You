@@ -9,17 +9,17 @@ import java.awt.event.WindowEvent;
 /**
  * Παράθυρο επιλόγων που προκαλεί παύση του παιχνιδιού όταν εμφανίζεται
  */
-public class Options implements ActionListener {
+public final class Options implements ActionListener {
 
-    public GamePanel gp;
-    JFrame frame;
-    JLabel backgroundLabel = new JLabel();
-    JButton returnBack = new JButton("return");
-    protected JButton showGuide = new JButton("show Guide");
-    JButton restart = new JButton("restart");
-    JButton end = new JButton("exit");
-    protected static boolean isActive = false;
-    static Guide guide;
+    private final GamePanel gp;
+    private final JFrame frame;
+    private final JLabel backgroundLabel = new JLabel();
+    private final JButton returnBack = new JButton("return");
+    final JButton showGuide = new JButton("show Guide");
+    private final JButton restart = new JButton("restart");
+    private final JButton end = new JButton("exit");
+    private static boolean isActive = false;
+    private Guide guide;
 
     public Options(GamePanel gp) {
         isActive = true;
@@ -48,6 +48,10 @@ public class Options implements ActionListener {
 
         FrameSetter.scaleBackground(backgroundLabel, 600, 650);
         frame.add(backgroundLabel);
+    }
+
+    public static boolean getIsActive() {
+        return isActive;
     }
 
     /**
@@ -80,13 +84,13 @@ public class Options implements ActionListener {
             System.exit(1);
         }
         //Για να μην κολλήσει το progressBar
-        if (gp.labyrinthFrame.hasStarted) {
+        if (gp.labyrinthFrame.getHasStarted()) {
             gp.gameState = gp.playState;
             gp.labyrinthFrame.updateBar(0);
         }
         // Ενημερώνουμε το gamepanel για το κλείσιμο του παραθύρου
         isActive = false;
-        gp.keyH.escPressed = false;
+        gp.keyH.setEscPressed(false);
         if(ButtonSetter.playSound)
             Menu.continuePlaying();
 

@@ -3,9 +3,9 @@ package highscoreTest;
 /**
  * Ορισμός δεδομένων που θα γράφονται σε κάθε γραμμή του HighScore.txt
  */
-public class PlayerInfo {
-    private String name;
-    private int score;
+public final class PlayerInfo {
+    private final String name;
+    private final int score;
 
     public PlayerInfo(String name, int score) {
         this.name = name;

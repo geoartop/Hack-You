@@ -9,7 +9,7 @@ import java.awt.Graphics2D;
 /**
  * Component για την απεικόνιση text στο κέντρο ενός παραθύρου
  */
-public class GraphicPane extends JComponent {
+public final class GraphicPane extends JComponent {
 
     private final String text;
     private final int screenWidth;
@@ -17,8 +17,6 @@ public class GraphicPane extends JComponent {
     private final Color color;
     private final int size;
     private final int style;
-
-    public int x;
 
     public GraphicPane(String text, int screenWidth, int y, Color color, int size, int style) {
         super();
@@ -37,7 +35,7 @@ public class GraphicPane extends JComponent {
         //g2.setFont(g2.getFont().deriveFont(Font.ITALIC, 20F));
         g2.setFont(new Font("Times new Roman", style, size));
         int length = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-        x = screenWidth / 2 - length / 2;
+        int x = screenWidth / 2 - length / 2;
         g2.drawString(text, x, y);
         g2.dispose();
     }

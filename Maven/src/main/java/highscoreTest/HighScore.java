@@ -7,11 +7,11 @@ import java.util.LinkedList;
 /**
  * Λειτουργική κλάση για την εμφάνιση των top 10 scores μαζί με τα username αντίστοιχα
  */
-public class HighScore {
+public final class HighScore {
 
-    protected static LinkedList<PlayerInfo> playerInfo = new LinkedList<>();
-    private String name;
-    private int score;
+    static  final LinkedList<PlayerInfo> playerInfo = new LinkedList<>();
+    private final String name;
+    private final int score;
 
     /**
      * Κατασκευαστής ο οποίος αρχικά κάνει writable το αρχείο των highscores και μετά την επεξεργασία
@@ -39,7 +39,7 @@ public class HighScore {
     }
 
     /**
-     * Μέθοδος πυ μεταβάλει την κατάσταση του αρχείου σε writable/not-writable
+     * Μέθοδος που μεταβάλει την κατάσταση του αρχείου σε writable/not-writable
      *
      * @param status : true -> writable , false -> not-writable
      */

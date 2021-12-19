@@ -17,26 +17,26 @@ import java.util.Scanner;
  * @author Team Hack-You
  */
 //TODO(Mallikoko): Φτιάξε καλύτερα την εμφάνιση του παραθύρου !!!!!
-public class Quiz extends JFrame implements ActionListener {
+public final class Quiz extends JFrame implements ActionListener {
 
-    private static ArrayList<String> questions = new ArrayList<>();
-    private static ArrayList<String> options = new ArrayList<>();
-    private static ArrayList<Character> answers = new ArrayList<>();
-    char answer;
+    private final static ArrayList<String> questions = new ArrayList<>();
+    private final static ArrayList<String> options = new ArrayList<>();
+    private final static ArrayList<Character> answers = new ArrayList<>();
+    private char answer;
     //Για να επιλέγονται randomly οι ερωτήσεις
     private final SecureRandom random = new SecureRandom();
-    private int index;
+    private final int index;
 
-    JFrame frame = new JFrame();
-    JTextArea textArea = new JTextArea();
+    private final JFrame frame = new JFrame();
+    private final JTextArea textArea = new JTextArea();
 
-    private JButton[] buttons = new JButton[4];
-    private char[] symbols = {'A', 'B', 'C', 'D'};
+    private final JButton[] buttons = new JButton[4];
+    private final char[] symbols = {'A', 'B', 'C', 'D'};
 
-    private JLabel label = new JLabel();
-    private JLabel[] labels = new JLabel[4];
+    private final JLabel label = new JLabel();
+    private final JLabel[] labels = new JLabel[4];
 
-    private GamePanel gp;
+    private final GamePanel gp;
 
     public Quiz(GamePanel gp) {
         this.gp = gp;
@@ -49,7 +49,7 @@ public class Quiz extends JFrame implements ActionListener {
         textArea.setWrapStyleWord(true);
         textArea.setOpaque(false);
         textArea.setForeground(Color.black);
-        textArea.setFont(new Font("Calibri", Font.BOLD, 25));
+        textArea.setFont(new Font("Calibri", Font.BOLD, 22));
         //textArea.setBorder(BorderFactory.createBevelBorder(1));
         textArea.setBorder(BorderFactory.createEmptyBorder());
         textArea.setEditable(false);
@@ -99,7 +99,7 @@ public class Quiz extends JFrame implements ActionListener {
             labels[i].setBounds(125, (i + 1) * 100, 500, 100);
             labels[i].setBackground(new Color(50, 50, 50));
             labels[i].setForeground(new Color(134, 1, 1, 196));
-            labels[i].setFont(new Font("Calibri", Font.BOLD, 25));
+            labels[i].setFont(new Font("Calibri", Font.BOLD, 22));
         }
     }
 
@@ -143,21 +143,21 @@ public class Quiz extends JFrame implements ActionListener {
         gp.gameState = gp.playState;
         gp.labyrinthFrame.updateBar(time);
         frame.dispose();
-        gp.keyH.quizTrig = false;
+        gp.keyH.setQuizTrig(false);
 
     }
 
     /**
      * Φόρτωση αρχείων στα ArrayList
      */
-    protected static void readQuestions() throws FileNotFoundException {
-        Scanner q = new Scanner(new File(String.format("src/main/resources/quiz/%s Questions.txt", Levels.difficulty)),"UTF-8");
+    static void readQuestions() throws FileNotFoundException {
+        Scanner q = new Scanner(new File(String.format("src/main/resources/quiz/%s Questions.txt", Levels.getDifficulty())),"UTF-8");
         while (q.hasNextLine())
             questions.add(q.nextLine());
-        Scanner o = new Scanner(new File(String.format("src/main/resources/quiz/%s Options.txt", Levels.difficulty)),"UTF-8");
+        Scanner o = new Scanner(new File(String.format("src/main/resources/quiz/%s Options.txt", Levels.getDifficulty())),"UTF-8");
         while (o.hasNextLine())
             options.add(o.nextLine());
-        Scanner a = new Scanner(new File(String.format("src/main/resources/quiz/%s Answers.txt", Levels.difficulty)),"UTF-8");
+        Scanner a = new Scanner(new File(String.format("src/main/resources/quiz/%s Answers.txt", Levels.getDifficulty())),"UTF-8");
         while (a.hasNext())
             answers.add(a.next().charAt(0));
     }
