@@ -9,9 +9,18 @@ import java.util.LinkedList;
  */
 public final class HighScore {
 
-    static  final LinkedList<PlayerInfo> playerInfo = new LinkedList<>();
+    private final LinkedList<PlayerInfo> playerInfo = new LinkedList<>();
     private final String name;
     private final int score;
+    private static int playerInfoSize;
+
+    public String getPlayerInfoName(int index) {
+        return playerInfo.get(index).getName();
+    }
+
+    public int getPlayerInfoScore(int index) {
+        return playerInfo.get(index).getScore();
+    }
 
     /**
      * Κατασκευαστής ο οποίος αρχικά κάνει writable το αρχείο των highscores και μετά την επεξεργασία
@@ -31,6 +40,7 @@ public final class HighScore {
                 sort();
                 JOptionPane.showMessageDialog(null, "You managed to set a new HighScore to the highscore table", "Congratulations", JOptionPane.INFORMATION_MESSAGE);
             }
+            playerInfoSize = playerInfo.size();
             setFile(false);
         } catch (IOException e) {
             e.printStackTrace();
@@ -156,6 +166,10 @@ public final class HighScore {
         }
 
         writer.close();
+    }
+
+    static int getPlayerInfoSize(){
+        return playerInfoSize;
     }
 
 }

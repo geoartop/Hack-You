@@ -139,7 +139,7 @@ public class Player extends Entity {
                 gp.gameState = gp.endState;
             //Προσθήκη χρόνου (ίσως και πόντων) όταν ο παίκτης βρίσκει coins
             if (Objects.equals(objectName, "Coin")) {
-                if(ButtonSetter.playSound) {
+                if(ButtonSetter.getPlaySound()) {
                     OBJ_Coin coin = (OBJ_Coin) gp.obj.get(index);
                     coin.playSE();
                 }

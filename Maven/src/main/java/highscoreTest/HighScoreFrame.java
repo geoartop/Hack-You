@@ -1,9 +1,9 @@
 package highscoreTest;
 
+import game.GraphicPane;
 import game.UtilityFrame;
 import game.WinFrame;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -13,47 +13,41 @@ import java.awt.event.WindowEvent;
  */
 public final class HighScoreFrame extends UtilityFrame {
 
-    private final JLabel[] labels = new JLabel[HighScore.playerInfo.size()];
-    private final JLabel headLabel = new JLabel();
+    private final GraphicPane[] graphicPanes = new GraphicPane[HighScore.getPlayerInfoSize()];
+    private final HighScore highScore;
 
     public HighScoreFrame(WinFrame winFrame) {
-        super("HighScore Table",800,1000);
+        super("HighScore Table", 800, 800);
+        this.highScore = winFrame.getHighScore();
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                winFrame.getSeeHighScores().setEnabled(true);
+                winFrame.setSeeHighScoresStatus(true);
                 frame.dispose();
             }
         });
-        setLabels();
 
-        headLabel.setBounds(275, 100, 500, 50);
-        headLabel.setForeground(Color.black);
-        headLabel.setFont(new Font("Calibri", Font.BOLD, 35));
-        headLabel.setText("Πίνακας Ηighscore");
-        frame.add(headLabel);
+        setGraphicPanes();
 
-        for (JLabel label : labels)
-            frame.add(label);
+        GraphicPane leadGraphicPane = new GraphicPane("Πίνακας Ηighscore", 800, 100, Color.black, 35, 1);
+        leadGraphicPane.setBounds(0, 0, 800, 200);
+        frame.add(leadGraphicPane);
 
-        displayPlayerInfo();
+        for (GraphicPane graphicPane : graphicPanes)
+            frame.add(graphicPane);
+
         frame.add(backgroundLabel);
     }
 
-
-    private void setLabels() {
-        for (int i = 0; i < labels.length; i++) {
-            labels[i] = new JLabel();
-            labels[i].setBounds(800 / 2 - 100, (i + 3) * 50, 500, 30);
-            labels[i].setBackground(new Color(50, 50, 50));
-            labels[i].setForeground(new Color(5, 5, 5));
-            labels[i].setFont(new Font("Calibri", Font.BOLD, 25));
+    private void setGraphicPanes() {
+        for (int i = 0; i < graphicPanes.length; i++) {
+            graphicPanes[i] = new GraphicPane(
+                    String.format("%2d) %s : %d", i + 1,
+                            highScore.getPlayerInfoName(i),
+                            highScore.getPlayerInfoScore(i)),
+                    800, 50, Color.black, 25, 1);
+            graphicPanes[i].setBounds(0, (i + 3) * 50,800,70 );
         }
     }
 
-    private void displayPlayerInfo() {
-        for (int i = 0; i < labels.length; i++)
-            labels[i].setText(String.format("%d) %s : %d", i + 1, HighScore.playerInfo.get(i).getName(), HighScore.playerInfo.get(i).getScore()));
-
-    }
 }

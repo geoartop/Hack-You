@@ -23,9 +23,16 @@ public final class WinFrame implements ActionListener {
     private final JButton exit = new JButton("exit");
     private HighScoreFrame highScoreFrame;
     private final JLabel minLabel = new JLabel();
+    private final JLabel thLabel = new JLabel();
 
-    public JButton getSeeHighScores() {
-        return seeHighScores;
+    private final HighScore highScore;
+
+    public void setSeeHighScoresStatus(boolean status) {
+        seeHighScores.setEnabled(status);
+    }
+
+    public HighScore getHighScore() {
+        return highScore;
     }
 
     public WinFrame() {
@@ -33,7 +40,7 @@ public final class WinFrame implements ActionListener {
         FrameSetter.setFrame(frame, "Victory", 800, 800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //Έλεγχος για το αν ο παίκτης έκανε νέο highscore
-        new HighScore(Username.getUsername(), calculateScore());
+        highScore = new HighScore(Username.getUsername(), calculateScore());
 
         ButtonSetter.setButton(playAgain, 275, 300, 250, 50, "Calibri", 20, this, 2);
         ButtonSetter.setButton(seeHighScores, 275, 400, 250, 50, "Calibri", 20, this, 2);
@@ -45,11 +52,13 @@ public final class WinFrame implements ActionListener {
         frame.add(back_to_menu);
         frame.add(exit);
 
-        FrameSetter.scaleImgToLabel(minLabel,375,0,100,80,new ImageIcon("src/main/resources/minotaur/minotaurlose3.png"));
+        FrameSetter.scaleImgToLabel(minLabel, 350, 0, 120, 100, new ImageIcon("src/main/resources/minotaur/minotaurlose3.png"));
         frame.add(minLabel);
+        FrameSetter.scaleImgToLabel(thLabel, 365, 100, 100, 70, new ImageIcon("src/main/resources/thiseas2/thiseasswind.png"));
+        frame.add(thLabel);
 
-        GraphicPane graphicPane = new GraphicPane("VICTORY!",800,100,new Color(136, 201, 87),60,1);
-        graphicPane.setBounds(0,50,800,150);
+        GraphicPane graphicPane = new GraphicPane("VICTORY!", 800, 100, new Color(23, 131, 59), 60, 1);
+        graphicPane.setBounds(0, 150, 800, 150);
         frame.add(graphicPane);
 
         FrameSetter.scaleBackground(backgroundLabel, 800, 800);

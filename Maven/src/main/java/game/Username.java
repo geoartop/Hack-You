@@ -11,7 +11,6 @@ import java.util.Locale;
  *
  * @author Team Hack-You
  */
-
 public final class Username implements ActionListener {
 
     private final JFrame frame;
@@ -21,7 +20,6 @@ public final class Username implements ActionListener {
     private final JLabel label = new JLabel();
 
     private final ImageIcon icon2 = new ImageIcon("src/main/resources/buttons/wood1.png");
-
 
     /**
      * Θέλουμε να γνωρίζουν όλες οι κλάσεις το username του παίκτη ώστε να μπορεί να αποθηκευτεί πιο εύκολα
@@ -70,7 +68,7 @@ public final class Username implements ActionListener {
             if (username.equals("")) {
                 JOptionPane.showMessageDialog(null, "You must enter your username!", "Reminder", JOptionPane.ERROR_MESSAGE);
                 return;
-            } else if (username.toLowerCase(Locale.ROOT).equals("spanakis") || username.toLowerCase(Locale.ROOT).equals("panos") ||  username.toLowerCase(Locale.ROOT).equals("marios-span")) {
+            } else if (username.toLowerCase(Locale.ROOT).equals("spanakis") || username.toLowerCase(Locale.ROOT).equals("panos") ||  username.toLowerCase(Locale.ROOT).equals("marios-spanakis")) {
                 JOptionPane.showMessageDialog(null, "Congrats you won already on everything!", "Reminder", JOptionPane.INFORMATION_MESSAGE);
                 System.exit(1);
             } else if (username.toLowerCase(Locale.ROOT).equals("artopoulos")) {

@@ -106,7 +106,7 @@ public final class LabyrinthFrame implements ActionListener {
     }
 
     public LabyrinthFrame() {
-        if (!Menu.music.clip.isActive() && ButtonSetter.playSound)
+        if (!Menu.music.clip.isActive() && ButtonSetter.getPlaySound())
             Menu.playMusic();
 
         createFrame();

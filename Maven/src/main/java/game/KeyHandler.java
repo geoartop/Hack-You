@@ -44,7 +44,7 @@ public class KeyHandler implements KeyListener {
                 gp.labyrinthFrame.stopBar();
                 gp.gameState = gp.pauseState;
             } else {
-                if (ButtonSetter.playSound)
+                if (ButtonSetter.getPlaySound())
                     Menu.continuePlaying();
                 gp.gameState = gp.playState;
                 gp.labyrinthFrame.updateBar(0);

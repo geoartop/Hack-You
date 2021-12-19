@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 
 /**
  * Παράθυρο που εμφανίζεται όταν ο παίκτης χάνει
- *
  */
 public final class DeathFrame implements ActionListener {
 

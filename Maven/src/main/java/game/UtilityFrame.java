@@ -1,6 +1,7 @@
 package game;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -15,6 +16,8 @@ public abstract class UtilityFrame {
     private final boolean isOpen;
     protected JFrame frame;
     protected JLabel backgroundLabel = new JLabel();
+    protected JTextArea textArea = new JTextArea();
+    protected JScrollPane scrollPane;
 
     public UtilityFrame(String title, int width, int height) {
         isOpen = true;
@@ -23,6 +26,17 @@ public abstract class UtilityFrame {
         FrameSetter.setFrame(frame, title, width, height);
         //Set Scaled Background
         FrameSetter.scaleBackground(backgroundLabel, width, height);
+
+        textArea.setBounds(100, 0, 600, 800);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+        textArea.setOpaque(false);
+        textArea.setForeground(Color.black);
+        textArea.setFont(new Font("Calibri", Font.BOLD, 20));
+        textArea.setEditable(false);
+
+        scrollPane = createScrollPane(textArea, 600, 500);
+
     }
 
     /**
@@ -47,9 +61,8 @@ public abstract class UtilityFrame {
      * @param height ύψος textArea που επιθυμούμε
      * @return scrollPane
      */
-    JScrollPane createScrollPane(JTextArea textArea, int width, int height) {
+    private JScrollPane createScrollPane(JTextArea textArea, int width, int height) {
         //Για να εμφανίζεται το περιεχόμενο του textArea από την αρχή
-        textArea.setCaretPosition(0);
         JScrollPane scrollPane = new JScrollPane(textArea);
         scrollPane.setOpaque(false);
         scrollPane.createVerticalScrollBar();

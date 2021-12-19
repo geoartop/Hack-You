@@ -32,7 +32,7 @@ public final class Menu implements ActionListener {
     JButton description = new JButton("Game Description");
     /*Προσδιορισμός για τον αν παίζεται μουσική στο παιχνίδι ή όχι
     ώστε να απεικονιστεί η κατάσταση ήχου στο κουμπί*/
-    JButton musicOn_Off = new JButton(String.format("Sound %s", ButtonSetter.playSound ? "off" : "on"));
+    JButton musicOn_Off = new JButton(String.format("Sound %s", ButtonSetter.getPlaySound() ? "off" : "on"));
     JLabel label = new JLabel();
     JLabel backgroundLabel = new JLabel();
 
@@ -40,7 +40,7 @@ public final class Menu implements ActionListener {
     UtilityFrame[] utilityFrames = new UtilityFrame[3];
 
     public Menu() {
-        if (ButtonSetter.playSound)
+        if (ButtonSetter.getPlaySound())
             playMusic();
         // Εξατομίκευση παραθύρου
         frame.setTitle("Menu"); //setTitle of frame
@@ -102,13 +102,13 @@ public final class Menu implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         ButtonSetter.playSE();
         if (e.getSource() == musicOn_Off) {
-            ButtonSetter.setPlaySound(!ButtonSetter.playSound);
-            if (ButtonSetter.playSound) {
+            ButtonSetter.setPlaySound(!ButtonSetter.getPlaySound());
+            if (ButtonSetter.getPlaySound()) {
                 playMusic();
             } else {
                 stopMusic();
             }
-            musicOn_Off.setText(String.format("Sound %s", ButtonSetter.playSound ? "off" : "on"));
+            musicOn_Off.setText(String.format("Sound %s", ButtonSetter.getPlaySound() ? "off" : "on"));
             return;
         }
 

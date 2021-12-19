@@ -15,7 +15,7 @@ public class Guide extends UtilityFrame{
      * @param options : Το παράθυρο options από το οποίο κλήθηκε ο guide
      */
     public Guide(Options options) {
-        super("Guide",800,800);
+        super("Guide",800,600);
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -32,7 +32,7 @@ public class Guide extends UtilityFrame{
      * @param menu : Το παράθυρο menu από το οποίο κλήθηκε ο guide
      */
     public Guide(Menu menu) {
-        super("Guide",800,800);
+        super("Guide",800,600);
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
