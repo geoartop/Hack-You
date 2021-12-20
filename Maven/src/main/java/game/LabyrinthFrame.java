@@ -66,7 +66,7 @@ public final class LabyrinthFrame implements ActionListener {
                 for_wrong = -5;
                 break;
             default:
-                time = 10;
+                time = 90;
                 for_correct = 3;
                 for_wrong = -5;
                 break;

@@ -23,12 +23,7 @@ public final class TileManager {
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
-        if (!Levels.getDifficulty().equals("Hard")) {
-            loadMap(String.format("/maps/%s.txt", Levels.getDifficulty()));
-        } else {
-            loadMap("/maps/Medium.txt");
-        }
-
+        loadMap(String.format("/maps/%s.txt", Levels.getDifficulty()));
     }
 
     private void getTileImage() {
@@ -67,7 +62,7 @@ public final class TileManager {
             InputStream is = getClass().getResourceAsStream(FilePath);
             assert is != null;
             BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
-
+            System.out.println(gp.maxWorldCol);
             int col = 0;
             int row = 0;
 

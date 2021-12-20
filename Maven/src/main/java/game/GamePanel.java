@@ -21,7 +21,7 @@ public final class GamePanel extends JPanel implements Runnable {
     //Καθορισμός των διαστάσεων του κόσμου του λαβυρίνθου ανάλογα με την επιλεγμένη δυσκολία
     final int maxWorldCol = 28
             + (Levels.getDifficulty().equals("Medium") ? 6
-            : (Levels.getDifficulty().equals("Hard") ? 6 : 0));
+            : (Levels.getDifficulty().equals("Hard") ? 14 : 0));
     final int maxWorldRow = maxWorldCol;
     final int WorldWidth = tileSize * maxWorldCol;
     final int WorldHeight = tileSize * maxWorldRow;
