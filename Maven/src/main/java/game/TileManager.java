@@ -48,9 +48,9 @@ public final class TileManager {
     private void setup(int index, String path, boolean collision) {
         try {
             tile[index] = new Tile();
-            tile[index].image = ImageIO.read(getClass().getResourceAsStream(path));
-            tile[index].image = FrameSetter.scaleImage(tile[index].image, gp.tileSize, gp.tileSize);
-            tile[index].collision = collision;
+            tile[index].setImage(ImageIO.read(getClass().getResourceAsStream(path)));
+            tile[index].setImage(FrameSetter.scaleImage(tile[index].getImage(), gp.tileSize, gp.tileSize));
+            tile[index].setCollision(collision);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -130,12 +130,12 @@ public final class TileManager {
                     worldX - gp.tileSize < gp.player.worldx + gp.player.screenX &&
                     worldY + gp.tileSize > gp.player.worldy - gp.player.screenY &&
                     worldY - gp.tileSize < gp.player.worldy + gp.player.screenY) {
-                g2.drawImage(tile[tileNum].image, screenX, screenY, null);
+                g2.drawImage(tile[tileNum].getImage(), screenX, screenY, null);
             } else if (gp.player.worldx < gp.player.screenX ||
                     gp.player.worldy < gp.player.screenY ||
                     rightOffsetValue > gp.WorldWidth - gp.player.worldx ||
                     bottomOffsetValue > gp.WorldHeight - gp.player.worldy) {
-                g2.drawImage(tile[tileNum].image, screenX, screenY, null);
+                g2.drawImage(tile[tileNum].getImage(), screenX, screenY, null);
             }
 
             worldCol++;

@@ -30,28 +30,28 @@ public final class CollisionCheck {
                 entityTopRow = (entityTopWorldY - entity.speed) / gp.tileSize;
                 tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityTopRow];
                 tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
-                if (gp.tileM.tile[tileNum1].collision || gp.tileM.tile[tileNum2].collision)
+                if (gp.tileM.tile[tileNum1].getCollision() || gp.tileM.tile[tileNum2].getCollision())
                     entity.collisionOn = true;
                 break;
             case "down":
                 entityBottomRow = (entityBottomWorldY + entity.speed) / gp.tileSize;
                 tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityBottomRow];
                 tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityBottomRow];
-                if (gp.tileM.tile[tileNum1].collision || gp.tileM.tile[tileNum2].collision)
+                if (gp.tileM.tile[tileNum1].getCollision() || gp.tileM.tile[tileNum2].getCollision())
                     entity.collisionOn = true;
                 break;
             case "left":
                 entityLeftCol = (entityLeftWorldX - entity.speed) / gp.tileSize;
                 tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityTopRow];
                 tileNum2 = gp.tileM.mapTileNum[entityLeftCol][entityBottomRow];
-                if (gp.tileM.tile[tileNum1].collision || gp.tileM.tile[tileNum2].collision)
+                if (gp.tileM.tile[tileNum1].getCollision() || gp.tileM.tile[tileNum2].getCollision())
                     entity.collisionOn = true;
                 break;
             case "right":
                 entityRightCol = (entityRightWorldX + entity.speed) / gp.tileSize;
                 tileNum1 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
                 tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
-                if (gp.tileM.tile[tileNum1].collision || gp.tileM.tile[tileNum2].collision)
+                if (gp.tileM.tile[tileNum1].getCollision() || gp.tileM.tile[tileNum2].getCollision())
                     entity.collisionOn = true;
                 break;
 
@@ -103,14 +103,14 @@ public final class CollisionCheck {
     }
 
     private int check(Entity entity, boolean player, int index, int i) {
-        //if (entity.solidArea.intersects(gp.obj.get(i).solidArea)) {
+
         if (entity.solidArea.intersects(gp.obj.get(i).solidArea)) {
             if (gp.obj.get(i).collision)
                 entity.collisionOn = true;
             if (player)
                 index = i;
         }
-        //}
+
         return index;
     }
 }

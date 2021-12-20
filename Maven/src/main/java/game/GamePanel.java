@@ -69,6 +69,7 @@ public final class GamePanel extends JPanel implements Runnable {
         gameState = pauseState;
     }
 
+
     /**
      * Game loop εξατομικευμένο ώστε να τρέχει το παιχνίδι με 60 fps
      */
@@ -95,7 +96,7 @@ public final class GamePanel extends JPanel implements Runnable {
                     //Για να μην κολλήσει η λειτουργία της μπάρας
                     labyrinthFrame.closeFrame(true);
                     return;
-                    //Ενέργεια που εκτελείται όταν χάνει ο παίκτης TODO(all) add death sound
+                    //Ενέργεια που εκτελείται όταν χάνει ο παίκτης
                 } else if (labyrinthFrame.getHasLost()) {
                     for (int times = 0; times < Entity.death.length - 1; times++) {
                         if (times == 0)
@@ -145,16 +146,9 @@ public final class GamePanel extends JPanel implements Runnable {
 
         //Απεικόνιση αντικειμένων παιχνιδιού
         for (SuperObject superObject : obj) {
-            if (superObject != null && !superObject.name.equals("Coin")) {
+            if (superObject != null)
                 superObject.draw(g2, this);
-            } else if (superObject != null) {
-                //Downcast για την απεικόνιση του animation του coin
-                OBJ_Coin coin = (OBJ_Coin) superObject;
-                coin.drawCoin(g2, this);
-            }
         }
-
-
         player.draw(g2);
         //Για να ζωγραφιστεί στην οθόνη τη λέξη ΠΑΥΣΗ σε περίπτωση pause
         if (gameState == pauseState) {

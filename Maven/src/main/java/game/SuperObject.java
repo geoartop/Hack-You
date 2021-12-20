@@ -28,7 +28,7 @@ public abstract class SuperObject {
 
     public SuperObject() {}
 
-    protected void setValues(Graphics2D g2, GamePanel gp, BufferedImage image) {
+    void setValues(Graphics2D g2, GamePanel gp, BufferedImage image) {
         int screenX = worldX - gp.player.worldx + gp.player.screenX;
         int screenY = worldY - gp.player.worldy + gp.player.screenY;
 
@@ -64,9 +64,7 @@ public abstract class SuperObject {
 
     }
 
-    public void draw(Graphics2D g2, GamePanel gp) {
-        setValues(g2, gp, image);
-    }
+    public abstract void draw(Graphics2D g2, GamePanel gp);
 
 }
 

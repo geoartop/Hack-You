@@ -30,8 +30,8 @@ public final class Menu implements ActionListener {
     JButton how2play = new JButton("How to Play");
     JButton credits = new JButton("Show Credits");
     JButton description = new JButton("Game Description");
-    /*Προσδιορισμός για τον αν παίζεται μουσική στο παιχνίδι ή όχι
-    ώστε να απεικονιστεί η κατάσταση ήχου στο κουμπί*/
+    /* Προσδιορισμός για τον αν παίζεται μουσική στο παιχνίδι ή όχι
+    ώστε να απεικονιστεί η κατάσταση ήχου στο κουμπί */
     JButton musicOn_Off = new JButton(String.format("Sound %s", ButtonSetter.getPlaySound() ? "off" : "on"));
     JLabel label = new JLabel();
     JLabel backgroundLabel = new JLabel();
@@ -134,17 +134,17 @@ public final class Menu implements ActionListener {
         }
     }
 
-    public static void continuePlaying() {
+    static void continuePlaying() {
         music.play();
     }
 
-    public static void playMusic() {
+    static void playMusic() {
         music.setFile(0);
         music.play();
         music.loop();
     }
 
-    public static void stopMusic() {
+    static void stopMusic() {
         music.stop();
     }
 

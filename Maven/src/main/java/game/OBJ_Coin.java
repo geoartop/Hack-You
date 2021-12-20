@@ -17,7 +17,6 @@ public class OBJ_Coin extends SuperObject {
         super();
         name = "Coin";
         collision = false;
-        se.setFile(2);
     }
 
     public void playSE() {
@@ -25,7 +24,8 @@ public class OBJ_Coin extends SuperObject {
         se.play();
     }
 
-    public void drawCoin(Graphics2D g2, GamePanel gp) {
+    @Override
+    public void draw(Graphics2D g2, GamePanel gp) {
         BufferedImage image = Entity.coin[spriteNum - 1];
         super.setValues(g2, gp, image);
         spriteCounter++;

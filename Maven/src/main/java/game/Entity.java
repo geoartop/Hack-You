@@ -18,6 +18,7 @@ public class Entity {
     protected final static BufferedImage[] death = new BufferedImage[7];
     //Animations for coin
     final static BufferedImage[] coin = new BufferedImage[9];
+    final static BufferedImage[] spikes = new BufferedImage[2];
 
     protected String direction;
 
@@ -31,7 +32,7 @@ public class Entity {
     /**
      * Προετοιμασία των animation
      */
-    public void getImage() {
+    void getImage() {
         try {
             setMovement(up, "thiseaswalkingup");
             setMovement(down, "thiseaswalkingdown");
@@ -41,6 +42,16 @@ public class Entity {
                 BufferedImage image = ImageIO.read(getClass().getResourceAsStream(String.format("/goldCoin/goldCoin%d.png", i + 1)));
                 coin[i] = FrameSetter.scaleImage(image, 38, 38);
             }
+
+            BufferedImage image1 = ImageIO.read(getClass().getResourceAsStream(("/spikes/spike2.png")));
+            spikes[0] = FrameSetter.scaleImage(image1, 38, 38);
+            image1 = ImageIO.read(getClass().getResourceAsStream(("/spikes/spike4.png")));
+            spikes[1] = FrameSetter.scaleImage(image1, 38, 38);
+
+            /*for (int i = 0; i < spikes.length; i++) {
+                BufferedImage image = ImageIO.read(getClass().getResourceAsStream(String.format("/spikes/spike%d.png", i + 1)));
+                spikes[i] = FrameSetter.scaleImage(image, 38, 38);
+            }*/
             for (int i = 0; i < death.length - 1; i++) {
                 BufferedImage image = ImageIO.read(getClass().getResourceAsStream(String.format("/deadthiseas/dead%d.png", i + 1)));
                 death[i] = FrameSetter.scaleImage(image, 48, 48);

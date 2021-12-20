@@ -37,7 +37,7 @@ public class Player extends Entity {
         setDefaultValues();
 
         if (!hasLoaded) {
-            getImage();
+            super.getImage();
             hasLoaded = true;
         }
     }
@@ -108,7 +108,7 @@ public class Player extends Entity {
     /**
      * Σταθεροποίηση κίνησης παίκτη
      */
-    public void stabilizePlayer() {
+    void stabilizePlayer() {
         keyH.upPressed = false;
         keyH.downPressed = false;
         keyH.rightPressed = false;
@@ -139,6 +139,7 @@ public class Player extends Entity {
                 gp.gameState = gp.endState;
             //Προσθήκη χρόνου (ίσως και πόντων) όταν ο παίκτης βρίσκει coins
             if (Objects.equals(objectName, "Coin")) {
+                //Γίνεται Downcast για την αναπαραγωγή ηχητικού εφέ του coin
                 if(ButtonSetter.getPlaySound()) {
                     OBJ_Coin coin = (OBJ_Coin) gp.obj.get(index);
                     coin.playSE();
@@ -194,7 +195,7 @@ public class Player extends Entity {
             return;
         }
 
-        BufferedImage image = null;
+        BufferedImage image;
 
         switch (direction) {
             case "up":
@@ -206,7 +207,7 @@ public class Player extends Entity {
             case "left":
                 image = left[spriteNum - 1];
                 break;
-            case "right":
+            default:
                 image = right[spriteNum - 1];
                 break;
         }

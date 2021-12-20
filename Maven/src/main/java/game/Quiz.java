@@ -151,13 +151,16 @@ public final class Quiz extends JFrame implements ActionListener {
      * Φόρτωση αρχείων στα ArrayList
      */
     static void readQuestions() throws FileNotFoundException {
-        Scanner q = new Scanner(new File(String.format("src/main/resources/quiz/%s Questions.txt", Levels.getDifficulty())),"UTF-8");
+        Scanner q = new Scanner(new File
+                (String.format("src/main/resources/quiz/%s Questions.txt", Levels.getDifficulty())),"UTF-8");
         while (q.hasNextLine())
             questions.add(q.nextLine());
-        Scanner o = new Scanner(new File(String.format("src/main/resources/quiz/%s Options.txt", Levels.getDifficulty())),"UTF-8");
+        Scanner o = new Scanner(new File
+                (String.format("src/main/resources/quiz/%s Options.txt", Levels.getDifficulty())),"UTF-8");
         while (o.hasNextLine())
             options.add(o.nextLine());
-        Scanner a = new Scanner(new File(String.format("src/main/resources/quiz/%s Answers.txt", Levels.getDifficulty())),"UTF-8");
+        Scanner a = new Scanner
+                (new File(String.format("src/main/resources/quiz/%s Answers.txt", Levels.getDifficulty())),"UTF-8");
         while (a.hasNext())
             answers.add(a.next().charAt(0));
     }

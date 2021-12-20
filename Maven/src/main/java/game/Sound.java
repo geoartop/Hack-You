@@ -19,7 +19,6 @@ public final class Sound {
 
     public Sound() {
         soundURL[0] = getClass().getResource("/sound/audio_thiseas.wav");
-        //soundURL[1] = getClass().getResource("/sound/click-3.wav");
         soundURL[1] = getClass().getResource("/sound/sound_effect.wav");
         soundURL[2] = getClass().getResource("/sound/Coin_1.wav");
     }

@@ -16,8 +16,7 @@ public final class Username implements ActionListener {
     private final JFrame frame;
     private final JButton submit = new JButton("Submit");
     private final JTextField textField = new JTextField();
-    //-------test changes------//
-    private final JLabel label = new JLabel();
+    private final JLabel backgroundLabel = new JLabel();
 
     private final ImageIcon icon2 = new ImageIcon("src/main/resources/buttons/wood1.png");
 
@@ -52,8 +51,8 @@ public final class Username implements ActionListener {
         frame.add(textField);
         // Για να λειτουργεί το κουμπί enter
         frame.getRootPane().setDefaultButton(submit);
-        FrameSetter.scaleBackground(label, 970, 850);
-        frame.add(label);
+        FrameSetter.scaleBackground(backgroundLabel, 970, 850);
+        frame.add(backgroundLabel);
     }
 
     /**

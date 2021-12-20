@@ -129,6 +129,7 @@ public final class LabyrinthFrame implements ActionListener {
         frame.add(bar, BorderLayout.NORTH);
         frame.add(start, BorderLayout.SOUTH);
 
+        frame.getRootPane().setDefaultButton(start);
         frame.add(gamePanel, BorderLayout.CENTER);
         gamePanel.setupGame();
 
@@ -230,6 +231,7 @@ public final class LabyrinthFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        ButtonSetter.playSE();
         if (e.getSource() == start) {
             //Εμφάνιση progressBar και έναρξη countdown
             bar.setVisible(true);

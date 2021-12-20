@@ -13,7 +13,11 @@ import java.awt.event.WindowEvent;
  */
 public final class HighScoreFrame extends UtilityFrame {
 
-    private final GraphicPane[] graphicPanes = new GraphicPane[HighScore.getPlayerInfoSize()];
+    /**
+     * Τα graphicPane που θα απεικονίζουν τις πληροφορίες κάθε καταχωρημένου παίκτη
+     */
+    private final GraphicPane[] graphicPanes
+            = new GraphicPane[HighScore.getPlayerInfoSize()];
     private final HighScore highScore;
 
     public HighScoreFrame(WinFrame winFrame) {
@@ -29,7 +33,7 @@ public final class HighScoreFrame extends UtilityFrame {
 
         setGraphicPanes();
 
-        GraphicPane leadGraphicPane = new GraphicPane("Πίνακας Ηighscore", 800, 100, Color.black, 35, 1);
+        GraphicPane leadGraphicPane = new GraphicPane("Πίνακας Ηighscore", 800, 100, Color.black, 35, Font.BOLD + Font.ITALIC);
         leadGraphicPane.setBounds(0, 0, 800, 200);
         frame.add(leadGraphicPane);
 
@@ -42,11 +46,16 @@ public final class HighScoreFrame extends UtilityFrame {
     private void setGraphicPanes() {
         for (int i = 0; i < graphicPanes.length; i++) {
             graphicPanes[i] = new GraphicPane(
-                    String.format("%2d) %s : %d", i + 1,
+                    String.format(
+                            "%2d) %s : %d", i + 1,
                             highScore.getPlayerInfoName(i),
-                            highScore.getPlayerInfoScore(i)),
-                    800, 50, Color.black, 25, 1);
-            graphicPanes[i].setBounds(0, (i + 3) * 50,800,70 );
+                            highScore.getPlayerInfoScore(i)
+                    ),
+                    800, 50, (i + 1 == 1 ? new Color(134, 1, 1, 196)
+                    : i + 1 == 2 ? new Color(128, 141, 141)
+                            : (i + 1 == 3 ? new Color(112, 96, 61)
+                            : Color.black)), 27, 1);
+            graphicPanes[i].setBounds(0, (i + 3) * 50, 800, 70);
         }
     }
 
