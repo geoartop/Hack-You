@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
  * Παράθυρο επιλογής επίπεδου δυσκολίας
  *
  * @author Team Hack-You
+ * @version $Id: $Id
  */
 public final class Levels implements ActionListener {
 
@@ -33,25 +34,33 @@ public final class Levels implements ActionListener {
     //Θέλουμε να γνωρίζει η κλάση LabyrinthFrame το επίπεδο δυσκολίας που επίλεξε ο παίκτης
     private static String difficulty;
 
+    /**
+     * <p>Getter for the field <code>difficulty</code>.</p>
+     *
+     * @return a {@link java.lang.String} object
+     */
     public static String getDifficulty() {
         return difficulty;
     }
 
+    /**
+     * <p>Constructor for Levels.</p>
+     */
     public Levels() {
         // Εξατομίκευση παραθύρου
         frame = new JFrame(); //create frame
         FrameSetter.setFrame(frame,"Select Difficulty",600,600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        ButtonSetter.setButton(easy,BX,BY,B_WIDTH,B_HEIGHT,"Calibri",22,this,2);
-        ButtonSetter.setButton(medium,BX,BY+100,B_WIDTH,B_HEIGHT,"Calibri",22,this,2);
-        ButtonSetter.setButton(hard,BX,BY+200,B_WIDTH,B_HEIGHT,"Calibri",22,this,2);
+        ButtonSetter.setButton(easy,BX,BY,B_WIDTH,B_HEIGHT,new Font("Calibri", Font.ITALIC,22),this);
+        ButtonSetter.setButton(medium,BX,BY+100,B_WIDTH,B_HEIGHT,new Font("Calibri", Font.ITALIC,22),this);
+        ButtonSetter.setButton(hard,BX,BY+200,B_WIDTH,B_HEIGHT,new Font("Calibri", Font.ITALIC,22),this);
 
         easy.setIcon(easy_icon);
         medium.setIcon(medium_icon);
         hard.setIcon(hard_icon);
 
-        GraphicPane graphicPane = new GraphicPane("Choose difficulty",600,50,new Color(112, 96, 61),35,1);
+        GraphicPane graphicPane = new GraphicPane("Choose difficulty",600,50,new Color(112, 96, 61),new Font("Times new Roman", Font.BOLD,35));
         graphicPane.setBounds(0,50,600,100);
         frame.add(graphicPane);
 
@@ -64,6 +73,7 @@ public final class Levels implements ActionListener {
         frame.add(backgroundLabel);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void actionPerformed(ActionEvent e) {
         ButtonSetter.playSE();

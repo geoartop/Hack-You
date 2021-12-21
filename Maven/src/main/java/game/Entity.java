@@ -5,16 +5,36 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+/**
+ * <p>Entity class.</p>
+ *
+ * @author Team Hack-You
+ */
 public class Entity {
 
     protected int worldx, worldy;
     protected int speed;
 
     //Animations for player
+    /**
+     * Constant <code>up</code>
+     */
     protected final static BufferedImage[] up = new BufferedImage[9];
+    /**
+     * Constant <code>down</code>
+     */
     protected final static BufferedImage[] down = new BufferedImage[9];
+    /**
+     * Constant <code>right</code>
+     */
     protected final static BufferedImage[] right = new BufferedImage[9];
+    /**
+     * Constant <code>left</code>
+     */
     protected final static BufferedImage[] left = new BufferedImage[9];
+    /**
+     * Constant <code>death</code>
+     */
     protected final static BufferedImage[] death = new BufferedImage[7];
     //Animations for coin
     final static BufferedImage[] coin = new BufferedImage[9];
@@ -34,29 +54,18 @@ public class Entity {
      */
     void getImage() {
         try {
-            setMovement(up, "thiseaswalkingup");
-            setMovement(down, "thiseaswalkingdown");
-            setMovement(right, "thiseaswalkingright");
-            setMovement(left, "thiseaswalkingleft");
-            for (int i = 0; i < coin.length; i++) {
-                BufferedImage image = ImageIO.read(getClass().getResourceAsStream(String.format("/goldCoin/goldCoin%d.png", i + 1)));
-                coin[i] = FrameSetter.scaleImage(image, 38, 38);
-            }
+            setMovement(up, "/thiseas2/thiseaswalkingup");
+            setMovement(down, "/thiseas2/thiseaswalkingdown");
+            setMovement(right, "/thiseas2/thiseaswalkingright");
+            setMovement(left, "/thiseas2/thiseaswalkingleft");
+            setMovement(coin, "/goldCoin/goldCoin");
+            setMovement(death, "/deadthiseas/dead");
 
-            BufferedImage image1 = ImageIO.read(getClass().getResourceAsStream(("/spikes/spike2.png")));
-            spikes[0] = FrameSetter.scaleImage(image1, 38, 38);
-            image1 = ImageIO.read(getClass().getResourceAsStream(("/spikes/spike4.png")));
-            spikes[1] = FrameSetter.scaleImage(image1, 38, 38);
+            BufferedImage image = ImageIO.read(getClass().getResourceAsStream(("/spikes/spike2.png")));
+            spikes[0] = FrameSetter.scaleImage(image, 38, 38);
+            image = ImageIO.read(getClass().getResourceAsStream(("/spikes/spike4.png")));
+            spikes[1] = FrameSetter.scaleImage(image, 38, 38);
 
-            /*for (int i = 0; i < spikes.length; i++) {
-                BufferedImage image = ImageIO.read(getClass().getResourceAsStream(String.format("/spikes/spike%d.png", i + 1)));
-                spikes[i] = FrameSetter.scaleImage(image, 38, 38);
-            }*/
-            for (int i = 0; i < death.length - 1; i++) {
-                BufferedImage image = ImageIO.read(getClass().getResourceAsStream(String.format("/deadthiseas/dead%d.png", i + 1)));
-                death[i] = FrameSetter.scaleImage(image, 48, 48);
-            }
-            death[death.length - 1] = death[death.length - 2];
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -66,12 +75,17 @@ public class Entity {
      * Διάβασμα αρχείων για τη φόρτωση των animation
      *
      * @param images : ο πίνακας εικόνων κινήσεων
-     * @param move   : καθορίζει την κατηγορία κίνησης
+     * @param path   : καθορίζει το επιθυμητό path
      */
-    private void setMovement(BufferedImage[] images, String move) throws IOException {
+    private void setMovement(BufferedImage[] images, String path) throws IOException {
         for (int i = 0; i < images.length; i++) {
-            BufferedImage image = ImageIO.read(getClass().getResourceAsStream(String.format("/thiseas2/%s%d.png", move, i + 1)));
+            BufferedImage image = ImageIO.read(getClass().getResourceAsStream(path + (i + 1) + ".png"));
             images[i] = FrameSetter.scaleImage(image, 48, 48);
+            if (i == 5 && images.length == 7) {
+                images[images.length - 1] = images[images.length - 2];
+                break;
+            }
+
         }
 
     }

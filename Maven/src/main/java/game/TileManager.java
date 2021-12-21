@@ -10,6 +10,9 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * Λειτουργική κλάση για το configuration του χάρτη, των μπλοκ και των χαρακτηριστικών αυτών
+ *
+ * @author panagiotis
+ * @version $Id: $Id
  */
 public final class TileManager {
 
@@ -17,6 +20,11 @@ public final class TileManager {
     final Tile[] tile;
     final int[][] mapTileNum;
 
+    /**
+     * <p>Constructor for TileManager.</p>
+     *
+     * @param gp a {@link game.GamePanel} object
+     */
     public TileManager(GamePanel gp) {
         this.gp = gp;
         tile = new Tile[2];
@@ -62,7 +70,6 @@ public final class TileManager {
             InputStream is = getClass().getResourceAsStream(FilePath);
             assert is != null;
             BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
-            System.out.println(gp.maxWorldCol);
             int col = 0;
             int row = 0;
 
@@ -90,6 +97,11 @@ public final class TileManager {
     }
 
 
+    /**
+     * <p>draw.</p>
+     *
+     * @param g2 a {@link java.awt.Graphics2D} object
+     */
     public void draw(Graphics2D g2) {
 
         int worldCol = 0;

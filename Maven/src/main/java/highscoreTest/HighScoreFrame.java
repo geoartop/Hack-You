@@ -10,6 +10,8 @@ import java.awt.event.WindowEvent;
 
 /**
  * Παράθυρο στο οποίο εμφανίζονται τα highscores
+ *
+ * @author Team Hack-You
  */
 public final class HighScoreFrame extends UtilityFrame {
 
@@ -20,6 +22,11 @@ public final class HighScoreFrame extends UtilityFrame {
             = new GraphicPane[HighScore.getPlayerInfoSize()];
     private final HighScore highScore;
 
+    /**
+     * <p>Constructor for HighScoreFrame.</p>
+     *
+     * @param winFrame a {@link game.WinFrame} object
+     */
     public HighScoreFrame(WinFrame winFrame) {
         super("HighScore Table", 800, 800);
         this.highScore = winFrame.getHighScore();
@@ -33,7 +40,7 @@ public final class HighScoreFrame extends UtilityFrame {
 
         setGraphicPanes();
 
-        GraphicPane leadGraphicPane = new GraphicPane("Πίνακας Ηighscore", 800, 100, Color.black, 35, Font.BOLD + Font.ITALIC);
+        GraphicPane leadGraphicPane = new GraphicPane("Πίνακας Ηighscore", 800, 100, Color.black,new Font("Times new Roman", Font.BOLD + Font.ITALIC,35));
         leadGraphicPane.setBounds(0, 0, 800, 200);
         frame.add(leadGraphicPane);
 
@@ -54,7 +61,7 @@ public final class HighScoreFrame extends UtilityFrame {
                     800, 50, (i + 1 == 1 ? new Color(134, 1, 1, 196)
                     : i + 1 == 2 ? new Color(128, 141, 141)
                             : (i + 1 == 3 ? new Color(112, 96, 61)
-                            : Color.black)), 27, 1);
+                            : Color.black)),new Font("Times new Roman", Font.BOLD,27));
             graphicPanes[i].setBounds(0, (i + 3) * 50, 800, 70);
         }
     }

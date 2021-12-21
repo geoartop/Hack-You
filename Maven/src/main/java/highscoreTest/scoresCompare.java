@@ -2,13 +2,17 @@ package highscoreTest;
 
 import java.util.Comparator;
 
+/**
+ * <p>scoresCompare class.</p>
+ *
+ * @author Team Hack-You
+ */
 public class scoresCompare implements Comparator<PlayerInfo> {
 
     /**
-     * Σύγκριση των score
-     * @param p1 : 1o score
-     * @param p2 : 2o score
-     * @return : η διαφορά των 2 scores
+     * {@inheritDoc}
+     *
+     * <p>Σύγκριση των score</p>
      */
     @Override
     public int compare(PlayerInfo p1, PlayerInfo p2) {

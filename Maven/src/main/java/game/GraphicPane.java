@@ -8,6 +8,9 @@ import java.awt.Graphics2D;
 
 /**
  * Component για την απεικόνιση text στο κέντρο ενός παραθύρου
+ *
+ * @author Team Hack-You
+ *
  */
 public final class GraphicPane extends JComponent {
 
@@ -15,25 +18,34 @@ public final class GraphicPane extends JComponent {
     private final int screenWidth;
     private final int y;
     private final Color color;
-    private final int size;
-    private final int style;
+    private final Font font;
 
-    public GraphicPane(String text, int screenWidth, int y, Color color, int size, int style) {
+    /**
+     * <p>Constructor for GraphicPane.</p>
+     *
+     * @param text        a {@link java.lang.String} object
+     * @param screenWidth a int
+     * @param y           a int
+     * @param color       a {@link java.awt.Color} object
+     * @param font        a {@link Font} object
+     */
+    public GraphicPane(String text, int screenWidth, int y, Color color, Font font) {
         super();
         this.text = text;
         this.screenWidth = screenWidth;
         this.y = y;
         this.color = color;
-        this.size = size;
-        this.style = style;
+        this.font = font;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(color);
-        //g2.setFont(g2.getFont().deriveFont(Font.ITALIC, 20F));
-        g2.setFont(new Font("Times new Roman", style, size));
+        g2.setFont(font);
         int length = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
         int x = screenWidth / 2 - length / 2;
         g2.drawString(text, x, y);

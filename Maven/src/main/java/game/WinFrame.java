@@ -27,14 +27,27 @@ public final class WinFrame implements ActionListener {
 
     private final HighScore highScore;
 
+    /**
+     * <p>setSeeHighScoresStatus.</p>
+     *
+     * @param status a boolean
+     */
     public void setSeeHighScoresStatus(boolean status) {
         seeHighScores.setEnabled(status);
     }
 
+    /**
+     * <p>Getter for the field <code>highScore</code>.</p>
+     *
+     * @return a {@link highscoreTest.HighScore} object
+     */
     public HighScore getHighScore() {
         return highScore;
     }
 
+    /**
+     * <p>Constructor for WinFrame.</p>
+     */
     public WinFrame() {
         frame = new JFrame();
         FrameSetter.setFrame(frame, "Victory", 800, 800);
@@ -42,10 +55,10 @@ public final class WinFrame implements ActionListener {
         //Έλεγχος για το αν ο παίκτης έκανε νέο highscore
         highScore = new HighScore(Username.getUsername(), calculateScore());
 
-        ButtonSetter.setButton(playAgain, 275, 300, 250, 50, "Calibri", 20, this, 2);
-        ButtonSetter.setButton(seeHighScores, 275, 400, 250, 50, "Calibri", 20, this, 2);
-        ButtonSetter.setButton(back_to_menu, 275, 500, 250, 50, "Calibri", 20, this, 2);
-        ButtonSetter.setButton(exit, 275, 600, 250, 50, "Calibri", 20, this, 2);
+        ButtonSetter.setButton(playAgain, 275, 300, 250, 50, new Font("Calibri", Font.ITALIC, 20), this);
+        ButtonSetter.setButton(seeHighScores, 275, 400, 250, 50, new Font("Calibri", Font.ITALIC, 20), this);
+        ButtonSetter.setButton(back_to_menu, 275, 500, 250, 50, new Font("Calibri", Font.ITALIC, 20), this);
+        ButtonSetter.setButton(exit, 275, 600, 250, 50, new Font("Calibri", Font.ITALIC, 20), this);
 
         frame.add(playAgain);
         frame.add(seeHighScores);
@@ -57,7 +70,7 @@ public final class WinFrame implements ActionListener {
         FrameSetter.scaleImgToLabel(thLabel, 365, 100, 100, 70, new ImageIcon("src/main/resources/thiseas2/thiseasswind.png"));
         frame.add(thLabel);
 
-        GraphicPane graphicPane = new GraphicPane("VICTORY!", 800, 100, new Color(23, 131, 59), 60, 1);
+        GraphicPane graphicPane = new GraphicPane("VICTORY!", 800, 100, new Color(23, 131, 59),new Font("Times new Roman", Font.BOLD,60));
         graphicPane.setBounds(0, 150, 800, 150);
         frame.add(graphicPane);
 
@@ -66,11 +79,20 @@ public final class WinFrame implements ActionListener {
     }
 
     //TODO(all) προσθήκη συνάρτησης υπολογισμού score
+
+    /**
+     * <p>calculateScore.</p>
+     *
+     * @return a int
+     */
     public int calculateScore() {
 
         return 0;
     }
 
+    /**
+     * <p>check.</p>
+     */
     public void check() {
         if (highScoreFrame == null)
             return;
@@ -78,6 +100,9 @@ public final class WinFrame implements ActionListener {
             highScoreFrame.closeFrame();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         ButtonSetter.playSE();

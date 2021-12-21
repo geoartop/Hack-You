@@ -7,6 +7,8 @@ import java.awt.event.KeyListener;
 /**
  * Διαχείριση λειτουργιών των κουμπιών
  * WASD, Arrows, PAUSE, ESCAPE στο παιχνίδι
+ *
+ * @author Team Hack-You
  */
 public class KeyHandler implements KeyListener {
 
@@ -15,23 +17,40 @@ public class KeyHandler implements KeyListener {
     private boolean escPressed = false;
     private boolean quizTrig = false;
 
+    /**
+     * <p>Setter for the field <code>escPressed</code>.</p>
+     *
+     * @param escPressed a boolean
+     */
     public void setEscPressed(boolean escPressed) {
         this.escPressed = escPressed;
     }
 
+    /**
+     * <p>Setter for the field <code>quizTrig</code>.</p>
+     *
+     * @param quizTrig a boolean
+     */
     public void setQuizTrig(boolean quizTrig) {
         this.quizTrig = quizTrig;
     }
 
+    /** {@inheritDoc} */
     @Override
     public void keyTyped(KeyEvent e) {
 
     }
 
+    /**
+     * <p>Constructor for KeyHandler.</p>
+     *
+     * @param gp a {@link game.GamePanel} object
+     */
     public KeyHandler(GamePanel gp) {
         this.gp = gp;
     }
 
+    /** {@inheritDoc} */
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
@@ -79,6 +98,7 @@ public class KeyHandler implements KeyListener {
             rightPressed = status;
     }
 
+    /** {@inheritDoc} */
     @Override
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();

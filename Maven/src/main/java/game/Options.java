@@ -1,6 +1,7 @@
 package game;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -8,6 +9,8 @@ import java.awt.event.WindowEvent;
 
 /**
  * Παράθυρο επιλόγων που προκαλεί παύση του παιχνιδιού όταν εμφανίζεται
+ *
+ * @author Team Hack-You
  */
 public final class Options implements ActionListener {
 
@@ -21,6 +24,11 @@ public final class Options implements ActionListener {
     private static boolean isActive = false;
     private Guide guide;
 
+    /**
+     * <p>Constructor for Options.</p>
+     *
+     * @param gp a {@link game.GamePanel} object
+     */
     public Options(GamePanel gp) {
         isActive = true;
         this.gp = gp;
@@ -36,10 +44,10 @@ public final class Options implements ActionListener {
         });
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        ButtonSetter.setButton(returnBack, 225, 200, 150, 50, "Calibri", 20, this, 2);
-        ButtonSetter.setButton(showGuide, 225, 300, 150, 50, "Calibri", 20, this, 2);
-        ButtonSetter.setButton(restart, 225, 400, 150, 50, "Calibri", 20, this, 2);
-        ButtonSetter.setButton(end, 225, 500, 150, 50, "Calibri", 20, this, 2);
+        ButtonSetter.setButton(returnBack, 225, 200, 150, 50, new Font("Calibri", Font.ITALIC,20), this);
+        ButtonSetter.setButton(showGuide, 225, 300, 150, 50, new Font("Calibri", Font.ITALIC,20), this);
+        ButtonSetter.setButton(restart, 225, 400, 150, 50, new Font("Calibri", Font.ITALIC,20), this);
+        ButtonSetter.setButton(end, 225, 500, 150, 50, new Font("Calibri", Font.ITALIC,20), this);
 
         frame.add(returnBack);
         frame.add(showGuide);
@@ -50,6 +58,11 @@ public final class Options implements ActionListener {
         frame.add(backgroundLabel);
     }
 
+    /**
+     * <p>Getter for the field <code>isActive</code>.</p>
+     *
+     * @return a boolean
+     */
     public static boolean getIsActive() {
         return isActive;
     }
@@ -65,6 +78,7 @@ public final class Options implements ActionListener {
             guide.closeFrame();
     }
 
+    /** {@inheritDoc} */
     @Override
     public void actionPerformed(ActionEvent e) {
         ButtonSetter.playSE();

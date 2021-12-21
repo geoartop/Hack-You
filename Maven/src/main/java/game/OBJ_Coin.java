@@ -5,25 +5,32 @@ import java.awt.image.BufferedImage;
 
 /**
  * Αντικείμενο coin στο παιχνίδι
+ *
+ * @author Team Hack-You
  */
 public class OBJ_Coin extends SuperObject {
-
-    private final Sound se = new Sound();
 
     private int spriteCounter = 0;
     private int spriteNum = 1;
 
+    /**
+     * <p>Constructor for OBJ_Coin.</p>
+     */
     public OBJ_Coin() {
         super();
         name = "Coin";
         collision = false;
     }
 
+    /**
+     * <p>playSE.</p>
+     */
     public void playSE() {
         se.setFile(2);
         se.play();
     }
 
+    /** {@inheritDoc} */
     @Override
     public void draw(Graphics2D g2, GamePanel gp) {
         BufferedImage image = Entity.coin[spriteNum - 1];

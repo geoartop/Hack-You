@@ -12,6 +12,7 @@ public class Guide extends UtilityFrame{
 
     /**
      * Κατασκευαστής που καλείται όταν το guide ανοίγει από το παράθυρο options
+     *
      * @param options : Το παράθυρο options από το οποίο κλήθηκε ο guide
      */
     public Guide(Options options) {
@@ -29,6 +30,7 @@ public class Guide extends UtilityFrame{
 
     /**
      * Κατασκευαστής που καλείται όταν το guide ανοίγει από το παράθυρο menu
+     *
      * @param menu : Το παράθυρο menu από το οποίο κλήθηκε ο guide
      */
     public Guide(Menu menu) {

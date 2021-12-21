@@ -2,15 +2,27 @@ package game;
 
 /**
  * Έλεγχος συγκρούσεων του παίκτη με τοίχους
+ *
+ * @author Team Hack-You
  */
 public final class CollisionCheck {
 
     private final GamePanel gp;
 
+    /**
+     * <p>Constructor for CollisionCheck.</p>
+     *
+     * @param gp a {@link game.GamePanel} object
+     */
     public CollisionCheck(GamePanel gp) {
         this.gp = gp;
     }
 
+    /**
+     * <p>checkTile.</p>
+     *
+     * @param entity a {@link game.Entity} object
+     */
     public void checkTile(Entity entity) {
 
         int entityLeftWorldX = entity.worldx + entity.solidArea.x;
@@ -58,6 +70,13 @@ public final class CollisionCheck {
         }
     }
 
+    /**
+     * <p>checkObject.</p>
+     *
+     * @param entity a {@link game.Entity} object
+     * @param player a boolean
+     * @return index
+     */
     public int checkObject(Entity entity, boolean player) {
         int index = 999;
         //Object counter

@@ -6,6 +6,8 @@ import java.util.LinkedList;
 
 /**
  * Λειτουργική κλάση για την εμφάνιση των top 10 scores μαζί με τα username αντίστοιχα
+ *
+ * @author Team Hack-You
  */
 public final class HighScore {
 
@@ -14,10 +16,22 @@ public final class HighScore {
     private final int score;
     private static int playerInfoSize;
 
+    /**
+     * <p>getPlayerInfoName.</p>
+     *
+     * @param index a int
+     * @return a {@link java.lang.String} object
+     */
     public String getPlayerInfoName(int index) {
         return playerInfo.get(index).getName();
     }
 
+    /**
+     * <p>getPlayerInfoScore.</p>
+     *
+     * @param index a int
+     * @return score
+     */
     public int getPlayerInfoScore(int index) {
         return playerInfo.get(index).getScore();
     }
@@ -64,7 +78,7 @@ public final class HighScore {
      * για να καταγραφεί στον πίνακα των top 10 ή όχι
      *
      * @return : true αν έγινε η καταχώρηση επιτυχώς, false αν δεν έγινε νέα καταχώρηση
-     * @throws IOException
+     * @throws IOException if any
      */
     private boolean checkForNewRegister() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/HighScore.txt"));
@@ -118,8 +132,8 @@ public final class HighScore {
     }
 
     /**
-     * Φόρτωση πληροφοριών αρχείου στη συνδεδεμένη λίστα playerInfo
-     * @throws IOException
+     * Φόρτωση πληροφοριών αρχείου στη συνδεδεμένη λίστα <code>playerInfo</code>
+     * @throws IOException if any
      */
     private void load() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/HighScore.txt"));
@@ -142,7 +156,7 @@ public final class HighScore {
 
     /**
      * Ταξινόμηση playerInfo και αρχείου με φθίνουσα σειρά με βάση τα scores
-     * @throws IOException
+     * @throws IOException if any
      */
     private void sort() throws IOException {
         //Sorting ArrayList playerInfo based on scores

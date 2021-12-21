@@ -11,6 +11,11 @@ import java.io.FileNotFoundException;
  */
 public class Credits extends UtilityFrame {
 
+    /**
+     * <p>Constructor for Credits.</p>
+     *
+     * @param menu a {@link game.Menu} object
+     */
     public Credits(Menu menu) {
         super("Credits", 800, 600);
         frame.addWindowListener(new WindowAdapter() {

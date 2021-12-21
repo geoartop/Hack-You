@@ -1,11 +1,15 @@
 package game;
 
+import com.sun.codemodel.internal.fmt.JSerializedObject;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedList;
 
 /**
  * Panel όπου γίνεται η αναπαράσταση του παιχνιδιού
+ *
+ * @author Team Hack-You
  */
 public final class GamePanel extends JPanel implements Runnable {
 
@@ -42,6 +46,11 @@ public final class GamePanel extends JPanel implements Runnable {
     final int pauseState = 2;
     final int endState = 3;
 
+    /**
+     * <p>Constructor for GamePanel.</p>
+     *
+     * @param labyrinthFrame a {@link game.LabyrinthFrame} object
+     */
     public GamePanel(LabyrinthFrame labyrinthFrame) {
         this.labyrinthFrame = labyrinthFrame;
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -71,7 +80,9 @@ public final class GamePanel extends JPanel implements Runnable {
 
 
     /**
-     * Game loop εξατομικευμένο ώστε να τρέχει το παιχνίδι με 60 fps
+     * {@inheritDoc}
+     *
+     * <p>Υλοποιείται game loop εξατομικευμένο ώστε να τρέχει το παιχνίδι με 60 fps </p>
      */
     @Override
     public void run() {
@@ -138,6 +149,7 @@ public final class GamePanel extends JPanel implements Runnable {
     }
 
 
+    /** {@inheritDoc} */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 

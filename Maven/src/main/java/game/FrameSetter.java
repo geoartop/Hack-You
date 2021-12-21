@@ -6,11 +6,18 @@ import java.awt.image.BufferedImage;
 
 /**
  * Πρότυπο για την επεξεργασία frames
+ *
+ * @author Team Hack-You
  */
 public final class FrameSetter {
 
     /**
      * Μέθοδος εξατομίκευσης frames
+     *
+     * @param frame a {@link javax.swing.JFrame} object
+     * @param title a {@link java.lang.String} object
+     * @param width a int
+     * @param height a int
      */
     public static void setFrame(JFrame frame, String title, int width, int height) {
         frame.setTitle(title); //setTitle of frame
@@ -25,6 +32,10 @@ public final class FrameSetter {
 
     /**
      * Μέθοδος που τοποθετεί την background εικόνα scaled σε ένα label
+     *
+     * @param label a {@link javax.swing.JLabel} object
+     * @param width a int
+     * @param height a int
      */
     public static void scaleBackground(JLabel label, int width, int height) {
         Image img = Main.background.getImage();
@@ -36,6 +47,7 @@ public final class FrameSetter {
 
     /**
      * Scaling εικόνας με δεδομένο width ,height
+     *
      * @param original η εικόνα στην οποία θα γίνει το scaling
      * @param width πλάτος
      * @param height μήκος
@@ -51,6 +63,13 @@ public final class FrameSetter {
 
     /**
      * Μέθοδος που τοποθετεί μια εικόνα scaled σε ένα label
+     *
+     * @param label a {@link javax.swing.JLabel} object
+     * @param x a int
+     * @param y a int
+     * @param width a int
+     * @param height a int
+     * @param imageIcon a {@link javax.swing.ImageIcon} object
      */
     public static void scaleImgToLabel(JLabel label,int x , int y,int width, int height, ImageIcon imageIcon) {
         Image img = imageIcon.getImage();

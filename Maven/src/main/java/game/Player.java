@@ -9,6 +9,8 @@ import java.util.Objects;
 
 /**
  * Φόρτωση του παίκτη και εγγραφή των κινήσεών του στην οθόνη
+ *
+ * @author Team Hack-You
  */
 public class Player extends Entity {
 
@@ -20,6 +22,12 @@ public class Player extends Entity {
 
     private int timesPassed = 0;
 
+    /**
+     * <p>Constructor for Player.</p>
+     *
+     * @param gp a {@link game.GamePanel} object
+     * @param keyH a {@link game.KeyHandler} object
+     */
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
         this.keyH = keyH;
@@ -140,10 +148,8 @@ public class Player extends Entity {
             //Προσθήκη χρόνου (ίσως και πόντων) όταν ο παίκτης βρίσκει coins
             if (Objects.equals(objectName, "Coin")) {
                 //Γίνεται Downcast για την αναπαραγωγή ηχητικού εφέ του coin
-                if(ButtonSetter.getPlaySound()) {
-                    OBJ_Coin coin = (OBJ_Coin) gp.obj.get(index);
-                    coin.playSE();
-                }
+                if(ButtonSetter.getPlaySound())
+                    gp.obj.get(index).playSE();
                 gp.labyrinthFrame.editBarTime(LabyrinthFrame.for_correct);
                 gp.obj.set(index, null);
             }
@@ -153,6 +159,8 @@ public class Player extends Entity {
 
     /**
      * Απεικόνιση "θανάτου" παίκτη
+     *
+     * @param g2 a {@link java.awt.Graphics2D} object
      */
     public void drawDeathAnimation(Graphics2D g2) {
         BufferedImage image;
@@ -187,6 +195,11 @@ public class Player extends Entity {
     }
 
 
+    /**
+     * <p>draw.</p>
+     *
+     * @param g2 a {@link java.awt.Graphics2D} object
+     */
     public void draw(Graphics2D g2) {
 
         if (gp.labyrinthFrame.getHasLost()) {

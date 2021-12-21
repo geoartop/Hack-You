@@ -39,6 +39,9 @@ public final class Menu implements ActionListener {
     //Αρχικοποίηση εξαρτημένων παραθύρων
     UtilityFrame[] utilityFrames = new UtilityFrame[3];
 
+    /**
+     * <p>Constructor for Menu.</p>
+     */
     public Menu() {
         if (ButtonSetter.getPlaySound())
             playMusic();
@@ -96,7 +99,7 @@ public final class Menu implements ActionListener {
     }
 
     /**
-     * Ενέργεια όταν κάνουμε κλικ στο κουμπί
+     * {@inheritDoc}
      */
     @Override
     public void actionPerformed(ActionEvent e) {

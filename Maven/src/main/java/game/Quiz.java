@@ -38,13 +38,18 @@ public final class Quiz extends JFrame implements ActionListener {
 
     private final GamePanel gp;
 
+    /**
+     * <p>Constructor for Quiz.</p>
+     *
+     * @param gp a {@link game.GamePanel} object
+     */
     public Quiz(GamePanel gp) {
         this.gp = gp;
-        FrameSetter.setFrame(frame, "Question", 700, 540);
+        FrameSetter.setFrame(frame, "Question", 800, 540);
         //Για να μη γίνεται skip της ερώτησης
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
-        textArea.setBounds(100, 0, 520, 100);
+        textArea.setBounds(100, 0, 620, 100);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
         textArea.setOpaque(false);
@@ -56,6 +61,7 @@ public final class Quiz extends JFrame implements ActionListener {
 
         setLabels();
         setButtons();
+
         for (JLabel label : labels)
             frame.add(label);
         for (JButton button : buttons)
@@ -65,13 +71,13 @@ public final class Quiz extends JFrame implements ActionListener {
         // Τυχαία επιλογή μιας ερώτησης
         index = random.nextInt(questions.size());
 
-        /*GraphicPane graphicPane = new GraphicPane(questions.get(index), 700, 50, Color.black, 17, 2);
+        /* GraphicPane graphicPane = new GraphicPane(questions.get(index), 700, 50, Color.black, 17, 2);
         graphicPane.setBounds(0, 0, 700, 100);
         frame.add(graphicPane);*/
 
         displayAnswers();
 
-        FrameSetter.scaleBackground(label, 700, 550);
+        FrameSetter.scaleBackground(label, 800, 550);
         //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
         frame.add(label);
     }
@@ -89,7 +95,7 @@ public final class Quiz extends JFrame implements ActionListener {
     private void setButtons() {
         for (int i = 0; i < buttons.length; i++) {
             buttons[i] = new JButton(String.valueOf(symbols[i]));
-            ButtonSetter.setButton(buttons[i], 0, (i + 1) * 100, 100, 100, "Calibri", 35, this, 1);
+            ButtonSetter.setButton(buttons[i], 0, (i + 1) * 100, 100, 100, new Font("Calibri", Font.BOLD,35),this);
         }
     }
 
@@ -104,6 +110,7 @@ public final class Quiz extends JFrame implements ActionListener {
     }
 
 
+    /** {@inheritDoc} */
     @Override
     public void actionPerformed(ActionEvent e) {
         ButtonSetter.playSE();

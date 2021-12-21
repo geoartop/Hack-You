@@ -1,22 +1,35 @@
 package game;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
  * Δημιουργία αντικειμένων στο παιχνίδι
+ *
+ * @author Team Hack-You
  */
 public abstract class SuperObject {
+
     protected BufferedImage image;
     protected String name;
     protected boolean collision = false;
     protected int worldX, worldY;
-    protected final Rectangle solidArea = new Rectangle(0, 0, 48, 48);
+    protected final Rectangle solidArea
+            = new Rectangle(0, 0, 48, 48);
     protected final int solidAreaDefaultX = 0;
     protected final int solidAreaDefaultY = 0;
 
+    protected final Sound se = new Sound();
+
+    /**
+     * <p>Constructor for SuperObject.</p>
+     *
+     * @param path a {@link java.lang.String} object
+     * @param width_height a int
+     */
     public SuperObject(String path, int width_height) {
         try {
             image = ImageIO.read(getClass().getResourceAsStream(path));
@@ -26,6 +39,9 @@ public abstract class SuperObject {
         }
     }
 
+    /**
+     * <p>Default Constructor for SuperObject.</p>
+     */
     public SuperObject() {}
 
     void setValues(Graphics2D g2, GamePanel gp, BufferedImage image) {
@@ -45,9 +61,9 @@ public abstract class SuperObject {
 
         int bottomOffsetValue = gp.screenHeight - gp.player.screenY;
 
-        if (bottomOffsetValue > gp.WorldHeight - gp.player.worldy) {
+        if (bottomOffsetValue > gp.WorldHeight - gp.player.worldy)
             screenY = gp.screenHeight - (gp.WorldHeight - worldY);
-        }
+
         if (worldX + gp.tileSize > gp.player.worldx - gp.player.screenX &&
                 worldX - gp.tileSize < gp.player.worldx + gp.player.screenX &&
                 worldY + gp.tileSize > gp.player.worldy - gp.player.screenY &&
@@ -64,6 +80,17 @@ public abstract class SuperObject {
 
     }
 
+    /**
+     * <p>play Sound Effect.</p>
+     */
+    public abstract void playSE();
+
+    /**
+     * <p>draw.</p>
+     *
+     * @param g2 a {@link java.awt.Graphics2D} object
+     * @param gp a {@link game.GamePanel} object
+     */
     public abstract void draw(Graphics2D g2, GamePanel gp);
 
 }

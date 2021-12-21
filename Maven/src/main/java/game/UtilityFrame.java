@@ -10,6 +10,8 @@ import java.util.Scanner;
  * SuperClass για τις κλάσεις Credits, Description, Guide, HighScoreFrame
  * <p>
  * Χρησιμότητα : εύκολο μαζικό κλείσιμο frame + ευκολία υλοποίησης
+ *
+ * @author Team Hack-You
  */
 public abstract class UtilityFrame {
 
@@ -19,6 +21,13 @@ public abstract class UtilityFrame {
     protected JTextArea textArea = new JTextArea();
     protected JScrollPane scrollPane;
 
+    /**
+     * <p>Constructor for UtilityFrame.</p>
+     *
+     * @param title a {@link java.lang.String} object
+     * @param width a int
+     * @param height a int
+     */
     public UtilityFrame(String title, int width, int height) {
         isOpen = true;
         frame = new JFrame();
@@ -41,8 +50,10 @@ public abstract class UtilityFrame {
 
     /**
      * Φόρτωση αρχείου κειμένου
+     *
      * @param pathname το path του αρχείου
      * @param textArea το textArea στο οποίο θα φορτωθεί το κείμενο
+     * @throws java.io.FileNotFoundException if any.
      */
     protected void load(String pathname, JTextArea textArea) throws FileNotFoundException {
         Scanner q = new Scanner(new File(pathname),"UTF-8");
@@ -50,6 +61,11 @@ public abstract class UtilityFrame {
             textArea.append(q.nextLine() + "\n");
     }
 
+    /**
+     * <p>Getter for the field <code>isOpen</code>.</p>
+     *
+     * @return a boolean
+     */
     public boolean getIsOpen() {
         return isOpen;
     }
@@ -75,6 +91,9 @@ public abstract class UtilityFrame {
         return scrollPane;
     }
 
+    /**
+     * <p>closeFrame.</p>
+     */
     public void closeFrame() {
         frame.dispose();
     }

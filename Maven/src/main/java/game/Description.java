@@ -11,6 +11,11 @@ import java.io.FileNotFoundException;
  */
 public class Description extends UtilityFrame {
 
+    /**
+     * <p>Constructor for Description.</p>
+     *
+     * @param menu a {@link game.Menu} object
+     */
     public Description(Menu menu) {
         super("Description", 800, 600);
         frame.addWindowListener(new WindowAdapter() {

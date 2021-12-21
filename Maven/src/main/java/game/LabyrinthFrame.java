@@ -42,10 +42,20 @@ public final class LabyrinthFrame implements ActionListener {
     //--------------------------------------------------------------------------------------//
 
 
+    /**
+     * <p>Getter for the field <code>hasLost</code>.</p>
+     *
+     * @return a boolean
+     */
     public boolean getHasLost() {
         return hasLost;
     }
 
+    /**
+     * <p>Getter for the field <code>hasStarted</code>.</p>
+     *
+     * @return a boolean
+     */
     public boolean getHasStarted() {
         return hasStarted;
     }
@@ -105,6 +115,9 @@ public final class LabyrinthFrame implements ActionListener {
         bar.setVisible(false);
     }
 
+    /**
+     * <p>Constructor for LabyrinthFrame.</p>
+     */
     public LabyrinthFrame() {
         if (!Menu.music.clip.isActive() && ButtonSetter.getPlaySound())
             Menu.playMusic();
@@ -229,6 +242,7 @@ public final class LabyrinthFrame implements ActionListener {
         go = false;
     }
 
+    /** {@inheritDoc} */
     @Override
     public void actionPerformed(ActionEvent e) {
         ButtonSetter.playSE();
