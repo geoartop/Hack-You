@@ -11,6 +11,7 @@ import java.awt.event.ComponentEvent;
  * Παράθυρο όπου τρέχει ο λαβύρινθος
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public final class LabyrinthFrame implements ActionListener {
 
@@ -91,7 +92,7 @@ public final class LabyrinthFrame implements ActionListener {
         frame = new JFrame();
         frame.setTitle("Labyrinth"); //setTitle of frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
+        frame.setResizable(true);
         frame.setSize(780, 660);
         frame.setVisible(true);
         frame.setLayout(new BorderLayout());
@@ -242,7 +243,9 @@ public final class LabyrinthFrame implements ActionListener {
         go = false;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         ButtonSetter.playSE();

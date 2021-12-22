@@ -11,6 +11,7 @@ import java.util.Objects;
  * Φόρτωση του παίκτη και εγγραφή των κινήσεών του στην οθόνη
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public class Player extends Entity {
 
@@ -25,7 +26,7 @@ public class Player extends Entity {
     /**
      * <p>Constructor for Player.</p>
      *
-     * @param gp a {@link game.GamePanel} object
+     * @param gp   a {@link game.GamePanel} object
      * @param keyH a {@link game.KeyHandler} object
      */
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -131,9 +132,13 @@ public class Player extends Entity {
     private void interact(int index) {
         if (index != 999) {
             String objectName = gp.obj.get(index).name;
+
+            if (ButtonSetter.getPlaySound()) {
+                gp.obj.get(index).playSE();
+            }
+
             if (Objects.equals(objectName, "Question")) {
                 //Για να μην κολλήσει το progressBar και η ροή του παιχνιδιού
-                //stabilizePlayer();
                 gp.labyrinthFrame.stopBar();
                 gp.gameState = gp.pauseState;
                 gp.keyH.setQuizTrig(true);
@@ -142,14 +147,12 @@ public class Player extends Entity {
                 gp.obj.set(index, null);
 
             }
-            //Τερματισμός παιχνιδιού σε περίπτωση νίκης TODO(all) ίσως προσθήκη νικητήριου ήχου
-            if (Objects.equals(objectName, "Exit"))
+            //Τερματισμός παιχνιδιού σε περίπτωση νίκης
+            if (Objects.equals(objectName, "Exit")) {
                 gp.gameState = gp.endState;
+            }
             //Προσθήκη χρόνου (ίσως και πόντων) όταν ο παίκτης βρίσκει coins
             if (Objects.equals(objectName, "Coin")) {
-                //Γίνεται Downcast για την αναπαραγωγή ηχητικού εφέ του coin
-                if(ButtonSetter.getPlaySound())
-                    gp.obj.get(index).playSE();
                 gp.labyrinthFrame.editBarTime(LabyrinthFrame.for_correct);
                 gp.obj.set(index, null);
             }

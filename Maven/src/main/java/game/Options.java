@@ -11,6 +11,7 @@ import java.awt.event.WindowEvent;
  * Παράθυρο επιλόγων που προκαλεί παύση του παιχνιδιού όταν εμφανίζεται
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public final class Options implements ActionListener {
 
@@ -44,10 +45,14 @@ public final class Options implements ActionListener {
         });
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        ButtonSetter.setButton(returnBack, 225, 200, 150, 50, new Font("Calibri", Font.ITALIC,20), this);
-        ButtonSetter.setButton(showGuide, 225, 300, 150, 50, new Font("Calibri", Font.ITALIC,20), this);
-        ButtonSetter.setButton(restart, 225, 400, 150, 50, new Font("Calibri", Font.ITALIC,20), this);
-        ButtonSetter.setButton(end, 225, 500, 150, 50, new Font("Calibri", Font.ITALIC,20), this);
+        GraphicPane graphicPane = new GraphicPane("Options", 600, 100, Main.mainColor, new Font("Times new Roman", Font.BOLD + Font.ITALIC, 50));
+        graphicPane.setBounds(0, 0, 600, 150);
+        frame.add(graphicPane);
+
+        ButtonSetter.setButton(returnBack, 225, 200, 150, 50, new Font("Calibri", Font.ITALIC, 20), this);
+        ButtonSetter.setButton(showGuide, 225, 300, 150, 50, new Font("Calibri", Font.ITALIC, 20), this);
+        ButtonSetter.setButton(restart, 225, 400, 150, 50, new Font("Calibri", Font.ITALIC, 20), this);
+        ButtonSetter.setButton(end, 225, 500, 150, 50, new Font("Calibri", Font.ITALIC, 20), this);
 
         frame.add(returnBack);
         frame.add(showGuide);
@@ -68,6 +73,7 @@ public final class Options implements ActionListener {
     }
 
     /**
+     * <p>check</p>
      * Έλεγχος για τον αν υπάρχει ανοιχτό παράθυρο guide
      * Σε περίπτωση που υπάρχει το παράθυρο αυτό κλείνει
      */

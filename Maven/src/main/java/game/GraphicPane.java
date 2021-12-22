@@ -10,7 +10,7 @@ import java.awt.Graphics2D;
  * Component για την απεικόνιση text στο κέντρο ενός παραθύρου
  *
  * @author Team Hack-You
- *
+ * @version 1.0
  */
 public final class GraphicPane extends JComponent {
 
@@ -27,7 +27,7 @@ public final class GraphicPane extends JComponent {
      * @param screenWidth a int
      * @param y           a int
      * @param color       a {@link java.awt.Color} object
-     * @param font        a {@link Font} object
+     * @param font        a {@link java.awt.Font} object
      */
     public GraphicPane(String text, int screenWidth, int y, Color color, Font font) {
         super();

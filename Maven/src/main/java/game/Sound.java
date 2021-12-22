@@ -10,14 +10,15 @@ import java.net.URL;
 
 /**
  * Αναπαραγωγή ήχου και ηχητικών εφέ
- * TODO(Emmanouil Dellatolis) Προσθήκη Coin Sound Effect
+ * TODO(all) Προσθήκη death sound
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public final class Sound {
 
     Clip clip;
-    private final URL[] soundURL = new URL[5];
+    private final URL[] soundURL = new URL[6];
 
     /**
      * <p>Constructor for Sound.</p>
@@ -26,8 +27,9 @@ public final class Sound {
         soundURL[0] = getClass().getResource("/sound/audio_thiseas.wav");
         soundURL[1] = getClass().getResource("/sound/sound_effect.wav");
         soundURL[2] = getClass().getResource("/sound/Coin_1.wav");
-        //soundURL[3] = getClass().getResource("");
-        //soundURL[4] = getClass().getResource("");
+        soundURL[3] = getClass().getResource("/sound/victory.wav");
+        soundURL[4] = getClass().getResource("/sound/swoosh.wav");
+        //soundURL[5] = getClass().getResource("");
     }
 
     /**

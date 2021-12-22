@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
  * Πρότυπο για την επεξεργασία frames
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public final class FrameSetter {
 

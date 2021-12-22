@@ -7,25 +7,25 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- * SuperClass για τις κλάσεις Credits, Description, Guide, HighScoreFrame
- * <p>
- * Χρησιμότητα : εύκολο μαζικό κλείσιμο frame + ευκολία υλοποίησης
+ * <p> SuperClass για τις κλάσεις Credits, Description, Guide, HighScoreFrame </p>
+ * <p> Χρησιμότητα : εύκολο μαζικό κλείσιμο frame + ευκολία υλοποίησης </p>
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public abstract class UtilityFrame {
 
     private final boolean isOpen;
     protected JFrame frame;
-    protected JLabel backgroundLabel = new JLabel();
-    protected JTextArea textArea = new JTextArea();
+    protected final JLabel backgroundLabel = new JLabel();
+    protected final JTextArea textArea = new JTextArea();
     protected JScrollPane scrollPane;
 
     /**
      * <p>Constructor for UtilityFrame.</p>
      *
-     * @param title a {@link java.lang.String} object
-     * @param width a int
+     * @param title  a {@link java.lang.String} object
+     * @param width  a int
      * @param height a int
      */
     public UtilityFrame(String title, int width, int height) {
@@ -75,7 +75,7 @@ public abstract class UtilityFrame {
      * @param textArea το text που θέλουμε να εμφανιστεί
      * @param width πλάτος textArea που επιθυμούμε
      * @param height ύψος textArea που επιθυμούμε
-     * @return scrollPane
+     * @return scrollPane a {@link JScrollPane} object
      */
     private JScrollPane createScrollPane(JTextArea textArea, int width, int height) {
         //Για να εμφανίζεται το περιεχόμενο του textArea από την αρχή

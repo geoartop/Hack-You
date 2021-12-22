@@ -4,6 +4,7 @@ package highscoreTest;
  * Ορισμός δεδομένων που θα γράφονται σε κάθε γραμμή του HighScore.txt
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public final class PlayerInfo {
     private final String name;

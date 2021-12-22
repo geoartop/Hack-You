@@ -4,6 +4,7 @@ package game;
  * Έλεγχος συγκρούσεων του παίκτη με τοίχους
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public final class CollisionCheck {
 

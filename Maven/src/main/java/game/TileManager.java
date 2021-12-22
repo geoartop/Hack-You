@@ -11,8 +11,8 @@ import java.nio.charset.StandardCharsets;
 /**
  * Λειτουργική κλάση για το configuration του χάρτη, των μπλοκ και των χαρακτηριστικών αυτών
  *
- * @author panagiotis
- * @version $Id: $Id
+ * @author Team Hack-You
+ * @version 1.0
  */
 public final class TileManager {
 
@@ -40,9 +40,9 @@ public final class TileManager {
     }
 
     /**
-     * Κάνουμε scale τις εικόνες των tiles έτσι
+     * <p>Κάνουμε scale τις εικόνες των tiles έτσι
      * ώστε να μη χρειάζεται να γίνεται η διαδικασία αυτή μέσα στο gameloop
-     * Λόγος : Improved rendering performance
+     * Λόγος : Improved rendering performance</p>
      *
      * @param index     : θέση πίνακα tile
      * @param path      : path του image
@@ -62,7 +62,7 @@ public final class TileManager {
     /**
      * Μέθοδος φόρτωσης λαβυρίνθου
      *
-     * @param FilePath
+     * @param FilePath path
      */
     private void loadMap(String FilePath) {
 

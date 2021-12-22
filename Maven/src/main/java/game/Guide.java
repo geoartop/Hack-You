@@ -7,6 +7,7 @@ import java.awt.event.WindowEvent;
  * Περιγραφή οδηγιών
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public class Guide extends UtilityFrame{
 

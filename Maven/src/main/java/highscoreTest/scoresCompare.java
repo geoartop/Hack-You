@@ -6,6 +6,7 @@ import java.util.Comparator;
  * <p>scoresCompare class.</p>
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public class scoresCompare implements Comparator<PlayerInfo> {
 

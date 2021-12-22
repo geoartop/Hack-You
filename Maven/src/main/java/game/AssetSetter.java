@@ -4,6 +4,7 @@ package game;
  * Τοποθέτηση των αντικειμένων του παιχνιδιού στο gamepanel
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public final class AssetSetter {
 
@@ -35,16 +36,39 @@ public final class AssetSetter {
         }
     }
 
-
     private void setXY(int x, int y) {
         gp.obj.get(index).worldX = x * gp.tileSize;
         gp.obj.get(index).worldY = y * gp.tileSize;
     }
 
+    /*private void easyObjects(){
+
+    }
+
+    private void mediumObjects(){
+
+    }
+
+    private void hardObjects(){
+
+    }*/
+
     /**
      * <p>setObject.</p>
      */
     public void setObject() {
+
+        /*switch (Levels.getDifficulty()) {
+            case "Easy":
+                easyObjects();
+                break;
+            case "Medium":
+                mediumObjects();
+                break;
+            default:
+                hardObjects();
+                break;
+        }*/
 
         addElement(new OBJ_Question());
         setXY(1, 9);

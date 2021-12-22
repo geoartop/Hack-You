@@ -1,7 +1,5 @@
 package game;
 
-import com.sun.codemodel.internal.fmt.JSerializedObject;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedList;
@@ -10,8 +8,15 @@ import java.util.LinkedList;
  * Panel όπου γίνεται η αναπαράσταση του παιχνιδιού
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public final class GamePanel extends JPanel implements Runnable {
+
+    /**
+     * Serial number of persistent  data.
+     * Required, because JPanel implements serializable.
+     */
+    private static final long serialVersionUID = 1L;
 
     final int originalTileSize = 16;
     final int scale = 3;

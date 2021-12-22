@@ -6,9 +6,9 @@ import java.awt.image.BufferedImage;
  * Αντικείμενο spikes στο παιχνίδι το οποίο απενεργοποιείται με το trigger μιας ερώτησης
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public class OBJ_Spikes extends SuperObject {
-    //private int spriteCounter = 0;
     private int spriteNum = 2;
     //Η θέση της συσχετιζόμενης ερώτησης στον πίνακα obj του gamepanel
     private final int question_index;
@@ -34,24 +34,10 @@ public class OBJ_Spikes extends SuperObject {
         BufferedImage image = Entity.spikes[spriteNum - 1];
         collision = spriteNum == 2;
         super.setValues(g2, gp, image);
-        OBJ_Question question = (OBJ_Question) gp.obj.get(question_index);
+        //OBJ_Question question = (OBJ_Question) gp.obj.get(question_index);
         //Απενεργοποίηση του spike μετά το trigger της ερώτησης
-        if (question == null)
+        if (gp.obj.get(question_index) == null)
             spriteNum = 1;
     }
 
-    /*public void drawSpikes(Graphics2D g2, GamePanel gp) {
-        BufferedImage image = Entity.spikes[spriteNum - 1];
-        collision = spriteNum >= 3;
-        super.setValues(g2, gp, image);
-        spriteCounter++;
-        if (spriteCounter > 60) {
-            if (spriteNum < 4) {
-                spriteNum++;
-            } else {
-                spriteNum = 1;
-            }
-            spriteCounter = 0;
-        }
-    }*/
 }

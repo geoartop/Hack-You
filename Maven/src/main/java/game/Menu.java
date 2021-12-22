@@ -4,11 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.BatchUpdateException;
 
 /**
  * Παράθυρο για StartMenu
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public final class Menu implements ActionListener {
 
@@ -19,25 +21,26 @@ public final class Menu implements ActionListener {
     private final int Y = 300;
     private final int WIDTH = 200;
     private final int HEIGHT = 50;
-    private int counter = 0;
-    private ImageIcon icon3;
-    private final ImageIcon title = new ImageIcon("src/main/resources/Title.png");
+
+    private static final ImageIcon title = new ImageIcon("src/main/resources/Title.png");
+    private static final ImageIcon thiseas = new ImageIcon("src/main/resources/thiseas2/thiseaswalkingdown8.png");
+    private static final ImageIcon minotaur = new ImageIcon("src/main/resources/minotaur/minotaurwin.png");
 
     static Sound music = new Sound();
 
-    JFrame frame = new JFrame();
-    JButton start = new JButton("Start Game");
-    JButton how2play = new JButton("How to Play");
-    JButton credits = new JButton("Show Credits");
-    JButton description = new JButton("Game Description");
+    private final JFrame frame = new JFrame();
+    final JButton start = new JButton("Start Game");
+    final JButton how2play = new JButton("How to Play");
+    final JButton credits = new JButton("Show Credits");
+    final JButton description = new JButton("Game Description");
     /* Προσδιορισμός για τον αν παίζεται μουσική στο παιχνίδι ή όχι
     ώστε να απεικονιστεί η κατάσταση ήχου στο κουμπί */
-    JButton musicOn_Off = new JButton(String.format("Sound %s", ButtonSetter.getPlaySound() ? "off" : "on"));
-    JLabel label = new JLabel();
-    JLabel backgroundLabel = new JLabel();
+    final JButton musicOn_Off = new JButton(String.format("Sound %s", ButtonSetter.getPlaySound() ? "off" : "on"));
+    final JLabel label = new JLabel();
+    final JLabel backgroundLabel = new JLabel();
 
     //Αρχικοποίηση εξαρτημένων παραθύρων
-    UtilityFrame[] utilityFrames = new UtilityFrame[3];
+    final UtilityFrame[] utilityFrames = new UtilityFrame[3];
 
     /**
      * <p>Constructor for Menu.</p>
@@ -46,22 +49,14 @@ public final class Menu implements ActionListener {
         if (ButtonSetter.getPlaySound())
             playMusic();
         // Εξατομίκευση παραθύρου
-        frame.setTitle("Menu"); //setTitle of frame
+        FrameSetter.setFrame(frame, "Menu", 970, 850);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-        frame.setSize(970, 850);
-        frame.setVisible(true);
-        frame.setLayout(null);
-        frame.setIconImage(Main.icon.getImage());
-        //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
-        frame.setLocationRelativeTo(null);
 
         setButton(start, Y);
         setButton(how2play, Y + 100);
         setButton(credits, Y + 200);
         setButton(description, Y + 300);
         setButton(musicOn_Off, Y + 400);
-        //ButtonSetter.setButton(musicOn_Off, 0, 0, 50, 50, "Calibri", 10, this, 2);
 
         frame.add(start);
         frame.add(how2play);
@@ -69,33 +64,28 @@ public final class Menu implements ActionListener {
         frame.add(description);
         frame.add(musicOn_Off);
 
+        JLabel thLabel = new JLabel();
+        JLabel mLabel = new JLabel();
+
+        FrameSetter.scaleImgToLabel(thLabel, 380, 210, 90, 70, thiseas);
+        frame.add(thLabel);
+
+        FrameSetter.scaleImgToLabel(mLabel, 465, 180, 120, 100, minotaur);
+        frame.add(mLabel);
+
         //Εισαγωγή τίτλου παιχνιδιού
-        FrameSetter.scaleImgToLabel(label, 250, 0, 500, 300, title);
+        FrameSetter.scaleImgToLabel(label, 250, 0, 500, 280, title);
         frame.add(label);
+        //Εισαγωγή background
         FrameSetter.scaleBackground(backgroundLabel, 970, 850);
         frame.add(backgroundLabel);
-        //-------test changes end------//
     }
 
     /**
      * Μέθοδος δημιουργίας Κουμπιών
      */
     private void setButton(JButton button, int y) {
-        counter++;
-        button.setBounds(X, y, WIDTH, HEIGHT);
-        button.setFocusable(false);
-        if (counter % 2 == 1) {
-            icon3 = new ImageIcon("src/main/resources/buttons/wood2.png");
-        } else {
-            icon3 = new ImageIcon("src/main/resources/buttons/wood1.png");
-        }
-        button.setIcon(icon3);
-        button.setHorizontalTextPosition(JButton.CENTER);
-        button.setFont(new Font("Calibri", Font.BOLD, 20));
-        button.setForeground(Color.black);
-        //button.setHorizontalAlignment(JButton.CENTER);
-        button.addActionListener(this);
-        //button.setFont(new Font("Calibri",Font.ITALIC,16));
+        ButtonSetter.setButton(button, X, y, WIDTH, HEIGHT, new Font("Calibri", Font.BOLD, 20), this);
     }
 
     /**
@@ -137,16 +127,25 @@ public final class Menu implements ActionListener {
         }
     }
 
+    /**
+     * <p>continuePlaying</p>
+     */
     static void continuePlaying() {
         music.play();
     }
 
+    /**
+     * <p>playMusic</p>
+     */
     static void playMusic() {
         music.setFile(0);
         music.play();
         music.loop();
     }
 
+    /**
+     * <p>stopMusic</p>
+     */
     static void stopMusic() {
         music.stop();
     }

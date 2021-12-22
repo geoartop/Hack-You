@@ -9,6 +9,7 @@ import java.awt.event.KeyListener;
  * WASD, Arrows, PAUSE, ESCAPE στο παιχνίδι
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public class KeyHandler implements KeyListener {
 

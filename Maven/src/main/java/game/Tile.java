@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
  * Κουτί ("μπλοκ") του χάρτη του παιχνιδιού
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public final class Tile {
 

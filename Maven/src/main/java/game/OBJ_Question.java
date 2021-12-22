@@ -6,6 +6,7 @@ import java.awt.*;
  * Αντικείμενο ερώτησης στο παιχνίδι
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public class OBJ_Question extends SuperObject {
 
@@ -21,8 +22,8 @@ public class OBJ_Question extends SuperObject {
     /** {@inheritDoc} */
     @Override
     public void playSE() {
-        //se.setFile();
-        //se.play();
+        se.setFile(4);
+        se.play();
     }
 
     /** {@inheritDoc} */

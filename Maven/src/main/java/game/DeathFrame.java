@@ -9,8 +9,15 @@ import java.awt.event.ActionListener;
  * Παράθυρο που εμφανίζεται όταν ο παίκτης χάνει
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public final class DeathFrame implements ActionListener {
+
+    private final int X = 215;
+    private final int Y = 200;
+    private final int WIDTH = 150;
+    private final int HEIGHT = 50;
+
 
     private final JFrame frame;
     private final JLabel backgroundLabel = new JLabel();
@@ -28,11 +35,11 @@ public final class DeathFrame implements ActionListener {
         FrameSetter.setFrame(frame, "Defeat", 600, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setIconImage(new ImageIcon("src/main/resources/icons/grave.png").getImage());
-        ButtonSetter.setButton(tryAgain, 215, 200, 150, 50, new Font("Calibri", Font.ITALIC, 20),this);
-        ButtonSetter.setButton(back_to_menu, 215, 300, 150, 50,  new Font("Calibri", Font.ITALIC, 20),this);
-        ButtonSetter.setButton(exit, 215, 400, 150, 50,  new Font("Calibri", Font.ITALIC, 20),this);
+        ButtonSetter.setButton(tryAgain, X, Y, WIDTH, HEIGHT, new Font("Calibri", Font.ITALIC, 20), this);
+        ButtonSetter.setButton(back_to_menu, X, Y + 100, WIDTH, HEIGHT, new Font("Calibri", Font.ITALIC, 20), this);
+        ButtonSetter.setButton(exit, X, Y + 200, WIDTH, HEIGHT, new Font("Calibri", Font.ITALIC, 20), this);
 
-        GraphicPane graphicPane = new GraphicPane("GAME OVER", 600, 50, Color.red,new Font("Times new Roman", Font.BOLD,40));
+        GraphicPane graphicPane = new GraphicPane("GAME OVER", 600, 50, Color.red, new Font("Times new Roman", Font.BOLD, 40));
 
         graphicPane.setBounds(0, 100, 600, 125);
         frame.add(graphicPane);

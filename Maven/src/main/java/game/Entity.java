@@ -9,6 +9,7 @@ import java.io.IOException;
  * <p>Entity class.</p>
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public class Entity {
 
@@ -17,30 +18,30 @@ public class Entity {
 
     //Animations for player
     /**
-     * Constant <code>up</code>
+     * <code>up</code> movement animation
      */
-    protected final static BufferedImage[] up = new BufferedImage[9];
+    final static BufferedImage[] up = new BufferedImage[9];
     /**
-     * Constant <code>down</code>
+     * <code>down</code> movement animation
      */
-    protected final static BufferedImage[] down = new BufferedImage[9];
+    final static BufferedImage[] down = new BufferedImage[9];
     /**
-     * Constant <code>right</code>
+     * <code>right</code> movement animation
      */
-    protected final static BufferedImage[] right = new BufferedImage[9];
+    final static BufferedImage[] right = new BufferedImage[9];
     /**
-     * Constant <code>left</code>
+     * <code>left</code> movement animation
      */
-    protected final static BufferedImage[] left = new BufferedImage[9];
+    final static BufferedImage[] left = new BufferedImage[9];
     /**
-     * Constant <code>death</code>
+     * <code>death</code> movement animation
      */
-    protected final static BufferedImage[] death = new BufferedImage[7];
+    final static BufferedImage[] death = new BufferedImage[7];
     //Animations for coin
     final static BufferedImage[] coin = new BufferedImage[9];
     final static BufferedImage[] spikes = new BufferedImage[2];
 
-    protected String direction;
+    String direction;
 
     //Μεταβλητές παίκτη
     protected int spriteCounter = 0;
@@ -74,7 +75,7 @@ public class Entity {
     /**
      * Διάβασμα αρχείων για τη φόρτωση των animation
      *
-     * @param images : ο πίνακας εικόνων κινήσεων
+     * @param images : ο πίνακας {@link java.awt.image.BufferedImage} εικόνων κινήσεων
      * @param path   : καθορίζει το επιθυμητό path
      */
     private void setMovement(BufferedImage[] images, String path) throws IOException {

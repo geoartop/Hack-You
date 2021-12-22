@@ -10,6 +10,7 @@ import java.io.IOException;
  * Δημιουργία αντικειμένων στο παιχνίδι
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public abstract class SuperObject {
 
@@ -44,6 +45,7 @@ public abstract class SuperObject {
      */
     public SuperObject() {}
 
+    //TODO(g.artop) Fix draw problem
     void setValues(Graphics2D g2, GamePanel gp, BufferedImage image) {
         int screenX = worldX - gp.player.worldx + gp.player.screenX;
         int screenY = worldY - gp.player.worldy + gp.player.screenY;

@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
  * Περιγραφή παιχνιδιού και "πλοκής"
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public class Description extends UtilityFrame {
 

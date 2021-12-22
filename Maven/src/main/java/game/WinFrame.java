@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
  * Παράθυρο που ανοίγει στην περίπτωση που ο παίκτης κέρδισε
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public final class WinFrame implements ActionListener {
 

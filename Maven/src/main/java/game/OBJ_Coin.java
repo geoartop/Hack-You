@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
  * Αντικείμενο coin στο παιχνίδι
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public class OBJ_Coin extends SuperObject {
 

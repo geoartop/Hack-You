@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
  * Παρουσίαση μελών και ρόλων αυτών
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public class Credits extends UtilityFrame {
 

@@ -1,29 +1,28 @@
 package game;
 
 import javax.swing.*;
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.security.SecureRandom;
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
  * Παράθυρο φόρτωσης random ερωτήσεων στον χρήστη προς απάντηση
  *
  * @author Team Hack-You
+ * @version 1.0
  */
-//TODO(Mallikoko): Φτιάξε καλύτερα την εμφάνιση του παραθύρου !!!!!
 public final class Quiz extends JFrame implements ActionListener {
 
-    private final static ArrayList<String> questions = new ArrayList<>();
-    private final static ArrayList<String> options = new ArrayList<>();
-    private final static ArrayList<Character> answers = new ArrayList<>();
-    protected static ArrayList<Integer> indexes = new ArrayList<>();
+    private final static LinkedList<String> questions = new LinkedList<>();
+    private final static LinkedList<String> options = new LinkedList<>();
+    private final static LinkedList<Character> answers = new LinkedList<>();
+    //Λίστα που αποθηκεύει τα εμφανιζόμενα indexes
+    final static LinkedList<Integer> indexes = new LinkedList<>();
     private char answer;
     //Για να επιλέγονται randomly οι ερωτήσεις
     private final SecureRandom random = new SecureRandom();
@@ -35,7 +34,7 @@ public final class Quiz extends JFrame implements ActionListener {
     private final JButton[] buttons = new JButton[4];
     private final char[] symbols = {'A', 'B', 'C', 'D'};
 
-    private final JLabel label = new JLabel();
+    private final JLabel backgroundLabel = new JLabel();
     private final JLabel[] labels = new JLabel[4];
 
     private final GamePanel gp;
@@ -66,33 +65,20 @@ public final class Quiz extends JFrame implements ActionListener {
 
         for (JLabel label : labels)
             frame.add(label);
-        for (JButton button : buttons)
+        for (JButton button : buttons) {
             frame.add(button);
+            button.setIcon(null);
+        }
         frame.add(textArea);
         frame.setVisible(true);
-        // Τυχαία επιλογή μιας ερώτησης
+        // Τυχαία επιλογή μιας ερώτησης που δεν έχει ξαναεμφανιστεί στο ίδιο παιχνίδι
         setIndex();
-        System.out.println(indexes);
-        //index = random.nextInt(questions.size());
-        /*do {
-            index = random.nextInt(questions.size());
-            if (indexes.contains(index)){
-                index = random.nextInt(questions.size());
-            }
-        } while (!indexes.contains(index));
-        indexes.add(index);
-        */
-
-
-        /* GraphicPane graphicPane = new GraphicPane(questions.get(index), 700, 50, Color.black, 17, 2);
-        graphicPane.setBounds(0, 0, 700, 100);
-        frame.add(graphicPane);*/
 
         displayAnswers();
 
-        FrameSetter.scaleBackground(label, 800, 550);
+        FrameSetter.scaleBackground(backgroundLabel, 800, 550);
         //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
-        frame.add(label);
+        frame.add(backgroundLabel);
     }
 
     private void setIndex() {
@@ -125,8 +111,7 @@ public final class Quiz extends JFrame implements ActionListener {
         for (int i = 0; i < labels.length; i++) {
             labels[i] = new JLabel();
             labels[i].setBounds(125, (i + 1) * 100, 500, 100);
-            labels[i].setBackground(new Color(50, 50, 50));
-            labels[i].setForeground(new Color(134, 1, 1, 196));
+            labels[i].setForeground(Main.mainColor);
             labels[i].setFont(new Font("Calibri", Font.BOLD, 22));
         }
     }

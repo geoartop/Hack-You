@@ -6,6 +6,7 @@ import java.awt.*;
  * Αντικείμενο Εξόδου στο παιχνίδι
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public class OBJ_Exit extends SuperObject {
 
@@ -21,8 +22,8 @@ public class OBJ_Exit extends SuperObject {
     /** {@inheritDoc} */
     @Override
     public void playSE() {
-        //se.setFile();
-        //se.play();
+        se.setFile(3);
+        se.play();
     }
 
     /** {@inheritDoc} */

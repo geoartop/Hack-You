@@ -12,6 +12,7 @@ import java.awt.event.WindowEvent;
  * Παράθυρο στο οποίο εμφανίζονται τα highscores
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public final class HighScoreFrame extends UtilityFrame {
 

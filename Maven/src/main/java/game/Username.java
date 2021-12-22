@@ -7,9 +7,10 @@ import java.awt.event.ActionListener;
 import java.util.Locale;
 
 /**
- * Εισαγωγή username χρήστη και έλεγχος εγκυρότητας αυτού
+ * <p>Εισαγωγή username χρήστη και έλεγχος εγκυρότητας αυτού</p>
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public final class Username implements ActionListener {
 
@@ -51,7 +52,7 @@ public final class Username implements ActionListener {
         textField.setFont(new Font("Calibri", Font.BOLD, 25));
         textField.setSelectedTextColor(Color.green);
 
-        GraphicPane graphicPane = new GraphicPane("Enter your username!", 970, 100, new Color(112, 96, 61),new Font("Times new Roman", Font.BOLD,45));
+        GraphicPane graphicPane = new GraphicPane("Enter your username!", 970, 100, Main.mainColor, new Font("Times new Roman", Font.BOLD + Font.ITALIC, 45));
         graphicPane.setBounds(0, 100, 970, 150);
         frame.add(graphicPane);
 

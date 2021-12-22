@@ -8,6 +8,7 @@ import java.util.LinkedList;
  * Λειτουργική κλάση για την εμφάνιση των top 10 scores μαζί με τα username αντίστοιχα
  *
  * @author Team Hack-You
+ * @version 1.0
  */
 public final class HighScore {
 
