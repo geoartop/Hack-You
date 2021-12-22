@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -22,10 +23,11 @@ public final class Quiz extends JFrame implements ActionListener {
     private final static ArrayList<String> questions = new ArrayList<>();
     private final static ArrayList<String> options = new ArrayList<>();
     private final static ArrayList<Character> answers = new ArrayList<>();
+    protected static ArrayList<Integer> indexes = new ArrayList<>();
     private char answer;
     //Για να επιλέγονται randomly οι ερωτήσεις
     private final SecureRandom random = new SecureRandom();
-    private final int index;
+    private int index;
 
     private final JFrame frame = new JFrame();
     private final JTextArea textArea = new JTextArea();
@@ -69,7 +71,18 @@ public final class Quiz extends JFrame implements ActionListener {
         frame.add(textArea);
         frame.setVisible(true);
         // Τυχαία επιλογή μιας ερώτησης
-        index = random.nextInt(questions.size());
+        setIndex();
+        System.out.println(indexes);
+        //index = random.nextInt(questions.size());
+        /*do {
+            index = random.nextInt(questions.size());
+            if (indexes.contains(index)){
+                index = random.nextInt(questions.size());
+            }
+        } while (!indexes.contains(index));
+        indexes.add(index);
+        */
+
 
         /* GraphicPane graphicPane = new GraphicPane(questions.get(index), 700, 50, Color.black, 17, 2);
         graphicPane.setBounds(0, 0, 700, 100);
@@ -80,6 +93,15 @@ public final class Quiz extends JFrame implements ActionListener {
         FrameSetter.scaleBackground(label, 800, 550);
         //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
         frame.add(label);
+    }
+
+    private void setIndex() {
+        index = random.nextInt(questions.size());
+        while (indexes.contains(index)){
+            index = random.nextInt(questions.size());
+        }
+        indexes.add(index);
+
     }
 
     /**
@@ -170,6 +192,12 @@ public final class Quiz extends JFrame implements ActionListener {
                 (new File(String.format("src/main/resources/quiz/%s Answers.txt", Levels.getDifficulty())),"UTF-8");
         while (a.hasNext())
             answers.add(a.next().charAt(0));
+    }
+
+    static void clearLists(){
+        questions.clear();
+        options.clear();
+        answers.clear();
     }
 
 }

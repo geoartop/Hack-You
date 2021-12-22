@@ -94,6 +94,7 @@ public final class Options implements ActionListener {
             check();
             SwingUtilities.invokeLater(LabyrinthFrame::new);
             frame.dispose();
+            Quiz.indexes.clear();
         } else {
             System.exit(1);
         }

@@ -55,8 +55,10 @@ public final class DeathFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == tryAgain) {
             SwingUtilities.invokeLater(LabyrinthFrame::new);
+            Quiz.indexes.clear();
         } else if (e.getSource() == back_to_menu) {
             SwingUtilities.invokeLater(Menu::new);
+            Quiz.indexes.clear();
         } else {
             System.exit(0);
         }

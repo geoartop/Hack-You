@@ -88,6 +88,7 @@ public final class Levels implements ActionListener {
         //Δημιουργία λαβύρινθου και καθορισμός δυσκολίας ερωτήσεων
         LabyrinthFrame.setLabyrinth();
         try {
+            Quiz.clearLists();
             Quiz.readQuestions();
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();

@@ -109,6 +109,7 @@ public final class WinFrame implements ActionListener {
         if (e.getSource() == playAgain) {
             check();
             SwingUtilities.invokeLater(LabyrinthFrame::new);
+            Quiz.indexes.clear();
         } else if (e.getSource() == seeHighScores) {
             highScoreFrame = new HighScoreFrame(this);
             seeHighScores.setEnabled(false);
@@ -116,6 +117,7 @@ public final class WinFrame implements ActionListener {
         } else if (e.getSource() == back_to_menu) {
             check();
             SwingUtilities.invokeLater(Menu::new);
+            Quiz.indexes.clear();
         } else {
             System.exit(1);
         }
