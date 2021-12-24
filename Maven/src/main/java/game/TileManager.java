@@ -31,7 +31,7 @@ public final class TileManager {
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
-        loadMap(String.format("/maps/%s.txt", Levels.getDifficulty()));
+        loadMap(String.format("/maps/%s2.txt", Levels.getDifficulty()));
     }
 
     private void getTileImage() {
