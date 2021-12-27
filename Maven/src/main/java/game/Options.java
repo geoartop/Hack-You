@@ -8,7 +8,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
- * Παράθυρο επιλόγων που προκαλεί παύση του παιχνιδιού όταν εμφανίζεται
+ * <p>Παράθυρο επιλόγων που προκαλεί παύση του παιχνιδιού όταν εμφανίζεται</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -19,11 +19,23 @@ public final class Options implements ActionListener {
     private final JFrame frame;
     private final JLabel backgroundLabel = new JLabel();
     private final JButton returnBack = new JButton("return");
-    final JButton showGuide = new JButton("show Guide");
+    private final JButton showGuide = new JButton("show Guide");
     private final JButton restart = new JButton("restart");
+    private final JButton back2menu = new JButton("back to Menu");
     private final JButton end = new JButton("exit");
     private static boolean isActive = false;
     private Guide guide;
+
+    private int y = 200;
+
+    /**
+     * <p>set <code>showGuide</code> enabled status</p>
+     *
+     * @param status a boolean
+     */
+    public void setShowGuideStatus(boolean status) {
+        showGuide.setEnabled(status);
+    }
 
     /**
      * <p>Constructor for Options.</p>
@@ -35,7 +47,7 @@ public final class Options implements ActionListener {
         this.gp = gp;
         frame = new JFrame();
         frame.setTitle("Options"); //setTitle of frame
-        FrameSetter.setFrame(frame, "Options", 600, 650);
+        FrameSetter.setFrame(frame, "Options", 650, 750);
         //Θέτω το κουμπί της εξόδου να κάνει αυτόματα click το return για να μην κολλήσει η ροή του LabyrinthFrame
         frame.addWindowListener(new WindowAdapter() {
             @Override
@@ -45,22 +57,29 @@ public final class Options implements ActionListener {
         });
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        GraphicPane graphicPane = new GraphicPane("Options", 600, 100, Main.mainColor, new Font("Times new Roman", Font.BOLD + Font.ITALIC, 50));
-        graphicPane.setBounds(0, 0, 600, 150);
+        GraphicPane graphicPane = new GraphicPane("Options", 650, 100, Main.mainColor, new Font("Times new Roman", Font.BOLD + Font.ITALIC, 50));
+        graphicPane.setBounds(0, 0, 650, 150);
         frame.add(graphicPane);
 
-        ButtonSetter.setButton(returnBack, 225, 200, 150, 50, new Font("Calibri", Font.ITALIC, 20), this);
-        ButtonSetter.setButton(showGuide, 225, 300, 150, 50, new Font("Calibri", Font.ITALIC, 20), this);
-        ButtonSetter.setButton(restart, 225, 400, 150, 50, new Font("Calibri", Font.ITALIC, 20), this);
-        ButtonSetter.setButton(end, 225, 500, 150, 50, new Font("Calibri", Font.ITALIC, 20), this);
+        setButton(returnBack);
+        setButton(showGuide);
+        setButton(restart);
+        setButton(back2menu);
+        setButton(end);
 
-        frame.add(returnBack);
-        frame.add(showGuide);
-        frame.add(restart);
-        frame.add(end);
-
-        FrameSetter.scaleBackground(backgroundLabel, 600, 650);
+        FrameSetter.scaleBackground(backgroundLabel, 650, 750);
         frame.add(backgroundLabel);
+    }
+
+    /**
+     * <p>setButton.</p>
+     *
+     * @param button a {@link JButton} object
+     */
+    private void setButton(JButton button) {
+        ButtonSetter.setButton(button, 235, y, 200, 50, Main.mainFont, this);
+        frame.add(button);
+        y += 100;
     }
 
     /**
@@ -89,7 +108,6 @@ public final class Options implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         ButtonSetter.playSE();
         if (e.getSource() == returnBack) {
-            check();
             frame.dispose();
         } else if (e.getSource() == showGuide) {
             guide = new Guide(this);
@@ -97,23 +115,30 @@ public final class Options implements ActionListener {
             return;
         } else if (e.getSource() == restart) {
             gp.labyrinthFrame.closeFrame();
-            check();
+            LabyrinthFrame.setRestartStatus(true);
             SwingUtilities.invokeLater(LabyrinthFrame::new);
             frame.dispose();
-            Quiz.indexes.clear();
+            Quiz.clearIndexes();
+        } else if (e.getSource() == back2menu) {
+            gp.labyrinthFrame.closeFrame();
+            SwingUtilities.invokeLater(Menu::new);
+            Quiz.clearIndexes();
+            frame.dispose();
         } else {
             System.exit(1);
         }
+        check();
         //Για να μην κολλήσει το progressBar
         if (gp.labyrinthFrame.getHasStarted()) {
-            gp.gameState = gp.playState;
+            gp.setGameState(GamePanel.playState);
             gp.labyrinthFrame.updateBar(0);
         }
         // Ενημερώνουμε το gamepanel για το κλείσιμο του παραθύρου
         isActive = false;
         gp.keyH.setEscPressed(false);
-        if(ButtonSetter.getPlaySound())
+        if (ButtonSetter.getPlaySound() && e.getSource() != back2menu) {
             Menu.continuePlaying();
+        }
 
     }
 }

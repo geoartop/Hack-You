@@ -8,7 +8,7 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
 /**
- * Παράθυρο όπου τρέχει ο λαβύρινθος
+ * <p>Παράθυρο όπου τρέχει ο λαβύρινθος</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -40,8 +40,19 @@ public final class LabyrinthFrame implements ActionListener {
     //Δευτερόλεπτα που απομένουν στον παίκτη για να δραπετεύσει από τον λαβύρινθο
     private int counter;
 
+    //Εάν έχει προηγηθεί restart
+    private static boolean restartStatus = false;
+
     //--------------------------------------------------------------------------------------//
 
+
+    public static boolean getRestartStatus() {
+        return restartStatus;
+    }
+
+    public static void setRestartStatus(boolean restartStatus) {
+        LabyrinthFrame.restartStatus = restartStatus;
+    }
 
     /**
      * <p>Getter for the field <code>hasLost</code>.</p>
@@ -62,12 +73,13 @@ public final class LabyrinthFrame implements ActionListener {
     }
 
     /**
-     * Αρχικοποίηση μεταβλητών για χρόνο παιχνιδιού και win/loss χρόνου ανάλογα με την απάντηση στις ερωτήσεις
+     * <p>Αρχικοποίηση μεταβλητών για χρόνο παιχνιδιού
+     * και win/loss χρόνου ανάλογα με την απάντηση στις ερωτήσεις</p>
      */
     static void setLabyrinth() {
         switch (Levels.getDifficulty()) {
             case "Easy":
-                time = 100;
+                time = 200;
                 for_correct = 5;
                 for_wrong = -2;
                 break;
@@ -82,27 +94,21 @@ public final class LabyrinthFrame implements ActionListener {
                 for_wrong = -5;
                 break;
         }
-
     }
 
     /**
-     * Δημιουργία frame
+     * <p>Δημιουργία frame</p>
      */
     private void createFrame() {
         frame = new JFrame();
-        frame.setTitle("Labyrinth"); //setTitle of frame
+        FrameSetter.setFrame(frame, "Labyrinth", 780, 660);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(true);
-        frame.setSize(780, 660);
-        frame.setVisible(true);
+        //frame.setResizable(true);
         frame.setLayout(new BorderLayout());
-        frame.setIconImage(Main.icon.getImage());
-        //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
-        frame.setLocationRelativeTo(null);
     }
 
     /**
-     * Δημιουργία progressBar
+     * <p>Δημιουργία progressBar</p>
      */
     private void createBar() {
         bar = new JProgressBar(0, time);
@@ -120,7 +126,8 @@ public final class LabyrinthFrame implements ActionListener {
      * <p>Constructor for LabyrinthFrame.</p>
      */
     public LabyrinthFrame() {
-        if (!Menu.music.clip.isActive() && ButtonSetter.getPlaySound())
+        restartStatus = false;
+        if (!Menu.musicIsPlaying() && ButtonSetter.getPlaySound())
             Menu.playMusic();
 
         createFrame();
@@ -132,11 +139,11 @@ public final class LabyrinthFrame implements ActionListener {
             @Override
             public void componentMoved(ComponentEvent e) {
                 super.componentMoved(e);
-                gamePanel.player.stabilizePlayer();
+                gamePanel.playerStabilize();
             }
         });
 
-        setButton(start, 500);
+        setButton(start);
         start.setBackground(Color.green);
         start.setFont(new Font("Calibri", Font.ITALIC, 25));
 
@@ -150,7 +157,7 @@ public final class LabyrinthFrame implements ActionListener {
     }
 
     /**
-     * Μέθοδος λειτουργίας progressBar
+     * <p>Μέθοδος λειτουργίας progressBar</p>
      *
      * @param flg : ο χρόνος που θα έχει ο παίκτης
      */
@@ -181,7 +188,7 @@ public final class LabyrinthFrame implements ActionListener {
     }
 
     /**
-     * Ανανέωση του χρόνου του progressBar χωρίς την παύση λειτουργίας του
+     * <p>Ανανέωση του χρόνου του progressBar χωρίς την παύση λειτουργίας του</p>
      *
      * @param time : ο χρόνος που προσθαφαιρείται από το χρόνο που απομένει
      */
@@ -191,17 +198,13 @@ public final class LabyrinthFrame implements ActionListener {
         bar.setValue(counter);
     }
 
-    private void setButton(JButton button, int y) {
-        button.setBounds(250, y, 100, 50);
-        button.setFocusable(false);
-        button.setHorizontalAlignment(JButton.CENTER);
-        button.setFont(new Font("Calibri", Font.ITALIC, 20));
-        button.addActionListener(this);
-        start.setVisible(true);
+    private void setButton(JButton button) {
+        ButtonSetter.setButton(button, 250, 500, 100, 50, new Font("Calibri", Font.ITALIC, 20), this);
+        button.setIcon(null);
     }
 
     /**
-     * Μέθοδος ανανέωσης progressBar
+     * <p>Μέθοδος ανανέωσης progressBar</p>
      *
      * @param time : ο χρόνος που προσθαφαιρείται από το χρόνο που απομένει
      */
@@ -211,15 +214,16 @@ public final class LabyrinthFrame implements ActionListener {
     }
 
     /**
-     * Μέθοδος κλεισίματος παραθύρου παιχνιδιού (διακοπή παιχνιδιού)
+     * <p>Μέθοδος κλεισίματος παραθύρου παιχνιδιού (διακοπή παιχνιδιού)</p>
      */
     void closeFrame() {
-        hasStarted = false;
+        //SOS! CRUCIAL for thread safety
+        gamePanel.terminate();
         frame.dispose();
     }
 
     /**
-     * Μέθοδος τερματισμού παιχνιδιού
+     * <p>Μέθοδος τερματισμού παιχνιδιού</p>
      *
      * @param hasWon : true σε περίπτωση νίκης, false σε περίπτωση αποτυχίας
      */
@@ -232,12 +236,13 @@ public final class LabyrinthFrame implements ActionListener {
         } else {
             SwingUtilities.invokeLater(DeathFrame::new);
         }
+        gamePanel.terminate();
         frame.dispose();
 
     }
 
     /**
-     * Παύση progressBar
+     * <p>Παύση progressBar</p>
      */
     void stopBar() {
         go = false;
@@ -258,7 +263,7 @@ public final class LabyrinthFrame implements ActionListener {
             hasStarted = true;
             start.setVisible(false);
             //Για να μπορεί ο παίκτης να αρχίσει να κινείται
-            gamePanel.gameState = gamePanel.playState;
+            gamePanel.setGameState(GamePanel.playState);
         }
 
     }

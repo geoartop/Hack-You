@@ -1,7 +1,6 @@
 package game;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -12,9 +11,6 @@ import java.io.IOException;
  * @version 1.0
  */
 public class Entity {
-
-    protected int worldx, worldy;
-    protected int speed;
 
     //Animations for player
     /**
@@ -41,19 +37,11 @@ public class Entity {
     final static BufferedImage[] coin = new BufferedImage[9];
     final static BufferedImage[] spikes = new BufferedImage[2];
 
-    String direction;
-
-    //Μεταβλητές παίκτη
-    protected int spriteCounter = 0;
-    protected int spriteNum = 1;
-    protected int solidAreaDefaultX, solidAreaDefaultY;
-    protected Rectangle solidArea;
-    protected boolean collisionOn = false;
 
     /**
-     * Προετοιμασία των animation
+     * <p>Προετοιμασία των animation</p>
      */
-    void getImage() {
+    void getImages() {
         try {
             setMovement(up, "/thiseas2/thiseaswalkingup");
             setMovement(down, "/thiseas2/thiseaswalkingdown");
@@ -73,7 +61,7 @@ public class Entity {
     }
 
     /**
-     * Διάβασμα αρχείων για τη φόρτωση των animation
+     * <p>Διάβασμα αρχείων για τη φόρτωση των animation</p>
      *
      * @param images : ο πίνακας {@link java.awt.image.BufferedImage} εικόνων κινήσεων
      * @param path   : καθορίζει το επιθυμητό path

@@ -2,10 +2,11 @@ package game;
 
 import javax.swing.*;
 import java.awt.*;
+import java.security.SecureRandom;
 import java.util.LinkedList;
 
 /**
- * Panel όπου γίνεται η αναπαράσταση του παιχνιδιού
+ * <p>Panel όπου γίνεται η αναπαράσταση του παιχνιδιού</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -18,14 +19,14 @@ public final class GamePanel extends JPanel implements Runnable {
      */
     private static final long serialVersionUID = 1L;
 
-    final int originalTileSize = 16;
-    final int scale = 3;
+    private static final int originalTileSize = 16;
+    private static final int scale = 3;
 
-    final int tileSize = originalTileSize * scale;
-    final int maxScreenCol = 16;
-    final int maxScreenRow = 12;
-    final int screenWidth = tileSize * maxScreenCol;
-    final int screenHeight = tileSize * maxScreenRow;
+    static final int tileSize = originalTileSize * scale;
+    static final int maxScreenCol = 16;
+    static final int maxScreenRow = 12;
+    static final int screenWidth = tileSize * maxScreenCol;
+    static final int screenHeight = tileSize * maxScreenRow;
 
     //Καθορισμός των διαστάσεων του κόσμου του λαβυρίνθου ανάλογα με την επιλεγμένη δυσκολία
     final int maxWorldCol = 28
@@ -39,17 +40,37 @@ public final class GamePanel extends JPanel implements Runnable {
 
     final KeyHandler keyH = new KeyHandler(this);
     private Thread gameThread;
-    final Player player = new Player(this, keyH);
+    private final Player player = new Player(this, keyH);
     final CollisionCheck collisionCheck = new CollisionCheck(this);
     final LinkedList<SuperObject> obj = new LinkedList<>();
     private final AssetSetter aSetter = new AssetSetter(this);
 
     final LabyrinthFrame labyrinthFrame;
     //Μεταβλητές για την κατάσταση παιχνιδιού
-    int gameState;
-    final int playState = 1;
-    final int pauseState = 2;
-    final int endState = 3;
+    private int gameState;
+    static final int playState = 1;
+    static final int pauseState = 2;
+    static final int endState = 3;
+    //Για την αναπαραγωγή ήχου
+    private static final Sound se = new Sound();
+
+    /**
+     * <p>Getter for the field <code>gameState</code>.</p>
+     *
+     * @return a int
+     */
+    public int getGameState() {
+        return gameState;
+    }
+
+    /**
+     * <p>Setter for the field <code>gameState</code>.</p>
+     *
+     * @param gameState a int
+     */
+    public void setGameState(int gameState) {
+        this.gameState = gameState;
+    }
 
     /**
      * <p>Constructor for GamePanel.</p>
@@ -58,23 +79,23 @@ public final class GamePanel extends JPanel implements Runnable {
      */
     public GamePanel(LabyrinthFrame labyrinthFrame) {
         this.labyrinthFrame = labyrinthFrame;
-        this.setPreferredSize(new Dimension(screenWidth, screenHeight));
-        this.setBackground(Color.black);
-        this.setDoubleBuffered(true);
-        this.addKeyListener(keyH);
-        this.setFocusable(true);
+        setPreferredSize(new Dimension(screenWidth, screenHeight));
+        setBackground(Color.black);
+        setDoubleBuffered(true);
+        addKeyListener(keyH);
+        setFocusable(true);
         startGameThread();
     }
 
     /**
-     * Μέθοδος προετοιμασίας αντικειμένων παιχνιδιού
+     * <p>Μέθοδος προετοιμασίας αντικειμένων παιχνιδιού</p>
      */
     public void setupGame() {
         aSetter.setObject();
     }
 
     /**
-     * Μέθοδος εκκίνησης παιχνιδιού
+     * <p>Μέθοδος εκκίνησης παιχνιδιού</p>
      */
     private void startGameThread() {
         gameThread = new Thread(this);
@@ -83,6 +104,12 @@ public final class GamePanel extends JPanel implements Runnable {
         gameState = pauseState;
     }
 
+    /**
+     * <p>Εξασφάλιση thread safety και εκκαθάριση πόρων</p>
+     */
+    void terminate() {
+        gameThread = null;
+    }
 
     /**
      * {@inheritDoc}
@@ -106,25 +133,31 @@ public final class GamePanel extends JPanel implements Runnable {
             lastTime = currentTime;
             if (delta >= 1) {
                 update();
-                //Τερματισμός παιχνιδιού σε περίπτωση νίκης TODO(span+g.artop) προσθήκη win animation
+                //Τερματισμός παιχνιδιού σε περίπτωση νίκης
                 if (gameState == endState) {
                     Menu.stopMusic();
                     //Για να μην κολλήσει η λειτουργία της μπάρας
                     labyrinthFrame.closeFrame(true);
-                    return;
                     //Ενέργεια που εκτελείται όταν χάνει ο παίκτης
                 } else if (labyrinthFrame.getHasLost()) {
+                    if (ButtonSetter.getPlaySound()) {
+                        se.setFile(6);
+                        se.play();
+                    }
                     for (int times = 0; times < Entity.death.length - 1; times++) {
-                        if (times == 0)
+                        if (times == 0) {
                             Menu.stopMusic();
+                        }
                         //Για να απεικονιστεί φανερά ο "θάνατος" του παίκτη
                         sleep(0.75);
                         update();
                         repaint();
                     }
+                    if (ButtonSetter.getPlaySound()) {
+                        playSE();
+                    }
                     sleep(1);
                     labyrinthFrame.closeFrame(false);
-                    return;
                 }
                 repaint();
                 delta--;
@@ -133,6 +166,19 @@ public final class GamePanel extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * <p>playSE.</p>
+     */
+    private void playSE() {
+        se.setFile(5);
+        se.play();
+    }
+
+    /**
+     * <p>sleep for certain <code>seconds</code></p>
+     *
+     * @param seconds an int
+     */
     private void sleep(double seconds) {
         try {
             Thread.sleep((long) (1000L * seconds));
@@ -142,7 +188,7 @@ public final class GamePanel extends JPanel implements Runnable {
     }
 
     /**
-     * Μέθοδος ανανέωσης γραφικών χαρακτήρα
+     * <p>Μέθοδος ανανέωσης γραφικών χαρακτήρα</p>
      */
     public void update() {
         if (gameState == playState) {
@@ -154,7 +200,9 @@ public final class GamePanel extends JPanel implements Runnable {
     }
 
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
@@ -163,8 +211,9 @@ public final class GamePanel extends JPanel implements Runnable {
 
         //Απεικόνιση αντικειμένων παιχνιδιού
         for (SuperObject superObject : obj) {
-            if (superObject != null)
+            if (superObject != null) {
                 superObject.draw(g2, this);
+            }
         }
         player.draw(g2);
         //Για να ζωγραφιστεί στην οθόνη τη λέξη ΠΑΥΣΗ σε περίπτωση pause
@@ -177,6 +226,49 @@ public final class GamePanel extends JPanel implements Runnable {
             g2.drawString(text, x, y);
         }
         g2.dispose();
+    }
+
+    /**
+     * <p>getPlayerWorldx.</p>
+     *
+     * @return a int
+     */
+    public int getPlayerWorldx() {
+        return player.getWorldx();
+    }
+
+    /**
+     * <p>getPlayerWorldy.</p>
+     *
+     * @return a int
+     */
+    public int getPlayerWorldy() {
+        return player.getWorldy();
+    }
+
+    /**
+     * <p>getPlayerScreenX.</p>
+     *
+     * @return a int
+     */
+    public int getPlayerScreenX() {
+        return player.getScreenX();
+    }
+
+    /**
+     * <p>getPlayerScreenY.</p>
+     *
+     * @return a int
+     */
+    public int getPlayerScreenY() {
+        return player.getScreenY();
+    }
+
+    /**
+     * <p>playerStabilize.</p>
+     */
+    public void playerStabilize() {
+        player.stabilizePlayer();
     }
 
 

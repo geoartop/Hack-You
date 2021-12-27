@@ -6,18 +6,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Παράθυρο που εμφανίζεται όταν ο παίκτης χάνει
+ * <p>Παράθυρο που εμφανίζεται όταν ο παίκτης χάνει</p>
  *
  * @author Team Hack-You
  * @version 1.0
  */
 public final class DeathFrame implements ActionListener {
 
-    private final int X = 215;
-    private final int Y = 200;
-    private final int WIDTH = 150;
-    private final int HEIGHT = 50;
-
+    private int y = 200;
 
     private final JFrame frame;
     private final JLabel backgroundLabel = new JLabel();
@@ -35,24 +31,36 @@ public final class DeathFrame implements ActionListener {
         FrameSetter.setFrame(frame, "Defeat", 600, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setIconImage(new ImageIcon("src/main/resources/icons/grave.png").getImage());
-        ButtonSetter.setButton(tryAgain, X, Y, WIDTH, HEIGHT, new Font("Calibri", Font.ITALIC, 20), this);
-        ButtonSetter.setButton(back_to_menu, X, Y + 100, WIDTH, HEIGHT, new Font("Calibri", Font.ITALIC, 20), this);
-        ButtonSetter.setButton(exit, X, Y + 200, WIDTH, HEIGHT, new Font("Calibri", Font.ITALIC, 20), this);
+
 
         GraphicPane graphicPane = new GraphicPane("GAME OVER", 600, 50, Color.red, new Font("Times new Roman", Font.BOLD, 40));
 
         graphicPane.setBounds(0, 100, 600, 125);
         frame.add(graphicPane);
 
+        setButton(tryAgain);
+        setButton(back_to_menu);
+        setButton(exit);
+
         FrameSetter.scaleImgToLabel(headLabel, 220, 20, 100, 80, new ImageIcon("src/main/resources/deadthiseas/dead3.png"));
         FrameSetter.scaleImgToLabel(minLabel, 300, 0, 125, 100, new ImageIcon("src/main/resources/minotaur/minotaurwin.png"));
         frame.add(minLabel);
         frame.add(headLabel);
-        frame.add(tryAgain);
-        frame.add(back_to_menu);
-        frame.add(exit);
+
         FrameSetter.scaleBackground(backgroundLabel, 600, 600);
         frame.add(backgroundLabel);
+    }
+
+    /**
+     * <p>setButton.</p>
+     *
+     * @param button a {@link JButton} object
+     */
+    private void setButton(JButton button) {
+        ButtonSetter.setButton(button, 210, y, 175, 50, Main.mainFont, this);
+        frame.add(button);
+        y += 100;
+
     }
 
     /**
@@ -61,14 +69,14 @@ public final class DeathFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == tryAgain) {
+            LabyrinthFrame.setRestartStatus(true);
             SwingUtilities.invokeLater(LabyrinthFrame::new);
-            Quiz.indexes.clear();
         } else if (e.getSource() == back_to_menu) {
             SwingUtilities.invokeLater(Menu::new);
-            Quiz.indexes.clear();
         } else {
             System.exit(0);
         }
+        Quiz.clearIndexes();
         frame.dispose();
     }
 }

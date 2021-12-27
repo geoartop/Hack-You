@@ -5,7 +5,7 @@ import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 
 /**
- * Παρουσίαση μελών και ρόλων αυτών
+ * <p>Παρουσίαση μελών και ρόλων αυτών</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -22,7 +22,7 @@ public class Credits extends UtilityFrame {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                menu.credits.setEnabled(true);
+                menu.setCreditsStatus(true);
                 frame.dispose();
             }
         });

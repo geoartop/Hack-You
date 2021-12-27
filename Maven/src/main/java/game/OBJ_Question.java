@@ -1,9 +1,9 @@
 package game;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 
 /**
- * Αντικείμενο ερώτησης στο παιχνίδι
+ * <p>Αντικείμενο ερώτησης στο παιχνίδι</p>
  *
  * @author Team Hack-You
  * @version 1.0

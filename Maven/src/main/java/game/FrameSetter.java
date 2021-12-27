@@ -1,11 +1,14 @@
 package game;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 /**
- * Πρότυπο για την επεξεργασία frames
+ * <p>Πρότυπο για την επεξεργασία frames</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -13,11 +16,11 @@ import java.awt.image.BufferedImage;
 public final class FrameSetter {
 
     /**
-     * Μέθοδος εξατομίκευσης frames
+     * <p>Μέθοδος εξατομίκευσης frames</p>
      *
-     * @param frame a {@link javax.swing.JFrame} object
-     * @param title a {@link java.lang.String} object
-     * @param width a int
+     * @param frame  a {@link javax.swing.JFrame} object
+     * @param title  a {@link java.lang.String} object
+     * @param width  a int
      * @param height a int
      */
     public static void setFrame(JFrame frame, String title, int width, int height) {
@@ -32,7 +35,7 @@ public final class FrameSetter {
     }
 
     /**
-     * Μέθοδος που τοποθετεί την background εικόνα scaled σε ένα label
+     * <p>Μέθοδος που τοποθετεί την background εικόνα scaled σε ένα label</p>
      *
      * @param label a {@link javax.swing.JLabel} object
      * @param width a int
@@ -47,7 +50,7 @@ public final class FrameSetter {
     }
 
     /**
-     * Scaling εικόνας με δεδομένο width ,height
+     * <p>Scaling εικόνας με δεδομένο width ,height</p>
      *
      * @param original η εικόνα στην οποία θα γίνει το scaling
      * @param width πλάτος
@@ -63,7 +66,7 @@ public final class FrameSetter {
     }
 
     /**
-     * Μέθοδος που τοποθετεί μια εικόνα scaled σε ένα label
+     * <p>Μέθοδος που τοποθετεί μια εικόνα scaled σε ένα label</p>
      *
      * @param label a {@link javax.swing.JLabel} object
      * @param x a int

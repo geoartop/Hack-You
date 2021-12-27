@@ -1,11 +1,13 @@
 package highscoreTest;
 
+import com.google.common.annotations.VisibleForTesting;
+
 import javax.swing.*;
 import java.io.*;
 import java.util.LinkedList;
 
 /**
- * Λειτουργική κλάση για την εμφάνιση των top 10 scores μαζί με τα username αντίστοιχα
+ * <p>Λειτουργική κλάση για την εμφάνιση των top 10 scores μαζί με τα username αντίστοιχα</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -18,28 +20,18 @@ public final class HighScore {
     private static int playerInfoSize;
 
     /**
-     * <p>getPlayerInfoName.</p>
+     * <p>getPlayerInfoElement.</p>
      *
      * @param index a int
-     * @return a {@link java.lang.String} object
+     * @return a {@link highscoreTest.PlayerInfo} object
      */
-    public String getPlayerInfoName(int index) {
-        return playerInfo.get(index).getName();
+    public PlayerInfo getPlayerInfoElement(int index) {
+        return playerInfo.get(index);
     }
 
     /**
-     * <p>getPlayerInfoScore.</p>
-     *
-     * @param index a int
-     * @return score
-     */
-    public int getPlayerInfoScore(int index) {
-        return playerInfo.get(index).getScore();
-    }
-
-    /**
-     * Κατασκευαστής ο οποίος αρχικά κάνει writable το αρχείο των highscores και μετά την επεξεργασία
-     * του αρχείου το κάνει read-only ώστε να μην επιτρέπεται η κακόβουλη αλλαγή του
+     * <p>Κατασκευαστής ο οποίος αρχικά κάνει writable το αρχείο των highscores και μετά την επεξεργασία
+     * του αρχείου το κάνει read-only ώστε να μην επιτρέπεται η κακόβουλη αλλαγή του</p>
      *
      * @param name  : όνομα παίκτη
      * @param score : βαθμολογία παίκτη
@@ -50,11 +42,24 @@ public final class HighScore {
         try {
             setFile(true);
             load();
+
+            if (isRegistered(name, score)) {
+                //Για να μην υπάρξει interrupt στο Thread του WinFrame
+                SwingUtilities.invokeLater(() ->
+                        JOptionPane.showMessageDialog(null, "Impressing, you managed to match your highscore", "Kudos", JOptionPane.INFORMATION_MESSAGE));
+                playerInfoSize = playerInfo.size();
+                setFile(false);
+                return;
+            }
+
             boolean checkForNewHigh = checkForNewRegister();
             if (checkForNewHigh) {
                 sort();
-                JOptionPane.showMessageDialog(null, "You managed to set a new HighScore to the highscore table", "Congratulations", JOptionPane.INFORMATION_MESSAGE);
+                //Για να μην υπάρξει interrupt στο Thread του WinFrame
+                SwingUtilities.invokeLater(() ->
+                        JOptionPane.showMessageDialog(null, "You managed to set a new HighScore to the highscore table", "Congratulations", JOptionPane.INFORMATION_MESSAGE));
             }
+
             playerInfoSize = playerInfo.size();
             setFile(false);
         } catch (IOException e) {
@@ -64,7 +69,7 @@ public final class HighScore {
     }
 
     /**
-     * Μέθοδος που μεταβάλει την κατάσταση του αρχείου σε writable/not-writable
+     * <p>Μέθοδος που μεταβάλει την κατάσταση του αρχείου σε writable/not-writable </p>
      *
      * @param status : true -> writable , false -> not-writable
      */
@@ -75,10 +80,10 @@ public final class HighScore {
     }
 
     /**
-     * Έλεγχος για το αν το score που δίδεται είναι αρκετά μεγάλο
-     * για να καταγραφεί στον πίνακα των top 10 ή όχι
+     * <p>Έλεγχος για το αν το score που δίδεται είναι αρκετά μεγάλο
+     * για να καταγραφεί στον πίνακα των top 10 ή όχι</p>
      *
-     * @return : true αν έγινε η καταχώρηση επιτυχώς, false αν δεν έγινε νέα καταχώρηση
+     * @return true αν έγινε η καταχώρηση επιτυχώς, false αν δεν έγινε νέα καταχώρηση
      * @throws IOException if any
      */
     private boolean checkForNewRegister() throws IOException {
@@ -104,7 +109,7 @@ public final class HighScore {
     }
 
     /**
-     * Προσθήκη στοιχείων στο αρχείο txt των highscores
+     * <p>Προσθήκη στοιχείων στο αρχείο txt των highscores </p>
      */
     private void appendScore() {
         FileWriter fileWriter = null;
@@ -112,7 +117,7 @@ public final class HighScore {
         PrintWriter printWriter = null;
 
         try {
-            fileWriter = new FileWriter("src/main/resources/HighScore.txt", true);
+            fileWriter = new FileWriter("src/main/resources/HighScore.txt");
             bufferedWriter = new BufferedWriter(fileWriter);
             printWriter = new PrintWriter(bufferedWriter);
             //Writing text to file με συγκεκριμένη μορφοποίηση
@@ -133,7 +138,8 @@ public final class HighScore {
     }
 
     /**
-     * Φόρτωση πληροφοριών αρχείου στη συνδεδεμένη λίστα <code>playerInfo</code>
+     * <p>Φόρτωση πληροφοριών αρχείου στη συνδεδεμένη λίστα <code>playerInfo</code></p>
+     *
      * @throws IOException if any
      */
     private void load() throws IOException {
@@ -156,12 +162,13 @@ public final class HighScore {
     }
 
     /**
-     * Ταξινόμηση playerInfo και αρχείου με φθίνουσα σειρά με βάση τα scores
+     * <p>Ταξινόμηση playerInfo και αρχείου με φθίνουσα σειρά με βάση τα scores</p>
+     *
      * @throws IOException if any
      */
     private void sort() throws IOException {
         //Sorting ArrayList playerInfo based on scores
-        playerInfo.sort(new scoresCompare());
+        playerInfo.sort((p1, p2) -> p2.getScore() - p1.getScore());
         BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/HighScore.txt"));
 
         int counter = 0;
@@ -183,7 +190,32 @@ public final class HighScore {
         writer.close();
     }
 
-    static int getPlayerInfoSize(){
+    /**
+     * <p>clear LinkedList.</p>
+     */
+    @VisibleForTesting
+    public void clear() {
+        playerInfo.clear();
+    }
+
+    /**
+     * <p>isRegistered.</p>
+     *
+     * @param name  a {@link java.lang.String} object
+     * @param score a int
+     * @return a boolean
+     */
+    @VisibleForTesting
+    public boolean isRegistered(String name, int score) {
+        return playerInfo.contains(new PlayerInfo(name, score));
+    }
+
+    /**
+     * <p>Getter for the field <code>playerInfoSize</code>.</p>
+     *
+     * @return a int
+     */
+    public static int getPlayerInfoSize() {
         return playerInfoSize;
     }
 

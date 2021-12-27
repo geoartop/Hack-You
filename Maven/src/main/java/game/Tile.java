@@ -3,22 +3,24 @@ package game;
 import java.awt.image.BufferedImage;
 
 /**
- * Κουτί ("μπλοκ") του χάρτη του παιχνιδιού
+ * <p>Κουτί ("μπλοκ") του χάρτη του παιχνιδιού</p>
  *
  * @author Team Hack-You
  * @version 1.0
  */
 public final class Tile {
 
-    private BufferedImage image;
-    private boolean collision = false;
+    private final BufferedImage image;
+    private final boolean collision;
 
     /**
-     * <p>Setter for the field <code>collision</code>.</p>
+     * <p>Constructor for Tile.</p>
      *
+     * @param image     a {@link java.awt.image.BufferedImage} object
      * @param collision a boolean
      */
-    public void setCollision(boolean collision) {
+    public Tile(BufferedImage image, boolean collision) {
+        this.image = image;
         this.collision = collision;
     }
 
@@ -40,12 +42,4 @@ public final class Tile {
         return image;
     }
 
-    /**
-     * <p>Setter for the field <code>image</code>.</p>
-     *
-     * @param image a {@link java.awt.image.BufferedImage} object
-     */
-    public void setImage(BufferedImage image) {
-        this.image = image;
-    }
 }

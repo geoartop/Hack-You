@@ -5,7 +5,7 @@ import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 
 /**
- * Περιγραφή παιχνιδιού και "πλοκής"
+ * <p>Περιγραφή παιχνιδιού και "πλοκής"</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -22,7 +22,7 @@ public class Description extends UtilityFrame {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                menu.description.setEnabled(true);
+                menu.setDescriptionStatus(true);
                 Description.super.closeFrame();
             }
         });

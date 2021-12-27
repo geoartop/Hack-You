@@ -8,20 +8,37 @@ import java.sql.Time;
 import java.util.Objects;
 
 /**
- * Φόρτωση του παίκτη και εγγραφή των κινήσεών του στην οθόνη
+ * <p>Φόρτωση του παίκτη και εγγραφή των κινήσεών του στην οθόνη</p>
  *
  * @author Team Hack-You
  * @version 1.0
  */
 public class Player extends Entity {
 
+    private int worldx, worldy;
+    static final int speed = 2;
+
     private final GamePanel gp;
     private final KeyHandler keyH;
-    final int screenX;
-    final int screenY;
+    private final int screenX;
+    private final int screenY;
     private static boolean hasLoaded;
 
     private int timesPassed = 0;
+
+    private String direction;
+
+    //Μεταβλητές παίκτη
+    private int spriteCounter = 0;
+    private int spriteNum = 1;
+    final Rectangle solidArea = new Rectangle(8, 32, 32, 16);
+    final int solidAreaDefaultX = solidArea.x;
+    final int solidAreaDefaultY = solidArea.y;
+
+    private boolean collisionOn = false;
+
+    private static final int outOfBoundsLimit = 15;
+
 
     /**
      * <p>Constructor for Player.</p>
@@ -32,45 +49,36 @@ public class Player extends Entity {
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
         this.keyH = keyH;
-        screenX = gp.screenWidth / 2 - (gp.tileSize / 2);
-        screenY = gp.screenHeight / 2 - (gp.tileSize / 2);
-
-        solidArea = new Rectangle();
-        solidArea.x = 8;
-        solidArea.y = 32;
-        solidAreaDefaultX = solidArea.x;
-        solidAreaDefaultY = solidArea.y;
-        solidArea.width = 32;
-        solidArea.height = 16;
+        screenX = GamePanel.screenWidth / 2 - (GamePanel.tileSize / 2);
+        screenY = GamePanel.screenHeight / 2 - (GamePanel.tileSize / 2);
 
         setDefaultValues();
 
         if (!hasLoaded) {
-            super.getImage();
+            super.getImages();
             hasLoaded = true;
         }
     }
 
     /**
-     * Καθορισμός αρχικής θέσης παίκτη
+     * <p>Καθορισμός αρχικής θέσης παίκτη</p>
      */
     private void setDefaultValues() {
         worldx = 100;
         worldy = 50;
-        speed = 2;
         direction = "down";
     }
 
     /**
-     * Ανανέωση κίνησης παίκτη
+     * <p>Ανανέωση κίνησης παίκτη</p>
      */
     public void update() {
-        if (keyH.upPressed || keyH.downPressed || keyH.rightPressed || keyH.leftPressed) {
-            if (keyH.upPressed) {
+        if (keyH.keyIsPressed()) {
+            if (keyH.getUpPressed()) {
                 direction = "up";
-            } else if (keyH.downPressed) {
+            } else if (keyH.getDownPressed()) {
                 direction = "down";
-            } else if (keyH.leftPressed) {
+            } else if (keyH.getLeftPressed()) {
                 direction = "left";
             } else {
                 direction = "right";
@@ -85,12 +93,13 @@ public class Player extends Entity {
             if (!collisionOn) {
                 switch (direction) {
                     case "up":
-                        if (worldy < 15)
+                        //Εξασφαλίζει ότι ο παίκτης δε θα βγει out of bounds
+                        if (worldy < outOfBoundsLimit) {
                             break;
+                        }
                         worldy -= speed;
                         break;
                     case "down":
-                        //if (y < 520)
                         worldy += speed;
                         break;
                     case "left":
@@ -115,17 +124,14 @@ public class Player extends Entity {
     }
 
     /**
-     * Σταθεροποίηση κίνησης παίκτη
+     * <p>Σταθεροποίηση κίνησης παίκτη</p>
      */
     void stabilizePlayer() {
-        keyH.upPressed = false;
-        keyH.downPressed = false;
-        keyH.rightPressed = false;
-        keyH.leftPressed = false;
+        keyH.stopMovement();
     }
 
     /**
-     * Διαχείριση interactions του παίκτη με αντικείμενα μέσα στο παιχνίδι
+     * <p>Διαχείριση interactions του παίκτη με αντικείμενα μέσα στο παιχνίδι</p>
      *
      * @param index θέση του παίκτη στον χάρτη
      */
@@ -140,7 +146,7 @@ public class Player extends Entity {
             if (Objects.equals(objectName, "Question")) {
                 //Για να μην κολλήσει το progressBar και η ροή του παιχνιδιού
                 gp.labyrinthFrame.stopBar();
-                gp.gameState = gp.pauseState;
+                gp.setGameState(GamePanel.pauseState);
                 gp.keyH.setQuizTrig(true);
 
                 SwingUtilities.invokeLater(() -> new Quiz(gp));
@@ -149,7 +155,7 @@ public class Player extends Entity {
             }
             //Τερματισμός παιχνιδιού σε περίπτωση νίκης
             if (Objects.equals(objectName, "Exit")) {
-                gp.gameState = gp.endState;
+                gp.setGameState(GamePanel.endState);
             }
             //Προσθήκη χρόνου (ίσως και πόντων) όταν ο παίκτης βρίσκει coins
             if (Objects.equals(objectName, "Coin")) {
@@ -161,7 +167,7 @@ public class Player extends Entity {
     }
 
     /**
-     * Απεικόνιση "θανάτου" παίκτη
+     * <p>Απεικόνιση "θανάτου" παίκτη</p>
      *
      * @param g2 a {@link java.awt.Graphics2D} object
      */
@@ -172,6 +178,12 @@ public class Player extends Entity {
 
     }
 
+    /**
+     * <p>setValues.</p>
+     *
+     * @param g2    a {@link Graphics2D} object
+     * @param image a {@link BufferedImage} object
+     */
     private void setValues(Graphics2D g2, BufferedImage image) {
         int x1 = screenX;
         int y1 = screenY;
@@ -182,16 +194,16 @@ public class Player extends Entity {
         if (screenY > worldy) {
             y1 = worldy;
         }
-        int rightOffsetValue1 = gp.screenWidth - screenX;
+        int rightOffsetValue1 = GamePanel.screenWidth - screenX;
 
         if (rightOffsetValue1 > gp.WorldWidth - worldx) {
-            x1 = gp.screenWidth - (gp.WorldWidth - worldx);
+            x1 = GamePanel.screenWidth - (gp.WorldWidth - worldx);
         }
 
-        int bottomOffsetValue1 = gp.screenHeight - screenY;
+        int bottomOffsetValue1 = GamePanel.screenHeight - screenY;
 
         if (bottomOffsetValue1 > gp.WorldHeight - worldy) {
-            y1 = gp.screenHeight - (gp.WorldHeight - worldy);
+            y1 = GamePanel.screenHeight - (gp.WorldHeight - worldy);
         }
 
         g2.drawImage(image, x1, y1, null);
@@ -231,4 +243,57 @@ public class Player extends Entity {
         setValues(g2, image);
     }
 
+    /**
+     * <p>Getter for the field <code>worldx</code>.</p>
+     *
+     * @return a int
+     */
+    public int getWorldx() {
+        return worldx;
+    }
+
+    /**
+     * <p>Getter for the field <code>worldy</code>.</p>
+     *
+     * @return a int
+     */
+    public int getWorldy() {
+        return worldy;
+    }
+
+    /**
+     * <p>Getter for the field <code>direction</code>.</p>
+     *
+     * @return a {@link java.lang.String} object
+     */
+    public String getDirection() {
+        return direction;
+    }
+
+    /**
+     * <p>Setter for the field <code>collisionOn</code>.</p>
+     *
+     * @param collisionOn a boolean
+     */
+    public void setCollisionOn(boolean collisionOn) {
+        this.collisionOn = collisionOn;
+    }
+
+    /**
+     * <p>Getter for the field <code>screenX</code>.</p>
+     *
+     * @return a int
+     */
+    public int getScreenX() {
+        return screenX;
+    }
+
+    /**
+     * <p>Getter for the field <code>screenY</code>.</p>
+     *
+     * @return a int
+     */
+    public int getScreenY() {
+        return screenY;
+    }
 }

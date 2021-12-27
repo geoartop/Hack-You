@@ -7,40 +7,61 @@ import java.awt.event.ActionListener;
 import java.sql.BatchUpdateException;
 
 /**
- * Παράθυρο για StartMenu
+ * <p>Παράθυρο για StartMenu</p>
  *
  * @author Team Hack-You
  * @version 1.0
  */
 public final class Menu implements ActionListener {
 
-    /*
-     * Initialize μεταβλητών διαστάσεων
-     */
-    private final int X = 380;
-    private final int Y = 300;
-    private final int WIDTH = 200;
-    private final int HEIGHT = 50;
-
     private static final ImageIcon title = new ImageIcon("src/main/resources/Title.png");
     private static final ImageIcon thiseas = new ImageIcon("src/main/resources/thiseas2/thiseaswalkingdown8.png");
     private static final ImageIcon minotaur = new ImageIcon("src/main/resources/minotaur/minotaurwin.png");
 
-    static Sound music = new Sound();
+    private static final Sound music = new Sound();
 
     private final JFrame frame = new JFrame();
-    final JButton start = new JButton("Start Game");
-    final JButton how2play = new JButton("How to Play");
-    final JButton credits = new JButton("Show Credits");
-    final JButton description = new JButton("Game Description");
+    private final JButton start = new JButton("Start Game");
+    private final JButton how2play = new JButton("How to Play");
+    private final JButton credits = new JButton("Show Credits");
+    private final JButton description = new JButton("Game Description");
     /* Προσδιορισμός για τον αν παίζεται μουσική στο παιχνίδι ή όχι
     ώστε να απεικονιστεί η κατάσταση ήχου στο κουμπί */
-    final JButton musicOn_Off = new JButton(String.format("Sound %s", ButtonSetter.getPlaySound() ? "off" : "on"));
-    final JLabel label = new JLabel();
-    final JLabel backgroundLabel = new JLabel();
+    private final JButton musicOn_Off = new JButton(String.format("Sound %s", ButtonSetter.getPlaySound() ? "off" : "on"));
+    private final JLabel label = new JLabel();
+    private final JLabel backgroundLabel = new JLabel();
 
     //Αρχικοποίηση εξαρτημένων παραθύρων
-    final UtilityFrame[] utilityFrames = new UtilityFrame[3];
+    private final UtilityFrame[] utilityFrames = new UtilityFrame[3];
+
+    private int y = 300;
+
+    /**
+     * <p>set <code>how2play</code> enabled status</p>
+     *
+     * @param status a boolean
+     */
+    public void setHow2playStatus(boolean status) {
+        how2play.setEnabled(status);
+    }
+
+    /**
+     * <p>set <code>credits</code> enabled status</p>
+     *
+     * @param status a boolean
+     */
+    public void setCreditsStatus(boolean status) {
+        credits.setEnabled(status);
+    }
+
+    /**
+     * <p>set <code>description</code> enabled status</p>
+     *
+     * @param status a boolean
+     */
+    public void setDescriptionStatus(boolean status) {
+        description.setEnabled(status);
+    }
 
     /**
      * <p>Constructor for Menu.</p>
@@ -52,17 +73,11 @@ public final class Menu implements ActionListener {
         FrameSetter.setFrame(frame, "Menu", 970, 850);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        setButton(start, Y);
-        setButton(how2play, Y + 100);
-        setButton(credits, Y + 200);
-        setButton(description, Y + 300);
-        setButton(musicOn_Off, Y + 400);
-
-        frame.add(start);
-        frame.add(how2play);
-        frame.add(credits);
-        frame.add(description);
-        frame.add(musicOn_Off);
+        setButton(start);
+        setButton(how2play);
+        setButton(credits);
+        setButton(description);
+        setButton(musicOn_Off);
 
         JLabel thLabel = new JLabel();
         JLabel mLabel = new JLabel();
@@ -74,7 +89,7 @@ public final class Menu implements ActionListener {
         frame.add(mLabel);
 
         //Εισαγωγή τίτλου παιχνιδιού
-        FrameSetter.scaleImgToLabel(label, 250, 0, 500, 280, title);
+        FrameSetter.scaleImgToLabel(label, 235, 0, 500, 280, title);
         frame.add(label);
         //Εισαγωγή background
         FrameSetter.scaleBackground(backgroundLabel, 970, 850);
@@ -82,15 +97,17 @@ public final class Menu implements ActionListener {
     }
 
     /**
-     * Μέθοδος δημιουργίας Κουμπιών
+     * <p>setButton.</p>
+     *
+     * @param button a {@link JButton} object
      */
-    private void setButton(JButton button, int y) {
-        ButtonSetter.setButton(button, X, y, WIDTH, HEIGHT, new Font("Calibri", Font.BOLD, 20), this);
+    private void setButton(JButton button) {
+        ButtonSetter.setButton(button, 380, y, 200, 50, Main.mainFont, this);
+        frame.add(button);
+        y += 100;
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void actionPerformed(ActionEvent e) {
         ButtonSetter.playSE();
@@ -141,6 +158,10 @@ public final class Menu implements ActionListener {
         music.setFile(0);
         music.play();
         music.loop();
+    }
+
+    static boolean musicIsPlaying() {
+        return music.isPlaying();
     }
 
     /**

@@ -1,7 +1,7 @@
 package game;
 
 /**
- * Έλεγχος συγκρούσεων του παίκτη με τοίχους
+ * <p>Έλεγχος συγκρούσεων του παίκτη με τοίχους</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -24,50 +24,45 @@ public final class CollisionCheck {
      *
      * @param entity a {@link game.Entity} object
      */
-    public void checkTile(Entity entity) {
+    public void checkTile(Player entity) {
 
-        int entityLeftWorldX = entity.worldx + entity.solidArea.x;
-        int entityRightWorldX = entity.worldx + entity.solidArea.x + entity.solidArea.width;
-        int entityTopWorldY = entity.worldy + entity.solidArea.y;
-        int entityBottomWorldY = entity.worldy + entity.solidArea.y + entity.solidArea.height;
+        int entityLeftWorldX = entity.getWorldx() + entity.solidArea.x;
+        int entityRightWorldX = entity.getWorldx() + entity.solidArea.x + entity.solidArea.width;
+        int entityTopWorldY = entity.getWorldy() + entity.solidArea.y;
+        int entityBottomWorldY = entity.getWorldy() + entity.solidArea.y + entity.solidArea.height;
 
-        int entityLeftCol = entityLeftWorldX / gp.tileSize;
-        int entityRightCol = entityRightWorldX / gp.tileSize;
-        int entityTopRow = entityTopWorldY / gp.tileSize;
-        int entityBottomRow = entityBottomWorldY / gp.tileSize;
+        int entityLeftCol = entityLeftWorldX / GamePanel.tileSize;
+        int entityRightCol = entityRightWorldX / GamePanel.tileSize;
+        int entityTopRow = entityTopWorldY / GamePanel.tileSize;
+        int entityBottomRow = entityBottomWorldY / GamePanel.tileSize;
 
         int tileNum1, tileNum2;
 
-        switch (entity.direction) {
+        switch (entity.getDirection()) {
             case "up":
-                entityTopRow = (entityTopWorldY - entity.speed) / gp.tileSize;
+                entityTopRow = (entityTopWorldY - Player.speed) / GamePanel.tileSize;
                 tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityTopRow];
                 tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
-                if (gp.tileM.tile[tileNum1].getCollision() || gp.tileM.tile[tileNum2].getCollision())
-                    entity.collisionOn = true;
                 break;
             case "down":
-                entityBottomRow = (entityBottomWorldY + entity.speed) / gp.tileSize;
+                entityBottomRow = (entityBottomWorldY + Player.speed) / GamePanel.tileSize;
                 tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityBottomRow];
                 tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityBottomRow];
-                if (gp.tileM.tile[tileNum1].getCollision() || gp.tileM.tile[tileNum2].getCollision())
-                    entity.collisionOn = true;
                 break;
             case "left":
-                entityLeftCol = (entityLeftWorldX - entity.speed) / gp.tileSize;
+                entityLeftCol = (entityLeftWorldX - Player.speed) / GamePanel.tileSize;
                 tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityTopRow];
                 tileNum2 = gp.tileM.mapTileNum[entityLeftCol][entityBottomRow];
-                if (gp.tileM.tile[tileNum1].getCollision() || gp.tileM.tile[tileNum2].getCollision())
-                    entity.collisionOn = true;
                 break;
-            case "right":
-                entityRightCol = (entityRightWorldX + entity.speed) / gp.tileSize;
+            default:
+                entityRightCol = (entityRightWorldX + Player.speed) / GamePanel.tileSize;
                 tileNum1 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
                 tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
-                if (gp.tileM.tile[tileNum1].getCollision() || gp.tileM.tile[tileNum2].getCollision())
-                    entity.collisionOn = true;
                 break;
 
+        }
+        if (gp.tileM.getTileCollision(tileNum1, tileNum2)) {
+            entity.setCollisionOn(true);
         }
     }
 
@@ -78,34 +73,34 @@ public final class CollisionCheck {
      * @param player a boolean
      * @return index
      */
-    public int checkObject(Entity entity, boolean player) {
+    public int checkObject(Player entity, boolean player) {
         int index = 999;
         //Object counter
         int i = 0;
         for (SuperObject object : gp.obj) {
             if (object != null) {
                 // get entity's solid area position
-                entity.solidArea.x = entity.worldx + entity.solidArea.x;
-                entity.solidArea.y = entity.worldy + entity.solidArea.y;
+                entity.solidArea.x = entity.getWorldx() + entity.solidArea.x;
+                entity.solidArea.y = entity.getWorldy() + entity.solidArea.y;
                 // get the object solid area position
-                object.solidArea.x = object.worldX + object.solidArea.x;
-                object.solidArea.y = object.worldY + object.solidArea.y;
+                object.solidArea.x = object.getWorldX() + object.solidArea.x;
+                object.solidArea.y = object.getWorldY() + object.solidArea.y;
 
-                switch (entity.direction) {
+                switch (entity.getDirection()) {
                     case "up":
-                        entity.solidArea.y -= entity.speed;
+                        entity.solidArea.y -= Player.speed;
                         index = check(entity, player, index, i);
                         break;
                     case "down":
-                        entity.solidArea.y += entity.speed;
+                        entity.solidArea.y += Player.speed;
                         index = check(entity, player, index, i);
                         break;
                     case "left":
-                        entity.solidArea.x -= entity.speed;
+                        entity.solidArea.x -= Player.speed;
                         index = check(entity, player, index, i);
                         break;
                     case "right":
-                        entity.solidArea.x += entity.speed;
+                        entity.solidArea.x += Player.speed;
                         index = check(entity, player, index, i);
                         break;
 
@@ -122,11 +117,19 @@ public final class CollisionCheck {
         return index;
     }
 
-    private int check(Entity entity, boolean player, int index, int i) {
-
+    /**
+     * <p>check.</p>
+     *
+     * @param entity a {@link Player} object
+     * @param player a boolean
+     * @param index  an int
+     * @param i      an int
+     * @return index : an int
+     */
+    private int check(Player entity, boolean player, int index, int i) {
         if (entity.solidArea.intersects(gp.obj.get(i).solidArea)) {
             if (gp.obj.get(i).collision)
-                entity.collisionOn = true;
+                entity.setCollisionOn(true);
             if (player)
                 index = i;
         }

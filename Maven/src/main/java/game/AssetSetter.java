@@ -1,7 +1,7 @@
 package game;
 
 /**
- * Τοποθέτηση των αντικειμένων του παιχνιδιού στο gamepanel
+ * <p>Τοποθέτηση των αντικειμένων του παιχνιδιού στο gamepanel</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -20,11 +20,24 @@ public final class AssetSetter {
         this.gp = gp;
     }
 
+
+    /**
+     * <p>addElement</p>
+     *
+     * @param element a {@link SuperObject} object
+     */
     private void addElement(SuperObject element) {
         gp.obj.add(element);
         index++;
     }
 
+    /**
+     * <p>addSpikes horizontally or vertically</p>
+     *
+     * @param x            an int
+     * @param y            an int
+     * @param isHorizontal a boolean
+     */
     private void addSpikes(int x, int y, boolean isHorizontal) {
         addElement(new OBJ_Spikes(index));
         setXY(x, y);
@@ -36,21 +49,39 @@ public final class AssetSetter {
         }
     }
 
+    /**
+     * <p>Set position of object</p>
+     *
+     * @param x an int
+     * @param y an int
+     */
     private void setXY(int x, int y) {
-        gp.obj.get(index).worldX = x * gp.tileSize;
-        gp.obj.get(index).worldY = y * gp.tileSize;
+        gp.obj.get(index).setWorldX(x * GamePanel.tileSize);
+        gp.obj.get(index).setWorldY(y * GamePanel.tileSize);
     }
 
     /*private void easyObjects(){
+        if(gp.getLevel() == 1){
+            System.out.println();
+        }else {
 
+        }
     }
 
     private void mediumObjects(){
+        if(gp.getLevel() == 1){
 
+        }else {
+
+        }
     }
 
     private void hardObjects(){
+        if(gp.getLevel() == 1){
 
+        }else {
+
+        }
     }*/
 
     /**
@@ -86,7 +117,6 @@ public final class AssetSetter {
         setXY(11, 5);
 
         addSpikes(12, 4, false);
-        //addVerticalSpikes(12, 4);
 
         addElement(new OBJ_Question());
         setXY(8, 9);

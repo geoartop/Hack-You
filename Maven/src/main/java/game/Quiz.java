@@ -1,6 +1,8 @@
 package game;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicButtonUI;
+import javax.swing.plaf.metal.MetalButtonUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,18 +13,18 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
- * Παράθυρο φόρτωσης random ερωτήσεων στον χρήστη προς απάντηση
+ * <p>Παράθυρο φόρτωσης random ερωτήσεων στον χρήστη προς απάντηση</p>
  *
  * @author Team Hack-You
  * @version 1.0
  */
-public final class Quiz extends JFrame implements ActionListener {
+public final class Quiz implements ActionListener {
 
     private final static LinkedList<String> questions = new LinkedList<>();
     private final static LinkedList<String> options = new LinkedList<>();
     private final static LinkedList<Character> answers = new LinkedList<>();
     //Λίστα που αποθηκεύει τα εμφανιζόμενα indexes
-    final static LinkedList<Integer> indexes = new LinkedList<>();
+    private final static LinkedList<Integer> indexes = new LinkedList<>();
     private char answer;
     //Για να επιλέγονται randomly οι ερωτήσεις
     private final SecureRandom random = new SecureRandom();
@@ -81,9 +83,12 @@ public final class Quiz extends JFrame implements ActionListener {
         frame.add(backgroundLabel);
     }
 
+    /**
+     * <p>Generate and add index of question</p>
+     */
     private void setIndex() {
         index = random.nextInt(questions.size());
-        while (indexes.contains(index)){
+        while (indexes.contains(index)) {
             index = random.nextInt(questions.size());
         }
         indexes.add(index);
@@ -100,10 +105,14 @@ public final class Quiz extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * <p>setButtons.</p>
+     */
     private void setButtons() {
         for (int i = 0; i < buttons.length; i++) {
             buttons[i] = new JButton(String.valueOf(symbols[i]));
-            ButtonSetter.setButton(buttons[i], 0, (i + 1) * 100, 100, 100, new Font("Calibri", Font.BOLD,35),this);
+            ButtonSetter.setButton(buttons[i], 0, (i + 1) * 100, 100, 100, new Font("Calibri", Font.BOLD, 35), this);
+            buttons[i].setBackground(new Color(255, 245, 225, 255));
         }
     }
 
@@ -136,14 +145,24 @@ public final class Quiz extends JFrame implements ActionListener {
         frame.dispose();
     }
 
+
+    /**
+     * <p>JOptionPane that shows up when player answers correctly </p>
+     */
     private void correctAnswer() {
         JOptionPane.showMessageDialog(null, "Correct answer!", "Review", JOptionPane.INFORMATION_MESSAGE);
     }
 
+    /**
+     * <p>JOptionPane that shows up when player is wrong </p>
+     */
     private void wrongAnswer() {
         JOptionPane.showMessageDialog(null, "Wrong answer!", "Review", JOptionPane.ERROR_MESSAGE);
     }
 
+    /**
+     * <p>checkAnswer.</p>
+     */
     private void checkAnswer() {
         int time;
         if (answer == answers.get(index)) {
@@ -154,7 +173,7 @@ public final class Quiz extends JFrame implements ActionListener {
             wrongAnswer();
         }
         //Για να μην κολλήσει το progressBar
-        gp.gameState = gp.playState;
+        gp.setGameState(GamePanel.playState);
         gp.labyrinthFrame.updateBar(time);
         frame.dispose();
         gp.keyH.setQuizTrig(false);
@@ -163,23 +182,35 @@ public final class Quiz extends JFrame implements ActionListener {
 
     /**
      * Φόρτωση αρχείων στα ArrayList
+     *
+     * @throws java.io.FileNotFoundException if any.
      */
-    static void readQuestions() throws FileNotFoundException {
+    public static void readQuestions() throws FileNotFoundException {
         Scanner q = new Scanner(new File
-                (String.format("src/main/resources/quiz/%s Questions.txt", Levels.getDifficulty())),"UTF-8");
+                (String.format("src/main/resources/quiz/%s Questions.txt", Levels.getDifficulty())), "UTF-8");
         while (q.hasNextLine())
             questions.add(q.nextLine());
         Scanner o = new Scanner(new File
-                (String.format("src/main/resources/quiz/%s Options.txt", Levels.getDifficulty())),"UTF-8");
+                (String.format("src/main/resources/quiz/%s Options.txt", Levels.getDifficulty())), "UTF-8");
         while (o.hasNextLine())
             options.add(o.nextLine());
         Scanner a = new Scanner
-                (new File(String.format("src/main/resources/quiz/%s Answers.txt", Levels.getDifficulty())),"UTF-8");
+                (new File(String.format("src/main/resources/quiz/%s Answers.txt", Levels.getDifficulty())), "UTF-8");
         while (a.hasNext())
             answers.add(a.next().charAt(0));
     }
 
-    static void clearLists(){
+    /**
+     * <p>clearIndexes.</p>
+     */
+    public static void clearIndexes() {
+        indexes.clear();
+    }
+
+    /**
+     * <p>clearLists.</p>
+     */
+    public static void clearLists() {
         questions.clear();
         options.clear();
         answers.clear();

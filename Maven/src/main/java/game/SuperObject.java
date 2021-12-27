@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
- * Δημιουργία αντικειμένων στο παιχνίδι
+ * <p>Δημιουργία αντικειμένων στο παιχνίδι</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -17,7 +17,7 @@ public abstract class SuperObject {
     protected BufferedImage image;
     protected String name;
     protected boolean collision = false;
-    protected int worldX, worldY;
+    private int worldX, worldY;
     protected final Rectangle solidArea
             = new Rectangle(0, 0, 48, 48);
     protected final int solidAreaDefaultX = 0;
@@ -28,7 +28,7 @@ public abstract class SuperObject {
     /**
      * <p>Constructor for SuperObject.</p>
      *
-     * @param path a {@link java.lang.String} object
+     * @param path         a {@link java.lang.String} object
      * @param width_height a int
      */
     public SuperObject(String path, int width_height) {
@@ -43,43 +43,84 @@ public abstract class SuperObject {
     /**
      * <p>Default Constructor for SuperObject.</p>
      */
-    public SuperObject() {}
+    public SuperObject() {
+    }
 
     //TODO(g.artop) Fix draw problem
     void setValues(Graphics2D g2, GamePanel gp, BufferedImage image) {
-        int screenX = worldX - gp.player.worldx + gp.player.screenX;
-        int screenY = worldY - gp.player.worldy + gp.player.screenY;
+        int screenX = worldX - gp.getPlayerWorldx() + gp.getPlayerScreenX();
+        int screenY = worldY - gp.getPlayerWorldy() + gp.getPlayerScreenY();
 
-        if (gp.player.screenX > gp.player.worldx)
+        if (gp.getPlayerScreenX() > gp.getPlayerWorldx()) {
             screenX = worldX;
+        }
 
-        if (gp.player.screenY > gp.player.worldy)
+        if (gp.getPlayerScreenY() > gp.getPlayerWorldy()) {
             screenY = worldY;
+        }
 
-        int rightOffsetValue = gp.screenWidth - gp.player.screenX;
+        int rightOffsetValue = GamePanel.screenWidth - gp.getPlayerScreenX();
 
-        if (rightOffsetValue > gp.WorldWidth - gp.player.worldx)
-            screenX = gp.screenWidth - (gp.WorldWidth - worldX);
+        if (rightOffsetValue > gp.WorldWidth - gp.getPlayerWorldx()) {
+            screenX = GamePanel.screenWidth - (gp.WorldWidth - worldX);
+        }
 
-        int bottomOffsetValue = gp.screenHeight - gp.player.screenY;
+        int bottomOffsetValue = GamePanel.screenHeight - gp.getPlayerScreenY();
 
-        if (bottomOffsetValue > gp.WorldHeight - gp.player.worldy)
-            screenY = gp.screenHeight - (gp.WorldHeight - worldY);
+        if (bottomOffsetValue > gp.WorldHeight - gp.getPlayerWorldy()) {
+            screenY = GamePanel.screenHeight - (gp.WorldHeight - worldY);
+        }
 
-        if (worldX + gp.tileSize > gp.player.worldx - gp.player.screenX &&
-                worldX - gp.tileSize < gp.player.worldx + gp.player.screenX &&
-                worldY + gp.tileSize > gp.player.worldy - gp.player.screenY &&
-                worldY - gp.tileSize < gp.player.worldy + gp.player.screenY) {
+        if (worldX + GamePanel.tileSize > gp.getPlayerWorldx() - gp.getPlayerScreenX() &&
+                worldX - GamePanel.tileSize < gp.getPlayerWorldx() + gp.getPlayerScreenX() &&
+                worldY + GamePanel.tileSize > gp.getPlayerWorldy() - gp.getPlayerScreenY() &&
+                worldY - GamePanel.tileSize < gp.getPlayerWorldy() + gp.getPlayerScreenY()) {
 
             g2.drawImage(image, screenX, screenY, null);
             // If player is around the edge, draw everything
-        } else if (gp.player.worldx < gp.player.screenX ||
-                gp.player.worldy < gp.player.screenY ||
-                rightOffsetValue > gp.WorldWidth - gp.player.worldx ||
-                bottomOffsetValue > gp.WorldHeight - gp.player.worldy) {
+        } else if (gp.getPlayerWorldx() < gp.getPlayerScreenX() ||
+                gp.getPlayerWorldy() < gp.getPlayerScreenY() ||
+                rightOffsetValue > gp.WorldWidth - gp.getPlayerWorldx() ||
+                bottomOffsetValue > gp.WorldHeight - gp.getPlayerWorldy()) {
             g2.drawImage(image, screenX, screenY, null);
         }
 
+    }
+
+    /**
+     * <p>Getter for the field <code>worldX</code>.</p>
+     *
+     * @return a int
+     */
+    public int getWorldX() {
+        return worldX;
+    }
+
+    /**
+     * <p>Getter for the field <code>worldY</code>.</p>
+     *
+     * @return a int
+     */
+    public int getWorldY() {
+        return worldY;
+    }
+
+    /**
+     * <p>Setter for the field <code>worldX</code>.</p>
+     *
+     * @param worldX a int
+     */
+    public void setWorldX(int worldX) {
+        this.worldX = worldX;
+    }
+
+    /**
+     * <p>Setter for the field <code>worldY</code>.</p>
+     *
+     * @param worldY a int
+     */
+    public void setWorldY(int worldY) {
+        this.worldY = worldY;
     }
 
     /**
@@ -96,4 +137,3 @@ public abstract class SuperObject {
     public abstract void draw(Graphics2D g2, GamePanel gp);
 
 }
-

@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
- * Πρότυπο για την επεξεργασία buttons
+ * <p>Πρότυπο για την επεξεργασία buttons</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -20,7 +20,7 @@ public final class ButtonSetter {
      * Αν θα αναπαράγεται ήχος από το παιχνίδι ή όχι
      */
     private static boolean playSound = true;
-    private static int counter = 0;
+    private static int counter = 1;
     private static ImageIcon icon;
 
     /**
@@ -42,6 +42,7 @@ public final class ButtonSetter {
         button.setFont(font);
         button.addActionListener(object);
         setButtonIcon(button, width, height);
+
     }
 
     /**
@@ -84,7 +85,7 @@ public final class ButtonSetter {
     }
 
     /**
-     * Αναπαραγωγή sound effect κλικ κουμπιού
+     * <p>Αναπαραγωγή sound effect κλικ κουμπιού</p>
      */
     public static void playSE() {
         if (!playSound)

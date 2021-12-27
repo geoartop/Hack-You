@@ -19,10 +19,8 @@ public final class Username implements ActionListener {
     private final JTextField textField = new JTextField();
     private final JLabel backgroundLabel = new JLabel();
 
-    private final ImageIcon icon2 = new ImageIcon("src/main/resources/buttons/wood1.png");
-
     /**
-     * Θέλουμε να γνωρίζουν όλες οι κλάσεις το username του παίκτη ώστε να μπορεί να αποθηκευτεί πιο εύκολα
+     * <p>Θέλουμε να γνωρίζουν όλες οι κλάσεις το username του παίκτη ώστε να μπορεί να αποθηκευτεί πιο εύκολα</p>
      */
     private static String username;
 
@@ -45,11 +43,10 @@ public final class Username implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         ButtonSetter.setButton(submit, 400, 350, 150, 45, new Font("Calibri", Font.BOLD, 25), this);
-        submit.setIcon(icon2);
 
         textField.setBounds(325, 280, 300, 50);
         textField.setPreferredSize(new Dimension(300, 50));
-        textField.setFont(new Font("Calibri", Font.BOLD, 25));
+        textField.setFont(new Font("Calibri", Font.BOLD + Font.ITALIC, 25));
         textField.setSelectedTextColor(Color.green);
 
         GraphicPane graphicPane = new GraphicPane("Enter your username!", 970, 100, Main.mainColor, new Font("Times new Roman", Font.BOLD + Font.ITALIC, 45));

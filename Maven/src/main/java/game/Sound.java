@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.net.URL;
 
 /**
- * Αναπαραγωγή ήχου και ηχητικών εφέ
+ * <p>Αναπαραγωγή ήχου και ηχητικών εφέ</p>
  * TODO(all) Προσθήκη death sound
  *
  * @author Team Hack-You
@@ -17,19 +17,22 @@ import java.net.URL;
  */
 public final class Sound {
 
-    Clip clip;
-    private final URL[] soundURL = new URL[6];
+    private Clip clip;
+    private final URL[] soundURL = new URL[7];
+    private boolean active = false;
 
     /**
      * <p>Constructor for Sound.</p>
      */
     public Sound() {
         soundURL[0] = getClass().getResource("/sound/audio_thiseas.wav");
+        //soundURL[0] = getClass().getResource("/sound/ymnos.wav");
         soundURL[1] = getClass().getResource("/sound/sound_effect.wav");
         soundURL[2] = getClass().getResource("/sound/Coin_1.wav");
         soundURL[3] = getClass().getResource("/sound/victory.wav");
         soundURL[4] = getClass().getResource("/sound/swoosh.wav");
-        //soundURL[5] = getClass().getResource("");
+        soundURL[5] = getClass().getResource("/sound/death_sound.wav");
+        soundURL[6] = getClass().getResource("/sound/end.wav");
     }
 
     /**
@@ -53,6 +56,7 @@ public final class Sound {
      * <p>play clip</p>
      */
     public void play() {
+        active = true;
         clip.start();
     }
 
@@ -64,9 +68,19 @@ public final class Sound {
     }
 
     /**
+     * <p>isPlaying.</p>
+     *
+     * @return a boolean
+     */
+    public boolean isPlaying() {
+        return active;
+    }
+
+    /**
      * <p>stop clip</p>
      */
     public void stop() {
+        active = false;
         clip.stop();
     }
 

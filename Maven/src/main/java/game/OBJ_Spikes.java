@@ -1,9 +1,11 @@
 package game;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+
 /**
- * Αντικείμενο spikes στο παιχνίδι το οποίο απενεργοποιείται με το trigger μιας ερώτησης
+ * <p>Αντικείμενο spikes στο παιχνίδι
+ * το οποίο απενεργοποιείται με το trigger μιας ερώτησης</p>
  *
  * @author Team Hack-You
  * @version 1.0

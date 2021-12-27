@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Παράθυρο που ανοίγει στην περίπτωση που ο παίκτης κέρδισε
+ * <p>Παράθυρο που ανοίγει στην περίπτωση που ο παίκτης κέρδισε</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -27,6 +27,8 @@ public final class WinFrame implements ActionListener {
     private final JLabel thLabel = new JLabel();
 
     private final HighScore highScore;
+
+    private int y = 300;
 
     /**
      * <p>setSeeHighScoresStatus.</p>
@@ -56,27 +58,33 @@ public final class WinFrame implements ActionListener {
         //Έλεγχος για το αν ο παίκτης έκανε νέο highscore
         highScore = new HighScore(Username.getUsername(), calculateScore());
 
-        ButtonSetter.setButton(playAgain, 275, 300, 250, 50, new Font("Calibri", Font.ITALIC, 20), this);
-        ButtonSetter.setButton(seeHighScores, 275, 400, 250, 50, new Font("Calibri", Font.ITALIC, 20), this);
-        ButtonSetter.setButton(back_to_menu, 275, 500, 250, 50, new Font("Calibri", Font.ITALIC, 20), this);
-        ButtonSetter.setButton(exit, 275, 600, 250, 50, new Font("Calibri", Font.ITALIC, 20), this);
-
-        frame.add(playAgain);
-        frame.add(seeHighScores);
-        frame.add(back_to_menu);
-        frame.add(exit);
+        setButton(playAgain);
+        setButton(seeHighScores);
+        setButton(back_to_menu);
+        setButton(exit);
 
         FrameSetter.scaleImgToLabel(minLabel, 350, 0, 120, 100, new ImageIcon("src/main/resources/minotaur/minotaurlose3.png"));
         frame.add(minLabel);
         FrameSetter.scaleImgToLabel(thLabel, 365, 100, 100, 70, new ImageIcon("src/main/resources/thiseas2/thiseasswind.png"));
         frame.add(thLabel);
 
-        GraphicPane graphicPane = new GraphicPane("VICTORY!", 800, 100, new Color(23, 131, 59),new Font("Times new Roman", Font.BOLD,60));
+        GraphicPane graphicPane = new GraphicPane("VICTORY!", 800, 100, new Color(23, 131, 59), new Font("Times new Roman", Font.BOLD, 60));
         graphicPane.setBounds(0, 150, 800, 150);
         frame.add(graphicPane);
 
         FrameSetter.scaleBackground(backgroundLabel, 800, 800);
         frame.add(backgroundLabel);
+    }
+
+    /**
+     * <p>setButton.</p>
+     *
+     * @param button a {@link JButton} object
+     */
+    private void setButton(JButton button) {
+        ButtonSetter.setButton(button, 275, y, 250, 50, Main.mainFont, this);
+        frame.add(button);
+        y += 100;
     }
 
     //TODO(all) προσθήκη συνάρτησης υπολογισμού score
@@ -101,24 +109,22 @@ public final class WinFrame implements ActionListener {
             highScoreFrame.closeFrame();
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void actionPerformed(ActionEvent e) {
         ButtonSetter.playSE();
         if (e.getSource() == playAgain) {
             check();
             SwingUtilities.invokeLater(LabyrinthFrame::new);
-            Quiz.indexes.clear();
+            Quiz.clearIndexes();
         } else if (e.getSource() == seeHighScores) {
-            highScoreFrame = new HighScoreFrame(this);
+            SwingUtilities.invokeLater(() -> highScoreFrame = new HighScoreFrame(WinFrame.this));
             seeHighScores.setEnabled(false);
             return;
         } else if (e.getSource() == back_to_menu) {
             check();
             SwingUtilities.invokeLater(Menu::new);
-            Quiz.indexes.clear();
+            Quiz.clearIndexes();
         } else {
             System.exit(1);
         }

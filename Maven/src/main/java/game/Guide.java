@@ -4,7 +4,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
- * Περιγραφή οδηγιών
+ * <p>Περιγραφή οδηγιών</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -12,7 +12,7 @@ import java.awt.event.WindowEvent;
 public class Guide extends UtilityFrame{
 
     /**
-     * Κατασκευαστής που καλείται όταν το guide ανοίγει από το παράθυρο options
+     * <p>Κατασκευαστής που καλείται όταν το guide ανοίγει από το παράθυρο options</p>
      *
      * @param options : Το παράθυρο options από το οποίο κλήθηκε ο guide
      */
@@ -21,7 +21,7 @@ public class Guide extends UtilityFrame{
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                options.showGuide.setEnabled(true);
+                options.setShowGuideStatus(true);
                 frame.dispose();
             }
         });
@@ -30,7 +30,7 @@ public class Guide extends UtilityFrame{
     }
 
     /**
-     * Κατασκευαστής που καλείται όταν το guide ανοίγει από το παράθυρο menu
+     * <p>Κατασκευαστής που καλείται όταν το guide ανοίγει από το παράθυρο menu</p>
      *
      * @param menu : Το παράθυρο menu από το οποίο κλήθηκε ο guide
      */
@@ -39,7 +39,7 @@ public class Guide extends UtilityFrame{
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                menu.how2play.setEnabled(true);
+                menu.setHow2playStatus(true);
                 frame.dispose();
             }
         });

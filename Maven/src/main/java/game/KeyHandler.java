@@ -5,18 +5,64 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- * Διαχείριση λειτουργιών των κουμπιών
- * WASD, Arrows, PAUSE, ESCAPE στο παιχνίδι
+ * <p>Διαχείριση λειτουργιών των κουμπιών
+ * WASD, Arrows, PAUSE, ESCAPE στο παιχνίδι</p>
  *
  * @author Team Hack-You
  * @version 1.0
  */
 public class KeyHandler implements KeyListener {
 
-    boolean upPressed, downPressed, leftPressed, rightPressed;
+    private boolean upPressed, downPressed, leftPressed, rightPressed;
     private final GamePanel gp;
     private boolean escPressed = false;
     private boolean quizTrig = false;
+
+    /**
+     * <p>stopMovement.</p>
+     */
+    public void stopMovement() {
+        upPressed = false;
+        downPressed = false;
+        rightPressed = false;
+        leftPressed = false;
+    }
+
+    /**
+     * <p>keyIsPressed.</p>
+     *
+     * @return a boolean
+     */
+    public boolean keyIsPressed() {
+        return upPressed || downPressed || rightPressed || leftPressed;
+    }
+
+    /**
+     * <p>Getter for the field <code>upPressed</code>.</p>
+     *
+     * @return a boolean
+     */
+    public boolean getUpPressed() {
+        return upPressed;
+    }
+
+    /**
+     * <p>Getter for the field <code>downPressed</code>.</p>
+     *
+     * @return a boolean
+     */
+    public boolean getDownPressed() {
+        return downPressed;
+    }
+
+    /**
+     * <p>Getter for the field <code>leftPressed</code>.</p>
+     *
+     * @return a boolean
+     */
+    public boolean getLeftPressed() {
+        return leftPressed;
+    }
 
     /**
      * <p>Setter for the field <code>escPressed</code>.</p>
@@ -59,14 +105,14 @@ public class KeyHandler implements KeyListener {
 
         // Για να μην επιτρέπεται η συνέχιση του παιχνιδιού μέχρι να κλείσει το παράθυρο options/quiz
         if (code == KeyEvent.VK_SPACE && gp.labyrinthFrame.getHasStarted() && !Options.getIsActive() && !quizTrig) {
-            if (gp.gameState == gp.playState) {
+            if (gp.getGameState() == GamePanel.playState) {
                 Menu.stopMusic();
                 gp.labyrinthFrame.stopBar();
-                gp.gameState = gp.pauseState;
+                gp.setGameState(GamePanel.pauseState);
             } else {
                 if (ButtonSetter.getPlaySound())
                     Menu.continuePlaying();
-                gp.gameState = gp.playState;
+                gp.setGameState(GamePanel.playState);
                 gp.labyrinthFrame.updateBar(0);
             }
         }
@@ -77,17 +123,23 @@ public class KeyHandler implements KeyListener {
             } else {
                 return;
             }
-            if (gp.gameState == gp.pauseState) {
+            if (gp.getGameState() == GamePanel.pauseState) {
                 SwingUtilities.invokeLater(() -> new Options(gp));
                 return;
             }
-            gp.gameState = gp.pauseState;
+            gp.setGameState(GamePanel.pauseState);
             Menu.stopMusic();
             gp.labyrinthFrame.stopBar();
             SwingUtilities.invokeLater(() -> new Options(gp));
         }
     }
 
+    /**
+     * <p>setKey Status.</p>
+     *
+     * @param status a boolean
+     * @param code   an int
+     */
     private void setKeys(boolean status, int code) {
         if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP)
             upPressed = status;

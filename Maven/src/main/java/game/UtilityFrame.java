@@ -16,10 +16,10 @@ import java.util.Scanner;
 public abstract class UtilityFrame {
 
     private final boolean isOpen;
-    protected JFrame frame;
+    protected final JFrame frame;
     protected final JLabel backgroundLabel = new JLabel();
     protected final JTextArea textArea = new JTextArea();
-    protected JScrollPane scrollPane;
+    protected final JScrollPane scrollPane;
 
     /**
      * <p>Constructor for UtilityFrame.</p>
@@ -49,7 +49,7 @@ public abstract class UtilityFrame {
     }
 
     /**
-     * Φόρτωση αρχείου κειμένου
+     * <p>Φόρτωση αρχείου κειμένου</p>
      *
      * @param pathname το path του αρχείου
      * @param textArea το textArea στο οποίο θα φορτωθεί το κείμενο
@@ -71,10 +71,11 @@ public abstract class UtilityFrame {
     }
 
     /**
-     * Δημιουργία scrollable textArea
+     * <p>Δημιουργία scrollable textArea</p>
+     *
      * @param textArea το text που θέλουμε να εμφανιστεί
-     * @param width πλάτος textArea που επιθυμούμε
-     * @param height ύψος textArea που επιθυμούμε
+     * @param width    πλάτος textArea που επιθυμούμε
+     * @param height   ύψος textArea που επιθυμούμε
      * @return scrollPane a {@link JScrollPane} object
      */
     private JScrollPane createScrollPane(JTextArea textArea, int width, int height) {
