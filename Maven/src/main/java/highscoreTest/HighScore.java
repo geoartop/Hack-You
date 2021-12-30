@@ -50,26 +50,32 @@ public final class HighScore {
                 boolean flag = true;
                 sort();
                 int count = 0;
-                //Για να μην υπάρξει interrupt στο Thread του WinFrame
                 if (playerInfo.stream().anyMatch(p -> p.getName().equals(name))) {
                     for (PlayerInfo p : playerInfo) {
-                        if (isRegistered(name, score)) {
-                            count++;
-                            if (count == 3) {
-                                break;
-                            }
-                        }
-                        if (new PlayerInfo(name, score).didGreater(p)) {
+                        int check = new PlayerInfo(name, score).didGreater(p);
+                        if (check == PlayerInfo.greater) {
+                            //Για να μην υπάρξει interrupt στο Thread του WinFrame
                             SwingUtilities.invokeLater(() ->
-                                    JOptionPane.showMessageDialog(null, "Ξεπέρασες το προσωπικό σου highscore!", "Congratulations", JOptionPane.INFORMATION_MESSAGE));
+                                    JOptionPane.showMessageDialog(null,
+                                            "Ξεπέρασες το προσωπικό σου highscore!", "Congratulations",
+                                            JOptionPane.INFORMATION_MESSAGE));
                             flag = false;
                             break;
+                        } else if (check == PlayerInfo.notGreater) {
+                            count++;
+                            //Αν συναντάται η ίδια καταχώρηση πάνω από μια φορά, η αναζήτηση σταματά
+                            if (count == 2) {
+                                break;
+                            }
                         }
                     }
                 }
                 if (flag) {
+                    //Για να μην υπάρξει interrupt στο Thread του WinFrame
                     SwingUtilities.invokeLater(() ->
-                            JOptionPane.showMessageDialog(null, "You managed to set a new Highscore to the highscore table", "Congratulations", JOptionPane.INFORMATION_MESSAGE));
+                            JOptionPane.showMessageDialog(null,
+                                    "You managed to set a new Highscore to the highscore table", "Congratulations",
+                                    JOptionPane.INFORMATION_MESSAGE));
                 }
             }
 
@@ -102,7 +108,9 @@ public final class HighScore {
     private boolean checkForNewRegister() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/HighScore.txt"));
         int lines = 0;
-        while (reader.readLine() != null) lines++;
+        while (reader.readLine() != null) {
+            lines++;
+        }
         reader.close();
         if (lines < 10) {
             appendScore();
@@ -201,14 +209,6 @@ public final class HighScore {
         }
 
         writer.close();
-    }
-
-    /**
-     * <p>clear LinkedList.</p>
-     */
-    @VisibleForTesting
-    public void clear() {
-        playerInfo.clear();
     }
 
     /**

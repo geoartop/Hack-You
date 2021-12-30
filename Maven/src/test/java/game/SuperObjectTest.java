@@ -14,8 +14,7 @@ class SuperObjectTest {
     @Test
     void playSE() {
         superObject.playSE();
-        Assertions.assertTrue(superObject.se.isPlaying());
-
+        Assertions.assertTrue(SuperObject.se.isPlaying());
     }
 
     @AfterAll

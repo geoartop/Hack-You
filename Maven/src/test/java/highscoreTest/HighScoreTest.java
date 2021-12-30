@@ -22,23 +22,23 @@ public class HighScoreTest {
     @BeforeAll
     static void start() {
         highScore = new HighScore("Mpampis", 11);
+        highScore = new HighScore("Mpampis", 12);
+        for (int i = 0; i < 10; i++) {
+            highScore = new HighScore(String.format("Mpampis%d", i), (int) (Math.random() * 10));
+        }
     }
 
     @Test
     void functionalityCheck() {
         Assertions.assertNotEquals(0, HighScore.getPlayerInfoSize());
         Assertions.assertTrue(highScore.isRegistered("Mpampis", 11));
-        highScore = new HighScore("Mpampis", 12);
-        Assertions.assertTrue(highScore.getPlayerInfoElement(0).didGreater(highScore.getPlayerInfoElement(1)));
-        for (int i = 0; i < 10; i++) {
-            highScore = new HighScore(String.format("Mpampis%d", i), (int) (Math.random() * 10));
-        }
+        //Assertions.assertEquals(2, highScore.getPlayerInfoElement(0).didGreater(highScore.getPlayerInfoElement(1)));
         Assertions.assertEquals(10, HighScore.getPlayerInfoSize());
     }
 
     @Test
     @DisplayName("Sort should work")
-    void Sort() {
+    void sort() {
         Assertions.assertTrue(highScore.isRegistered("Mpampis", 11));
         Assertions.assertFalse(highScore.isRegistered("Mpampis0", 0));
     }
@@ -49,15 +49,15 @@ public class HighScoreTest {
         Assertions.assertFalse(Files.isWritable(Paths.get("src/main/resources/HighScore.txt")));
     }
 
-    /*@Test
-    @DisplayName("Should be greater")
+    @Test
+    @DisplayName("Result of check should be 2")
     void didGreaterTest() {
         System.out.println(HighScore.getPlayerInfoSize());
-        Assertions.assertTrue(highScore.getPlayerInfoElement(0).didGreater(highScore.getPlayerInfoElement(1)));
-    }*/
+        Assertions.assertEquals(PlayerInfo.greater, highScore.getPlayerInfoElement(0).didGreater(highScore.getPlayerInfoElement(1)));
+    }
 
     @AfterAll
-    public static void clearFile() throws IOException {
+    public static void tearDown() throws IOException {
         File file = new File("src/main/resources/HighScore.txt");
         //making the file as read/read-only using setWritable(status) method
         file.setWritable(true);

@@ -20,6 +20,9 @@ public final class PlayerInfo implements Serializable {
     private final String name;
     private final int score;
 
+    public static final int greater = 2;
+    public static final int notGreater = 1;
+
     /**
      * <p>Constructor for PlayerInfo.</p>
      *
@@ -34,24 +37,22 @@ public final class PlayerInfo implements Serializable {
     /**
      * <p>Έλεγχος αν ο παίκτης έκανε προσωπικό ρεκόρ</p>
      *
-     * @param obj an {@link java.lang.Object}
-     * @return a boolean
+     * @param obj an {@link PlayerInfo} object
+     * @return an int
+     * <p>- 0 for not common name</p>
+     * <p>- 1 for common name but not greater score</p>
+     * <p>- 2 for common name and greater score</p>
      */
-    public boolean didGreater(Object obj) {
+    public int didGreater(PlayerInfo obj) {
         if (obj == null) {
-            return false;
+            return 0;
         }
 
-        if (obj.getClass() != this.getClass()) {
-            return false;
+        if (!Objects.equals(this.name, obj.name)) {
+            return 0;
         }
 
-        final PlayerInfo other = (PlayerInfo) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-
-        return this.score > other.getScore();
+        return (this.score > obj.getScore() ? 2 : 1);
     }
 
     /**
