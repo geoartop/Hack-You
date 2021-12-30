@@ -58,7 +58,7 @@ public final class TileManager {
      */
     private void getTileImage() {
         setup(0, "/tiles/mazetiles.png", false);
-        setup(1, "/tiles/wall.PNG", true);
+        setup(1, "/tiles/wall1.png", true);
     }
 
     /**
