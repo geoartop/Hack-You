@@ -10,7 +10,6 @@ import java.net.URL;
 
 /**
  * <p>Αναπαραγωγή ήχου και ηχητικών εφέ</p>
- * TODO(all) Προσθήκη death sound
  *
  * @author Team Hack-You
  * @version 1.0
@@ -18,7 +17,7 @@ import java.net.URL;
 public final class Sound {
 
     private Clip clip;
-    private final URL[] soundURL = new URL[7];
+    private static final URL[] soundURL = new URL[7];
     private boolean active = false;
 
     /**
@@ -29,10 +28,10 @@ public final class Sound {
         //soundURL[0] = getClass().getResource("/sound/ymnos.wav");
         soundURL[1] = getClass().getResource("/sound/sound_effect.wav");
         soundURL[2] = getClass().getResource("/sound/Coin_1.wav");
-        soundURL[3] = getClass().getResource("/sound/victory.wav");
+        //soundURL[3] = getClass().getResource("/sound/victory.wav");
+        soundURL[3] = getClass().getResource("/sound/win_sound.wav");
         soundURL[4] = getClass().getResource("/sound/swoosh.wav");
         soundURL[5] = getClass().getResource("/sound/death_sound.wav");
-        soundURL[6] = getClass().getResource("/sound/end.wav");
     }
 
     /**
@@ -53,7 +52,7 @@ public final class Sound {
     }
 
     /**
-     * <p>play clip</p>
+     * <p>play clip.</p>
      */
     public void play() {
         active = true;
@@ -61,14 +60,14 @@ public final class Sound {
     }
 
     /**
-     * <p>loop clip</p>
+     * <p>loop clip.</p>
      */
     public void loop() {
         clip.loop(Clip.LOOP_CONTINUOUSLY);
     }
 
     /**
-     * <p>isPlaying.</p>
+     * <p>Getter for the field <code>active</code>.</p>
      *
      * @return a boolean
      */
@@ -77,7 +76,7 @@ public final class Sound {
     }
 
     /**
-     * <p>stop clip</p>
+     * <p>stop clip.</p>
      */
     public void stop() {
         active = false;

@@ -5,7 +5,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
- * <p>Entity class.</p>
+ * <p>Entity class.
+ * Φορτώνει τα animation λων των αντικειμένων του παιχνιδιού.</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -33,8 +34,13 @@ public class Entity {
      * <code>death</code> movement animation
      */
     final static BufferedImage[] death = new BufferedImage[7];
-    //Animations for coin
+    /**
+     * <code>OBJ_Coin</code> movement animation
+     */
     final static BufferedImage[] coin = new BufferedImage[9];
+    /**
+     * <code>OBJ_Spikes</code> animation
+     */
     final static BufferedImage[] spikes = new BufferedImage[2];
 
 

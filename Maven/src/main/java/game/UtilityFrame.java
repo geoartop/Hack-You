@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 /**
  * <p> SuperClass για τις κλάσεις Credits, Description, Guide, HighScoreFrame </p>
- * <p> Χρησιμότητα : εύκολο μαζικό κλείσιμο frame + ευκολία υλοποίησης </p>
+ * <p> Χρησιμότητα : εύκολο μαζικό κλείσιμο frame + παροχή ορισμένου πρότυπου frame και λειτουργιών </p>
  *
  * @author Team Hack-You
  * @version 1.0

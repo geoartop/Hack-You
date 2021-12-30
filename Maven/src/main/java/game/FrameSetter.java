@@ -8,7 +8,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 /**
- * <p>Πρότυπο για την επεξεργασία frames</p>
+ * <p>Πρότυπο για την επεξεργασία frames.</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -37,8 +37,8 @@ public final class FrameSetter {
     /**
      * <p>Μέθοδος που τοποθετεί την background εικόνα scaled σε ένα label</p>
      *
-     * @param label a {@link javax.swing.JLabel} object
-     * @param width a int
+     * @param label  a {@link javax.swing.JLabel} object
+     * @param width  a int
      * @param height a int
      */
     public static void scaleBackground(JLabel label, int width, int height) {
@@ -52,10 +52,10 @@ public final class FrameSetter {
     /**
      * <p>Scaling εικόνας με δεδομένο width ,height</p>
      *
-     * @param original η εικόνα στην οποία θα γίνει το scaling
-     * @param width πλάτος
-     * @param height μήκος
-     * @return η original scaled
+     * @param original η εικόνα στην οποία θα γίνει το scaling τύπου {@link java.awt.image.BufferedImage}
+     * @param width    a int
+     * @param height   a int
+     * @return η original scaled εικόνα τύπου {@link java.awt.image.BufferedImage}
      */
     public static BufferedImage scaleImage(BufferedImage original, int width, int height) {
         BufferedImage scaledImage = new BufferedImage(width, height, original.getType());
@@ -68,14 +68,14 @@ public final class FrameSetter {
     /**
      * <p>Μέθοδος που τοποθετεί μια εικόνα scaled σε ένα label</p>
      *
-     * @param label a {@link javax.swing.JLabel} object
-     * @param x a int
-     * @param y a int
-     * @param width a int
-     * @param height a int
+     * @param label     a {@link javax.swing.JLabel} object
+     * @param x         a int
+     * @param y         a int
+     * @param width     a int
+     * @param height    a int
      * @param imageIcon a {@link javax.swing.ImageIcon} object
      */
-    public static void scaleImgToLabel(JLabel label,int x , int y,int width, int height, ImageIcon imageIcon) {
+    public static void scaleImgToLabel(JLabel label, int x, int y, int width, int height, ImageIcon imageIcon) {
         Image img = imageIcon.getImage();
         Image temp = img.getScaledInstance(width - 15, height, Image.SCALE_SMOOTH);
         ImageIcon back = new ImageIcon(temp);

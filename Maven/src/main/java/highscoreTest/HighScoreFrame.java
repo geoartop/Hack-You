@@ -10,15 +10,17 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
- * <p>Παράθυρο στο οποίο εμφανίζονται τα highscores</p>
+ * <p> Παράθυρο στο οποίο εμφανίζονται τα highscores.</p>
  *
  * @author Team Hack-You
  * @version 1.0
+ * @see WinFrame
+ * @see UtilityFrame
  */
 public final class HighScoreFrame extends UtilityFrame {
 
     /**
-     * <p>Τα <code>graphicPanes</code> θα απεικονίζουν τις πληροφορίες κάθε καταχωρημένου παίκτη</p>
+     * <p>Τα <code>graphicPanes</code> θα απεικονίζουν τις πληροφορίες κάθε καταχωρημένου παίκτη.</p>
      */
     private final GraphicPane[] graphicPanes
             = new GraphicPane[HighScore.getPlayerInfoSize()];
@@ -42,12 +44,14 @@ public final class HighScoreFrame extends UtilityFrame {
 
         setGraphicPanes();
 
-        GraphicPane leadGraphicPane = new GraphicPane("Πίνακας Ηighscore", 800, 100, Color.black, new Font("Times new Roman", Font.BOLD + Font.ITALIC, 35));
+        GraphicPane leadGraphicPane = new GraphicPane("Πίνακας Ηighscore", 800, 100,
+                Color.black, new Font("Times new Roman", Font.BOLD + Font.ITALIC, 35));
         leadGraphicPane.setBounds(0, 0, 800, 200);
         frame.add(leadGraphicPane);
 
-        for (GraphicPane graphicPane : graphicPanes)
+        for (GraphicPane graphicPane : graphicPanes) {
             frame.add(graphicPane);
+        }
 
         frame.add(backgroundLabel);
     }
@@ -63,11 +67,11 @@ public final class HighScoreFrame extends UtilityFrame {
                             highScore.getPlayerInfoElement(i))
                     , 800, 50,
                     (i + 1 == 1
-                            ? Main.mainColor
+                            ? new Color(112, 96, 61)
                             : i + 1 == 2
                             ? new Color(128, 141, 141)
                             : (i + 1 == 3 ?
-                            new Color(112, 96, 61)
+                            Main.mainColor
                             : Color.black)), new Font("Times new Roman", Font.BOLD, 27));
             graphicPanes[i].setBounds(0, (i + 3) * 50, 800, 70);
         }

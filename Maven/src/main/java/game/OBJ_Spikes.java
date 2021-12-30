@@ -9,8 +9,10 @@ import java.awt.image.BufferedImage;
  *
  * @author Team Hack-You
  * @version 1.0
+ * @see SuperObject
  */
 public class OBJ_Spikes extends SuperObject {
+
     private int spriteNum = 2;
     //Η θέση της συσχετιζόμενης ερώτησης στον πίνακα obj του gamepanel
     private final int question_index;
@@ -26,11 +28,17 @@ public class OBJ_Spikes extends SuperObject {
         this.question_index = question_index;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     * <p>No sound effect for spikes</p>
+     */
     @Override
-    public void playSE() {}
+    public void playSE() {
+    }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void draw(Graphics2D g2, GamePanel gp) {
         BufferedImage image = Entity.spikes[spriteNum - 1];

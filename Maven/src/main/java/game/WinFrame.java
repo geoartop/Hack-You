@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * <p>Παράθυρο που ανοίγει στην περίπτωση που ο παίκτης κέρδισε</p>
+ * <p> Παράθυρο που ανοίγει στην περίπτωση που ο παίκτης κέρδισε </p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -31,7 +31,7 @@ public final class WinFrame implements ActionListener {
     private int y = 300;
 
     /**
-     * <p>setSeeHighScoresStatus.</p>
+     * <p>Setter for <code>seeHighScores</code> enabled status</p>
      *
      * @param status a boolean
      */
@@ -96,7 +96,7 @@ public final class WinFrame implements ActionListener {
      */
     public int calculateScore() {
 
-        return 0;
+        return 3;
     }
 
     /**

@@ -1,7 +1,7 @@
 package game;
 
 /**
- * <p>Τοποθέτηση των αντικειμένων του παιχνιδιού στο gamepanel</p>
+ * <p> Τοποθέτηση των αντικειμένων του παιχνιδιού στο gamepanel.</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -19,7 +19,6 @@ public final class AssetSetter {
     public AssetSetter(GamePanel gp) {
         this.gp = gp;
     }
-
 
     /**
      * <p>addElement</p>
@@ -61,7 +60,7 @@ public final class AssetSetter {
     }
 
     /*private void easyObjects(){
-        if(gp.getLevel() == 1){
+        if(TileManager.getLevel() == 1) {
             System.out.println();
         }else {
 
@@ -69,7 +68,7 @@ public final class AssetSetter {
     }
 
     private void mediumObjects(){
-        if(gp.getLevel() == 1){
+        if(TileManager.getLevel() == 1) {
 
         }else {
 
@@ -77,7 +76,7 @@ public final class AssetSetter {
     }
 
     private void hardObjects(){
-        if(gp.getLevel() == 1){
+        if(TileManager.getLevel() == 1) {
 
         }else {
 

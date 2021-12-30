@@ -1,7 +1,7 @@
 package game;
 
 /**
- * <p>Έλεγχος συγκρούσεων του παίκτη με τοίχους</p>
+ * <p>Έλεγχος συγκρούσεων του παίκτη με τοίχους.</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -107,8 +107,8 @@ public final class CollisionCheck {
                 }
                 entity.solidArea.x = entity.solidAreaDefaultX;
                 entity.solidArea.y = entity.solidAreaDefaultY;
-                object.solidArea.x = object.solidAreaDefaultX;
-                object.solidArea.y = object.solidAreaDefaultY;
+                object.solidArea.x = SuperObject.solidAreaDefaultX;
+                object.solidArea.y = SuperObject.solidAreaDefaultY;
 
             }
             i++;

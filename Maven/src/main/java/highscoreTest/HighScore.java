@@ -11,6 +11,7 @@ import java.util.LinkedList;
  *
  * @author Team Hack-You
  * @version 1.0
+ * @see PlayerInfo
  */
 public final class HighScore {
 
@@ -20,7 +21,7 @@ public final class HighScore {
     private static int playerInfoSize;
 
     /**
-     * <p>getPlayerInfoElement.</p>
+     * <p>Getter for <code>playerInfo.get(index)</code>.</p>
      *
      * @param index a int
      * @return a {@link highscoreTest.PlayerInfo} object
@@ -43,21 +44,33 @@ public final class HighScore {
             setFile(true);
             load();
 
-            if (isRegistered(name, score)) {
-                //Για να μην υπάρξει interrupt στο Thread του WinFrame
-                SwingUtilities.invokeLater(() ->
-                        JOptionPane.showMessageDialog(null, "Impressing, you managed to match your highscore", "Kudos", JOptionPane.INFORMATION_MESSAGE));
-                playerInfoSize = playerInfo.size();
-                setFile(false);
-                return;
-            }
-
             boolean checkForNewHigh = checkForNewRegister();
             if (checkForNewHigh) {
+                //Αν δεν έγινε personal record
+                boolean flag = true;
                 sort();
+                int count = 0;
                 //Για να μην υπάρξει interrupt στο Thread του WinFrame
-                SwingUtilities.invokeLater(() ->
-                        JOptionPane.showMessageDialog(null, "You managed to set a new HighScore to the highscore table", "Congratulations", JOptionPane.INFORMATION_MESSAGE));
+                if (playerInfo.stream().anyMatch(p -> p.getName().equals(name))) {
+                    for (PlayerInfo p : playerInfo) {
+                        if (isRegistered(name, score)) {
+                            count++;
+                            if (count == 3) {
+                                break;
+                            }
+                        }
+                        if (new PlayerInfo(name, score).didGreater(p)) {
+                            SwingUtilities.invokeLater(() ->
+                                    JOptionPane.showMessageDialog(null, "Ξεπέρασες το προσωπικό σου highscore!", "Congratulations", JOptionPane.INFORMATION_MESSAGE));
+                            flag = false;
+                            break;
+                        }
+                    }
+                }
+                if (flag) {
+                    SwingUtilities.invokeLater(() ->
+                            JOptionPane.showMessageDialog(null, "You managed to set a new Highscore to the highscore table", "Congratulations", JOptionPane.INFORMATION_MESSAGE));
+                }
             }
 
             playerInfoSize = playerInfo.size();
@@ -199,7 +212,7 @@ public final class HighScore {
     }
 
     /**
-     * <p>isRegistered.</p>
+     * <p>Έλεγχος για το αν υπάρχει μια συγκεκριμένη καταχώρηση.</p>
      *
      * @param name  a {@link java.lang.String} object
      * @param score a int

@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 
 /**
  * <p>highscoreTest.HighScoreTest class.</p>
+ * ΤΑ ΤΕΣΤ ΔΕΝ ΓΙΝΟΝΤΑΙ ΜΕ ΤΗ ΣΕΙΡΑ FUCKING GENIUS!
  *
  * @author panagiotis
  * @version 1.0
@@ -24,37 +25,36 @@ public class HighScoreTest {
     }
 
     @Test
-    void checkHigh() {
+    void functionalityCheck() {
         Assertions.assertNotEquals(0, HighScore.getPlayerInfoSize());
         Assertions.assertTrue(highScore.isRegistered("Mpampis", 11));
-        new HighScore("Mpampis", 11);
+        highScore = new HighScore("Mpampis", 12);
+        Assertions.assertTrue(highScore.getPlayerInfoElement(0).didGreater(highScore.getPlayerInfoElement(1)));
         for (int i = 0; i < 10; i++) {
-            new HighScore(String.format("Mpampis%d", i), i);
+            highScore = new HighScore(String.format("Mpampis%d", i), (int) (Math.random() * 10));
         }
         Assertions.assertEquals(10, HighScore.getPlayerInfoSize());
     }
 
     @Test
     @DisplayName("Sort should work")
-    void checkSort() {
+    void Sort() {
         Assertions.assertTrue(highScore.isRegistered("Mpampis", 11));
         Assertions.assertFalse(highScore.isRegistered("Mpampis0", 0));
     }
 
     @Test
+    @DisplayName("File must not be writable")
     void fileStatus() {
         Assertions.assertFalse(Files.isWritable(Paths.get("src/main/resources/HighScore.txt")));
     }
 
-    @Test
-    @DisplayName("No playerInfo should show up twice")
-    void existsOnce() {
-        for (int i = 0; i < HighScore.getPlayerInfoSize(); i++) {
-            for (int j = i + 1; j < HighScore.getPlayerInfoSize(); j++) {
-                Assertions.assertNotEquals(highScore.getPlayerInfoElement(i), highScore.getPlayerInfoElement(j));
-            }
-        }
-    }
+    /*@Test
+    @DisplayName("Should be greater")
+    void didGreaterTest() {
+        System.out.println(HighScore.getPlayerInfoSize());
+        Assertions.assertTrue(highScore.getPlayerInfoElement(0).didGreater(highScore.getPlayerInfoElement(1)));
+    }*/
 
     @AfterAll
     public static void clearFile() throws IOException {

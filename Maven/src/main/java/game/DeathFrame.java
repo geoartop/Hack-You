@@ -32,7 +32,6 @@ public final class DeathFrame implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setIconImage(new ImageIcon("src/main/resources/icons/grave.png").getImage());
 
-
         GraphicPane graphicPane = new GraphicPane("GAME OVER", 600, 50, Color.red, new Font("Times new Roman", Font.BOLD, 40));
 
         graphicPane.setBounds(0, 100, 600, 125);

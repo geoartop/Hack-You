@@ -20,10 +20,13 @@ public abstract class SuperObject {
     private int worldX, worldY;
     protected final Rectangle solidArea
             = new Rectangle(0, 0, 48, 48);
-    protected final int solidAreaDefaultX = 0;
-    protected final int solidAreaDefaultY = 0;
+    static final int solidAreaDefaultX = 0;
+    static final int solidAreaDefaultY = 0;
 
-    protected final Sound se = new Sound();
+    /**
+     * Constant <code>se</code>
+     */
+    protected static final Sound se = new Sound();
 
     /**
      * <p>Constructor for SuperObject.</p>
@@ -46,7 +49,13 @@ public abstract class SuperObject {
     public SuperObject() {
     }
 
-    //TODO(g.artop) Fix draw problem
+    /**
+     * <p>Συμπλήρωση της μεθόδου draw για SuperObject.</p>
+     *
+     * @param g2    a {@link Graphics2D} object
+     * @param gp    a {@link GamePanel} object
+     * @param image a {@link BufferedImage} object
+     */
     void setValues(Graphics2D g2, GamePanel gp, BufferedImage image) {
         int screenX = worldX - gp.getPlayerWorldx() + gp.getPlayerScreenX();
         int screenY = worldY - gp.getPlayerWorldy() + gp.getPlayerScreenY();

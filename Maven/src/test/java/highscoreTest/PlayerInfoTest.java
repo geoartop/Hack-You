@@ -11,7 +11,7 @@ class PlayerInfoTest {
 
     @BeforeEach
     void setUp() {
-        playerInfo = new PlayerInfo("Spyros", 99);
+        playerInfo = new PlayerInfo("Mpampis", 99);
     }
 
     @AfterEach
@@ -22,13 +22,13 @@ class PlayerInfoTest {
     @Test
     void check() {
         PlayerInfo p2 = new PlayerInfo("Mpampis", 11);
-        Assertions.assertTrue(PlayerInfo.greaterThan(playerInfo, p2));
+        Assertions.assertTrue(playerInfo.didGreater(p2));
     }
 
 
     @Test
     void testEquals() {
-        PlayerInfo p2 = new PlayerInfo("Spyros", 99);
+        PlayerInfo p2 = new PlayerInfo("Mpampis", 99);
         Assertions.assertEquals(p2, playerInfo);
     }
 }

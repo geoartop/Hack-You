@@ -1,7 +1,5 @@
 package highscoreTest;
 
-import com.google.common.annotations.VisibleForTesting;
-
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -34,15 +32,26 @@ public final class PlayerInfo implements Serializable {
     }
 
     /**
-     * <p>greaterThan.</p>
+     * <p>Έλεγχος αν ο παίκτης έκανε προσωπικό ρεκόρ</p>
      *
-     * @param p1 a {@link highscoreTest.PlayerInfo} object
-     * @param p2 a {@link highscoreTest.PlayerInfo} object
+     * @param obj an {@link java.lang.Object}
      * @return a boolean
      */
-    @VisibleForTesting
-    public static boolean greaterThan(PlayerInfo p1, PlayerInfo p2) {
-        return p1.getScore() > p2.getScore();
+    public boolean didGreater(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        final PlayerInfo other = (PlayerInfo) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+
+        return this.score > other.getScore();
     }
 
     /**

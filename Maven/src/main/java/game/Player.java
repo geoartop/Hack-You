@@ -3,8 +3,6 @@ package game;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.lang.reflect.InvocationTargetException;
-import java.sql.Time;
 import java.util.Objects;
 
 /**
@@ -12,6 +10,7 @@ import java.util.Objects;
  *
  * @author Team Hack-You
  * @version 1.0
+ * @see Entity
  */
 public class Player extends Entity {
 

@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
  *
  * @author Team Hack-You
  * @version 1.0
+ * @see UtilityFrame
  */
 public class Credits extends UtilityFrame {
 

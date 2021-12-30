@@ -88,8 +88,9 @@ public final class ButtonSetter {
      * <p>Αναπαραγωγή sound effect κλικ κουμπιού</p>
      */
     public static void playSE() {
-        if (!playSound)
+        if (!playSound) {
             return;
+        }
         se.setFile(1);
         se.play();
     }

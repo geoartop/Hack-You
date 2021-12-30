@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
  *
  * @author Team Hack-You
  * @version 1.0
+ * @see SuperObject
  */
 public class OBJ_Coin extends SuperObject {
 

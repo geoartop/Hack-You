@@ -88,14 +88,14 @@ public final class GamePanel extends JPanel implements Runnable {
     }
 
     /**
-     * <p>Μέθοδος προετοιμασίας αντικειμένων παιχνιδιού</p>
+     * <p>Προετοιμασία αντικειμένων παιχνιδιού.</p>
      */
     public void setupGame() {
         aSetter.setObject();
     }
 
     /**
-     * <p>Μέθοδος εκκίνησης παιχνιδιού</p>
+     * <p>Εκκίνηση παιχνιδιού</p>
      */
     private void startGameThread() {
         gameThread = new Thread(this);
@@ -105,7 +105,7 @@ public final class GamePanel extends JPanel implements Runnable {
     }
 
     /**
-     * <p>Εξασφάλιση thread safety και εκκαθάριση πόρων</p>
+     * <p>Εξασφάλιση thread safety και εκκαθάριση πόρων.</p>
      */
     void terminate() {
         gameThread = null;
@@ -114,7 +114,7 @@ public final class GamePanel extends JPanel implements Runnable {
     /**
      * {@inheritDoc}
      *
-     * <p>Υλοποιείται game loop εξατομικευμένο ώστε να τρέχει το παιχνίδι με 60 fps </p>
+     * <p>Game loop εξατομικευμένο ώστε να τρέχει το παιχνίδι με 60 fps (frames per second). </p>
      */
     @Override
     public void run() {
@@ -126,7 +126,7 @@ public final class GamePanel extends JPanel implements Runnable {
         long currentTime;
 
         while (gameThread != null) {
-            //UPDATE && DRAW
+            //UPDATE and DRAW
             currentTime = System.nanoTime();
             delta += (currentTime - lastTime) / drawInterval;
 
@@ -140,10 +140,6 @@ public final class GamePanel extends JPanel implements Runnable {
                     labyrinthFrame.closeFrame(true);
                     //Ενέργεια που εκτελείται όταν χάνει ο παίκτης
                 } else if (labyrinthFrame.getHasLost()) {
-                    if (ButtonSetter.getPlaySound()) {
-                        se.setFile(6);
-                        se.play();
-                    }
                     for (int times = 0; times < Entity.death.length - 1; times++) {
                         if (times == 0) {
                             Menu.stopMusic();
@@ -188,7 +184,7 @@ public final class GamePanel extends JPanel implements Runnable {
     }
 
     /**
-     * <p>Μέθοδος ανανέωσης γραφικών χαρακτήρα</p>
+     * <p>Ανανέωσης γραφικών (κινήσεων) χαρακτήρα</p>
      */
     public void update() {
         if (gameState == playState) {

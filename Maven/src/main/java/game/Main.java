@@ -20,7 +20,7 @@ public class Main {
      */
     public static final ImageIcon background = new ImageIcon("src/main/resources/background/background-alt4 - Copy.jpg");
     /**
-     * Game color <code>mainColor</code>
+     * Game mainly used color <code>mainColor</code>
      */
     public static final Color mainColor = new Color(134, 1, 1, 196);
     /**

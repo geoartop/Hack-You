@@ -37,7 +37,7 @@ public final class Menu implements ActionListener {
     private int y = 300;
 
     /**
-     * <p>set <code>how2play</code> enabled status</p>
+     * <p>Setter for <code>how2play</code> enabled status</p>
      *
      * @param status a boolean
      */
@@ -46,7 +46,7 @@ public final class Menu implements ActionListener {
     }
 
     /**
-     * <p>set <code>credits</code> enabled status</p>
+     * <p>Setter for <code>credits</code> enabled status</p>
      *
      * @param status a boolean
      */
@@ -55,7 +55,7 @@ public final class Menu implements ActionListener {
     }
 
     /**
-     * <p>set <code>description</code> enabled status</p>
+     * <p>Setter for <code>description</code> enabled status</p>
      *
      * @param status a boolean
      */

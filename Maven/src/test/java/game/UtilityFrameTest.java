@@ -21,13 +21,6 @@ class UtilityFrameTest {
         }
     }
 
-    @Test
-    @DisplayName("Should close all windows")
-    void checkForDisposal() {
-
-    }
-
-
     @AfterEach
     void tearDown() {
         utilityFrames = null;

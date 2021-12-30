@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
  *
  * @author Team Hack-You
  * @version 1.0
+ * @see UtilityFrame
  */
 public class Description extends UtilityFrame {
 
@@ -36,6 +37,5 @@ public class Description extends UtilityFrame {
         frame.getContentPane().add(scrollPane);
         frame.add(backgroundLabel);
     }
-
 
 }

@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.util.Locale;
 
 /**
- * <p>Εισαγωγή username χρήστη και έλεγχος εγκυρότητας αυτού</p>
+ * <p>Παράθυρο εισαγωγής username χρήστη και έλεγχος εγκυρότητας αυτού</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -42,7 +42,7 @@ public final class Username implements ActionListener {
         FrameSetter.setFrame(frame, "Set Username", 970, 850);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        ButtonSetter.setButton(submit, 400, 350, 150, 45, new Font("Calibri", Font.BOLD, 25), this);
+        ButtonSetter.setButton(submit, 400, 350, 150, 45, new Font("Calibri", Font.ITALIC, 25), this);
 
         textField.setBounds(325, 280, 300, 50);
         textField.setPreferredSize(new Dimension(300, 50));

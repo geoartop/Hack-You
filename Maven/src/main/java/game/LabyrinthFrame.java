@@ -46,10 +46,20 @@ public final class LabyrinthFrame implements ActionListener {
     //--------------------------------------------------------------------------------------//
 
 
+    /**
+     * <p>Getter for the field <code>restartStatus</code>.</p>
+     *
+     * @return a boolean
+     */
     public static boolean getRestartStatus() {
         return restartStatus;
     }
 
+    /**
+     * <p>Setter for the field <code>restartStatus</code>.</p>
+     *
+     * @param restartStatus a boolean
+     */
     public static void setRestartStatus(boolean restartStatus) {
         LabyrinthFrame.restartStatus = restartStatus;
     }
@@ -79,7 +89,7 @@ public final class LabyrinthFrame implements ActionListener {
     static void setLabyrinth() {
         switch (Levels.getDifficulty()) {
             case "Easy":
-                time = 200;
+                time = 5;
                 for_correct = 5;
                 for_wrong = -2;
                 break;
@@ -157,7 +167,7 @@ public final class LabyrinthFrame implements ActionListener {
     }
 
     /**
-     * <p>Μέθοδος λειτουργίας progressBar</p>
+     * <p>Λειτουργία του progressBar</p>
      *
      * @param flg : ο χρόνος που θα έχει ο παίκτης
      */
@@ -204,7 +214,7 @@ public final class LabyrinthFrame implements ActionListener {
     }
 
     /**
-     * <p>Μέθοδος ανανέωσης progressBar</p>
+     * <p>Ανανέωσης progressBar</p>
      *
      * @param time : ο χρόνος που προσθαφαιρείται από το χρόνο που απομένει
      */
@@ -214,7 +224,7 @@ public final class LabyrinthFrame implements ActionListener {
     }
 
     /**
-     * <p>Μέθοδος κλεισίματος παραθύρου παιχνιδιού (διακοπή παιχνιδιού)</p>
+     * <p>Κλείσιμο παραθύρου παιχνιδιού (διακοπή παιχνιδιού)</p>
      */
     void closeFrame() {
         //SOS! CRUCIAL for thread safety
@@ -223,7 +233,7 @@ public final class LabyrinthFrame implements ActionListener {
     }
 
     /**
-     * <p>Μέθοδος τερματισμού παιχνιδιού</p>
+     * <p>Τερματισμός παιχνιδιού</p>
      *
      * @param hasWon : true σε περίπτωση νίκης, false σε περίπτωση αποτυχίας
      */

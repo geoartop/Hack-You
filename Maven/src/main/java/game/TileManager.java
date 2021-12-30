@@ -12,8 +12,7 @@ import java.security.SecureRandom;
 import java.util.Random;
 
 /**
- * <p>Λειτουργική κλάση για το configuration του χάρτη,
- * των μπλοκ και των χαρακτηριστικών αυτών </p>
+ * <p>Configuration του χάρτη, των μπλοκ και των χαρακτηριστικών αυτών </p>
  *
  * @author Team Hack-You
  * @version 1.0

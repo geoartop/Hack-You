@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
  *
  * @author Team Hack-You
  * @version 1.0
+ * @see SuperObject
  */
 public class OBJ_Exit extends SuperObject {
 
@@ -26,9 +27,11 @@ public class OBJ_Exit extends SuperObject {
         se.play();
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public void draw(Graphics2D g2, GamePanel gp){
+    public void draw(Graphics2D g2, GamePanel gp) {
         setValues(g2, gp, image);
     }
 
