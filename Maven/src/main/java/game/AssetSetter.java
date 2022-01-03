@@ -21,13 +21,17 @@ public final class AssetSetter {
     }
 
     /**
-     * <p>addElement</p>
+     * <p>addElement and set its position</p>
      *
      * @param element a {@link SuperObject} object
+     * @param x an int
+     * @param y an int
      */
-    private void addElement(SuperObject element) {
+    private void addElement(SuperObject element, int x, int y) {
         gp.obj.add(element);
         index++;
+        gp.obj.get(index).setWorldX(x * GamePanel.tileSize);
+        gp.obj.get(index).setWorldY(y * GamePanel.tileSize);
     }
 
     /**
@@ -38,25 +42,12 @@ public final class AssetSetter {
      * @param isHorizontal a boolean
      */
     private void addSpikes(int x, int y, boolean isHorizontal) {
-        addElement(new OBJ_Spikes(index));
-        setXY(x, y);
-        addElement(new OBJ_Spikes(index - 1));
+        addElement(new OBJ_Spikes(index), x, y);
         if (isHorizontal) {
-            setXY(x + 1, y);
+            addElement(new OBJ_Spikes(index - 1), x + 1, y);
         } else {
-            setXY(x, y + 1);
+            addElement(new OBJ_Spikes(index - 1), x, y + 1);
         }
-    }
-
-    /**
-     * <p>Set position of object</p>
-     *
-     * @param x an int
-     * @param y an int
-     */
-    private void setXY(int x, int y) {
-        gp.obj.get(index).setWorldX(x * GamePanel.tileSize);
-        gp.obj.get(index).setWorldY(y * GamePanel.tileSize);
     }
 
     /*private void easyObjects(){
@@ -100,6 +91,7 @@ public final class AssetSetter {
                 break;
         }*/
 
+        /*
         addElement(new OBJ_Question());
         setXY(1, 9);
 
@@ -130,6 +122,7 @@ public final class AssetSetter {
         setXY(2, 6);
 
         addSpikes(2, 7, true);
+        */
 
     }
 

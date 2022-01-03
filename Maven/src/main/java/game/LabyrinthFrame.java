@@ -89,7 +89,7 @@ public final class LabyrinthFrame implements ActionListener {
     static void setLabyrinth() {
         switch (Levels.getDifficulty()) {
             case "Easy":
-                time = 5;
+                time = 100;
                 for_correct = 5;
                 for_wrong = -2;
                 break;

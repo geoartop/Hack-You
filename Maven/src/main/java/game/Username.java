@@ -39,7 +39,7 @@ public final class Username implements ActionListener {
     public Username() {
         // Εξατομίκευση παραθύρου
         frame = new JFrame();
-        FrameSetter.setFrame(frame, "Set Username", 970, 850);
+        FrameSetter.setFrame(frame, "Set Username", 970, 700);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         ButtonSetter.setButton(submit, 400, 350, 150, 45, new Font("Calibri", Font.ITALIC, 25), this);
