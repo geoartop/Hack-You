@@ -50,6 +50,15 @@ public final class AssetSetter {
         }
     }
 
+    private void addCoins(int x, int y, boolean isHorizontal) {
+        addElement(new OBJ_Coin(), x, y);
+        if (isHorizontal) {
+            addElement(new OBJ_Coin(), x + 1, y);
+        } else {
+            addElement(new OBJ_Coin(), x, y + 1);
+        }
+    }
+
     /*private void easyObjects(){
         if(TileManager.getLevel() == 1) {
             System.out.println();
