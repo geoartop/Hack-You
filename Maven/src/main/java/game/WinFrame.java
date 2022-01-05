@@ -95,18 +95,27 @@ public final class WinFrame implements ActionListener {
      * @return a int
      */
     public int calculateScore() {
+        /*int score;
+        if(Levels.getDifficulty().equals("Easy")){
 
-        return 3;
+        }else if(Levels.getDifficulty().equals("Medium")){
+
+        }else {
+
+        }*/
+        return 7;
     }
 
     /**
      * <p>check.</p>
      */
     public void check() {
-        if (highScoreFrame == null)
+        if (highScoreFrame == null) {
             return;
-        if (highScoreFrame.getIsOpen())
+        }
+        if (highScoreFrame.getIsOpen()) {
             highScoreFrame.closeFrame();
+        }
     }
 
     /** {@inheritDoc} */

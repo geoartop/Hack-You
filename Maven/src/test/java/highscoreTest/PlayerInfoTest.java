@@ -25,7 +25,6 @@ class PlayerInfoTest {
         Assertions.assertEquals(PlayerInfo.greater, playerInfo.didGreater(p2));
     }
 
-
     @Test
     void testEquals() {
         PlayerInfo p2 = new PlayerInfo("Mpampis", 99);

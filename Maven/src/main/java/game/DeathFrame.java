@@ -1,12 +1,17 @@
 package game;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * <p>Παράθυρο που εμφανίζεται όταν ο παίκτης χάνει</p>
+ * <p>Παράθυρο που εμφανίζεται όταν ο παίκτης χάνει.</p>
  *
  * @author Team Hack-You
  * @version 1.0

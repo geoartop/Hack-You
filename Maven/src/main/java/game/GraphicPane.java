@@ -30,8 +30,8 @@ public final class GraphicPane extends JComponent {
      * <p>Constructor for GraphicPane.</p>
      *
      * @param text        a {@link java.lang.String} object
-     * @param screenWidth a int
-     * @param y           a int
+     * @param screenWidth an int
+     * @param y           an int
      * @param color       a {@link java.awt.Color} object
      * @param font        a {@link java.awt.Font} object
      */

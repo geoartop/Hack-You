@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * <p>Δημιουργία αντικειμένων στο παιχνίδι</p>
@@ -36,7 +37,7 @@ public abstract class SuperObject {
      */
     public SuperObject(String path, int width_height) {
         try {
-            image = ImageIO.read(getClass().getResourceAsStream(path));
+            image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(path)));
             image = FrameSetter.scaleImage(image, width_height, width_height);
         } catch (IOException e) {
             e.printStackTrace();
@@ -108,7 +109,7 @@ public abstract class SuperObject {
     /**
      * <p>Getter for the field <code>worldY</code>.</p>
      *
-     * @return a int
+     * @return an int
      */
     public int getWorldY() {
         return worldY;
@@ -117,7 +118,7 @@ public abstract class SuperObject {
     /**
      * <p>Setter for the field <code>worldX</code>.</p>
      *
-     * @param worldX a int
+     * @param worldX an int
      */
     public void setWorldX(int worldX) {
         this.worldX = worldX;
@@ -126,7 +127,7 @@ public abstract class SuperObject {
     /**
      * <p>Setter for the field <code>worldY</code>.</p>
      *
-     * @param worldY a int
+     * @param worldY an int
      */
     public void setWorldY(int worldY) {
         this.worldY = worldY;

@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
-import java.util.Random;
+import java.util.Objects;
 
 /**
  * <p>Configuration του χάρτη, των μπλοκ και των χαρακτηριστικών αυτών </p>
@@ -57,6 +57,8 @@ public final class TileManager {
      * <p>getTileImage.</p>
      */
     private void getTileImage() {
+        //setup(0,String.format("/tiles/%sFloor.png",Levels.getDifficulty()),false);
+        //setup(1,String.format("/tiles/%sWall.png",Levels.getDifficulty()),true);
         setup(0, "/tiles/tile16.png", false);
         setup(1, "/tiles/puke123.png", true);
     }
@@ -72,7 +74,7 @@ public final class TileManager {
      */
     private void setup(int index, String path, boolean collision) {
         try {
-            BufferedImage image = ImageIO.read(getClass().getResourceAsStream(path));
+            BufferedImage image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(path)));
             image = FrameSetter.scaleImage(image, GamePanel.tileSize, GamePanel.tileSize);
             tile[index] = new Tile(image, collision);
         } catch (IOException e) {
@@ -86,11 +88,9 @@ public final class TileManager {
      * @param FilePath path
      */
     private void loadMap(String FilePath) {
-
-        try {
-            InputStream is = getClass().getResourceAsStream(FilePath);
-            assert is != null;
-            BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+        InputStream is = getClass().getResourceAsStream(FilePath);
+        assert is != null;
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
             int col = 0;
             int row = 0;
 
@@ -110,11 +110,11 @@ public final class TileManager {
                     row++;
                 }
             }
-            br.close(); //closing buffered reader
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
 

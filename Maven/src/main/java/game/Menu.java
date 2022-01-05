@@ -1,10 +1,10 @@
 package game;
 
+import com.google.common.annotations.VisibleForTesting;
+
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.BatchUpdateException;
 
 /**
  * <p>Παράθυρο για StartMenu</p>
@@ -67,10 +67,11 @@ public final class Menu implements ActionListener {
      * <p>Constructor for Menu.</p>
      */
     public Menu() {
-        if (ButtonSetter.getPlaySound())
+        if (checkMusic()) {
             playMusic();
+        }
         // Εξατομίκευση παραθύρου
-        FrameSetter.setFrame(frame, "Menu", 970, 850);
+        FrameSetter.setFrame(frame, "Menu", 970, 810);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setButton(start);
@@ -92,7 +93,7 @@ public final class Menu implements ActionListener {
         FrameSetter.scaleImgToLabel(label, 235, 0, 500, 280, title);
         frame.add(label);
         //Εισαγωγή background
-        FrameSetter.scaleBackground(backgroundLabel, 970, 850);
+        FrameSetter.scaleBackground(backgroundLabel, 970, 810);
         frame.add(backgroundLabel);
     }
 
@@ -127,10 +128,12 @@ public final class Menu implements ActionListener {
             frame.dispose();
             //Έλεγχος για το αν υπάρχουν ανοιχτά utilityFrames πριν την έναρξη του παιχνιδιού
             for (UtilityFrame utilityFrame : utilityFrames) {
-                if (utilityFrame == null)
+                if (utilityFrame == null) {
                     continue;
-                if (utilityFrame.getIsOpen())
+                }
+                if (utilityFrame.getIsOpen()) {
                     utilityFrame.closeFrame();
+                }
             }
         } else if (e.getSource() == how2play) {
             how2play.setEnabled(false);
@@ -160,7 +163,17 @@ public final class Menu implements ActionListener {
         music.loop();
     }
 
-    static boolean musicIsPlaying() {
+    static boolean checkMusic() {
+        return !music.isPlaying() && ButtonSetter.getPlaySound();
+    }
+
+    /**
+     * <p>musicIsPlaying.</p>
+     *
+     * @return a boolean
+     */
+    @VisibleForTesting
+    public static boolean musicIsPlaying() {
         return music.isPlaying();
     }
 

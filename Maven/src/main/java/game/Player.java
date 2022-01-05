@@ -38,7 +38,6 @@ public class Player extends Entity {
 
     private static final int outOfBoundsLimit = 15;
 
-
     /**
      * <p>Constructor for Player.</p>
      *
@@ -104,7 +103,7 @@ public class Player extends Entity {
                     case "left":
                         worldx -= speed;
                         break;
-                    case "right":
+                    default:
                         worldx += speed;
                         break;
                 }

@@ -99,7 +99,7 @@ public final class CollisionCheck {
                         entity.solidArea.x -= Player.speed;
                         index = check(entity, player, index, i);
                         break;
-                    case "right":
+                    default:
                         entity.solidArea.x += Player.speed;
                         index = check(entity, player, index, i);
                         break;

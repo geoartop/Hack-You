@@ -3,6 +3,7 @@ package game;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * <p>Entity class.
@@ -56,9 +57,11 @@ public class Entity {
             setMovement(coin, "/goldCoin/goldCoin");
             setMovement(death, "/deadthiseas/dead");
 
-            BufferedImage image = ImageIO.read(getClass().getResourceAsStream(("/spikes/spike2.png")));
+            BufferedImage image = ImageIO.read(Objects.requireNonNull
+                    (getClass().getResourceAsStream(("/spikes/spike2.png"))));
             spikes[0] = FrameSetter.scaleImage(image, 38, 38);
-            image = ImageIO.read(getClass().getResourceAsStream(("/spikes/spike4.png")));
+            image = ImageIO.read(Objects.requireNonNull
+                    (getClass().getResourceAsStream(("/spikes/spike4.png"))));
             spikes[1] = FrameSetter.scaleImage(image, 38, 38);
 
         } catch (IOException e) {
@@ -74,7 +77,8 @@ public class Entity {
      */
     private void setMovement(BufferedImage[] images, String path) throws IOException {
         for (int i = 0; i < images.length; i++) {
-            BufferedImage image = ImageIO.read(getClass().getResourceAsStream(path + (i + 1) + ".png"));
+            BufferedImage image = ImageIO.read(Objects.requireNonNull
+                    (getClass().getResourceAsStream(path + (i + 1) + ".png")));
             images[i] = FrameSetter.scaleImage(image, 48, 48);
             if (i == 5 && images.length == 7) {
                 images[images.length - 1] = images[images.length - 2];

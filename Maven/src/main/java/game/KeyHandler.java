@@ -1,6 +1,6 @@
 package game;
 
-import javax.swing.*;
+import javax.swing.SwingUtilities;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -104,7 +104,9 @@ public class KeyHandler implements KeyListener {
         setKeys(true, code);
 
         // Για να μην επιτρέπεται η συνέχιση του παιχνιδιού μέχρι να κλείσει το παράθυρο options/quiz
-        if (code == KeyEvent.VK_SPACE && gp.labyrinthFrame.getHasStarted() && !Options.getIsActive() && !quizTrig) {
+        if ((code == KeyEvent.VK_SPACE || code == KeyEvent.VK_P)
+                && gp.labyrinthFrame.getHasStarted()
+                && !Options.getIsActive() && !quizTrig) {
             if (gp.getGameState() == GamePanel.playState) {
                 Menu.stopMusic();
                 gp.labyrinthFrame.stopBar();

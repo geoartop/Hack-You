@@ -16,14 +16,15 @@ class MenuTest {
 
     @Test
     void playMusic() {
-        Menu.playMusic();
         Assertions.assertTrue(Menu.musicIsPlaying());
     }
 
     @Test
     void stopMusic() {
+        Assertions.assertFalse(Menu.checkMusic());
         Menu.stopMusic();
         Assertions.assertFalse(Menu.musicIsPlaying());
+        Assertions.assertTrue(Menu.checkMusic());
     }
 
     @AfterAll

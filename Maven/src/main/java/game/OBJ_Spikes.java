@@ -44,10 +44,10 @@ public class OBJ_Spikes extends SuperObject {
         BufferedImage image = Entity.spikes[spriteNum - 1];
         collision = spriteNum == 2;
         super.setValues(g2, gp, image);
-        //OBJ_Question question = (OBJ_Question) gp.obj.get(question_index);
         //Απενεργοποίηση του spike μετά το trigger της ερώτησης
-        if (gp.obj.get(question_index) == null)
+        if (gp.obj.get(question_index) == null) {
             spriteNum = 1;
+        }
     }
 
 }

@@ -2,6 +2,9 @@ package game;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.security.SecureRandom;
 import java.util.LinkedList;
 
@@ -53,6 +56,30 @@ public final class GamePanel extends JPanel implements Runnable {
     static final int endState = 3;
     //Για την αναπαραγωγή ήχου
     private static final Sound se = new Sound();
+
+
+    /**
+     * <p>writeObject.</p>
+     *
+     * @param stream a {@link ObjectOutputStream} object
+     * @throws IOException if any
+     */
+    private void writeObject(ObjectOutputStream stream)
+            throws IOException {
+        stream.defaultWriteObject();
+    }
+
+    /**
+     * <p>readObject.</p>
+     *
+     * @param stream a {@link ObjectInputStream} object
+     * @throws IOException            if any
+     * @throws ClassNotFoundException if any
+     */
+    private void readObject(ObjectInputStream stream)
+            throws IOException, ClassNotFoundException {
+        stream.defaultReadObject();
+    }
 
     /**
      * <p>Getter for the field <code>gameState</code>.</p>
@@ -211,6 +238,7 @@ public final class GamePanel extends JPanel implements Runnable {
                 superObject.draw(g2, this);
             }
         }
+
         player.draw(g2);
         //Για να ζωγραφιστεί στην οθόνη τη λέξη ΠΑΥΣΗ σε περίπτωση pause
         if (gameState == pauseState) {

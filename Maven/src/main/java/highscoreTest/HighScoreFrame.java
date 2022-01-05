@@ -5,7 +5,8 @@ import game.Main;
 import game.UtilityFrame;
 import game.WinFrame;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 

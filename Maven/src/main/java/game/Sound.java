@@ -37,10 +37,9 @@ public final class Sound {
     /**
      * <p>setFile.</p>
      *
-     * @param i a int
+     * @param i an int
      */
     public void setFile(int i) {
-
         try {
             AudioInputStream ais = AudioSystem.getAudioInputStream(soundURL[i]);
             clip = AudioSystem.getClip();

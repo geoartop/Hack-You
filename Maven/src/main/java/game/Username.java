@@ -47,7 +47,6 @@ public final class Username implements ActionListener {
         textField.setBounds(325, 280, 300, 50);
         textField.setPreferredSize(new Dimension(300, 50));
         textField.setFont(new Font("Calibri", Font.BOLD + Font.ITALIC, 25));
-        textField.setSelectedTextColor(Color.green);
 
         GraphicPane graphicPane = new GraphicPane("Enter your username!", 970, 100, Main.mainColor, new Font("Times new Roman", Font.BOLD + Font.ITALIC, 45));
         graphicPane.setBounds(0, 100, 970, 150);
@@ -57,7 +56,7 @@ public final class Username implements ActionListener {
         frame.add(textField);
         // Για να λειτουργεί το κουμπί enter
         frame.getRootPane().setDefaultButton(submit);
-        FrameSetter.scaleBackground(backgroundLabel, 970, 850);
+        FrameSetter.scaleBackground(backgroundLabel, 970, 700);
         frame.add(backgroundLabel);
     }
 
@@ -75,21 +74,16 @@ public final class Username implements ActionListener {
             if (username.equals("")) {
                 JOptionPane.showMessageDialog(null, "You must enter your username!", "Reminder", JOptionPane.ERROR_MESSAGE);
                 return;
-            } else if (username.toLowerCase(Locale.ROOT).equals("spanakis") || username.toLowerCase(Locale.ROOT).equals("panos") || username.toLowerCase(Locale.ROOT).equals("marios-spanakis")) {
+            } else if (username.toLowerCase(Locale.ROOT).equals("spanakis") || username.equalsIgnoreCase("dds")) {
                 JOptionPane.showMessageDialog(null, "Congrats you won already on everything!", "Reminder", JOptionPane.INFORMATION_MESSAGE);
-                System.exit(1);
-            } else if (username.toLowerCase(Locale.ROOT).equals("artopoulos")) {
-                JOptionPane.showMessageDialog(null, "You lost already, good paradise", "Announcement", JOptionPane.WARNING_MESSAGE);
                 System.exit(1);
             } else if (username.contains(" ")) {
                 textField.setForeground(Color.red);
                 JOptionPane.showMessageDialog(null, "Your username cannot have whitespace", "Reminder", JOptionPane.ERROR_MESSAGE);
                 textField.setForeground(Color.black);
                 return;
-            } else if (username.toLowerCase(Locale.ROOT).equals("athanasia")) {
-                JOptionPane.showMessageDialog(null, "What are you doing here, why are you not with natassa (CRINGEEEEEEEEEEEEEEEEEEEEEEEEEEEEE)", "Announcement", JOptionPane.WARNING_MESSAGE);
-                System.exit(1);
             }
+
             SwingUtilities.invokeLater(Menu::new);
         }
         frame.dispose();

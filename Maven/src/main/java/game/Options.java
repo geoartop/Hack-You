@@ -97,10 +97,12 @@ public final class Options implements ActionListener {
      * Σε περίπτωση που υπάρχει το παράθυρο αυτό κλείνει
      */
     private void check() {
-        if (guide == null)
+        if (guide == null) {
             return;
-        if (guide.getIsOpen())
+        }
+        if (guide.getIsOpen()) {
             guide.closeFrame();
+        }
     }
 
     /** {@inheritDoc} */

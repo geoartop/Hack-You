@@ -64,8 +64,9 @@ public final class Quiz implements ActionListener {
         setLabels();
         setButtons();
 
-        for (JLabel label : labels)
+        for (JLabel label : labels) {
             frame.add(label);
+        }
         for (JButton button : buttons) {
             frame.add(button);
             button.setIcon(null);
@@ -99,8 +100,9 @@ public final class Quiz implements ActionListener {
      */
     private void displayAnswers() {
         textArea.setText(questions.get(index));
-        for (int i = 0; i < labels.length; i++)
+        for (int i = 0; i < labels.length; i++) {
             labels[i].setText(options.get(4 * index + i));
+        }
 
     }
 
@@ -187,16 +189,19 @@ public final class Quiz implements ActionListener {
     public static void readQuestions() throws FileNotFoundException {
         Scanner q = new Scanner(new File
                 (String.format("src/main/resources/quiz/%s Questions.txt", Levels.getDifficulty())), "UTF-8");
-        while (q.hasNextLine())
+        while (q.hasNextLine()) {
             questions.add(q.nextLine());
+        }
         Scanner o = new Scanner(new File
                 (String.format("src/main/resources/quiz/%s Options.txt", Levels.getDifficulty())), "UTF-8");
-        while (o.hasNextLine())
+        while (o.hasNextLine()) {
             options.add(o.nextLine());
+        }
         Scanner a = new Scanner
                 (new File(String.format("src/main/resources/quiz/%s Answers.txt", Levels.getDifficulty())), "UTF-8");
-        while (a.hasNext())
+        while (a.hasNext()) {
             answers.add(a.next().charAt(0));
+        }
     }
 
     /**

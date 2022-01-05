@@ -69,10 +69,10 @@ public final class FrameSetter {
      * <p>Μέθοδος που τοποθετεί μια εικόνα scaled σε ένα label</p>
      *
      * @param label     a {@link javax.swing.JLabel} object
-     * @param x         a int
-     * @param y         a int
-     * @param width     a int
-     * @param height    a int
+     * @param x         an int
+     * @param y         an int
+     * @param width     an int
+     * @param height    an int
      * @param imageIcon a {@link javax.swing.ImageIcon} object
      */
     public static void scaleImgToLabel(JLabel label, int x, int y, int width, int height, ImageIcon imageIcon) {

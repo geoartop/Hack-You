@@ -50,6 +50,13 @@ public final class AssetSetter {
         }
     }
 
+    /**
+     * <p>addCoins horizontally or vertically</p>
+     *
+     * @param x            an int
+     * @param y            an int
+     * @param isHorizontal a boolean
+     */
     private void addCoins(int x, int y, boolean isHorizontal) {
         addElement(new OBJ_Coin(), x, y);
         if (isHorizontal) {
@@ -100,38 +107,28 @@ public final class AssetSetter {
                 break;
         }*/
 
-        /*
-        addElement(new OBJ_Question());
-        setXY(1, 9);
+        addElement(new OBJ_Question(), 1, 9);
 
-        addElement(new OBJ_Question());
-        setXY(6, 4);
+        addElement(new OBJ_Question(), 6, 4);
 
-        addElement(new OBJ_Question());
-        setXY(5, 13);
+        addElement(new OBJ_Question(), 5, 13);
 
-        addElement(new OBJ_Question());
-        setXY(11, 12);
+        addElement(new OBJ_Question(), 11, 12);
 
-        addElement(new OBJ_Question());
-        setXY(11, 5);
+        addElement(new OBJ_Question(), 11, 5);
 
         addSpikes(12, 4, false);
 
-        addElement(new OBJ_Question());
-        setXY(8, 9);
+        addElement(new OBJ_Question(), 8, 9);
 
-        addElement(new OBJ_Exit());
-        setXY(15, 4);
+        addElement(new OBJ_Exit(), 15, 4);
 
-        addElement(new OBJ_Coin());
-        setXY(2, 10);
+        addCoins(2, 10, true);
 
-        addElement(new OBJ_Question());
-        setXY(2, 6);
+        addElement(new OBJ_Question(), 2, 6);
 
         addSpikes(2, 7, true);
-        */
+
 
     }
 

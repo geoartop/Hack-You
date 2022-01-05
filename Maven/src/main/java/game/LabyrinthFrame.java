@@ -137,8 +137,9 @@ public final class LabyrinthFrame implements ActionListener {
      */
     public LabyrinthFrame() {
         restartStatus = false;
-        if (!Menu.musicIsPlaying() && ButtonSetter.getPlaySound())
+        if (Menu.checkMusic()) {
             Menu.playMusic();
+        }
 
         createFrame();
         createBar();

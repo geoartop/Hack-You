@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 /**
- * <p>Αντικείμενο coin στο παιχνίδι</p>
+ * <p>Αντικείμενο coin στο παιχνίδι.</p>
  *
  * @author Team Hack-You
  * @version 1.0

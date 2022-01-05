@@ -6,9 +6,10 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 
 /**
- * <p>Πρότυπο για την επεξεργασία buttons</p>
+ * <p>Πρότυπο για την επεξεργασία buttons.</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -56,8 +57,8 @@ public final class ButtonSetter {
         counter++;
         BufferedImage image;
         try {
-            image = ImageIO.read(ButtonSetter.class.getResourceAsStream(
-                    String.format("/buttons/wood%d.png", (counter % 2 == 1 ? 2 : 1))));
+            image = ImageIO.read(Objects.requireNonNull(ButtonSetter.class.getResourceAsStream(
+                    String.format("/buttons/wood%d.png", (counter % 2 == 1 ? 2 : 1)))));
             image = FrameSetter.scaleImage(image, width, height);
             icon = new ImageIcon(image);
         } catch (IOException e) {

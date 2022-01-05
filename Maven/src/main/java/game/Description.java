@@ -5,7 +5,7 @@ import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 
 /**
- * <p>Περιγραφή παιχνιδιού και "πλοκής"</p>
+ * <p>Περιγραφή παιχνιδιού και "πλοκής".</p>
  *
  * @author Team Hack-You
  * @version 1.0

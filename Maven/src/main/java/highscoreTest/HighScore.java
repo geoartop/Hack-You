@@ -4,10 +4,11 @@ import com.google.common.annotations.VisibleForTesting;
 
 import javax.swing.*;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
 
 /**
- * <p>Λειτουργική κλάση για την εμφάνιση των top 10 scores μαζί με τα username αντίστοιχα</p>
+ * <p>Λειτουργική κλάση για την εμφάνιση των top 10 scores μαζί με τα username αντίστοιχα.</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -40,51 +41,44 @@ public final class HighScore {
     public HighScore(String name, int score) {
         this.name = name;
         this.score = score;
-        try {
-            setFile(true);
-            load();
-
-            boolean checkForNewHigh = checkForNewRegister();
-            if (checkForNewHigh) {
-                //Αν δεν έγινε personal record
-                boolean flag = true;
-                sort();
-                int count = 0;
-                if (playerInfo.stream().anyMatch(p -> p.getName().equals(name))) {
-                    for (PlayerInfo p : playerInfo) {
-                        int check = new PlayerInfo(name, score).didGreater(p);
-                        if (check == PlayerInfo.greater) {
-                            //Για να μην υπάρξει interrupt στο Thread του WinFrame
-                            SwingUtilities.invokeLater(() ->
-                                    JOptionPane.showMessageDialog(null,
-                                            "Ξεπέρασες το προσωπικό σου highscore!", "Congratulations",
-                                            JOptionPane.INFORMATION_MESSAGE));
-                            flag = false;
+        setFile(true);
+        load();
+        boolean checkForNewHigh = checkForNewRegister();
+        if (checkForNewHigh) {
+            //Αν δεν έγινε personal record
+            boolean flag = true;
+            sort();
+            int count = 0;
+            if (playerInfo.stream().anyMatch(p -> p.getName().equals(name))) {
+                for (PlayerInfo p : playerInfo) {
+                    int check = new PlayerInfo(name, score).didGreater(p);
+                    if (check == PlayerInfo.greater) {
+                        //Για να μην υπάρξει interrupt στο Thread του WinFrame
+                        SwingUtilities.invokeLater(() ->
+                                JOptionPane.showMessageDialog(null,
+                                        "Ξεπέρασες το προσωπικό σου highscore!", "Congratulations",
+                                        JOptionPane.INFORMATION_MESSAGE));
+                        flag = false;
+                        break;
+                    } else if (check == PlayerInfo.notGreater) {
+                        count++;
+                        //Αν συναντάται η ίδια καταχώρηση πάνω από μια φορά, η αναζήτηση σταματά
+                        if (count == 2) {
                             break;
-                        } else if (check == PlayerInfo.notGreater) {
-                            count++;
-                            //Αν συναντάται η ίδια καταχώρηση πάνω από μια φορά, η αναζήτηση σταματά
-                            if (count == 2) {
-                                break;
-                            }
                         }
                     }
                 }
-                if (flag) {
-                    //Για να μην υπάρξει interrupt στο Thread του WinFrame
-                    SwingUtilities.invokeLater(() ->
-                            JOptionPane.showMessageDialog(null,
-                                    "You managed to set a new Highscore to the highscore table", "Congratulations",
-                                    JOptionPane.INFORMATION_MESSAGE));
-                }
             }
-
-            playerInfoSize = playerInfo.size();
-            setFile(false);
-        } catch (IOException e) {
-            e.printStackTrace();
+            if (flag) {
+                //Για να μην υπάρξει interrupt στο Thread του WinFrame
+                SwingUtilities.invokeLater(() ->
+                        JOptionPane.showMessageDialog(null,
+                                "You managed to set a new Highscore to the highscore table", "Congratulations",
+                                JOptionPane.INFORMATION_MESSAGE));
+            }
         }
-
+        playerInfoSize = playerInfo.size();
+        setFile(false);
     }
 
     /**
@@ -103,27 +97,32 @@ public final class HighScore {
      * για να καταγραφεί στον πίνακα των top 10 ή όχι</p>
      *
      * @return true αν έγινε η καταχώρηση επιτυχώς, false αν δεν έγινε νέα καταχώρηση
-     * @throws IOException if any
      */
-    private boolean checkForNewRegister() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/HighScore.txt"));
-        int lines = 0;
-        while (reader.readLine() != null) {
-            lines++;
-        }
-        reader.close();
-        if (lines < 10) {
-            appendScore();
-            playerInfo.add(new PlayerInfo(name, score));
-            return true;
-        }
+    private boolean checkForNewRegister() {
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(
+                        new FileInputStream("src/main/resources/HighScore.txt"), StandardCharsets.UTF_8))) {
 
-        for (PlayerInfo player : playerInfo) {
-            if (score > player.getScore()) {
+            int lines = 0;
+            while (reader.readLine() != null) {
+                lines++;
+            }
+            reader.close();
+            if (lines < 10) {
                 appendScore();
                 playerInfo.add(new PlayerInfo(name, score));
                 return true;
             }
+
+            for (PlayerInfo player : playerInfo) {
+                if (score > player.getScore()) {
+                    appendScore();
+                    playerInfo.add(new PlayerInfo(name, score));
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return false;
 
@@ -133,82 +132,71 @@ public final class HighScore {
      * <p>Προσθήκη στοιχείων στο αρχείο txt των highscores </p>
      */
     private void appendScore() {
-        FileWriter fileWriter = null;
-        BufferedWriter bufferedWriter = null;
-        PrintWriter printWriter = null;
-
-        try {
-            fileWriter = new FileWriter("src/main/resources/HighScore.txt");
-            bufferedWriter = new BufferedWriter(fileWriter);
-            printWriter = new PrintWriter(bufferedWriter);
-            //Writing text to file με συγκεκριμένη μορφοποίηση
-            printWriter.print(String.format("%s %d", name, score));
+        try (BufferedWriter writer = new BufferedWriter
+                (new OutputStreamWriter(
+                        new FileOutputStream("src/main/resources/HighScore.txt", true), StandardCharsets.UTF_8))) {
+            writer.write(String.format("%s %d", name, score));
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            //Closing the resources
-            try {
-                assert printWriter != null;
-                printWriter.close();
-                bufferedWriter.close();
-                fileWriter.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 
     /**
      * <p>Φόρτωση πληροφοριών αρχείου στη συνδεδεμένη λίστα <code>playerInfo</code></p>
-     *
-     * @throws IOException if any
      */
-    private void load() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/HighScore.txt"));
-        String currentLine = reader.readLine();
+    private void load() {
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(
+                        new FileInputStream("src/main/resources/HighScore.txt"), StandardCharsets.UTF_8))) {
 
-        while (currentLine != null) {
-            String[] playerDetails = currentLine.split(" ");
+            String currentLine = reader.readLine();
 
-            String name = playerDetails[0];
+            while (currentLine != null) {
+                String[] playerDetails = currentLine.split(" ");
 
-            int score = Integer.parseInt(playerDetails[1]);
+                String name = playerDetails[0];
 
-            //Creating PlayerInfo object for every student record and adding it to ArrayList
-            playerInfo.add(new PlayerInfo(name, score));
-            currentLine = reader.readLine();
+                int score = Integer.parseInt(playerDetails[1]);
+
+                //Creating PlayerInfo object for every student record and adding it to ArrayList
+                playerInfo.add(new PlayerInfo(name, score));
+                currentLine = reader.readLine();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        reader.close();
 
     }
 
     /**
      * <p>Ταξινόμηση playerInfo και αρχείου με φθίνουσα σειρά με βάση τα scores</p>
-     *
-     * @throws IOException if any
      */
-    private void sort() throws IOException {
+    private void sort() {
         //Sorting ArrayList playerInfo based on scores
         playerInfo.sort((p1, p2) -> p2.getScore() - p1.getScore());
-        BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/HighScore.txt"));
+        try (BufferedWriter writer = new BufferedWriter
+                (new OutputStreamWriter(
+                        new FileOutputStream("src/main/resources/HighScore.txt"), StandardCharsets.UTF_8))) {
+            int counter = 0;
+            //Ξαναδημιουργώ το αρχείο βάζοντας τα playerInfo σε σωστή σειρά και να είναι μέχρι 10
+            for (PlayerInfo player : playerInfo) {
+                if (counter == 10) {
+                    playerInfo.remove(counter);
+                    break;
+                }
+                writer.write(player.getName());
 
-        int counter = 0;
-        //Ξαναδημιουργώ το αρχείο βάζοντας τα playerInfo σε σωστή σειρά και να είναι μέχρι 10
-        for (PlayerInfo player : playerInfo) {
-            if (counter == 10) {
-                playerInfo.remove(counter);
-                break;
+                writer.write(" " + player.getScore());
+
+                writer.newLine();
+                counter++;
+
             }
-            writer.write(player.getName());
 
-            writer.write(" " + player.getScore());
-
-            writer.newLine();
-            counter++;
-
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        writer.close();
     }
 
     /**

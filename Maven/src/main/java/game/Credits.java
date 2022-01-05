@@ -5,7 +5,7 @@ import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 
 /**
- * <p>Παρουσίαση μελών και ρόλων αυτών</p>
+ * <p>Παρουσίαση μελών και ρόλων αυτών.</p>
  *
  * @author Team Hack-You
  * @version 1.0

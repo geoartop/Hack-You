@@ -3,7 +3,7 @@ package game;
 import java.awt.image.BufferedImage;
 
 /**
- * <p>Κουτί ("μπλοκ") του χάρτη του παιχνιδιού</p>
+ * <p>Κουτί ("μπλοκ") του χάρτη του παιχνιδιού.</p>
  *
  * @author Team Hack-You
  * @version 1.0

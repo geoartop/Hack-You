@@ -1,6 +1,10 @@
 package highscoreTest;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -9,10 +13,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
- * <p>highscoreTest.HighScoreTest class.</p>
+ * <p>HighScoreTest class.</p>
  * ΤΑ ΤΕΣΤ ΔΕΝ ΓΙΝΟΝΤΑΙ ΜΕ ΤΗ ΣΕΙΡΑ FUCKING GENIUS!
  *
- * @author panagiotis
+ * @author Hack-You
  * @version 1.0
  */
 public class HighScoreTest {
@@ -32,7 +36,6 @@ public class HighScoreTest {
     void functionalityCheck() {
         Assertions.assertNotEquals(0, HighScore.getPlayerInfoSize());
         Assertions.assertTrue(highScore.isRegistered("Mpampis", 11));
-        //Assertions.assertEquals(2, highScore.getPlayerInfoElement(0).didGreater(highScore.getPlayerInfoElement(1)));
         Assertions.assertEquals(10, HighScore.getPlayerInfoSize());
     }
 
@@ -52,7 +55,6 @@ public class HighScoreTest {
     @Test
     @DisplayName("Result of check should be 2")
     void didGreaterTest() {
-        System.out.println(HighScore.getPlayerInfoSize());
         Assertions.assertEquals(PlayerInfo.greater, highScore.getPlayerInfoElement(0).didGreater(highScore.getPlayerInfoElement(1)));
     }
 

@@ -56,9 +56,10 @@ public abstract class UtilityFrame {
      * @throws java.io.FileNotFoundException if any.
      */
     protected void load(String pathname, JTextArea textArea) throws FileNotFoundException {
-        Scanner q = new Scanner(new File(pathname),"UTF-8");
-        while (q.hasNextLine())
+        Scanner q = new Scanner(new File(pathname), "UTF-8");
+        while (q.hasNextLine()) {
             textArea.append(q.nextLine() + "\n");
+        }
     }
 
     /**

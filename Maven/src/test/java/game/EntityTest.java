@@ -22,6 +22,5 @@ class EntityTest {
     void getImage() {
         entity.getImages();
         assertSame(Entity.death[6], Entity.death[5]);
-
     }
 }

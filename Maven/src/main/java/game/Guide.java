@@ -13,7 +13,7 @@ import java.awt.event.WindowEvent;
 public class Guide extends UtilityFrame {
 
     /**
-     * <p>Κατασκευαστής που καλείται όταν το guide ανοίγει από το παράθυρο options</p>
+     * <p>Κατασκευαστής που καλείται όταν το guide ανοίγει από το παράθυρο options.</p>
      *
      * @param options : Το παράθυρο options από το οποίο κλήθηκε ο guide
      */
@@ -31,7 +31,7 @@ public class Guide extends UtilityFrame {
     }
 
     /**
-     * <p>Κατασκευαστής που καλείται όταν το guide ανοίγει από το παράθυρο menu</p>
+     * <p>Κατασκευαστής που καλείται όταν το guide ανοίγει από το παράθυρο menu.</p>
      *
      * @param menu : Το παράθυρο menu από το οποίο κλήθηκε ο guide
      */

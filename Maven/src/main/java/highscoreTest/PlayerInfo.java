@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * <p>Ορισμός δεδομένων που θα γράφονται σε κάθε γραμμή του HighScore.txt</p>
+ * <p>Ορισμός δεδομένων που θα γράφονται σε κάθε γραμμή του HighScore.txt.</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -20,7 +20,13 @@ public final class PlayerInfo implements Serializable {
     private final String name;
     private final int score;
 
+    /**
+     * Constant <code>greater=2</code>
+     */
     public static final int greater = 2;
+    /**
+     * Constant <code>notGreater=1</code>
+     */
     public static final int notGreater = 1;
 
     /**
@@ -37,11 +43,11 @@ public final class PlayerInfo implements Serializable {
     /**
      * <p>Έλεγχος αν ο παίκτης έκανε προσωπικό ρεκόρ</p>
      *
-     * @param obj an {@link PlayerInfo} object
+     * @param obj an {@link highscoreTest.PlayerInfo} object
      * @return an int
-     * <p>- 0 for not common name</p>
-     * <p>- 1 for common name but not greater score</p>
-     * <p>- 2 for common name and greater score</p>
+     * <p> 0 for not common name</p>
+     * <p> 1 for common name but not greater score</p>
+     * <p> 2 for common name and greater score</p>
      */
     public int didGreater(PlayerInfo obj) {
         if (obj == null) {
@@ -76,6 +82,15 @@ public final class PlayerInfo implements Serializable {
         }
 
         return this.score == other.score;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int hashCode() {
+        assert false : "hashCode not designed";
+        return 4012; // any arbitrary constant will do
     }
 
     /**
