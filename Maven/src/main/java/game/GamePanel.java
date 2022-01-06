@@ -1,11 +1,14 @@
 package game;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.security.SecureRandom;
 import java.util.LinkedList;
 
 /**
@@ -141,7 +144,7 @@ public final class GamePanel extends JPanel implements Runnable {
     /**
      * {@inheritDoc}
      *
-     * <p>Game loop εξατομικευμένο ώστε να τρέχει το παιχνίδι με 60 fps (frames per second). </p>
+     * <p>Delta game loop εξατομικευμένο ώστε να τρέχει το παιχνίδι με 60 fps (frames per second). </p>
      */
     @Override
     public void run() {

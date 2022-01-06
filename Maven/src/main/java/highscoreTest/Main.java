@@ -1,9 +1,7 @@
 package highscoreTest;
 
 import game.WinFrame;
-
-import javax.swing.*;
-import java.security.SecureRandom;
+import javax.swing.SwingUtilities;
 
 /**
  * <p>Main class.</p>
@@ -19,7 +17,7 @@ public class Main {
      * @param args an array of {@link java.lang.String} objects
      */
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(WinFrame::new);
+        //SwingUtilities.invokeLater(WinFrame::new);
 
     }
 

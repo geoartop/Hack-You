@@ -2,7 +2,6 @@ package game;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.FileNotFoundException;
 
 /**
  * <p>Παρουσίαση μελών και ρόλων αυτών.</p>
@@ -28,11 +27,8 @@ public class Credits extends UtilityFrame {
             }
         });
 
-        try {
-            super.load("src/main/resources/sheet-credits.txt", textArea);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        super.load("src/main/resources/sheet-credits.txt", textArea);
+
         textArea.setCaretPosition(0);
         frame.getContentPane().add(scrollPane);
         frame.add(backgroundLabel);

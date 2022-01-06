@@ -128,10 +128,12 @@ public final class CollisionCheck {
      */
     private int check(Player entity, boolean player, int index, int i) {
         if (entity.solidArea.intersects(gp.obj.get(i).solidArea)) {
-            if (gp.obj.get(i).collision)
+            if (gp.obj.get(i).collision) {
                 entity.setCollisionOn(true);
-            if (player)
+            }
+            if (player) {
                 index = i;
+            }
         }
 
         return index;

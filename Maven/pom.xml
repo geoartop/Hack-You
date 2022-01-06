@@ -47,7 +47,7 @@
         <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
-            <version>9.2</version>
+            <version>9.2.1</version>
         </dependency>
 
 
@@ -81,6 +81,7 @@
     <build>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (maybe moved to parent pom) -->
             <plugins>
+
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>findbugs-maven-plugin</artifactId>
@@ -107,6 +108,13 @@
                     <configuration>
                         <show>private</show>
                         <nohelp>true</nohelp>
+                        <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
+                        <docletArtifact>
+                            <!-- UMLGraph cannot be used with Java 9 or above due to substantial changes in the JavaDoc Doclet API-->
+                            <groupId>org.umlgraph</groupId>
+                            <artifactId>umlgraph</artifactId>
+                            <version>5.6.6</version>
+                        </docletArtifact>
                     </configuration>
                 </plugin>
                 <!-- For encoding configuration -->
@@ -119,17 +127,17 @@
                     </configuration>
                 </plugin>
                 <plugin>
+                    <!-- Build an executable JAR -->
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>2.4</version>
-                    <executions>
-                        <execution>
-                            <id>default-jar</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>jar</goal>
-                            </goals>
-                        </execution>
-                    </executions>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <mainClass>game.Main</mainClass>
+                            </manifest>
+                        </archive>
+                    </configuration>
                 </plugin>
                 <!-- Surefire plugin -->
                 <plugin>

@@ -2,8 +2,16 @@ package highscoreTest;
 
 import com.google.common.annotations.VisibleForTesting;
 
-import javax.swing.*;
-import java.io.*;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
 
@@ -16,6 +24,9 @@ import java.util.LinkedList;
  */
 public final class HighScore {
 
+    /**
+     * <code>playerInfo</code> Περιέχει τα στοιχεία των παικτών που έχουν καταχωρήσει highscore
+     */
     private final LinkedList<PlayerInfo> playerInfo = new LinkedList<>();
     private final String name;
     private final int score;
@@ -108,6 +119,7 @@ public final class HighScore {
                 lines++;
             }
             reader.close();
+            //Αν οι γραμμές είναι <10 γίνεται καταχώρηση χωρίς έλεγχο
             if (lines < 10) {
                 appendScore();
                 playerInfo.add(new PlayerInfo(name, score));

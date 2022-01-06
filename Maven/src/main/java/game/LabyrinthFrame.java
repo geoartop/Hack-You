@@ -1,7 +1,13 @@
 package game;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JProgressBar;
+import javax.swing.SwingUtilities;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
@@ -168,7 +174,7 @@ public final class LabyrinthFrame implements ActionListener {
     }
 
     /**
-     * <p>Λειτουργία του progressBar</p>
+     * <p>Λειτουργία του progressBar.</p>
      *
      * @param flg : ο χρόνος που θα έχει ο παίκτης
      */
@@ -180,8 +186,9 @@ public final class LabyrinthFrame implements ActionListener {
                 go = true;
                 return;
             }
-            if (counter == 0)
+            if (counter == 0) {
                 break;
+            }
             bar.setString(String.format("%d seconds left", counter));
             bar.setValue(counter);
             try {
@@ -239,11 +246,10 @@ public final class LabyrinthFrame implements ActionListener {
      * @param hasWon : true σε περίπτωση νίκης, false σε περίπτωση αποτυχίας
      */
     void closeFrame(boolean hasWon) {
-        Menu.stopMusic();
         hasStarted = false;
         if (hasWon) {
             stopBar();
-            SwingUtilities.invokeLater(WinFrame::new);
+            SwingUtilities.invokeLater(() -> new WinFrame(counter));
         } else {
             SwingUtilities.invokeLater(DeathFrame::new);
         }

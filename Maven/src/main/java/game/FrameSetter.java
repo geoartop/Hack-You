@@ -66,7 +66,7 @@ public final class FrameSetter {
     }
 
     /**
-     * <p>Μέθοδος που τοποθετεί μια εικόνα scaled σε ένα label</p>
+     * <p>Μέθοδος που τοποθετεί μια εικόνα scaled σε ένα label.</p>
      *
      * @param label     a {@link javax.swing.JLabel} object
      * @param x         an int

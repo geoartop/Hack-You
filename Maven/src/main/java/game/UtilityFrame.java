@@ -1,7 +1,11 @@
 package game;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import java.awt.Color;
+import java.awt.Font;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -53,13 +57,17 @@ public abstract class UtilityFrame {
      *
      * @param pathname το path του αρχείου
      * @param textArea το textArea στο οποίο θα φορτωθεί το κείμενο
-     * @throws java.io.FileNotFoundException if any.
      */
-    protected void load(String pathname, JTextArea textArea) throws FileNotFoundException {
-        Scanner q = new Scanner(new File(pathname), "UTF-8");
-        while (q.hasNextLine()) {
-            textArea.append(q.nextLine() + "\n");
+    protected void load(String pathname, JTextArea textArea) {
+        try {
+            Scanner q = new Scanner(new File(pathname), "UTF-8");
+            while (q.hasNextLine()) {
+                textArea.append(q.nextLine() + "\n");
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
+
     }
 
     /**

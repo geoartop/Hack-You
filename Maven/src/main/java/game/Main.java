@@ -1,7 +1,9 @@
 package game;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.ImageIcon;
+import javax.swing.SwingUtilities;
+import java.awt.Color;
+import java.awt.Font;
 
 /**
  * <p>Σημείο Εκκίνησης παιχνιδιού</p>

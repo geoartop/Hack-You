@@ -1,7 +1,8 @@
 package game;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.SwingUtilities;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.util.Objects;
 
@@ -157,7 +158,7 @@ public class Player extends Entity {
             }
             //Προσθήκη χρόνου (ίσως και πόντων) όταν ο παίκτης βρίσκει coins
             if (Objects.equals(objectName, "Coin")) {
-                gp.labyrinthFrame.editBarTime(LabyrinthFrame.for_correct);
+                gp.labyrinthFrame.editBarTime(LabyrinthFrame.for_correct / 2);
                 gp.obj.set(index, null);
             }
 

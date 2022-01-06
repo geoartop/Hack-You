@@ -1,6 +1,11 @@
 package game;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -40,6 +45,9 @@ public final class Quiz implements ActionListener {
 
     private final GamePanel gp;
 
+    private static int rightQuestions = 0;
+    private static int totalQuestions = 0;
+
     /**
      * <p>Constructor for Quiz.</p>
      *
@@ -47,6 +55,7 @@ public final class Quiz implements ActionListener {
      */
     public Quiz(GamePanel gp) {
         this.gp = gp;
+        totalQuestions++;
         FrameSetter.setFrame(frame, "Question", 800, 540);
         //Για να μη γίνεται skip της ερώτησης
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -138,8 +147,9 @@ public final class Quiz implements ActionListener {
             } else {
                 buttons[i].setBackground(Color.red);
             }
-            if (e.getSource() == buttons[i])
+            if (e.getSource() == buttons[i]) {
                 answer = symbols[i];
+            }
 
         }
         checkAnswer();
@@ -169,6 +179,7 @@ public final class Quiz implements ActionListener {
         if (answer == answers.get(index)) {
             time = LabyrinthFrame.for_correct;
             correctAnswer();
+            rightQuestions++;
         } else {
             time = LabyrinthFrame.for_wrong;
             wrongAnswer();
@@ -205,9 +216,20 @@ public final class Quiz implements ActionListener {
     }
 
     /**
+     * <p>getPercentage of right questions.</p>
+     *
+     * @return a double
+     */
+    public static double getPercentage() {
+        return (double) rightQuestions / totalQuestions;
+    }
+
+    /**
      * <p>clearIndexes.</p>
      */
     public static void clearIndexes() {
+        totalQuestions = 0;
+        rightQuestions = 0;
         indexes.clear();
     }
 

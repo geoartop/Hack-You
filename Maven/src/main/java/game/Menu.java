@@ -2,7 +2,10 @@ package game;
 
 import com.google.common.annotations.VisibleForTesting;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -25,8 +28,10 @@ public final class Menu implements ActionListener {
     private final JButton how2play = new JButton("How to Play");
     private final JButton credits = new JButton("Show Credits");
     private final JButton description = new JButton("Game Description");
-    /* Προσδιορισμός για τον αν παίζεται μουσική στο παιχνίδι ή όχι
-    ώστε να απεικονιστεί η κατάσταση ήχου στο κουμπί */
+    /**
+     * Προσδιορισμός για τον αν παίζεται μουσική
+     * στο παιχνίδι ή όχι ώστε να απεικονιστεί η κατάσταση ήχου στο κουμπί
+     */
     private final JButton musicOn_Off = new JButton(String.format("Sound %s", ButtonSetter.getPlaySound() ? "off" : "on"));
     private final JLabel label = new JLabel();
     private final JLabel backgroundLabel = new JLabel();
@@ -34,7 +39,7 @@ public final class Menu implements ActionListener {
     //Αρχικοποίηση εξαρτημένων παραθύρων
     private final UtilityFrame[] utilityFrames = new UtilityFrame[3];
 
-    private int y = 300;
+    private int y = 250;
 
     /**
      * <p>Setter for <code>how2play</code> enabled status</p>
@@ -71,7 +76,7 @@ public final class Menu implements ActionListener {
             playMusic();
         }
         // Εξατομίκευση παραθύρου
-        FrameSetter.setFrame(frame, "Menu", 970, 810);
+        FrameSetter.setFrame(frame, "Menu", 970, 780);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setButton(start);
@@ -83,17 +88,17 @@ public final class Menu implements ActionListener {
         JLabel thLabel = new JLabel();
         JLabel mLabel = new JLabel();
 
-        FrameSetter.scaleImgToLabel(thLabel, 380, 210, 90, 70, thiseas);
+        FrameSetter.scaleImgToLabel(thLabel, 380, 170, 90, 70, thiseas);
         frame.add(thLabel);
 
-        FrameSetter.scaleImgToLabel(mLabel, 465, 180, 120, 100, minotaur);
+        FrameSetter.scaleImgToLabel(mLabel, 465, 140, 120, 100, minotaur);
         frame.add(mLabel);
 
         //Εισαγωγή τίτλου παιχνιδιού
-        FrameSetter.scaleImgToLabel(label, 235, 0, 500, 280, title);
+        FrameSetter.scaleImgToLabel(label, 235, 50, 500, 100, title);
         frame.add(label);
         //Εισαγωγή background
-        FrameSetter.scaleBackground(backgroundLabel, 970, 810);
+        FrameSetter.scaleBackground(backgroundLabel, 970, 780);
         frame.add(backgroundLabel);
     }
 

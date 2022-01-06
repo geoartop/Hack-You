@@ -1,7 +1,7 @@
 package game;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import java.security.SecureRandom;
 import java.util.Objects;
 
 /**
- * <p>Configuration του χάρτη, των μπλοκ και των χαρακτηριστικών αυτών </p>
+ * <p>Configuration του χάρτη, των μπλοκ και των χαρακτηριστικών αυτών.</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -57,10 +57,10 @@ public final class TileManager {
      * <p>getTileImage.</p>
      */
     private void getTileImage() {
-        //setup(0,String.format("/tiles/%sFloor.png",Levels.getDifficulty()),false);
-        //setup(1,String.format("/tiles/%sWall.png",Levels.getDifficulty()),true);
-        setup(0, "/tiles/test1.png", false);
-        setup(1, "/tiles/test2.png", true);
+        setup(0, String.format("/tiles/%sFloor.png", Levels.getDifficulty()), false);
+        setup(1, String.format("/tiles/%sWall.png", Levels.getDifficulty()), true);
+        //setup(0, "/tiles/wall421.png", false);
+        //setup(1, "/tiles/wall69.png", true);
     }
 
     /**

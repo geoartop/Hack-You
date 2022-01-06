@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
- * <p>Δημιουργία αντικειμένων στο παιχνίδι</p>
+ * <p>Δημιουργία αντικειμένων στο παιχνίδι.</p>
  *
  * @author Team Hack-You
  * @version 1.0

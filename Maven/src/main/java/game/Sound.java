@@ -17,7 +17,7 @@ import java.net.URL;
 public final class Sound {
 
     private Clip clip;
-    private static final URL[] soundURL = new URL[7];
+    private static final URL[] soundURL = new URL[6];
     private boolean active = false;
 
     /**
@@ -25,10 +25,8 @@ public final class Sound {
      */
     public Sound() {
         soundURL[0] = getClass().getResource("/sound/audio_thiseas.wav");
-        //soundURL[0] = getClass().getResource("/sound/ymnos.wav");
         soundURL[1] = getClass().getResource("/sound/sound_effect.wav");
         soundURL[2] = getClass().getResource("/sound/Coin_1.wav");
-        //soundURL[3] = getClass().getResource("/sound/victory.wav");
         soundURL[3] = getClass().getResource("/sound/win_sound.wav");
         soundURL[4] = getClass().getResource("/sound/swoosh.wav");
         soundURL[5] = getClass().getResource("/sound/death_sound.wav");

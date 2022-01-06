@@ -3,8 +3,13 @@ package game;
 import highscoreTest.HighScore;
 import highscoreTest.HighScoreFrame;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -50,13 +55,15 @@ public final class WinFrame implements ActionListener {
 
     /**
      * <p>Constructor for WinFrame.</p>
+     *
+     * @param time a int
      */
-    public WinFrame() {
+    public WinFrame(int time) {
         frame = new JFrame();
         FrameSetter.setFrame(frame, "Victory", 800, 800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //Έλεγχος για το αν ο παίκτης έκανε νέο highscore
-        highScore = new HighScore(Username.getUsername(), calculateScore());
+        highScore = new HighScore(Username.getUsername(), calculateScore(time));
 
         setButton(playAgain);
         setButton(seeHighScores);
@@ -92,18 +99,19 @@ public final class WinFrame implements ActionListener {
     /**
      * <p>calculateScore.</p>
      *
-     * @return a int
+     * @param time a int
+     * @return an int
      */
-    public int calculateScore() {
-        /*int score;
-        if(Levels.getDifficulty().equals("Easy")){
-
-        }else if(Levels.getDifficulty().equals("Medium")){
-
-        }else {
-
-        }*/
-        return 7;
+    public int calculateScore(int time) {
+        double multiplier;
+        if (Levels.getDifficulty().equals("Easy")) {
+            multiplier = 1;
+        } else if (Levels.getDifficulty().equals("Medium")) {
+            multiplier = 1.25;
+        } else {
+            multiplier = 1.5;
+        }
+        return (int) (time * multiplier * Quiz.getPercentage());
     }
 
     /**

@@ -112,8 +112,9 @@ public class KeyHandler implements KeyListener {
                 gp.labyrinthFrame.stopBar();
                 gp.setGameState(GamePanel.pauseState);
             } else {
-                if (ButtonSetter.getPlaySound())
+                if (ButtonSetter.getPlaySound()) {
                     Menu.continuePlaying();
+                }
                 gp.setGameState(GamePanel.playState);
                 gp.labyrinthFrame.updateBar(0);
             }
@@ -143,14 +144,18 @@ public class KeyHandler implements KeyListener {
      * @param code   an int
      */
     private void setKeys(boolean status, int code) {
-        if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP)
+        if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) {
             upPressed = status;
-        if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)
+        }
+        if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) {
             downPressed = status;
-        if (code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT)
+        }
+        if (code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT) {
             leftPressed = status;
-        if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT)
+        }
+        if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT) {
             rightPressed = status;
+        }
     }
 
     /** {@inheritDoc} */
