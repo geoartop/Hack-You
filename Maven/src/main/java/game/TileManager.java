@@ -59,8 +59,8 @@ public final class TileManager {
     private void getTileImage() {
         //setup(0,String.format("/tiles/%sFloor.png",Levels.getDifficulty()),false);
         //setup(1,String.format("/tiles/%sWall.png",Levels.getDifficulty()),true);
-        setup(0, "/tiles/tile16.png", false);
-        setup(1, "/tiles/puke123.png", true);
+        setup(0, "/tiles/EazyFloor.png", false);
+        setup(1, "/tiles/EazyWall.png", true);
     }
 
     /**
