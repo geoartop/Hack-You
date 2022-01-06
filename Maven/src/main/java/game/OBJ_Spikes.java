@@ -20,7 +20,7 @@ public class OBJ_Spikes extends SuperObject {
     /**
      * <p>Constructor for OBJ_Spikes.</p>
      *
-     * @param question_index a int
+     * @param question_index an int
      */
     public OBJ_Spikes(int question_index) {
         super();

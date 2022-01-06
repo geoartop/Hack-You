@@ -24,8 +24,8 @@ public final class AssetSetter {
      * <p>addElement and set its position</p>
      *
      * @param element a {@link SuperObject} object
-     * @param x an int
-     * @param y an int
+     * @param x       an int
+     * @param y       an int
      */
     private void addElement(SuperObject element, int x, int y) {
         gp.obj.add(element);
@@ -66,36 +66,36 @@ public final class AssetSetter {
         }
     }
 
-    /*private void easyObjects(){
-        if(TileManager.getLevel() == 1) {
-            System.out.println();
-        }else {
+    private void easyObjects() {
+        if (TileManager.getLevel() == 1) {
 
+        } else {
+            System.out.println("Nothing yet");
         }
     }
 
-    private void mediumObjects(){
-        if(TileManager.getLevel() == 1) {
+    private void mediumObjects() {
+        if (TileManager.getLevel() == 1) {
 
-        }else {
-
+        } else {
+            System.out.println("Nothing yet");
         }
     }
 
-    private void hardObjects(){
-        if(TileManager.getLevel() == 1) {
+    private void hardObjects() {
+        if (TileManager.getLevel() == 1) {
 
-        }else {
-
+        } else {
+            System.out.println("Nothing yet");
         }
-    }*/
+    }
 
     /**
      * <p>setObject.</p>
      */
     public void setObject() {
 
-        /*switch (Levels.getDifficulty()) {
+        switch (Levels.getDifficulty()) {
             case "Easy":
                 easyObjects();
                 break;
@@ -104,31 +104,7 @@ public final class AssetSetter {
                 break;
             default:
                 hardObjects();
-                break;
-        }*/
-
-        addElement(new OBJ_Question(), 1, 9);
-
-        addElement(new OBJ_Question(), 6, 4);
-
-        addElement(new OBJ_Question(), 5, 13);
-
-        addElement(new OBJ_Question(), 11, 12);
-
-        addElement(new OBJ_Question(), 11, 5);
-
-        addSpikes(12, 4, false);
-
-        addElement(new OBJ_Question(), 8, 9);
-
-        addElement(new OBJ_Exit(), 15, 4);
-
-        addCoins(2, 10, true);
-
-        addElement(new OBJ_Question(), 2, 6);
-
-        addSpikes(2, 7, true);
-
+        }
 
     }
 

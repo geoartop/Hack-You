@@ -47,7 +47,7 @@ public final class TileManager {
     /**
      * <p>Getter for the field <code>level</code>.</p>
      *
-     * @return a int
+     * @return an int
      */
     public static int getLevel() {
         return level;
@@ -183,8 +183,8 @@ public final class TileManager {
     /**
      * <p>getTileCollision.</p>
      *
-     * @param tileNum1 a int
-     * @param tileNum2 a int
+     * @param tileNum1 an int
+     * @param tileNum2 an int
      * @return a boolean
      */
     public boolean getTileCollision(int tileNum1, int tileNum2) {

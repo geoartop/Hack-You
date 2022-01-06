@@ -33,7 +33,7 @@ public abstract class SuperObject {
      * <p>Constructor for SuperObject.</p>
      *
      * @param path         a {@link java.lang.String} object
-     * @param width_height a int
+     * @param width_height an int
      */
     public SuperObject(String path, int width_height) {
         try {
@@ -100,7 +100,7 @@ public abstract class SuperObject {
     /**
      * <p>Getter for the field <code>worldX</code>.</p>
      *
-     * @return a int
+     * @return an int
      */
     public int getWorldX() {
         return worldX;

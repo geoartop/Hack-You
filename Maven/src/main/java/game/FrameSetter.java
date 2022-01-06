@@ -20,8 +20,8 @@ public final class FrameSetter {
      *
      * @param frame  a {@link javax.swing.JFrame} object
      * @param title  a {@link java.lang.String} object
-     * @param width  a int
-     * @param height a int
+     * @param width  an int
+     * @param height an int
      */
     public static void setFrame(JFrame frame, String title, int width, int height) {
         frame.setTitle(title); //setTitle of frame
@@ -38,8 +38,8 @@ public final class FrameSetter {
      * <p>Μέθοδος που τοποθετεί την background εικόνα scaled σε ένα label</p>
      *
      * @param label  a {@link javax.swing.JLabel} object
-     * @param width  a int
-     * @param height a int
+     * @param width  an int
+     * @param height an int
      */
     public static void scaleBackground(JLabel label, int width, int height) {
         Image img = Main.background.getImage();
@@ -53,8 +53,8 @@ public final class FrameSetter {
      * <p>Scaling εικόνας με δεδομένο width ,height</p>
      *
      * @param original η εικόνα στην οποία θα γίνει το scaling τύπου {@link java.awt.image.BufferedImage}
-     * @param width    a int
-     * @param height   a int
+     * @param width    an int
+     * @param height   an int
      * @return η original scaled εικόνα τύπου {@link java.awt.image.BufferedImage}
      */
     public static BufferedImage scaleImage(BufferedImage original, int width, int height) {

@@ -84,7 +84,7 @@ public final class GamePanel extends JPanel implements Runnable {
     /**
      * <p>Getter for the field <code>gameState</code>.</p>
      *
-     * @return a int
+     * @return an int
      */
     public int getGameState() {
         return gameState;
@@ -93,7 +93,7 @@ public final class GamePanel extends JPanel implements Runnable {
     /**
      * <p>Setter for the field <code>gameState</code>.</p>
      *
-     * @param gameState a int
+     * @param gameState an int
      */
     public void setGameState(int gameState) {
         this.gameState = gameState;
@@ -255,7 +255,7 @@ public final class GamePanel extends JPanel implements Runnable {
     /**
      * <p>getPlayerWorldx.</p>
      *
-     * @return a int
+     * @return an int
      */
     public int getPlayerWorldx() {
         return player.getWorldx();
@@ -264,7 +264,7 @@ public final class GamePanel extends JPanel implements Runnable {
     /**
      * <p>getPlayerWorldy.</p>
      *
-     * @return a int
+     * @return an int
      */
     public int getPlayerWorldy() {
         return player.getWorldy();
@@ -273,7 +273,7 @@ public final class GamePanel extends JPanel implements Runnable {
     /**
      * <p>getPlayerScreenX.</p>
      *
-     * @return a int
+     * @return an int
      */
     public int getPlayerScreenX() {
         return player.getScreenX();
@@ -282,7 +282,7 @@ public final class GamePanel extends JPanel implements Runnable {
     /**
      * <p>getPlayerScreenY.</p>
      *
-     * @return a int
+     * @return an int
      */
     public int getPlayerScreenY() {
         return player.getScreenY();
