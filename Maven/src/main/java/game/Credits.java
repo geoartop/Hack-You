@@ -27,9 +27,9 @@ public class Credits extends UtilityFrame {
             }
         });
 
-        super.load("src/main/resources/sheet-credits.txt", textArea);
+        super.load("src/main/resources/sheet-credits.txt", textPane);
 
-        textArea.setCaretPosition(0);
+        textPane.setCaretPosition(0);
         frame.getContentPane().add(scrollPane);
         frame.add(backgroundLabel);
     }

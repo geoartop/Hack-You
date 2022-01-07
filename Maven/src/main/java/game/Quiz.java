@@ -1,11 +1,5 @@
 package game;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -15,6 +9,16 @@ import java.io.FileNotFoundException;
 import java.security.SecureRandom;
 import java.util.LinkedList;
 import java.util.Scanner;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextPane;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 
 /**
  * <p>Παράθυρο φόρτωσης random ερωτήσεων στον χρήστη προς απάντηση</p>
@@ -24,18 +28,18 @@ import java.util.Scanner;
  */
 public final class Quiz implements ActionListener {
 
-    private final static LinkedList<String> questions = new LinkedList<>();
-    private final static LinkedList<String> options = new LinkedList<>();
-    private final static LinkedList<Character> answers = new LinkedList<>();
+    private static final LinkedList<String> questions = new LinkedList<>();
+    private static final LinkedList<String> options = new LinkedList<>();
+    private static final LinkedList<Character> answers = new LinkedList<>();
     //Λίστα που αποθηκεύει τα εμφανιζόμενα indexes
-    private final static LinkedList<Integer> indexes = new LinkedList<>();
+    private static final LinkedList<Integer> indexes = new LinkedList<>();
     private char answer;
     //Για να επιλέγονται randomly οι ερωτήσεις
     private final SecureRandom random = new SecureRandom();
     private int index;
 
     private final JFrame frame = new JFrame();
-    private final JTextArea textArea = new JTextArea();
+    private final JTextPane textArea = new JTextPane();
 
     private final JButton[] buttons = new JButton[4];
     private final char[] symbols = {'A', 'B', 'C', 'D'};
@@ -60,13 +64,10 @@ public final class Quiz implements ActionListener {
         //Για να μη γίνεται skip της ερώτησης
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
-        textArea.setBounds(100, 0, 620, 100);
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
+        textArea.setBounds(100, 0, 600, 100);
         textArea.setOpaque(false);
         textArea.setForeground(Color.black);
         textArea.setFont(new Font("Calibri", Font.BOLD, 22));
-        //textArea.setBorder(BorderFactory.createBevelBorder(1));
         textArea.setBorder(BorderFactory.createEmptyBorder());
         textArea.setEditable(false);
 
@@ -108,7 +109,15 @@ public final class Quiz implements ActionListener {
      * Εμφάνιση απαντήσεων
      */
     private void displayAnswers() {
-        textArea.setText(questions.get(index));
+        StyledDocument doc = textArea.getStyledDocument();
+        SimpleAttributeSet center = new SimpleAttributeSet();
+        StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
+        doc.setParagraphAttributes(0, doc.getLength(), center, false);
+        try {
+            doc.insertString(doc.getLength(), String.format("%s", questions.get(index)), null);
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
         for (int i = 0; i < labels.length; i++) {
             labels[i].setText(options.get(4 * index + i));
         }
@@ -216,7 +225,7 @@ public final class Quiz implements ActionListener {
     }
 
     /**
-     * <p>getPercentage of right questions.</p>
+     * <p>getPercentage of right answered questions.</p>
      *
      * @return a double
      */
@@ -225,7 +234,7 @@ public final class Quiz implements ActionListener {
     }
 
     /**
-     * <p>clearIndexes.</p>
+     * <p>clearIndexes and reset question metrics values.</p>
      */
     public static void clearIndexes() {
         totalQuestions = 0;

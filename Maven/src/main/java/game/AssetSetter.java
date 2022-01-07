@@ -35,7 +35,7 @@ public final class AssetSetter {
     }
 
     /**
-     * <p>addSpikes horizontally or vertically</p>
+     * <p>addSpikes horizontally or vertically.</p>
      *
      * @param x            an int
      * @param y            an int
@@ -51,7 +51,7 @@ public final class AssetSetter {
     }
 
     /**
-     * <p>addCoins horizontally or vertically</p>
+     * <p>addCoins horizontally or vertically.</p>
      *
      * @param x            an int
      * @param y            an int
@@ -66,6 +66,9 @@ public final class AssetSetter {
         }
     }
 
+    /**
+     * <p>set easyObjects.</p>
+     */
     private void easyObjects() {
         if (TileManager.getLevel() == 1) {
             addElement(new OBJ_Question(), 2, 6);
@@ -114,6 +117,9 @@ public final class AssetSetter {
         }
     }
 
+    /**
+     * <p>set mediumObjects.</p>
+     */
     private void mediumObjects() {
         if (TileManager.getLevel() == 1) {
             addElement(new OBJ_Question(), 4, 3);
@@ -187,6 +193,9 @@ public final class AssetSetter {
         }
     }
 
+    /**
+     * <p>set hardObjects.</p>
+     */
     private void hardObjects() {
         if (TileManager.getLevel() == 1) {
             addElement(new OBJ_Question(), 2, 5);
@@ -285,10 +294,9 @@ public final class AssetSetter {
     }
 
     /**
-     * <p>setObject.</p>
+     * <p>setObjects according to difficulty.</p>
      */
     public void setObject() {
-
         switch (Levels.getDifficulty()) {
             case "Easy":
                 easyObjects();

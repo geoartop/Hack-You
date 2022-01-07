@@ -28,8 +28,8 @@ public final class LabyrinthFrame implements ActionListener {
     private final JButton start = new JButton("start");
 
     //Μεταβλητές χρήσιμες για τη λειτουργία του progressBar
-    private boolean go = true; // Για το αν συνεχίζει το progressBar ή βρίσκεται σε pause
-    private boolean hasStarted = false; // Για το αν έχει αρχίσει το παιχνίδι
+    private boolean go = true; // Αν συνεχίζει το progressBar ή βρίσκεται σε pause
+    private boolean hasStarted = false; // Αν έχει αρχίσει το παιχνίδι
 
     //Μεταβλητές για πόσο χρόνο ο παίκτης θα κερδίζει χάνει ανάλογα με την απάντησή του στις ερωτήσεις
     static int for_correct;
@@ -48,9 +48,6 @@ public final class LabyrinthFrame implements ActionListener {
 
     //Εάν έχει προηγηθεί restart
     private static boolean restartStatus = false;
-
-    //--------------------------------------------------------------------------------------//
-
 
     /**
      * <p>Getter for the field <code>restartStatus</code>.</p>
@@ -119,7 +116,6 @@ public final class LabyrinthFrame implements ActionListener {
         frame = new JFrame();
         FrameSetter.setFrame(frame, "Labyrinth", 780, 660);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.setResizable(true);
         frame.setLayout(new BorderLayout());
     }
 
@@ -208,10 +204,13 @@ public final class LabyrinthFrame implements ActionListener {
     /**
      * <p>Ανανέωση του χρόνου του progressBar χωρίς την παύση λειτουργίας του</p>
      *
-     * @param time : ο χρόνος που προσθαφαιρείται από το χρόνο που απομένει
+     * @param flg : ο χρόνος που προσθαφαιρείται από το χρόνο που απομένει
      */
-    void editBarTime(int time) {
-        counter += time;
+    void editBarTime(int flg) {
+        counter += flg;
+        if (counter > time) {
+            counter = time;
+        }
         bar.setString(String.format("%d seconds left", counter));
         bar.setValue(counter);
     }
@@ -224,10 +223,11 @@ public final class LabyrinthFrame implements ActionListener {
     /**
      * <p>Ανανέωσης progressBar</p>
      *
-     * @param time : ο χρόνος που προσθαφαιρείται από το χρόνο που απομένει
+     * @param flg : ο χρόνος που προσθαφαιρείται από το χρόνο που απομένει
      */
-    void updateBar(int time) {
-        fill_bar = new Thread(() -> fill(bar.getValue() + time));
+    void updateBar(int flg) {
+        int new_time = Math.min(bar.getValue() + flg, time);
+        fill_bar = new Thread(() -> fill(new_time));
         fill_bar.start();
     }
 
@@ -237,6 +237,7 @@ public final class LabyrinthFrame implements ActionListener {
     void closeFrame() {
         //SOS! CRUCIAL for thread safety
         gamePanel.terminate();
+        System.gc();
         frame.dispose();
     }
 
@@ -254,6 +255,7 @@ public final class LabyrinthFrame implements ActionListener {
             SwingUtilities.invokeLater(DeathFrame::new);
         }
         gamePanel.terminate();
+        System.gc();
         frame.dispose();
 
     }
