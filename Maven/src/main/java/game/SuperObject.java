@@ -19,7 +19,7 @@ public abstract class SuperObject {
     protected String name;
     protected boolean collision = false;
     private int worldX, worldY;
-    protected final Rectangle solidArea
+    protected Rectangle solidArea
             = new Rectangle(0, 0, 48, 48);
     static final int solidAreaDefaultX = 0;
     static final int solidAreaDefaultY = 0;
@@ -58,6 +58,10 @@ public abstract class SuperObject {
      * @param image a {@link BufferedImage} object
      */
     void setValues(Graphics2D g2, GamePanel gp, BufferedImage image) {
+        int addY = 0;
+        if (name.equals("Exit")) {
+            addY = 25;
+        }
         int screenX = worldX - gp.getPlayerWorldx() + gp.getPlayerScreenX();
         int screenY = worldY - gp.getPlayerWorldy() + gp.getPlayerScreenY();
 
@@ -86,13 +90,13 @@ public abstract class SuperObject {
                 worldY + GamePanel.tileSize > gp.getPlayerWorldy() - gp.getPlayerScreenY() &&
                 worldY - GamePanel.tileSize < gp.getPlayerWorldy() + gp.getPlayerScreenY()) {
 
-            g2.drawImage(image, screenX, screenY, null);
+            g2.drawImage(image, screenX, screenY + addY, null);
             // If player is around the edge, draw everything
         } else if (gp.getPlayerWorldx() < gp.getPlayerScreenX() ||
                 gp.getPlayerWorldy() < gp.getPlayerScreenY() ||
                 rightOffsetValue > gp.WorldWidth - gp.getPlayerWorldx() ||
                 bottomOffsetValue > gp.WorldHeight - gp.getPlayerWorldy()) {
-            g2.drawImage(image, screenX, screenY, null);
+            g2.drawImage(image, screenX, screenY + addY, null);
         }
 
     }

@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 /**
  * <p>Αντικείμενο Εξόδου στο παιχνίδι</p>
@@ -16,6 +17,7 @@ public class OBJ_Exit extends SuperObject {
      */
     public OBJ_Exit() {
         super("/icons/exit.png", 48);
+        super.solidArea = new Rectangle(0, 0, 48, 96);
         name = "Exit";
         collision = false;
     }
