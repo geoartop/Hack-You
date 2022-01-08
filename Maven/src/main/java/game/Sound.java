@@ -3,6 +3,7 @@ package game;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
@@ -42,6 +43,9 @@ public final class Sound {
             AudioInputStream ais = AudioSystem.getAudioInputStream(soundURL[i]);
             clip = AudioSystem.getClip();
             clip.open(ais);
+            FloatControl gainControl =
+                    (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(-20.0f); // Reduce volume by 20 decibels.
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
