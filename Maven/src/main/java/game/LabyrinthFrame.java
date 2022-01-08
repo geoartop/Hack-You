@@ -92,18 +92,18 @@ public final class LabyrinthFrame implements ActionListener {
     static void setLabyrinth() {
         switch (Levels.getDifficulty()) {
             case "Easy":
-                time = 100;
-                for_correct = 5;
-                for_wrong = -2;
+                time = 50;
+                for_correct = 3;
+                for_wrong = -5;
                 break;
             case "Medium":
-                time = 95;
+                time = 60;
                 for_correct = 5;
                 for_wrong = -5;
                 break;
             default:
-                time = 90;
-                for_correct = 3;
+                time = 70;
+                for_correct = 5;
                 for_wrong = -5;
                 break;
         }
@@ -201,19 +201,15 @@ public final class LabyrinthFrame implements ActionListener {
 
     }
 
-    /**
-     * <p>Ανανέωση του χρόνου του progressBar χωρίς την παύση λειτουργίας του</p>
-     *
-     * @param flg : ο χρόνος που προσθαφαιρείται από το χρόνο που απομένει
-     */
-    void editBarTime(int flg) {
+
+    /*void editBarTime(int flg) {
         counter += flg;
         if (counter > time) {
             counter = time;
         }
         bar.setString(String.format("%d seconds left", counter));
         bar.setValue(counter);
-    }
+    }*/
 
     private void setButton(JButton button) {
         ButtonSetter.setButton(button, 250, 500, 100, 50, new Font("Calibri", Font.ITALIC, 20), this);
@@ -237,7 +233,6 @@ public final class LabyrinthFrame implements ActionListener {
     void closeFrame() {
         //SOS! CRUCIAL for thread safety
         gamePanel.terminate();
-        System.gc();
         frame.dispose();
     }
 
@@ -255,7 +250,6 @@ public final class LabyrinthFrame implements ActionListener {
             SwingUtilities.invokeLater(DeathFrame::new);
         }
         gamePanel.terminate();
-        System.gc();
         frame.dispose();
 
     }

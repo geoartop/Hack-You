@@ -50,7 +50,7 @@ public final class FrameSetter {
     }
 
     /**
-     * <p>Scaling εικόνας με δεδομένο width ,height</p>
+     * <p>Scaling εικόνας με δεδομένο width ,height.</p>
      *
      * @param original η εικόνα στην οποία θα γίνει το scaling τύπου {@link java.awt.image.BufferedImage}
      * @param width    an int

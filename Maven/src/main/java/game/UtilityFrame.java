@@ -70,10 +70,7 @@ public abstract class UtilityFrame {
             while (q.hasNextLine()) {
                 doc.insertString(doc.getLength(), q.nextLine() + "\n", null);
             }
-            /*Style style = textPane.addStyle("", null);
-            StyleConstants.setBold(style, false);
-            doc.insertString(doc.getLength(), "Tsakalos", style);
-            textPane.insertIcon(Main.icon);*/
+            q.close();
         } catch (FileNotFoundException | BadLocationException e) {
             e.printStackTrace();
         }

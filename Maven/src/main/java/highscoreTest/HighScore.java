@@ -119,7 +119,7 @@ public final class HighScore {
                 lines++;
             }
             reader.close();
-            //Αν οι γραμμές είναι <10 γίνεται καταχώρηση χωρίς έλεγχο
+            //Αν οι γραμμές είναι < 10 γίνεται καταχώρηση χωρίς έλεγχο
             if (lines < 10) {
                 appendScore();
                 playerInfo.add(new PlayerInfo(name, score));

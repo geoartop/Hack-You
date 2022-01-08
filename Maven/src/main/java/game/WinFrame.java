@@ -109,7 +109,7 @@ public final class WinFrame implements ActionListener {
         } else {
             multiplier = 2;
         }
-        return (int) (time * multiplier * Quiz.getPercentage());
+        return (int) (time * multiplier * Quiz.getPercentage() + Player.getCoinsCollected());
     }
 
     /**

@@ -124,7 +124,7 @@ public final class CollisionCheck {
      * @param player a boolean
      * @param index  an int
      * @param i      an int
-     * @return index : an int
+     * @return index an int
      */
     private int check(Player entity, boolean player, int index, int i) {
         if (entity.solidArea.intersects(gp.obj.get(i).solidArea)) {

@@ -25,6 +25,11 @@ public class Player extends Entity {
     private static boolean hasLoaded;
 
     /**
+     * Coins collected from player
+     */
+    private static int coinsCollected = 0;
+
+    /**
      * Κινήσεις animation ήττας παίκτη
      */
     private int timesPassed = 0;
@@ -41,6 +46,22 @@ public class Player extends Entity {
     private boolean collisionOn = false;
 
     private static final int outOfBoundsLimit = 15;
+
+    /**
+     * <p>Getter for the field <code>coinsCollected</code>.</p>
+     *
+     * @return an int
+     */
+    public static int getCoinsCollected() {
+        return coinsCollected;
+    }
+
+    /**
+     * <p>Restores <code>coinsCollected</code> value.</p>
+     */
+    public static void restoreCoinsCollected() {
+        coinsCollected = 0;
+    }
 
     /**
      * <p>Constructor for Player.</p>
@@ -161,7 +182,7 @@ public class Player extends Entity {
             }
             //Προσθήκη χρόνου (ίσως και πόντων) όταν ο παίκτης βρίσκει coins
             if (Objects.equals(objectName, "Coin")) {
-                gp.labyrinthFrame.editBarTime(LabyrinthFrame.for_correct / 2);
+                coinsCollected++;
                 gp.obj.set(index, null);
             }
 

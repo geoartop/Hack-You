@@ -1,5 +1,11 @@
 package game;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+
 /**
  * <p> Τοποθέτηση των αντικειμένων του παιχνιδιού στο gamepanel.</p>
  *
@@ -67,9 +73,53 @@ public final class AssetSetter {
     }
 
     /**
-     * <p>set easyObjects.</p>
+     * <p>Add objects to map according to difficulty.</p>
+     * Id specifications for objects :
+     * <li>0 questions</li>
+     * <li>1 spikes</li>
+     * <li>2 coins</li>
+     * <li>3 exit</li>
      */
-    private void easyObjects() {
+    private void load() {
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(
+                        new FileInputStream(String.format("src/main/resources/objects/%s%d.txt", Levels.getDifficulty(), TileManager.getLevel())),
+                        StandardCharsets.UTF_8))) {
+
+            String currentLine = reader.readLine();
+
+            while (currentLine != null) {
+                String[] details = currentLine.split(",");
+
+                int id = Integer.parseInt(details[0]);
+
+                int x = Integer.parseInt(details[1]);
+                int y = Integer.parseInt(details[2]);
+
+                if (id == 0) {
+                    addElement(new OBJ_Question(), x, y);
+                } else if (id == 1) {
+                    boolean isHorizontal = Boolean.parseBoolean(details[3]);
+                    addSpikes(x, y, isHorizontal);
+                } else if (id == 2) {
+                    boolean isHorizontal = Boolean.parseBoolean(details[3]);
+                    addCoins(x, y, isHorizontal);
+                } else {
+                    addElement(new OBJ_Exit(), x, y);
+                }
+
+                currentLine = reader.readLine();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    /*private void easyObjects() {
+        load();
         if (TileManager.getLevel() == 1) {
             addElement(new OBJ_Question(), 2, 6);
             addSpikes(2, 7, true);
@@ -117,85 +167,82 @@ public final class AssetSetter {
         }
     }
 
-    /**
-     * <p>set mediumObjects.</p>
-     */
+
     private void mediumObjects() {
         if (TileManager.getLevel() == 1) {
+            load();
             addElement(new OBJ_Question(), 4, 3);
-            addSpikes(5, 2, false);
+            addSpikes (5, 2, false);
             addElement(new OBJ_Question(), 4, 9);
-            addSpikes(5, 8, false);
+            addSpikes (5, 8, false);
             addElement(new OBJ_Question(), 2, 10);
-            addSpikes(2, 11, true);
+            addSpikes (2, 11, true);
             addElement(new OBJ_Question(), 2, 18);
-            addSpikes(2, 19, true);
+            addSpikes (2, 19, true);
             addElement(new OBJ_Question(), 8, 17);
-            addSpikes(8, 18, true);
+            addSpikes (8, 18, true);
             addElement(new OBJ_Question(), 3, 31);
-            addSpikes(4, 30, false);
+            addSpikes (4, 30, false);
             addElement(new OBJ_Question(), 8, 27);
-            addSpikes(9, 26, false);
+            addSpikes (9, 26, false);
             addElement(new OBJ_Question(), 15, 27);
-            addSpikes(14, 28, true);
+            addSpikes (14, 28, true);
             addElement(new OBJ_Question(), 16, 3);
-            addSpikes(17, 2, false);
+            addSpikes (17, 2, false);
             addElement(new OBJ_Question(), 14, 6);
-            addSpikes(15, 6, false);
+            addSpikes (15, 6, false);
             addElement(new OBJ_Question(), 12, 12);
-            addSpikes(11, 12, false);
+            addSpikes (11, 12, false);
             addElement(new OBJ_Question(), 18, 16);
-            addSpikes(17, 16, false);
+            addSpikes (17, 16, false);
             addElement(new OBJ_Question(), 17, 22);
-            addSpikes(16, 22, false);
+            addSpikes (16, 22, false);
             addElement(new OBJ_Question(), 19, 24);
-            addSpikes(18, 25, true);
+            addSpikes (18, 25, true);
             addElement(new OBJ_Question(), 22, 15);
-            addSpikes(22, 14, true);
+            addSpikes (22, 14, true);
             addElement(new OBJ_Question(), 24, 9);
-            addSpikes(25, 8, false);
+            addSpikes (25, 8, false);
             addElement(new OBJ_Question(), 27, 4);
-            addSpikes(28, 4, false);
+            addSpikes (28, 4, false);
             addElement(new OBJ_Question(), 29, 17);
-            addSpikes(28, 16, false);
+            addSpikes (28, 16, false);
             addElement(new OBJ_Question(), 31, 18);
-            addSpikes(30, 19, true);
+            addSpikes (30, 19, true);
             addElement(new OBJ_Question(), 29, 26);
-            addSpikes(28, 26, false);
+            addSpikes (28, 26, false);
             addElement(new OBJ_Question(), 25, 30);
-            addSpikes(26, 30, false);
-            addCoins(4, 14, true);
-            addCoins(2, 20, true);
-            addCoins(8, 19, true);
-            addCoins(10, 25, true);
-            addCoins(14, 21, true);
-            addCoins(20, 5, true);
-            addCoins(22, 12, true);
-            addCoins(22, 18, true);
-            addCoins(26, 24, true);
-            addCoins(30, 20, true);
-            addCoins(30, 12, true);
-            addCoins(30, 7, true);
-            addCoins(30, 2, true);
-            addCoins(8, 4, false);
-            addCoins(8, 8, false);
-            addCoins(9, 12, false);
-            addCoins(18, 12, false);
-            addCoins(21, 8, false);
-            addCoins(16, 16, false);
-            addCoins(16, 30, false);
-            addCoins(20, 26, false);
-            addCoins(28, 30, false);
-            addCoins(5, 30, false);
+            addSpikes (26, 30, false);
+            addCoins  (4, 14, true);
+            addCoins  (2, 20, true);
+            addCoins  (8, 19, true);
+            addCoins  (10, 25, true);
+            addCoins  (14, 21, true);
+            addCoins  (20, 5, true);
+            addCoins  (22, 12, true);
+            addCoins  (22, 18, true);
+            addCoins  (26, 24, true);
+            addCoins  (30, 20, true);
+            addCoins  (30, 12, true);
+            addCoins  (30, 7, true);
+            addCoins  (30, 2, true);
+            addCoins  (8, 4, false);
+            addCoins  (8, 8, false);
+            addCoins  (9, 12, false);
+            addCoins  (18, 12, false);
+            addCoins  (21, 8, false);
+            addCoins  (16, 16, false);
+            addCoins  (16, 30, false);
+            addCoins  (20, 26, false);
+            addCoins  (28, 30, false);
+            addCoins  (5, 30, false);
             addElement(new OBJ_Exit(), 33, 30);
         } else {
             System.out.println("Nothing yet");
         }
     }
 
-    /**
-     * <p>set hardObjects.</p>
-     */
+
     private void hardObjects() {
         if (TileManager.getLevel() == 1) {
             addElement(new OBJ_Question(), 2, 5);
@@ -291,23 +338,13 @@ public final class AssetSetter {
         } else {
             System.out.println("Nothing yet");
         }
-    }
+    }*/
 
     /**
      * <p>setObjects according to difficulty.</p>
      */
     public void setObject() {
-        switch (Levels.getDifficulty()) {
-            case "Easy":
-                easyObjects();
-                break;
-            case "Medium":
-                mediumObjects();
-                break;
-            default:
-                hardObjects();
-        }
-
+        load();
     }
 
 }

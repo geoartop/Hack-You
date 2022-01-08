@@ -41,7 +41,6 @@ public class Guide extends UtilityFrame {
     private static final int IMG_WIDTH = 50;
     private static final int IMG_HEIGHT = 50;
 
-
     /**
      * <p>Κατασκευαστής που καλείται όταν το guide ανοίγει από το παράθυρο options.</p>
      *
@@ -71,13 +70,13 @@ public class Guide extends UtilityFrame {
                         (getClass().getResourceAsStream(("/icons/qmark.png"))));
                 qmark = new ImageIcon(FrameSetter.scaleImage(q, IMG_WIDTH, IMG_HEIGHT));
                 BufferedImage c = ImageIO.read(Objects.requireNonNull
-                        (getClass().getResourceAsStream(("/guidecoin.png"))));
+                        (getClass().getResourceAsStream(("/goldCoin/goldCoin5.png"))));
                 coin = new ImageIcon(FrameSetter.scaleImage(c, IMG_WIDTH, IMG_HEIGHT));
                 BufferedImage e = ImageIO.read(Objects.requireNonNull
                         (getClass().getResourceAsStream(("/icons/exit.png"))));
                 exit = new ImageIcon(FrameSetter.scaleImage(e, IMG_WIDTH, IMG_HEIGHT));
                 BufferedImage s = ImageIO.read(Objects.requireNonNull
-                        (getClass().getResourceAsStream(("/spikes/guidespikes.png"))));
+                        (getClass().getResourceAsStream(("/spikes/spike4.png"))));
                 spikes = new ImageIcon(FrameSetter.scaleImage(s, IMG_WIDTH, IMG_HEIGHT));
             } catch (IOException e) {
                 e.printStackTrace();
@@ -132,6 +131,7 @@ public class Guide extends UtilityFrame {
                 }
                 doc.insertString(doc.getLength(), q.nextLine() + "\n", null);
             }
+            q.close();
 
         } catch (FileNotFoundException | BadLocationException e) {
             e.printStackTrace();

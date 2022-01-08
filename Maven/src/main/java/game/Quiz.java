@@ -106,7 +106,7 @@ public final class Quiz implements ActionListener {
     }
 
     /**
-     * Εμφάνιση απαντήσεων
+     * <p>Εμφάνιση απαντήσεων</p>
      */
     private void displayAnswers() {
         StyledDocument doc = textArea.getStyledDocument();
@@ -212,16 +212,19 @@ public final class Quiz implements ActionListener {
         while (q.hasNextLine()) {
             questions.add(q.nextLine());
         }
+        q.close();
         Scanner o = new Scanner(new File
                 (String.format("src/main/resources/quiz/%s Options.txt", Levels.getDifficulty())), "UTF-8");
         while (o.hasNextLine()) {
             options.add(o.nextLine());
         }
+        o.close();
         Scanner a = new Scanner
                 (new File(String.format("src/main/resources/quiz/%s Answers.txt", Levels.getDifficulty())), "UTF-8");
         while (a.hasNext()) {
             answers.add(a.next().charAt(0));
         }
+        a.close();
     }
 
     /**
@@ -234,9 +237,10 @@ public final class Quiz implements ActionListener {
     }
 
     /**
-     * <p>clearIndexes and reset question metrics values.</p>
+     * <p>clearIndexes and reset question and coin metrics values.</p>
      */
     public static void clearIndexes() {
+        Player.restoreCoinsCollected();
         totalQuestions = 0;
         rightQuestions = 0;
         indexes.clear();
