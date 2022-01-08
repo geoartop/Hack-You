@@ -33,7 +33,7 @@ public final class PlayerInfo implements Serializable {
      * <p>Constructor for PlayerInfo.</p>
      *
      * @param name  a {@link java.lang.String} object
-     * @param score a int
+     * @param score an int
      */
     public PlayerInfo(String name, int score) {
         this.name = name;
@@ -111,7 +111,7 @@ public final class PlayerInfo implements Serializable {
     /**
      * <p>Getter for the field <code>score</code>.</p>
      *
-     * @return a int
+     * @return an int
      */
     public int getScore() {
         return score;

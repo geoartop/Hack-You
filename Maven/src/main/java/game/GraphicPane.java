@@ -7,7 +7,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 /**
- * <p>Component για την απεικόνιση text στο κέντρο ενός παραθύρου</p>
+ * <p>Component για την απεικόνιση text στο κέντρο ενός παραθύρου.</p>
  *
  * @author Team Hack-You
  * @version 1.0

@@ -24,6 +24,9 @@ public class Player extends Entity {
     private final int screenY;
     private static boolean hasLoaded;
 
+    /**
+     * Κινήσεις animation ήττας παίκτη
+     */
     private int timesPassed = 0;
 
     private String direction;
@@ -245,7 +248,7 @@ public class Player extends Entity {
     /**
      * <p>Getter for the field <code>worldx</code>.</p>
      *
-     * @return a int
+     * @return an int
      */
     public int getWorldx() {
         return worldx;
@@ -254,7 +257,7 @@ public class Player extends Entity {
     /**
      * <p>Getter for the field <code>worldy</code>.</p>
      *
-     * @return a int
+     * @return an int
      */
     public int getWorldy() {
         return worldy;
@@ -281,7 +284,7 @@ public class Player extends Entity {
     /**
      * <p>Getter for the field <code>screenX</code>.</p>
      *
-     * @return a int
+     * @return an int
      */
     public int getScreenX() {
         return screenX;
@@ -290,7 +293,7 @@ public class Player extends Entity {
     /**
      * <p>Getter for the field <code>screenY</code>.</p>
      *
-     * @return a int
+     * @return an int
      */
     public int getScreenY() {
         return screenY;

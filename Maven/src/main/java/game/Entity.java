@@ -46,7 +46,7 @@ public class Entity {
 
 
     /**
-     * <p>Προετοιμασία των animation</p>
+     * <p>Προετοιμασία των animations</p>
      */
     void getImages() {
         try {

@@ -1,6 +1,5 @@
 package game;
 
-import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -10,6 +9,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.LinkedList;
+import javax.swing.JPanel;
 
 /**
  * <p>Panel όπου γίνεται η αναπαράσταση του παιχνιδιού</p>
@@ -138,6 +138,8 @@ public final class GamePanel extends JPanel implements Runnable {
      * <p>Εξασφάλιση thread safety και εκκαθάριση πόρων.</p>
      */
     void terminate() {
+        //Εκκαθάριση λίστας αντικειμένων
+        obj.clear();
         gameThread = null;
     }
 
@@ -246,6 +248,7 @@ public final class GamePanel extends JPanel implements Runnable {
         //Για να ζωγραφιστεί στην οθόνη τη λέξη ΠΑΥΣΗ σε περίπτωση pause
         if (gameState == pauseState) {
             g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 80F));
+            g2.setColor(new Color(232, 252, 243));
             String text = "ΠΑΥΣΗ";
             int length = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
             int x = screenWidth / 2 - length / 2;

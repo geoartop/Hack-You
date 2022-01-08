@@ -27,9 +27,9 @@ public class Description extends UtilityFrame {
             }
         });
 
-        super.load("src/main/resources/Mythos.txt", textArea);
+        super.load("src/main/resources/Mythos.txt", textPane);
 
-        textArea.setCaretPosition(0);
+        textPane.setCaretPosition(0);
         frame.getContentPane().add(scrollPane);
         frame.add(backgroundLabel);
     }

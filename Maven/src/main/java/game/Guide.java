@@ -2,9 +2,20 @@ package game;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Objects;
+import java.util.Scanner;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JTextPane;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.StyledDocument;
 
 /**
- * <p>Περιγραφή οδηγιών</p>
+ * <p>Περιγραφή οδηγιών.</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -17,6 +28,19 @@ public class Guide extends UtilityFrame {
      */
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
+
+    private static boolean hasLoaded = false;
+
+    /**
+     * Εικόνες αρχείου
+     */
+    private static ImageIcon qmark;
+    private static ImageIcon coin;
+    private static ImageIcon exit;
+    private static ImageIcon spikes;
+    private static final int IMG_WIDTH = 50;
+    private static final int IMG_HEIGHT = 50;
+
 
     /**
      * <p>Κατασκευαστής που καλείται όταν το guide ανοίγει από το παράθυρο options.</p>
@@ -41,8 +65,28 @@ public class Guide extends UtilityFrame {
      * <p>setup.</p>
      */
     private void setup() {
-        super.load("src/main/resources/Guide.txt", textArea);
-        textArea.setCaretPosition(0);
+        if (!hasLoaded) {
+            try {
+                BufferedImage q = ImageIO.read(Objects.requireNonNull
+                        (getClass().getResourceAsStream(("/icons/qmark.png"))));
+                qmark = new ImageIcon(FrameSetter.scaleImage(q, IMG_WIDTH, IMG_HEIGHT));
+                BufferedImage c = ImageIO.read(Objects.requireNonNull
+                        (getClass().getResourceAsStream(("/guidecoin.png"))));
+                coin = new ImageIcon(FrameSetter.scaleImage(c, IMG_WIDTH, IMG_HEIGHT));
+                BufferedImage e = ImageIO.read(Objects.requireNonNull
+                        (getClass().getResourceAsStream(("/icons/exit.png"))));
+                exit = new ImageIcon(FrameSetter.scaleImage(e, IMG_WIDTH, IMG_HEIGHT));
+                BufferedImage s = ImageIO.read(Objects.requireNonNull
+                        (getClass().getResourceAsStream(("/spikes/guidespikes.png"))));
+                spikes = new ImageIcon(FrameSetter.scaleImage(s, IMG_WIDTH, IMG_HEIGHT));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            hasLoaded = true;
+        }
+
+        load("src/main/resources/Guide.txt", textPane);
+        textPane.setCaretPosition(0);
         frame.getContentPane().add(scrollPane);
         frame.add(backgroundLabel);
     }
@@ -63,6 +107,35 @@ public class Guide extends UtilityFrame {
             }
         });
         setup();
+
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void load(String pathname, JTextPane textPane) {
+        StyledDocument doc = textPane.getStyledDocument();
+        int counter = 0;
+        try {
+            Scanner q = new Scanner(new File(pathname), "UTF-8");
+            while (q.hasNextLine()) {
+                counter++;
+                if (counter == 16) {
+                    textPane.insertIcon(qmark);
+                } else if (counter == 18) {
+                    textPane.insertIcon(spikes);
+                } else if (counter == 20) {
+                    textPane.insertIcon(coin);
+                } else if (counter == 22) {
+                    textPane.insertIcon(exit);
+                }
+                doc.insertString(doc.getLength(), q.nextLine() + "\n", null);
+            }
+
+        } catch (FileNotFoundException | BadLocationException e) {
+            e.printStackTrace();
+        }
 
     }
 

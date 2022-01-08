@@ -94,12 +94,10 @@ public final class WinFrame implements ActionListener {
         y += 100;
     }
 
-    //TODO(all) προσθήκη συνάρτησης υπολογισμού score
-
     /**
      * <p>calculateScore.</p>
      *
-     * @param time a int
+     * @param time an int
      * @return an int
      */
     public int calculateScore(int time) {
@@ -107,9 +105,9 @@ public final class WinFrame implements ActionListener {
         if (Levels.getDifficulty().equals("Easy")) {
             multiplier = 1;
         } else if (Levels.getDifficulty().equals("Medium")) {
-            multiplier = 1.25;
-        } else {
             multiplier = 1.5;
+        } else {
+            multiplier = 2;
         }
         return (int) (time * multiplier * Quiz.getPercentage());
     }
@@ -126,7 +124,9 @@ public final class WinFrame implements ActionListener {
         }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         ButtonSetter.playSE();

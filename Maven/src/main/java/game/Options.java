@@ -22,7 +22,7 @@ public final class Options implements ActionListener {
     private final JFrame frame;
     private final JLabel backgroundLabel = new JLabel();
     private final JButton returnBack = new JButton("return");
-    private final JButton showGuide = new JButton("show Guide");
+    private final JButton showGuide = new JButton("how to play");
     private final JButton restart = new JButton("restart");
     private final JButton back2menu = new JButton("back to Menu");
     private final JButton end = new JButton("exit");
