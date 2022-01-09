@@ -1,71 +1,72 @@
-addElement(new OBJ_Question(),4,3);
-            addSpikes(5, 2, false);
-            addElement(new OBJ_Question(),24,3);
-            addSpikes(25, 2, false);
-            addElement(new OBJ_Question(),15,5);
-            addSpikes(14, 4, true);
-            addElement(new OBJ_Question(),2,6);
-            addSpikes(2, 7, true);
-            addElement(new OBJ_Question(),24,7);
-            addSpikes(25, 6, false);
-            addElement(new OBJ_Question(),30,8);
-            addSpikes(30, 9, true);
-            addElement(new OBJ_Question(),4,11);
-            addSpikes(5, 10, false);
-            addElement(new OBJ_Question(),20,11);
-            addSpikes(21, 10, false);
-            addElement(new OBJ_Question(),2,13);
-            addSpikes(2, 14, true);
-            addElement(new OBJ_Question(),8,14);
-            addSpikes(9, 14, false);
-            addElement(new OBJ_Question(),16,15);
-            addSpikes(17, 14, false);
-            addElement(new OBJ_Question(),22,16);
-            addSpikes(22, 17, true);
-            addElement(new OBJ_Question(),14,17);
-            addSpikes(14, 18, true);
-            addElement(new OBJ_Question(),8,19);
-            addSpikes(9, 18, false);
-            addElement(new OBJ_Question(),30,22);
-            addSpikes(30, 23, true);
-            addElement(new OBJ_Question(),4,23);
-            addSpikes(5, 22, false);
-            addElement(new OBJ_Question(),18,23);
-            addSpikes(18, 24, true);
-            addElement(new OBJ_Question(),24,23);
-            addSpikes(25, 22, false);
-            addElement(new OBJ_Question(),12,27);
-            addSpikes(11, 26, false);
-            addElement(new OBJ_Question(),1,29);
-            addSpikes(1, 28, true);
-            addElement(new OBJ_Question(),23,29);
-            addSpikes(22, 28, true);
-            addElement(new OBJ_Question(),8,30);
-            addSpikes(7, 30, false);
-            addElement(new OBJ_Question(),29,30);
-            addSpikes(30, 30, false);
-            addElement(new OBJ_Question(),14,31);
-            addSpikes(15, 30, false);
-            addCoins(8, 2, false);
-            addCoins(26, 2, false);
-            addCoins(12, 6, false);
-            addCoins(18, 7, true);
-            addCoins(26, 7, true);
-            addCoins(2, 9, true);
-            addCoins(30, 12, true);
-            addCoins(10, 13, true);
-            addCoins(25, 14, false);
-            addCoins(18, 17, true);
-            addCoins(2, 18, true);
-            addCoins(10, 20, true);
-            addCoins(14, 20, true);
-            addCoins(26, 20, true);
-            addCoins(22, 21, true);
-            addCoins(5, 26, false);
-            addCoins(18, 26, true);
-            addCoins(25, 26, false);
-            addCoins(30, 26, true);
-            addCoins(30, 27, true);
-            addCoins(10, 28, true);
-            addCoins(5, 30, false);
-            addCoins(17, 30, false);
+0,4,3
+1,5,2,false
+0,24,3
+1,25,2,false
+0,15,5
+1,14,4,true
+0,2,6
+1,2,7,true
+0,24,7
+1,25,6,false
+0,30,8
+1,30,9,true
+0,4,11
+1,5,10,false
+0,20,11
+1,21,10,false
+0,2,13
+1,2,14,true
+0,8,14
+1,9,14,false
+0,16,15
+1,17,14,false
+0,22,16
+1,22,17,true
+0,14,17
+1,14,18,true
+0,8,19
+1,9,18,false
+0,30,22
+1,30,23,true
+0,4,23
+1,5,22,false
+0,18,23
+1,18,24,true
+0,24,23
+1,25,22,false
+0,12,27
+1,11,26,false
+0,1,29
+1,1,28,true
+0,23,29
+1,22,28,true
+0,8,30
+1,7,30,false
+0,29,30
+1,30,30,false
+0,14,31
+1,15,30,false
+2,8,2,false
+2,26,2,false
+2,12,6,false
+2,18,7,true
+2,26,7,true
+2,2,9,true
+2,30,12,true
+2,10,13,true
+2,25,14,false
+2,18,17,true
+2,2,18,true
+2,10,20,true
+2,14,20,true
+2,26,20,true
+2,22,21,true
+2,5,26,false
+2,18,26,true
+2,25,26,false
+2,30,26,true
+2,30,27,true
+2,10,28,true
+2,5,30,false
+2,17,30,false
+3,33,30

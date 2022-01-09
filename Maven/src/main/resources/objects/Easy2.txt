@@ -1,47 +1,46 @@
-
-            addElement(new OBJ_Question(),4,3);
-            addSpikes(5, 2, false);
-            addElement(new OBJ_Question(),2,4);
-            addCoins(9, 2, false);
-            addSpikes(2, 5, true);
-            addElement(new OBJ_Question(),21,5);
-            addSpikes(20, 4, true);
-            addElement(new OBJ_Question(),11,6);
-            addSpikes(10, 6, false);
-            addElement(new OBJ_Question(),15,9);
-            addSpikes(16, 8, false);
-            addElement(new OBJ_Question(),8,11);
-            addSpikes(9, 10, false);
-            addElement(new OBJ_Question(),13,13);
-            addSpikes(14, 12, false);
-            addElement(new OBJ_Question(),8,15);
-            addSpikes(7, 14, false);
-            addElement(new OBJ_Question(),11,16);
-            addSpikes(10, 17, true);
-            addElement(new OBJ_Question(),24,16);
-            addSpikes(24, 17, true);
-            addElement(new OBJ_Question(),15,18);
-            addSpikes(16, 18, false);
-            addElement(new OBJ_Question(),4,20);
-            addSpikes(5, 20, false);
-            addElement(new OBJ_Question(),16,24);
-            addSpikes(17, 24, false);
-            addElement(new OBJ_Question(),5,25);
-            addSpikes(4, 24, false);
-            addElement(new OBJ_Question(),8,25);
-            addSpikes(9, 24, false);
-            addCoins(9, 2, false);
-            addCoins(18, 2, false);
-            addCoins(9, 6, false);
-            addCoins(24, 6, true);
-            addCoins(18, 7, true);
-            addCoins(2, 8, true);
-            addCoins(16, 12, false);
-            addCoins(23, 12, false);
-            addCoins(6, 18, true);
-            addCoins(19, 18, false);
-            addCoins(10, 20, true);
-            addCoins(21, 22, false);
-            addCoins(2, 24, false);
-            addCoins(10, 24, false);
-
+0,4,3
+1,5,2,false
+0,2,4
+2,9,2,false
+1,2,5,true
+0,21,5
+1,20,4,true
+0,11,6
+1,10,6,false
+0,15,9
+1,16,8,false
+0,8,11
+1,9,10,false
+0,13,13
+1,14,12,false
+0,8,15
+1,7,14,false
+0,11,16
+1,10,17,true
+0,24,16
+1,24,17,true
+0,15,18
+1,16,18,false
+0,4,20
+1,5,20,false
+0,16,24
+1,17,24,false
+0,5,25
+1,4,24,false
+0,8,25
+1,9,24,false
+2,9,2,false
+2,18,2,false
+2,9,6,false
+2,24,6,true
+2,18,7,true
+2,2,8,true
+2,16,12,false
+2,23,12,false
+2,6,18,true
+2,19,18,false
+2,10,20,true
+2,21,22,false
+2,2,24,false
+2,10,24,false
+3,27,24
