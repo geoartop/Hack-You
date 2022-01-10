@@ -88,6 +88,7 @@ public final class Levels implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         ButtonSetter.playSE();
+        //Έλεγχος για το αν αλλάζει η δυσκολία έτσι ώστε να ξαναγεμίζουν οι απαραίτητες λίστες μόνο όταν είναι απαραίτητο
         String diff;
         if (e.getSource() == easy) {
             diff = "Easy";

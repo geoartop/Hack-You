@@ -83,7 +83,6 @@ public final class Username implements ActionListener {
                 return;
             } else if (username.toLowerCase(Locale.ROOT).equals("spanakis") || username.equalsIgnoreCase("dds")) {
                 JOptionPane.showMessageDialog(null, "Congrats you won already on everything!", "Reminder", JOptionPane.INFORMATION_MESSAGE);
-                System.exit(1);
             } else if (username.contains(" ")) {
                 textField.setForeground(Color.red);
                 JOptionPane.showMessageDialog(null, "Your username cannot have whitespace", "Reminder", JOptionPane.ERROR_MESSAGE);

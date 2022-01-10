@@ -23,7 +23,7 @@ public final class GamePanel extends JPanel implements Runnable {
      * Serial number of persistent  data.
      * Required, because JPanel implements serializable.
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 5142440659615327139L;
 
     private static final int originalTileSize = 16;
     private static final int scale = 3;
@@ -121,7 +121,7 @@ public final class GamePanel extends JPanel implements Runnable {
      * <p>Προετοιμασία αντικειμένων παιχνιδιού.</p>
      */
     public void setupGame() {
-        aSetter.setObject();
+        aSetter.load();
     }
 
     /**
@@ -172,10 +172,8 @@ public final class GamePanel extends JPanel implements Runnable {
                     labyrinthFrame.closeFrame(true);
                     //Ενέργεια που εκτελείται όταν χάνει ο παίκτης
                 } else if (labyrinthFrame.getHasLost()) {
+                    Menu.stopMusic();
                     for (int times = 0; times < Entity.death.length - 1; times++) {
-                        if (times == 0) {
-                            Menu.stopMusic();
-                        }
                         //Για να απεικονιστεί φανερά ο "θάνατος" του παίκτη
                         sleep(0.75);
                         update();
@@ -248,8 +246,8 @@ public final class GamePanel extends JPanel implements Runnable {
         //Για να ζωγραφιστεί στην οθόνη τη λέξη ΠΑΥΣΗ σε περίπτωση pause
         if (gameState == pauseState) {
             g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 80F));
-            g2.setColor(new Color(232, 252, 243));
-            String text = "ΠΑΥΣΗ";
+            g2.setColor(new Color(162, 156, 156));
+            String text = "PAUSE";
             int length = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
             int x = screenWidth / 2 - length / 2;
             int y = screenHeight / 2;
@@ -300,6 +298,5 @@ public final class GamePanel extends JPanel implements Runnable {
     public void playerStabilize() {
         player.stabilizePlayer();
     }
-
 
 }

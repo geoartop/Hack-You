@@ -100,6 +100,11 @@ public class KeyHandler implements KeyListener {
     /** {@inheritDoc} */
     @Override
     public void keyPressed(KeyEvent e) {
+        //Σε περίπτωση ήττας να μην επιτρέπεται καμία ενέργεια από τον χρήστη
+        if (gp.labyrinthFrame.getHasLost()) {
+            return;
+        }
+
         int code = e.getKeyCode();
         setKeys(true, code);
 

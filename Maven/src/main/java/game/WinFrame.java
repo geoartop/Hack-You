@@ -109,7 +109,7 @@ public final class WinFrame implements ActionListener {
         } else {
             multiplier = 2;
         }
-        return (int) (time * multiplier * Quiz.getPercentage() + Player.getCoinsCollected());
+        return (int) (time * multiplier * Quiz.getPercentage() + Player.getCoinsCollected() * multiplier);
     }
 
     /**
@@ -143,7 +143,7 @@ public final class WinFrame implements ActionListener {
             SwingUtilities.invokeLater(Menu::new);
             Quiz.clearIndexes();
         } else {
-            System.exit(1);
+            Main.exit();
         }
         frame.dispose();
     }

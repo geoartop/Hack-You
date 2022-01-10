@@ -14,7 +14,9 @@ import javax.swing.text.StyledDocument;
 
 /**
  * <p> SuperClass για τις κλάσεις Credits, Description, Guide, HighScoreFrame </p>
- * <p> Χρησιμότητα : εύκολο μαζικό κλείσιμο frame + παροχή ορισμένου πρότυπου frame και λειτουργιών </p>
+ * <p> Χρησιμότητα : </p>
+ * <li>εύκολο μαζικό κλείσιμο frame</li>
+ * <li>παροχή ορισμένου πρότυπου frame και λειτουργιών</li>
  *
  * @author Team Hack-You
  * @version 1.0

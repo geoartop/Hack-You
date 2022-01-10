@@ -15,7 +15,7 @@ public final class PlayerInfo implements Serializable {
      * Serial number of persistent  data.
      * Required, because we will store PlayerInfo objects to txt (file)
      */
-    private static final long serialVersionUID = 2L;
+    private static final long serialVersionUID = -8468542776400753555L;
 
     private final String name;
     private final int score;
@@ -45,9 +45,9 @@ public final class PlayerInfo implements Serializable {
      *
      * @param obj an {@link highscoreTest.PlayerInfo} object
      * @return an int
-     * <p> 0 for not common name</p>
-     * <p> 1 for common name but not greater score</p>
-     * <p> 2 for common name and greater score</p>
+     * <li> 0 for not common name</li>
+     * <li> 1 for common name but not greater score</li>
+     * <li> 2 for common name and greater score</li>
      */
     public int didGreater(PlayerInfo obj) {
         if (obj == null) {

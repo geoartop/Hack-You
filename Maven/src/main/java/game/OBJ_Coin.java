@@ -47,7 +47,6 @@ public class OBJ_Coin extends SuperObject {
             spriteCounter = 0;
         }
 
-
     }
 
 }

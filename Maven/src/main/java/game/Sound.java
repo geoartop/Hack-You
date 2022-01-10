@@ -43,9 +43,9 @@ public final class Sound {
             AudioInputStream ais = AudioSystem.getAudioInputStream(soundURL[i]);
             clip = AudioSystem.getClip();
             clip.open(ais);
-            FloatControl gainControl =
+            FloatControl soundVolume =
                     (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-            gainControl.setValue(-20.0f); // Reduce volume by 20 decibels.
+            soundVolume.setValue(-10.0f); // Reduce volume by 10 decibels.
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }

@@ -130,7 +130,7 @@ public final class Options implements ActionListener {
             Quiz.clearIndexes();
             frame.dispose();
         } else {
-            System.exit(0);
+            Main.exit();
         }
         check();
         //Για να μην κολλήσει το progressBar

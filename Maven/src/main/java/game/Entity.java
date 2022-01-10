@@ -35,6 +35,7 @@ public class Entity {
      * <code>death</code> movement animation
      */
     final static BufferedImage[] death = new BufferedImage[7];
+
     /**
      * <code>OBJ_Coin</code> movement animation
      */
@@ -72,8 +73,8 @@ public class Entity {
     /**
      * <p>Διάβασμα αρχείων για τη φόρτωση των animation</p>
      *
-     * @param images : ο πίνακας {@link java.awt.image.BufferedImage} εικόνων κινήσεων
-     * @param path   : καθορίζει το επιθυμητό path
+     * @param images ο πίνακας {@link java.awt.image.BufferedImage} εικόνων κινήσεων
+     * @param path   καθορίζει το επιθυμητό path
      */
     private void setMovement(BufferedImage[] images, String path) throws IOException {
         for (int i = 0; i < images.length; i++) {

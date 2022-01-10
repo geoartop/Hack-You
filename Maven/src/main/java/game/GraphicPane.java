@@ -18,7 +18,7 @@ public final class GraphicPane extends JComponent {
      * Serial number of persistent  data.
      * Required, because JComponent implements serializable.
      */
-    private static final long serialVersionUID = 543L;
+    private static final long serialVersionUID = 1865039507811904395L;
 
     private final String text;
     private final int screenWidth;

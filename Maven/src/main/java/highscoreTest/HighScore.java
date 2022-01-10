@@ -46,8 +46,8 @@ public final class HighScore {
      * <p>Κατασκευαστής ο οποίος αρχικά κάνει writable το αρχείο των highscores και μετά την επεξεργασία
      * του αρχείου το κάνει read-only ώστε να μην επιτρέπεται η κακόβουλη αλλαγή του</p>
      *
-     * @param name  : όνομα παίκτη
-     * @param score : βαθμολογία παίκτη
+     * @param name  όνομα παίκτη
+     * @param score βαθμολογία παίκτη
      */
     public HighScore(String name, int score) {
         this.name = name;
@@ -170,7 +170,7 @@ public final class HighScore {
 
                 int score = Integer.parseInt(playerDetails[1]);
 
-                //Creating PlayerInfo object for every student record and adding it to ArrayList
+                //Creating PlayerInfo object for every record and adding it
                 playerInfo.add(new PlayerInfo(name, score));
                 currentLine = reader.readLine();
             }

@@ -39,4 +39,11 @@ public class Main {
         SwingUtilities.invokeLater(Username::new);
     }
 
+    /**
+     * <p>exit game.</p>
+     */
+    public static void exit() {
+        System.exit(0);
+    }
+
 }

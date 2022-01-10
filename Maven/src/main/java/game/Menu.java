@@ -32,8 +32,9 @@ public final class Menu implements ActionListener {
      * Προσδιορισμός για τον αν παίζεται μουσική
      * στο παιχνίδι ή όχι ώστε να απεικονιστεί η κατάσταση ήχου στο κουμπί
      */
-    private final JButton musicOn_Off = new JButton(String.format("Sound %s", ButtonSetter.getPlaySound() ? "off" : "on"));
-    private final JLabel label = new JLabel();
+    private final JButton musicOn_Off = new JButton(String.format("Sound %s",
+            ButtonSetter.getPlaySound() ? "off" : "on"));
+    private final JLabel titleLabel = new JLabel();
     private final JLabel backgroundLabel = new JLabel();
 
     //Αρχικοποίηση εξαρτημένων παραθύρων
@@ -42,7 +43,7 @@ public final class Menu implements ActionListener {
     private int y = 250;
 
     /**
-     * <p>Setter for <code>how2play</code> enabled status</p>
+     * <p>Setter for <code>how2play</code> enabled status.</p>
      *
      * @param status a boolean
      */
@@ -51,7 +52,7 @@ public final class Menu implements ActionListener {
     }
 
     /**
-     * <p>Setter for <code>credits</code> enabled status</p>
+     * <p>Setter for <code>credits</code> enabled status.</p>
      *
      * @param status a boolean
      */
@@ -60,7 +61,7 @@ public final class Menu implements ActionListener {
     }
 
     /**
-     * <p>Setter for <code>description</code> enabled status</p>
+     * <p>Setter for <code>description</code> enabled status.</p>
      *
      * @param status a boolean
      */
@@ -95,8 +96,8 @@ public final class Menu implements ActionListener {
         frame.add(mLabel);
 
         //Εισαγωγή τίτλου παιχνιδιού
-        FrameSetter.scaleImgToLabel(label, 235, 50, 500, 100, title);
-        frame.add(label);
+        FrameSetter.scaleImgToLabel(titleLabel, 235, 50, 500, 100, title);
+        frame.add(titleLabel);
         //Εισαγωγή background
         FrameSetter.scaleBackground(backgroundLabel, 970, 780);
         frame.add(backgroundLabel);
@@ -157,6 +158,7 @@ public final class Menu implements ActionListener {
      */
     static void continuePlaying() {
         music.play();
+        music.loop();
     }
 
     /**

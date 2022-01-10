@@ -46,8 +46,8 @@ public final class DeathFrame implements ActionListener {
         setButton(back_to_menu);
         setButton(exit);
 
-        FrameSetter.scaleImgToLabel(headLabel, 220, 20, 100, 80, new ImageIcon("src/main/resources/deadthiseas/dead3.png"));
-        FrameSetter.scaleImgToLabel(minLabel, 300, 0, 125, 100, new ImageIcon("src/main/resources/minotaur/minotaurwin.png"));
+        FrameSetter.scaleImgToLabel(headLabel, 210, 20, 100, 80, new ImageIcon("src/main/resources/deadthiseas/dead3.png"));
+        FrameSetter.scaleImgToLabel(minLabel, 290, 0, 125, 100, new ImageIcon("src/main/resources/minotaur/minotaurwin.png"));
         frame.add(minLabel);
         frame.add(headLabel);
 
@@ -78,7 +78,7 @@ public final class DeathFrame implements ActionListener {
         } else if (e.getSource() == back_to_menu) {
             SwingUtilities.invokeLater(Menu::new);
         } else {
-            System.exit(0);
+            Main.exit();
         }
         Quiz.clearIndexes();
         frame.dispose();

@@ -88,7 +88,8 @@ public final class TileManager {
     private void loadMap(String FilePath) {
         InputStream is = getClass().getResourceAsStream(FilePath);
         assert is != null;
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(is, StandardCharsets.UTF_8))) {
             int col = 0;
             int row = 0;
 
