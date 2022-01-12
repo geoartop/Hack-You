@@ -21,12 +21,9 @@ public final class DeathFrame implements ActionListener {
     private int y = 200;
 
     private final JFrame frame;
-    private final JLabel backgroundLabel = new JLabel();
     private final JButton tryAgain = new JButton("try again");
     private final JButton back_to_menu = new JButton("back to Menu");
     private final JButton exit = new JButton("exit");
-    private final JLabel headLabel = new JLabel();
-    private final JLabel minLabel = new JLabel();
 
     /**
      * <p>Constructor for DeathFrame.</p>
@@ -46,11 +43,14 @@ public final class DeathFrame implements ActionListener {
         setButton(back_to_menu);
         setButton(exit);
 
+        JLabel headLabel = new JLabel();
         FrameSetter.scaleImgToLabel(headLabel, 210, 20, 100, 80, new ImageIcon("src/main/resources/deadthiseas/dead3.png"));
+        JLabel minLabel = new JLabel();
         FrameSetter.scaleImgToLabel(minLabel, 290, 0, 125, 100, new ImageIcon("src/main/resources/minotaur/minotaurwin.png"));
         frame.add(minLabel);
         frame.add(headLabel);
 
+        JLabel backgroundLabel = new JLabel();
         FrameSetter.scaleBackground(backgroundLabel, 600, 600);
         frame.add(backgroundLabel);
     }

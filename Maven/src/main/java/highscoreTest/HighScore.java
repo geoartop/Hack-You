@@ -60,6 +60,7 @@ public final class HighScore {
             boolean flag = true;
             sort();
             int count = 0;
+            //Έλεγχος για το αν έγινε προσωπικό ρεκορ
             if (playerInfo.stream().anyMatch(p -> p.getName().equals(name))) {
                 for (PlayerInfo p : playerInfo) {
                     int check = new PlayerInfo(name, score).didGreater(p);
@@ -107,7 +108,7 @@ public final class HighScore {
      * <p>Έλεγχος για το αν το score που δίδεται είναι αρκετά μεγάλο
      * για να καταγραφεί στον πίνακα των top 10 ή όχι</p>
      *
-     * @return true αν έγινε η καταχώρηση επιτυχώς, false αν δεν έγινε νέα καταχώρηση
+     * @return true αν έγινε η καταχώρηση επιτυχώς,<br> false αν δεν έγινε νέα καταχώρηση
      */
     private boolean checkForNewRegister() {
         try (BufferedReader reader = new BufferedReader(
@@ -215,7 +216,7 @@ public final class HighScore {
      * <p>Έλεγχος για το αν υπάρχει μια συγκεκριμένη καταχώρηση.</p>
      *
      * @param name  a {@link java.lang.String} object
-     * @param score a int
+     * @param score an int
      * @return a boolean
      */
     @VisibleForTesting
@@ -226,7 +227,7 @@ public final class HighScore {
     /**
      * <p>Getter for the field <code>playerInfoSize</code>.</p>
      *
-     * @return a int
+     * @return an int
      */
     public static int getPlayerInfoSize() {
         return playerInfoSize;

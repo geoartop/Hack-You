@@ -12,7 +12,7 @@ import java.util.Objects;
 public final class PlayerInfo implements Serializable {
 
     /**
-     * Serial number of persistent  data.
+     * Serial number of persistent  data. <br>
      * Required, because we will store PlayerInfo objects to txt (file)
      */
     private static final long serialVersionUID = -8468542776400753555L;

@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 /**
- * <p>Αντικείμενο spikes στο παιχνίδι
+ * <p>Αντικείμενο spikes στο παιχνίδι <br>
  * το οποίο απενεργοποιείται με το trigger μιας ερώτησης</p>
  *
  * @author Team Hack-You

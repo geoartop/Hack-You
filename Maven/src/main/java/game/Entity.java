@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
- * <p>Entity class.
+ * <p>Entity class. <br>
  * Φορτώνει τα animation λων των αντικειμένων του παιχνιδιού.</p>
  *
  * @author Team Hack-You

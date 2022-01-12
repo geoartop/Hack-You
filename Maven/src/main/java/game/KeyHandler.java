@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- * <p>Διαχείριση λειτουργιών των κουμπιών
+ * <p>Διαχείριση λειτουργιών των κουμπιών <br>
  * WASD, Arrows, PAUSE, ESCAPE στο παιχνίδι</p>
  *
  * @author Team Hack-You
