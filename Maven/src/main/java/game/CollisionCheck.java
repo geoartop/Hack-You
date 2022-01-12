@@ -56,8 +56,8 @@ public final class CollisionCheck {
                 break;
             default:
                 entityRightCol = (entityRightWorldX + Player.speed) / GamePanel.tileSize;
-                tileNum1 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
-                tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
+                tileNum1=gp.tileM.mapTileNum[entityRightCol][entityTopRow];
+                tileNum2=gp.tileM.mapTileNum[entityRightCol][entityBottomRow];
                 break;
 
         }
