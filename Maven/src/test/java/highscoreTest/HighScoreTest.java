@@ -52,6 +52,12 @@ public class HighScoreTest {
         Assertions.assertFalse(Files.isWritable(Paths.get("src/main/resources/HighScore.txt")));
     }
 
+    @Test
+    @DisplayName("Result of check should be 2")
+    void didGreaterTest() {
+        Assertions.assertEquals(PlayerInfo.greater, highScore.getPlayerInfoElement(0).didGreater(highScore.getPlayerInfoElement(1)));
+    }
+
     @AfterAll
     public static void tearDown() throws IOException {
         File file = new File("src/main/resources/HighScore.txt");

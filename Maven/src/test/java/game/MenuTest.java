@@ -9,7 +9,7 @@ class MenuTest {
 
     static Menu menu;
 
-    /*@BeforeAll
+    @BeforeAll
     static void setUp() {
         menu = new Menu();
     }
@@ -30,5 +30,5 @@ class MenuTest {
     @AfterAll
     static void tearDown() {
         menu = null;
-    }*/
+    }
 }
