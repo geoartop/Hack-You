@@ -15,7 +15,7 @@ import java.awt.Graphics2D;
 public final class GraphicPane extends JComponent {
 
     /**
-     * Serial number of persistent  data.
+     * Serial number of persistent  data. <br>
      * Required, because JComponent implements serializable.
      */
     private static final long serialVersionUID = 1865039507811904395L;

@@ -27,8 +27,6 @@ public final class Levels implements ActionListener {
     private final JButton medium = new JButton("Medium");
     private final JButton hard = new JButton("Hard");
 
-    private final JLabel backgroundLabel = new JLabel();
-
     private int y = 200;
 
     //Θέλουμε να γνωρίζει η κλάση LabyrinthFrame το επίπεδο δυσκολίας που επίλεξε ο παίκτης
@@ -60,6 +58,7 @@ public final class Levels implements ActionListener {
         setButton(medium);
         setButton(hard);
         //Set Scaled Background
+        JLabel backgroundLabel = new JLabel();
         FrameSetter.scaleBackground(backgroundLabel, 600, 600);
         frame.add(backgroundLabel);
     }

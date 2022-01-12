@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 public final class GamePanel extends JPanel implements Runnable {
 
     /**
-     * Serial number of persistent  data.
+     * Serial number of persistent  data. <br>
      * Required, because JPanel implements serializable.
      */
     private static final long serialVersionUID = 5142440659615327139L;

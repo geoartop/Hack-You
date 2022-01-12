@@ -62,8 +62,8 @@ public final class TileManager {
     }
 
     /**
-     * <p>Κάνουμε scale τις εικόνες των tiles έτσι
-     * ώστε να μη χρειάζεται να γίνεται η διαδικασία αυτή μέσα στο gameloop
+     * <p>Κάνουμε scale τις εικόνες των tiles έτσι <br>
+     * ώστε να μη χρειάζεται να γίνεται η διαδικασία αυτή μέσα στο gameloop <br>
      * Λόγος : Improved rendering performance</p>
      *
      * @param index     : θέση πίνακα tile

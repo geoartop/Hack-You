@@ -41,8 +41,6 @@ public final class LabyrinthFrame implements ActionListener {
     // Αν ο παίκτης έχει χάσει ή όχι
     private boolean hasLost = false;
 
-    //Thread το οποίο τρέχει τη "φόρτωση" του εναπομένοντος χρόνου του παίκτη
-    private Thread fill_bar;
     //Δευτερόλεπτα που απομένουν στον παίκτη για να δραπετεύσει από τον λαβύρινθο
     private int counter;
 
@@ -201,16 +199,6 @@ public final class LabyrinthFrame implements ActionListener {
 
     }
 
-
-    /*void editBarTime(int flg) {
-        counter += flg;
-        if (counter > time) {
-            counter = time;
-        }
-        bar.setString(String.format("%d seconds left", counter));
-        bar.setValue(counter);
-    }*/
-
     private void setButton(JButton button) {
         ButtonSetter.setButton(button, 250, 500, 100, 50, new Font("Calibri", Font.ITALIC, 20), this);
         button.setIcon(null);
@@ -223,7 +211,8 @@ public final class LabyrinthFrame implements ActionListener {
      */
     void updateBar(int flg) {
         int new_time = Math.min(bar.getValue() + flg, time);
-        fill_bar = new Thread(() -> fill(new_time));
+        //Thread το οποίο τρέχει τη "φόρτωση" του εναπομένοντος χρόνου του παίκτη
+        Thread fill_bar = new Thread(() -> fill(new_time));
         fill_bar.start();
     }
 

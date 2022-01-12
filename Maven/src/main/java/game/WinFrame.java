@@ -22,14 +22,11 @@ import java.awt.event.ActionListener;
 public final class WinFrame implements ActionListener {
 
     private final JFrame frame;
-    private final JLabel backgroundLabel = new JLabel();
     private final JButton playAgain = new JButton("play again");
     private final JButton seeHighScores = new JButton("check HighScore table");
     private final JButton back_to_menu = new JButton("back to Menu");
     private final JButton exit = new JButton("exit");
     private HighScoreFrame highScoreFrame;
-    private final JLabel minLabel = new JLabel();
-    private final JLabel thLabel = new JLabel();
 
     private final HighScore highScore;
 
@@ -70,8 +67,10 @@ public final class WinFrame implements ActionListener {
         setButton(back_to_menu);
         setButton(exit);
 
+        JLabel minLabel = new JLabel();
         FrameSetter.scaleImgToLabel(minLabel, 350, 0, 120, 100, new ImageIcon("src/main/resources/minotaur/minotaurlose3.png"));
         frame.add(minLabel);
+        JLabel thLabel = new JLabel();
         FrameSetter.scaleImgToLabel(thLabel, 365, 100, 100, 70, new ImageIcon("src/main/resources/thiseas2/thiseasswind.png"));
         frame.add(thLabel);
 
@@ -79,6 +78,7 @@ public final class WinFrame implements ActionListener {
         graphicPane.setBounds(0, 150, 800, 150);
         frame.add(graphicPane);
 
+        JLabel backgroundLabel = new JLabel();
         FrameSetter.scaleBackground(backgroundLabel, 800, 800);
         frame.add(backgroundLabel);
     }

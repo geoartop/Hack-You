@@ -29,13 +29,11 @@ public final class Menu implements ActionListener {
     private final JButton credits = new JButton("Show Credits");
     private final JButton description = new JButton("Game Description");
     /**
-     * Προσδιορισμός για τον αν παίζεται μουσική
+     * Προσδιορισμός για τον αν παίζεται μουσική <br>
      * στο παιχνίδι ή όχι ώστε να απεικονιστεί η κατάσταση ήχου στο κουμπί
      */
     private final JButton musicOn_Off = new JButton(String.format("Sound %s",
             ButtonSetter.getPlaySound() ? "off" : "on"));
-    private final JLabel titleLabel = new JLabel();
-    private final JLabel backgroundLabel = new JLabel();
 
     //Αρχικοποίηση εξαρτημένων παραθύρων
     private final UtilityFrame[] utilityFrames = new UtilityFrame[3];
@@ -77,7 +75,7 @@ public final class Menu implements ActionListener {
             playMusic();
         }
         // Εξατομίκευση παραθύρου
-        FrameSetter.setFrame(frame, "Menu", 970, 780);
+        FrameSetter.setFrame(frame, "Menu", 970, 770);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setButton(start);
@@ -96,9 +94,11 @@ public final class Menu implements ActionListener {
         frame.add(mLabel);
 
         //Εισαγωγή τίτλου παιχνιδιού
+        JLabel titleLabel = new JLabel();
         FrameSetter.scaleImgToLabel(titleLabel, 235, 50, 500, 100, title);
         frame.add(titleLabel);
         //Εισαγωγή background
+        JLabel backgroundLabel = new JLabel();
         FrameSetter.scaleBackground(backgroundLabel, 970, 780);
         frame.add(backgroundLabel);
     }
