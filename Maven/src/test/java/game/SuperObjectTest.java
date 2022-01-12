@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 class SuperObjectTest {
 
-    static SuperObject superObject;
+    /*static SuperObject superObject;
 
     @BeforeAll
     static void setUp() {
@@ -23,6 +23,6 @@ class SuperObjectTest {
     @AfterAll
     static void tearDown() {
         superObject = null;
-    }
+    }*/
 
 }

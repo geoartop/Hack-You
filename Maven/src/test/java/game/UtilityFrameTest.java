@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 class UtilityFrameTest {
 
-    Menu menu;
+    /*Menu menu;
     UtilityFrame[] utilityFrames;
 
     @BeforeEach
@@ -28,7 +28,7 @@ class UtilityFrameTest {
     @AfterEach
     void tearDown() {
         utilityFrames = null;
-    }
+    }*/
 
 
 }
