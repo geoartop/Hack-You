@@ -19,9 +19,7 @@ public class OBJ_Coin extends SuperObject {
      * <p>Constructor for OBJ_Coin.</p>
      */
     public OBJ_Coin() {
-        super();
-        name = "Coin";
-        collision = false;
+        super("Coin", false);
     }
 
     /**

@@ -40,19 +40,13 @@ public class HighScoreTest {
     @Test
     @DisplayName("Sort should work")
     void sort() {
-        Assertions.assertTrue(highScore.isRegistered("Mpampis", 11));
+        Assertions.assertEquals(PlayerInfo.greater, highScore.getPlayerInfoElement(0).didGreater(highScore.getPlayerInfoElement(1)));
     }
 
     @Test
     @DisplayName("File must not be writable")
     void fileStatus() {
         Assertions.assertFalse(Files.isWritable(Paths.get("./HighScore.txt")));
-    }
-
-    @Test
-    @DisplayName("Result of check should be 2")
-    void didGreaterTest() {
-        Assertions.assertEquals(PlayerInfo.greater, highScore.getPlayerInfoElement(0).didGreater(highScore.getPlayerInfoElement(1)));
     }
 
     @Test

@@ -96,7 +96,7 @@ public final class HighScore {
     /**
      * <p>Μέθοδος που μεταβάλει την κατάσταση του αρχείου σε writable/not-writable </p>
      *
-     * @param status : true -> writable , false -> not-writable
+     * @param status : true - writable , false - not-writable
      */
     private void setFile(boolean status) {
         File file = new File("./HighScore.txt");

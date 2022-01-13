@@ -43,7 +43,7 @@ public class Entity {
     /**
      * <code>OBJ_Spikes</code> animation
      */
-    final static BufferedImage[] spikes = new BufferedImage[2];
+    static BufferedImage[] spikes = new BufferedImage[2];
 
 
     /**
@@ -55,16 +55,13 @@ public class Entity {
             setMovement(down, "/thiseas2/thiseaswalkingdown");
             setMovement(right, "/thiseas2/thiseaswalkingright");
             setMovement(left, "/thiseas2/thiseaswalkingleft");
-            setMovement(coin, "/goldCoin/goldCoin");
             setMovement(death, "/deadthiseas/dead");
 
-            BufferedImage image = ImageIO.read(Objects.requireNonNull
-                    (Entity.class.getResourceAsStream(("/spikes/spike2.png"))));
-            spikes[0] = FrameSetter.scaleImage(image, 38, 38);
-            image = ImageIO.read(Objects.requireNonNull
-                    (Entity.class.getResourceAsStream(("/spikes/spike4.png"))));
-            spikes[1] = FrameSetter.scaleImage(image, 38, 38);
+            setMovement(coin, "/goldCoin/goldCoin");
 
+            spikes = OBJ_Spikes.setup();
+            OBJ_Question.setup();
+            OBJ_Exit.setup();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -82,6 +79,7 @@ public class Entity {
             BufferedImage image = ImageIO.read(Objects.requireNonNull
                     (Entity.class.getResourceAsStream(path + (i + 1) + ".png")));
             images[i] = FrameSetter.scaleImage(image, 48, 48);
+            //For death animation
             if (i == 5 && images.length == 7) {
                 images[images.length - 1] = images[images.length - 2];
                 break;

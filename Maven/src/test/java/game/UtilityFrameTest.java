@@ -6,6 +6,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+/**
+ * <p>UtilityFrameTest class.</p>
+ *
+ * @author Hack-You
+ * @version 1.0
+ */
 class UtilityFrameTest {
 
     Menu menu;

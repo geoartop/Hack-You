@@ -103,7 +103,6 @@ public final class Levels implements ActionListener {
         //Έλεγχος για τον αν ο παίκτης ξαναεπιλέγει το ίδιο επίπεδο ή όχι
         if (!difficulty.equals(diff)) {
             difficulty = diff;
-            System.out.println(diff);
             //Προετοιμασία απαραίτητων μεταβλητών για τη λειτουργία του λαβυρίνθου
             LabyrinthFrame.setLabyrinth();
             try {

@@ -57,9 +57,8 @@ public final class GamePanel extends JPanel implements Runnable {
     static final int playState = 1;
     static final int pauseState = 2;
     static final int endState = 3;
-    //Για την αναπαραγωγή ήχου
-    private static final Sound se = new Sound();
-
+    //Για την αναπαραγωγή ήχου ήττας
+    private static final Sound deathSound = new Sound();
 
     /**
      * <p>writeObject.</p>
@@ -193,11 +192,18 @@ public final class GamePanel extends JPanel implements Runnable {
     }
 
     /**
+     * <p>stopSE.</p>
+     */
+    static void stopSE() {
+        deathSound.stop();
+    }
+
+    /**
      * <p>playSE.</p>
      */
     private void playSE() {
-        se.setFile(5);
-        se.play();
+        deathSound.setFile(5);
+        deathSound.play();
     }
 
     /**

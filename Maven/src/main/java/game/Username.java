@@ -82,6 +82,7 @@ public final class Username implements ActionListener {
                 JOptionPane.showMessageDialog(null, "You must enter your username!", "Reminder", JOptionPane.ERROR_MESSAGE);
                 return;
             } else if (username.toLowerCase(Locale.ROOT).equals("spanakis") || username.equalsIgnoreCase("dds")) {
+                //Easter egg
                 JOptionPane.showMessageDialog(null, "Congrats you won already on everything!", "Reminder", JOptionPane.INFORMATION_MESSAGE);
             } else if (username.contains(" ")) {
                 textField.setForeground(Color.red);

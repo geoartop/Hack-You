@@ -87,6 +87,7 @@ public final class DeathFrame implements ActionListener {
         } else {
             Main.exit();
         }
+        GamePanel.stopSE();
         Quiz.clearIndexes();
         frame.dispose();
     }

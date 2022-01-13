@@ -1,11 +1,11 @@
 package game;
 
-import javax.imageio.ImageIO;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
+import javax.imageio.ImageIO;
 
 /**
  * <p>Δημιουργία αντικειμένων στο παιχνίδι.</p>
@@ -15,11 +15,10 @@ import java.util.Objects;
  */
 public abstract class SuperObject {
 
-    protected BufferedImage image;
     protected String name;
-    protected boolean collision = false;
+    protected boolean collision;
     private int worldX, worldY;
-    protected Rectangle solidArea
+    protected final Rectangle solidArea
             = new Rectangle(0, 0, 48, 48);
     static final int solidAreaDefaultX = 0;
     static final int solidAreaDefaultY = 0;
@@ -32,22 +31,12 @@ public abstract class SuperObject {
     /**
      * <p>Constructor for SuperObject.</p>
      *
-     * @param path         a {@link java.lang.String} object
-     * @param width_height an int
+     * @param name      a {@link java.lang.String} object
+     * @param collision a boolean
      */
-    public SuperObject(String path, int width_height) {
-        try {
-            image = ImageIO.read(Objects.requireNonNull(System.class.getResourceAsStream(path)));
-            image = FrameSetter.scaleImage(image, width_height, width_height);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * <p>Default Constructor for SuperObject.</p>
-     */
-    public SuperObject() {
+    public SuperObject(String name, boolean collision) {
+        this.name = name;
+        this.collision = collision;
     }
 
     /**
@@ -149,5 +138,23 @@ public abstract class SuperObject {
      * @param gp a {@link game.GamePanel} object
      */
     public abstract void draw(Graphics2D g2, GamePanel gp);
+
+
+    /**
+     * <p>setup images for game objects.</p>
+     *
+     * @param path a {@link java.lang.String} object
+     * @return a {@link BufferedImage} object
+     */
+    static BufferedImage setup(String path) {
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(Objects.requireNonNull(SuperObject.class.getResourceAsStream(path)));
+            image = FrameSetter.scaleImage(image, 48, 48);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return image;
+    }
 
 }

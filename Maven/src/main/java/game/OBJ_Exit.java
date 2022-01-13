@@ -2,6 +2,10 @@ package game;
 
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.Objects;
+import javax.imageio.ImageIO;
 
 /**
  * <p>Αντικείμενο Εξόδου στο παιχνίδι</p>
@@ -12,17 +16,19 @@ import java.awt.Rectangle;
  */
 public class OBJ_Exit extends SuperObject {
 
+    private static BufferedImage image;
+
     /**
      * <p>Constructor for OBJ_Exit.</p>
      */
     public OBJ_Exit() {
-        super("/icons/exit.png", 48);
-        super.solidArea = new Rectangle(0, 0, 48, 96);
-        name = "Exit";
-        collision = false;
+        super("Exit", false);
+        super.solidArea.height = 96;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void playSE() {
         se.setFile(3);
@@ -35,6 +41,13 @@ public class OBJ_Exit extends SuperObject {
     @Override
     public void draw(Graphics2D g2, GamePanel gp) {
         setValues(g2, gp, image);
+    }
+
+    /**
+     * <p>setup.</p>
+     */
+    static void setup() {
+        image = SuperObject.setup("/icons/exit.png");
     }
 
 }

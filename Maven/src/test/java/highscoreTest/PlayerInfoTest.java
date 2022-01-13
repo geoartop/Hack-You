@@ -5,6 +5,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * <p>PlayerInfoTest class.</p>
+ *
+ * @author Hack-You
+ * @version 1.0
+ */
 class PlayerInfoTest {
 
     PlayerInfo playerInfo;

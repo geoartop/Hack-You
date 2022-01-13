@@ -93,9 +93,7 @@ public final class PlayerInfo implements Serializable {
         return 4012; // any arbitrary constant will do
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         return name + " : " + score;

@@ -27,7 +27,7 @@ public final class Credits extends UtilityFrame {
             }
         });
 
-        super.load("/sheet-credits.txt", textPane);
+        super.load("/Credits.txt", textPane);
 
         textPane.setCaretPosition(0);
         frame.getContentPane().add(scrollPane);

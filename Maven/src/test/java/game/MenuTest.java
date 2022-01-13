@@ -5,6 +5,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+/**
+ * <p>MenuTest class.</p>
+ *
+ * @author Hack-You
+ * @version 1.0
+ */
 class MenuTest {
 
     static Menu menu;

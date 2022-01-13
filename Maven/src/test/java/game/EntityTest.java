@@ -5,6 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 
+/**
+ * <p>EntityTest class.</p>
+ *
+ * @author Hack-You
+ * @version 1.0
+ */
 class EntityTest {
 
     @BeforeEach

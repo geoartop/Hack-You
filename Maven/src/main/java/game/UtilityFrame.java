@@ -66,7 +66,7 @@ public abstract class UtilityFrame {
      * @param textPane {@link javax.swing.JTextPane} το textPane στο οποίο θα φορτωθεί το κείμενο
      */
     protected void load(String pathname, JTextPane textPane) {
-        InputStream is = System.class.getResourceAsStream(pathname);
+        InputStream is = UtilityFrame.class.getResourceAsStream(pathname);
         StyledDocument doc = textPane.getStyledDocument();
         try {
             Scanner q = new Scanner(Objects.requireNonNull(is), "UTF-8");

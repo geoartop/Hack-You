@@ -1,6 +1,10 @@
 package game;
 
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.Objects;
+import javax.imageio.ImageIO;
 
 /**
  * <p>Αντικείμενο ερώτησης στο παιχνίδι</p>
@@ -11,13 +15,12 @@ import java.awt.Graphics2D;
  */
 public class OBJ_Question extends SuperObject {
 
+    private static BufferedImage image;
     /**
      * <p>Constructor for OBJ_Question.</p>
      */
     public OBJ_Question() {
-        super("/icons/qmark.png", 48);
-        name = "Question";
-        collision = true;
+        super("Question", true);
     }
 
     /** {@inheritDoc} */
@@ -33,5 +36,12 @@ public class OBJ_Question extends SuperObject {
     @Override
     public void draw(Graphics2D g2, GamePanel gp) {
         setValues(g2, gp, image);
+    }
+
+    /**
+     * <p>setup.</p>
+     */
+    static void setup() {
+        image = SuperObject.setup("/icons/qmark.png");
     }
 }

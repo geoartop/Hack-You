@@ -2,6 +2,9 @@ package game;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.Objects;
+import javax.imageio.ImageIO;
 
 /**
  * <p>Αντικείμενο spikes στο παιχνίδι <br>
@@ -23,8 +26,7 @@ public class OBJ_Spikes extends SuperObject {
      * @param question_index an int
      */
     public OBJ_Spikes(int question_index) {
-        super();
-        name = "Spikes";
+        super("Spikes", false);
         this.question_index = question_index;
     }
 
@@ -48,6 +50,19 @@ public class OBJ_Spikes extends SuperObject {
         if (gp.obj.get(question_index) == null) {
             spriteNum = 1;
         }
+    }
+
+    /**
+     * <p>setup.</p>
+     *
+     * @return a {@link BufferedImage} array
+     */
+    static BufferedImage[] setup() {
+        BufferedImage[] spikes = new BufferedImage[2];
+        spikes[0] = SuperObject.setup("/spikes/spike2.png");
+        spikes[1] = SuperObject.setup("/spikes/spike4.png");
+        return spikes;
+
     }
 
 }

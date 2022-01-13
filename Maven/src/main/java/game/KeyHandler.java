@@ -82,7 +82,9 @@ public final class KeyHandler implements KeyListener {
         this.quizTrig = quizTrig;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -97,7 +99,9 @@ public final class KeyHandler implements KeyListener {
         this.gp = gp;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         //Σε περίπτωση ήττας να μην επιτρέπεται καμία ενέργεια από τον χρήστη
@@ -163,7 +167,9 @@ public final class KeyHandler implements KeyListener {
         }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();

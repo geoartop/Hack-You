@@ -39,7 +39,6 @@ public final class TileManager {
             level = 1 + random.nextInt(2);
         }
         getTileImage();
-        System.out.println(level);
         loadMap(String.format("/maps/%s%s.txt", Levels.getDifficulty(), level == 1 ? "" : 2));
 
     }
