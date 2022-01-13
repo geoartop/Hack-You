@@ -10,7 +10,7 @@ import java.awt.event.WindowEvent;
  * @version 1.0
  * @see UtilityFrame
  */
-public class Credits extends UtilityFrame {
+public final class Credits extends UtilityFrame {
 
     /**
      * <p>Constructor for Credits.</p>
@@ -27,7 +27,7 @@ public class Credits extends UtilityFrame {
             }
         });
 
-        super.load("src/main/resources/sheet-credits.txt", textPane);
+        super.load("/sheet-credits.txt", textPane);
 
         textPane.setCaretPosition(0);
         frame.getContentPane().add(scrollPane);

@@ -11,7 +11,7 @@ import java.awt.event.KeyListener;
  * @author Team Hack-You
  * @version 1.0
  */
-public class KeyHandler implements KeyListener {
+public final class KeyHandler implements KeyListener {
 
     private boolean upPressed, downPressed, leftPressed, rightPressed;
     private final GamePanel gp;

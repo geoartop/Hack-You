@@ -1,5 +1,8 @@
 package game;
 
+import java.io.IOException;
+import java.util.Objects;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,9 +21,9 @@ import java.io.FileNotFoundException;
  */
 public final class Levels implements ActionListener {
 
-    private static final ImageIcon easy_icon = new ImageIcon("src/main/resources/buttons/wood1.png");
-    private static final ImageIcon medium_icon = new ImageIcon("src/main/resources/buttons/iron2.jpg");
-    private static final ImageIcon hard_icon = new ImageIcon("src/main/resources/buttons/gold2.png");
+    private static ImageIcon easy_icon;
+    private static ImageIcon medium_icon;
+    private static ImageIcon hard_icon;
 
     private final JFrame frame;
     private final JButton easy = new JButton("Easy");
@@ -114,6 +117,19 @@ public final class Levels implements ActionListener {
         }
 
         SwingUtilities.invokeLater(LabyrinthFrame::new);
+    }
+
+    /**
+     * <p>setup.</p>
+     */
+    static void setup() {
+        try {
+            easy_icon = new ImageIcon(ImageIO.read(Objects.requireNonNull(FrameSetter.class.getResourceAsStream("/buttons/wood1.png"))));
+            medium_icon = new ImageIcon(ImageIO.read(Objects.requireNonNull(FrameSetter.class.getResourceAsStream("/buttons/iron2.png"))));
+            hard_icon = new ImageIcon(ImageIO.read(Objects.requireNonNull(FrameSetter.class.getResourceAsStream("/buttons/gold2.png"))));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

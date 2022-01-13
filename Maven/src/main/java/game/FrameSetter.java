@@ -1,10 +1,12 @@
 package game;
 
+import java.io.IOException;
+import java.util.Objects;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 /**
@@ -14,6 +16,15 @@ import java.awt.image.BufferedImage;
  * @version 1.0
  */
 public final class FrameSetter {
+
+    /**
+     * WindowIcon <code>icon</code>
+     */
+    private static BufferedImage icon;
+    /**
+     * Background <code>background</code>
+     */
+    private static BufferedImage background;
 
     /**
      * <p>Μέθοδος εξατομίκευσης frames</p>
@@ -29,7 +40,7 @@ public final class FrameSetter {
         frame.setSize(width, height);
         frame.setVisible(true);
         frame.setLayout(null);
-        frame.setIconImage(Main.icon.getImage());
+        frame.setIconImage(icon);
         //Για να εμφανίζεται στο κέντρο της οθόνης του χρήστη
         frame.setLocationRelativeTo(null);
     }
@@ -42,11 +53,22 @@ public final class FrameSetter {
      * @param height an int
      */
     public static void scaleBackground(JLabel label, int width, int height) {
-        Image img = Main.background.getImage();
-        Image temp = img.getScaledInstance(width - 15, height, Image.SCALE_SMOOTH);
+        BufferedImage temp = scaleImage(background, width - 15, height);
         ImageIcon back = new ImageIcon(temp);
         label.setIcon(back);
         label.setBounds(0, 0, width, height);
+    }
+
+    /**
+     * <p>setup.</p>
+     */
+    static void setup() {
+        try {
+            icon = ImageIO.read(Objects.requireNonNull(Main.class.getResourceAsStream("/icons/maze-icon.png")));
+            background = ImageIO.read(Objects.requireNonNull(Main.class.getResourceAsStream("/background.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -58,7 +80,7 @@ public final class FrameSetter {
      * @return η original scaled εικόνα τύπου {@link java.awt.image.BufferedImage}
      */
     public static BufferedImage scaleImage(BufferedImage original, int width, int height) {
-        BufferedImage scaledImage = new BufferedImage(width, height, original.getType());
+        BufferedImage scaledImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2 = scaledImage.createGraphics();
         g2.drawImage(original, 0, 0, width, height, null);
         g2.dispose();
@@ -68,16 +90,15 @@ public final class FrameSetter {
     /**
      * <p>Μέθοδος που τοποθετεί μια εικόνα scaled σε ένα label.</p>
      *
-     * @param label     a {@link javax.swing.JLabel} object
-     * @param x         an int
-     * @param y         an int
-     * @param width     an int
-     * @param height    an int
-     * @param imageIcon a {@link javax.swing.ImageIcon} object
+     * @param label  a {@link javax.swing.JLabel} object
+     * @param x      an int
+     * @param y      an int
+     * @param width  an int
+     * @param height an int
+     * @param image  a {@link java.awt.image.BufferedImage} object
      */
-    public static void scaleImgToLabel(JLabel label, int x, int y, int width, int height, ImageIcon imageIcon) {
-        Image img = imageIcon.getImage();
-        Image temp = img.getScaledInstance(width - 15, height, Image.SCALE_SMOOTH);
+    public static void scaleImgToLabel(JLabel label, int x, int y, int width, int height, BufferedImage image) {
+        BufferedImage temp = scaleImage(image, width - 15, height);
         ImageIcon back = new ImageIcon(temp);
         label.setIcon(back);
         label.setBounds(x, y, width, height);

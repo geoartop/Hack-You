@@ -24,7 +24,8 @@ public final class ButtonSetter {
      */
     private static boolean playSound = true;
     private static int counter = 1;
-    private static ImageIcon icon;
+    private static BufferedImage icon1;
+    private static BufferedImage icon2;
 
     /**
      * <p>setButton.</p>
@@ -58,14 +59,14 @@ public final class ButtonSetter {
     private static void setButtonIcon(JButton button, int width, int height) {
         counter++;
         BufferedImage image;
-        try {
-            image = ImageIO.read(Objects.requireNonNull(ButtonSetter.class.getResourceAsStream(
-                    String.format("/buttons/wood%d.png", (counter % 2 == 1 ? 2 : 1)))));
-            image = FrameSetter.scaleImage(image, width, height);
-            icon = new ImageIcon(image);
-        } catch (IOException e) {
-            e.printStackTrace();
+        ImageIcon icon;
+        if (counter % 2 == 1) {
+            image = icon2;
+        } else {
+            image = icon1;
         }
+        image = FrameSetter.scaleImage(image, width, height);
+        icon = new ImageIcon(image);
         button.setIcon(icon);
     }
 
@@ -96,5 +97,18 @@ public final class ButtonSetter {
         }
         se.setFile(1);
         se.play();
+    }
+
+    static void setupButtons() {
+        try {
+            icon1 = ImageIO.read(Objects.requireNonNull(
+                    ButtonSetter.class.getResourceAsStream(
+                            "/buttons/wood1.png")));
+            icon2 = ImageIO.read(Objects.requireNonNull(
+                    ButtonSetter.class.getResourceAsStream(
+                            "/buttons/wood2.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

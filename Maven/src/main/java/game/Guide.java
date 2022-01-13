@@ -3,9 +3,8 @@ package game;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Objects;
 import java.util.Scanner;
 import javax.imageio.ImageIO;
@@ -21,15 +20,13 @@ import javax.swing.text.StyledDocument;
  * @version 1.0
  * @see UtilityFrame
  */
-public class Guide extends UtilityFrame {
+public final class Guide extends UtilityFrame {
 
     /**
      * Διαστάσεις παραθύρου
      */
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
-
-    private static boolean hasLoaded = false;
 
     /**
      * Εικόνες αρχείου
@@ -64,30 +61,11 @@ public class Guide extends UtilityFrame {
      * <p>setup.</p>
      */
     private void setup() {
-        if (!hasLoaded) {
-            try {
-                BufferedImage q = ImageIO.read(Objects.requireNonNull
-                        (getClass().getResourceAsStream(("/icons/qmark.png"))));
-                qmark = new ImageIcon(FrameSetter.scaleImage(q, IMG_WIDTH, IMG_HEIGHT));
-                BufferedImage c = ImageIO.read(Objects.requireNonNull
-                        (getClass().getResourceAsStream(("/goldCoin/goldCoin5.png"))));
-                coin = new ImageIcon(FrameSetter.scaleImage(c, IMG_WIDTH, IMG_HEIGHT));
-                BufferedImage e = ImageIO.read(Objects.requireNonNull
-                        (getClass().getResourceAsStream(("/icons/exit.png"))));
-                exit = new ImageIcon(FrameSetter.scaleImage(e, IMG_WIDTH, IMG_HEIGHT));
-                BufferedImage s = ImageIO.read(Objects.requireNonNull
-                        (getClass().getResourceAsStream(("/spikes/spike4.png"))));
-                spikes = new ImageIcon(FrameSetter.scaleImage(s, IMG_WIDTH, IMG_HEIGHT));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            hasLoaded = true;
-        }
-
-        load("src/main/resources/Guide.txt", textPane);
+        load("/Guide.txt", textPane);
         textPane.setCaretPosition(0);
         frame.getContentPane().add(scrollPane);
         frame.add(backgroundLabel);
+
     }
 
     /**
@@ -114,10 +92,11 @@ public class Guide extends UtilityFrame {
      */
     @Override
     protected void load(String pathname, JTextPane textPane) {
+        InputStream is = getClass().getResourceAsStream(pathname);
         StyledDocument doc = textPane.getStyledDocument();
         int counter = 0;
         try {
-            Scanner q = new Scanner(new File(pathname), "UTF-8");
+            Scanner q = new Scanner(Objects.requireNonNull(is), "UTF-8");
             while (q.hasNextLine()) {
                 counter++;
                 if (counter == 16) {
@@ -133,7 +112,30 @@ public class Guide extends UtilityFrame {
             }
             q.close();
 
-        } catch (FileNotFoundException | BadLocationException e) {
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * <p>setupImages.</p>
+     */
+    static void setupImages() {
+        try {
+            BufferedImage q = ImageIO.read(Objects.requireNonNull
+                    (Guide.class.getResourceAsStream(("/icons/qmark.png"))));
+            qmark = new ImageIcon(FrameSetter.scaleImage(q, IMG_WIDTH, IMG_HEIGHT));
+            BufferedImage c = ImageIO.read(Objects.requireNonNull
+                    (Guide.class.getResourceAsStream(("/goldCoin/goldCoin5.png"))));
+            coin = new ImageIcon(FrameSetter.scaleImage(c, IMG_WIDTH, IMG_HEIGHT));
+            BufferedImage e = ImageIO.read(Objects.requireNonNull
+                    (Guide.class.getResourceAsStream(("/icons/exit.png"))));
+            exit = new ImageIcon(FrameSetter.scaleImage(e, IMG_WIDTH, IMG_HEIGHT));
+            BufferedImage s = ImageIO.read(Objects.requireNonNull
+                    (Guide.class.getResourceAsStream(("/spikes/spike4.png"))));
+            spikes = new ImageIcon(FrameSetter.scaleImage(s, IMG_WIDTH, IMG_HEIGHT));
+        } catch (IOException e) {
             e.printStackTrace();
         }
 

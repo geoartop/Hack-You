@@ -60,7 +60,7 @@ public final class HighScore {
             boolean flag = true;
             sort();
             int count = 0;
-            //Έλεγχος για το αν έγινε προσωπικό ρεκορ
+            //Έλεγχος για το αν έγινε προσωπικό ρεκόρ
             if (playerInfo.stream().anyMatch(p -> p.getName().equals(name))) {
                 for (PlayerInfo p : playerInfo) {
                     int check = new PlayerInfo(name, score).didGreater(p);
@@ -99,7 +99,7 @@ public final class HighScore {
      * @param status : true -> writable , false -> not-writable
      */
     private void setFile(boolean status) {
-        File file = new File("src/main/resources/HighScore.txt");
+        File file = new File("./HighScore.txt");
         //making the file as read/read-only using setWritable(status) method
         file.setWritable(status);
     }
@@ -113,7 +113,7 @@ public final class HighScore {
     private boolean checkForNewRegister() {
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(
-                        new FileInputStream("src/main/resources/HighScore.txt"), StandardCharsets.UTF_8))) {
+                        new FileInputStream("./HighScore.txt"), StandardCharsets.UTF_8))) {
 
             int lines = 0;
             while (reader.readLine() != null) {
@@ -147,7 +147,7 @@ public final class HighScore {
     private void appendScore() {
         try (BufferedWriter writer = new BufferedWriter
                 (new OutputStreamWriter(
-                        new FileOutputStream("src/main/resources/HighScore.txt", true), StandardCharsets.UTF_8))) {
+                        new FileOutputStream("./HighScore.txt", true), StandardCharsets.UTF_8))) {
             writer.write(String.format("%s %d", name, score));
         } catch (IOException e) {
             e.printStackTrace();
@@ -160,7 +160,7 @@ public final class HighScore {
     private void load() {
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(
-                        new FileInputStream("src/main/resources/HighScore.txt"), StandardCharsets.UTF_8))) {
+                        new FileInputStream("./HighScore.txt"), StandardCharsets.UTF_8))) {
 
             String currentLine = reader.readLine();
 
@@ -190,7 +190,7 @@ public final class HighScore {
         playerInfo.sort((p1, p2) -> p2.getScore() - p1.getScore());
         try (BufferedWriter writer = new BufferedWriter
                 (new OutputStreamWriter(
-                        new FileOutputStream("src/main/resources/HighScore.txt"), StandardCharsets.UTF_8))) {
+                        new FileOutputStream("./HighScore.txt"), StandardCharsets.UTF_8))) {
             int counter = 0;
             //Ξαναδημιουργώ το αρχείο βάζοντας τα playerInfo σε σωστή σειρά και να είναι μέχρι 10
             for (PlayerInfo player : playerInfo) {
@@ -207,6 +207,23 @@ public final class HighScore {
 
             }
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * <p>Δημιουργία αρχείου καταγραφής HighScore την 1η φορά εκτέλεσης του παιχνιδιού.</p>
+     */
+    public static void setup() {
+        try {
+            File file = new File("./HighScore.txt");
+            if (file.createNewFile()) {
+                SwingUtilities.invokeLater(() ->
+                        JOptionPane.showMessageDialog(null, "Επιτυχής προετοιμασία αρχείου HighScore",
+                                "Info", JOptionPane.INFORMATION_MESSAGE));
+            }
+            file.setWritable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }

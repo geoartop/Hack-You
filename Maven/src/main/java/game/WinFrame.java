@@ -3,7 +3,10 @@ package game;
 import highscoreTest.HighScore;
 import highscoreTest.HighScoreFrame;
 
-import javax.swing.ImageIcon;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.Objects;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,6 +23,9 @@ import java.awt.event.ActionListener;
  * @version 1.0
  */
 public final class WinFrame implements ActionListener {
+
+    private static BufferedImage thiseas;
+    private static BufferedImage minotaur;
 
     private final JFrame frame;
     private final JButton playAgain = new JButton("play again");
@@ -68,10 +74,10 @@ public final class WinFrame implements ActionListener {
         setButton(exit);
 
         JLabel minLabel = new JLabel();
-        FrameSetter.scaleImgToLabel(minLabel, 350, 0, 120, 100, new ImageIcon("src/main/resources/minotaur/minotaurlose3.png"));
+        FrameSetter.scaleImgToLabel(minLabel, 350, 0, 120, 100, minotaur);
         frame.add(minLabel);
         JLabel thLabel = new JLabel();
-        FrameSetter.scaleImgToLabel(thLabel, 365, 100, 100, 70, new ImageIcon("src/main/resources/thiseas2/thiseasswind.png"));
+        FrameSetter.scaleImgToLabel(thLabel, 365, 100, 100, 70, thiseas);
         frame.add(thLabel);
 
         GraphicPane graphicPane = new GraphicPane("VICTORY!", 800, 100, new Color(23, 131, 59), new Font("Times new Roman", Font.BOLD, 60));
@@ -146,5 +152,17 @@ public final class WinFrame implements ActionListener {
             Main.exit();
         }
         frame.dispose();
+    }
+
+    /**
+     * <p>setup.</p>
+     */
+    static void setup() {
+        try {
+            thiseas = ImageIO.read(Objects.requireNonNull(Main.class.getResourceAsStream("/thiseas2/thiseasswind.png")));
+            minotaur = ImageIO.read(Objects.requireNonNull(Main.class.getResourceAsStream("/minotaur/minotaurlose3.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

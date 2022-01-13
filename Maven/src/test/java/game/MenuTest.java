@@ -11,6 +11,7 @@ class MenuTest {
 
     @BeforeAll
     static void setUp() {
+        Menu.setup();
         menu = new Menu();
     }
 

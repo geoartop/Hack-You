@@ -1,5 +1,9 @@
 package game;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.Objects;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,6 +21,9 @@ import java.awt.event.ActionListener;
  * @version 1.0
  */
 public final class DeathFrame implements ActionListener {
+
+    private static BufferedImage thiseas;
+    private static BufferedImage minotaur;
 
     private int y = 200;
 
@@ -44,9 +51,9 @@ public final class DeathFrame implements ActionListener {
         setButton(exit);
 
         JLabel headLabel = new JLabel();
-        FrameSetter.scaleImgToLabel(headLabel, 210, 20, 100, 80, new ImageIcon("src/main/resources/deadthiseas/dead3.png"));
+        FrameSetter.scaleImgToLabel(headLabel, 210, 20, 100, 80, thiseas);
         JLabel minLabel = new JLabel();
-        FrameSetter.scaleImgToLabel(minLabel, 290, 0, 125, 100, new ImageIcon("src/main/resources/minotaur/minotaurwin.png"));
+        FrameSetter.scaleImgToLabel(minLabel, 290, 0, 125, 100, minotaur);
         frame.add(minLabel);
         frame.add(headLabel);
 
@@ -82,5 +89,17 @@ public final class DeathFrame implements ActionListener {
         }
         Quiz.clearIndexes();
         frame.dispose();
+    }
+
+    /**
+     * <p>setup.</p>
+     */
+    static void setup() {
+        try {
+            thiseas = ImageIO.read(Objects.requireNonNull(Main.class.getResourceAsStream("/deadthiseas/dead3.png")));
+            minotaur = ImageIO.read(Objects.requireNonNull(Main.class.getResourceAsStream("/minotaur/minotaurwin.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

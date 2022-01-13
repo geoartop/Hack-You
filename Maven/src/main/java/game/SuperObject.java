@@ -37,7 +37,7 @@ public abstract class SuperObject {
      */
     public SuperObject(String path, int width_height) {
         try {
-            image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(path)));
+            image = ImageIO.read(Objects.requireNonNull(System.class.getResourceAsStream(path)));
             image = FrameSetter.scaleImage(image, width_height, width_height);
         } catch (IOException e) {
             e.printStackTrace();

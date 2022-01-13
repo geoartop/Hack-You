@@ -2,7 +2,10 @@ package game;
 
 import com.google.common.annotations.VisibleForTesting;
 
-import javax.swing.ImageIcon;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.Objects;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,9 +20,9 @@ import java.awt.event.ActionListener;
  */
 public final class Menu implements ActionListener {
 
-    private static final ImageIcon title = new ImageIcon("src/main/resources/Title.png");
-    private static final ImageIcon thiseas = new ImageIcon("src/main/resources/thiseas2/thiseaswalkingdown8.png");
-    private static final ImageIcon minotaur = new ImageIcon("src/main/resources/minotaur/minotaurwin.png");
+    private static BufferedImage title;
+    private static BufferedImage thiseas;
+    private static BufferedImage minotaur;
 
     private static final Sound music = new Sound();
 
@@ -74,6 +77,7 @@ public final class Menu implements ActionListener {
         if (checkMusic()) {
             playMusic();
         }
+
         // Εξατομίκευση παραθύρου
         FrameSetter.setFrame(frame, "Menu", 970, 770);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -189,6 +193,19 @@ public final class Menu implements ActionListener {
      */
     static void stopMusic() {
         music.stop();
+    }
+
+    /**
+     * <p>setup.</p>
+     */
+    static void setup() {
+        try {
+            title = ImageIO.read(Objects.requireNonNull(FrameSetter.class.getResourceAsStream("/Title.png")));
+            thiseas = ImageIO.read(Objects.requireNonNull(FrameSetter.class.getResourceAsStream("/thiseas2/thiseaswalkingdown8.png")));
+            minotaur = ImageIO.read(Objects.requireNonNull(FrameSetter.class.getResourceAsStream("/minotaur/minotaurwin.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

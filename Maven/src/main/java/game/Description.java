@@ -10,7 +10,7 @@ import java.awt.event.WindowEvent;
  * @version 1.0
  * @see UtilityFrame
  */
-public class Description extends UtilityFrame {
+public final class Description extends UtilityFrame {
 
     /**
      * <p>Constructor for Description.</p>
@@ -27,7 +27,7 @@ public class Description extends UtilityFrame {
             }
         });
 
-        super.load("src/main/resources/Mythos.txt", textPane);
+        super.load("/Mythos.txt", textPane);
 
         textPane.setCaretPosition(0);
         frame.getContentPane().add(scrollPane);

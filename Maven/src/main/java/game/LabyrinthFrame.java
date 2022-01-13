@@ -84,7 +84,7 @@ public final class LabyrinthFrame implements ActionListener {
     }
 
     /**
-     * <p>Αρχικοποίηση μεταβλητών για χρόνο παιχνιδιού
+     * <p>Αρχικοποίηση μεταβλητών για χρόνο παιχνιδιού <br>
      * και win/loss χρόνου ανάλογα με την απάντηση στις ερωτήσεις</p>
      */
     static void setLabyrinth() {

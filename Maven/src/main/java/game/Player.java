@@ -22,7 +22,6 @@ public class Player extends Entity {
     private final KeyHandler keyH;
     private final int screenX;
     private final int screenY;
-    private static boolean hasLoaded;
 
     /**
      * Coins collected from player
@@ -77,10 +76,6 @@ public class Player extends Entity {
 
         setDefaultValues();
 
-        if (!hasLoaded) {
-            super.getImages();
-            hasLoaded = true;
-        }
     }
 
     /**

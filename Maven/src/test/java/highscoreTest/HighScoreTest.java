@@ -1,20 +1,18 @@
 package highscoreTest;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 /**
  * <p>HighScoreTest class.</p>
- * ΤΑ ΤΕΣΤ ΔΕΝ ΓΙΝΟΝΤΑΙ ΜΕ ΤΗ ΣΕΙΡΑ FUCKING GENIUS!
  *
  * @author Hack-You
  * @version 1.0
@@ -43,13 +41,12 @@ public class HighScoreTest {
     @DisplayName("Sort should work")
     void sort() {
         Assertions.assertTrue(highScore.isRegistered("Mpampis", 11));
-        //Assertions.assertFalse(highScore.isRegistered("Mpampis0", 0));
     }
 
     @Test
     @DisplayName("File must not be writable")
     void fileStatus() {
-        Assertions.assertFalse(Files.isWritable(Paths.get("src/main/resources/HighScore.txt")));
+        Assertions.assertFalse(Files.isWritable(Paths.get("./HighScore.txt")));
     }
 
     @Test
@@ -58,12 +55,21 @@ public class HighScoreTest {
         Assertions.assertEquals(PlayerInfo.greater, highScore.getPlayerInfoElement(0).didGreater(highScore.getPlayerInfoElement(1)));
     }
 
+    @Test
+    @DisplayName("File Should be created")
+    void fileExists() throws IOException {
+        File file = new File("./HighScore.txt");
+        Assertions.assertFalse(file.createNewFile());
+        file.setWritable(false);
+    }
+
     @AfterAll
-    public static void tearDown() throws IOException {
-        File file = new File("src/main/resources/HighScore.txt");
+    static void tearDown() throws IOException {
+        File file = new File("./HighScore.txt");
         //making the file as read/read-only using setWritable(status) method
         file.setWritable(true);
-        new FileOutputStream("src/main/resources/HighScore.txt").close();
+        //Clear file contents
+        new FileOutputStream("./HighScore.txt").close();
         file.setWritable(false);
     }
 

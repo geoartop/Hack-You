@@ -1,10 +1,11 @@
 package game;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 
 /**
  * <p> Τοποθέτηση των αντικειμένων του παιχνιδιού στο gamepanel.</p>
@@ -75,15 +76,15 @@ public final class AssetSetter {
     /**
      * <p>Add objects to map according to difficulty.</p>
      * Id specifications for objects :
-     * <li>0 questions</li>
-     * <li>1 spikes</li>
-     * <li>2 coins</li>
-     * <li>3 exit</li>
+     * <p>0 questions</p>
+     * <p>1 spikes</p>
+     * <p>2 coins</p>
+     * <p>3 exit</p>
      */
     public void load() {
+        InputStream is = getClass().getResourceAsStream(String.format("/objects/%s%d.txt", Levels.getDifficulty(), TileManager.getLevel()));
         try (BufferedReader reader = new BufferedReader(
-                new InputStreamReader(
-                        new FileInputStream(String.format("src/main/resources/objects/%s%d.txt", Levels.getDifficulty(), TileManager.getLevel())),
+                new InputStreamReader(Objects.requireNonNull(is),
                         StandardCharsets.UTF_8))) {
 
             String currentLine = reader.readLine();

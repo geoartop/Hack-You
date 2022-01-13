@@ -49,7 +49,7 @@ public class Entity {
     /**
      * <p>Προετοιμασία των animations</p>
      */
-    void getImages() {
+    static void getImages() {
         try {
             setMovement(up, "/thiseas2/thiseaswalkingup");
             setMovement(down, "/thiseas2/thiseaswalkingdown");
@@ -59,10 +59,10 @@ public class Entity {
             setMovement(death, "/deadthiseas/dead");
 
             BufferedImage image = ImageIO.read(Objects.requireNonNull
-                    (getClass().getResourceAsStream(("/spikes/spike2.png"))));
+                    (Entity.class.getResourceAsStream(("/spikes/spike2.png"))));
             spikes[0] = FrameSetter.scaleImage(image, 38, 38);
             image = ImageIO.read(Objects.requireNonNull
-                    (getClass().getResourceAsStream(("/spikes/spike4.png"))));
+                    (Entity.class.getResourceAsStream(("/spikes/spike4.png"))));
             spikes[1] = FrameSetter.scaleImage(image, 38, 38);
 
         } catch (IOException e) {
@@ -75,11 +75,12 @@ public class Entity {
      *
      * @param images ο πίνακας {@link java.awt.image.BufferedImage} εικόνων κινήσεων
      * @param path   καθορίζει το επιθυμητό path
+     * @throws IOException if any
      */
-    private void setMovement(BufferedImage[] images, String path) throws IOException {
+    private static void setMovement(BufferedImage[] images, String path) throws IOException {
         for (int i = 0; i < images.length; i++) {
             BufferedImage image = ImageIO.read(Objects.requireNonNull
-                    (getClass().getResourceAsStream(path + (i + 1) + ".png")));
+                    (Entity.class.getResourceAsStream(path + (i + 1) + ".png")));
             images[i] = FrameSetter.scaleImage(image, 48, 48);
             if (i == 5 && images.length == 7) {
                 images[images.length - 1] = images[images.length - 2];

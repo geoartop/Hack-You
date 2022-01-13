@@ -1,6 +1,6 @@
 package game;
 
-import javax.swing.ImageIcon;
+import highscoreTest.HighScore;
 import javax.swing.SwingUtilities;
 import java.awt.Color;
 import java.awt.Font;
@@ -13,14 +13,6 @@ import java.awt.Font;
  */
 public class Main {
 
-    /**
-     * WindowIcon <code>icon</code>
-     */
-    public static final ImageIcon icon = new ImageIcon("src/main/resources/icons/maze-icon.png");
-    /**
-     * Background <code>background</code>
-     */
-    public static final ImageIcon background = new ImageIcon("src/main/resources/background/background-alt4 - Copy.jpg");
     /**
      * Game mainly used color <code>mainColor</code>
      */
@@ -36,7 +28,23 @@ public class Main {
      * @param args an array of {@link java.lang.String} objects
      */
     public static void main(String[] args) {
+        setupResources();
         SwingUtilities.invokeLater(Username::new);
+    }
+
+    /**
+     * <p>setupResources.</p>
+     */
+    private static void setupResources() {
+        FrameSetter.setup();
+        ButtonSetter.setupButtons();
+        Menu.setup();
+        Entity.getImages();
+        DeathFrame.setup();
+        WinFrame.setup();
+        Guide.setupImages();
+        Levels.setup();
+        HighScore.setup();
     }
 
     /**

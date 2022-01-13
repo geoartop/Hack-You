@@ -4,10 +4,11 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.security.SecureRandom;
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Scanner;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -207,20 +208,20 @@ public final class Quiz implements ActionListener {
      * @throws java.io.FileNotFoundException if any.
      */
     public static void readQuestions() throws FileNotFoundException {
-        Scanner q = new Scanner(new File
-                (String.format("src/main/resources/quiz/%s Questions.txt", Levels.getDifficulty())), "UTF-8");
+        InputStream is = Quiz.class.getResourceAsStream(String.format("/quiz/%s Questions.txt", Levels.getDifficulty()));
+        Scanner q = new Scanner(Objects.requireNonNull(is), "UTF-8");
         while (q.hasNextLine()) {
             questions.add(q.nextLine());
         }
         q.close();
-        Scanner o = new Scanner(new File
-                (String.format("src/main/resources/quiz/%s Options.txt", Levels.getDifficulty())), "UTF-8");
+        is = Quiz.class.getResourceAsStream(String.format("/quiz/%s Options.txt", Levels.getDifficulty()));
+        Scanner o = new Scanner(Objects.requireNonNull(is), "UTF-8");
         while (o.hasNextLine()) {
             options.add(o.nextLine());
         }
         o.close();
-        Scanner a = new Scanner
-                (new File(String.format("src/main/resources/quiz/%s Answers.txt", Levels.getDifficulty())), "UTF-8");
+        is = Quiz.class.getResourceAsStream(String.format("/quiz/%s Answers.txt", Levels.getDifficulty()));
+        Scanner a = new Scanner(Objects.requireNonNull(is), "UTF-8");
         while (a.hasNext()) {
             answers.add(a.next().charAt(0));
         }

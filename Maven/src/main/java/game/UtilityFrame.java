@@ -2,8 +2,8 @@ package game;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.Objects;
 import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,8 +15,8 @@ import javax.swing.text.StyledDocument;
 /**
  * <p> SuperClass για τις κλάσεις Credits, Description, Guide, HighScoreFrame </p>
  * <p> Χρησιμότητα : </p>
- * <li>εύκολο μαζικό κλείσιμο frame</li>
- * <li>παροχή ορισμένου πρότυπου frame και λειτουργιών</li>
+ * <p>εύκολο μαζικό κλείσιμο frame</p>
+ * <p>παροχή ορισμένου πρότυπου frame και λειτουργιών</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -66,14 +66,15 @@ public abstract class UtilityFrame {
      * @param textPane {@link javax.swing.JTextPane} το textPane στο οποίο θα φορτωθεί το κείμενο
      */
     protected void load(String pathname, JTextPane textPane) {
+        InputStream is = System.class.getResourceAsStream(pathname);
         StyledDocument doc = textPane.getStyledDocument();
         try {
-            Scanner q = new Scanner(new File(pathname), "UTF-8");
+            Scanner q = new Scanner(Objects.requireNonNull(is), "UTF-8");
             while (q.hasNextLine()) {
                 doc.insertString(doc.getLength(), q.nextLine() + "\n", null);
             }
             q.close();
-        } catch (FileNotFoundException | BadLocationException e) {
+        } catch (BadLocationException e) {
             e.printStackTrace();
         }
 
