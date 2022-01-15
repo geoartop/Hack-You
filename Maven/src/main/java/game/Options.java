@@ -28,8 +28,12 @@ public final class Options implements ActionListener {
     private final JButton back2menu = new JButton("back to Menu");
     private final JButton end = new JButton("exit");
     private static boolean isActive = false;
-    private Guide guide;
-    private SoundSettings soundSettings;
+    /**
+     * <p>Αρχικοποίηση εξαρτημένων παραθύρων <br>
+     * 0 for guide <br>
+     * 1 for SoundSettings</p>
+     */
+    private final UtilityFrame[] utilityFrames = new UtilityFrame[2];
 
     private int y = 150;
 
@@ -107,24 +111,6 @@ public final class Options implements ActionListener {
     }
 
     /**
-     * <p>check</p>
-     *
-     * <p>Έλεγχος για τον αν υπάρχει ανοιχτό παράθυρο guide <br>
-     * Σε περίπτωση που υπάρχει το παράθυρο αυτό κλείνει</p>
-     */
-    private void check() {
-        if (guide == null) {
-            return;
-        }
-        if (guide.getIsOpen()) {
-            guide.closeFrame();
-        }
-        if (soundSettings.getIsOpen()) {
-            soundSettings.closeFrame();
-        }
-    }
-
-    /**
      * {@inheritDoc}
      */
     @Override
@@ -133,7 +119,7 @@ public final class Options implements ActionListener {
         if (e.getSource() == returnBack) {
             frame.dispose();
         } else if (e.getSource() == showGuide) {
-            guide = new Guide(this);
+            utilityFrames[0] = new Guide(this);
             showGuide.setEnabled(false);
             return;
         } else if (e.getSource() == restart) {
@@ -148,13 +134,14 @@ public final class Options implements ActionListener {
             Quiz.clearIndexes();
             frame.dispose();
         } else if (e.getSource() == sound) {
-            soundSettings = new SoundSettings(this);
+            utilityFrames[1] = new SoundSettings(this);
             sound.setEnabled(false);
             return;
         } else {
             Main.exit();
         }
-        check();
+        //Κλείσιμο όλων των extra ανοιχτών παραθύρων
+        UtilityFrame.check(utilityFrames);
         //Για να μην κολλήσει το progressBar
         if (gp.labyrinthFrame.getHasStarted()) {
             gp.setGameState(GamePanel.playState);

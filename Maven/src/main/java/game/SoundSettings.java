@@ -10,7 +10,7 @@ import javax.swing.JSlider;
 import javax.swing.event.ChangeListener;
 
 /**
- * <p>SoundSettings class.</p>
+ * <p>Παράθυρο προσαρμογής ήχου.</p>
  *
  * @author panagiotis
  * @version 1.0
@@ -46,14 +46,10 @@ public final class SoundSettings extends UtilityFrame implements ActionListener 
             @Override
             public void windowClosing(WindowEvent e) {
                 menu.setSoundStatus(true);
-                SoundSettings.super.closeFrame();
-                if (ButtonSetter.getPlaySound()) {
-                    Menu.continuePlaying();
-                }
+                closeFrame();
             }
         });
         setup();
-
 
     }
 
@@ -90,6 +86,7 @@ public final class SoundSettings extends UtilityFrame implements ActionListener 
             }
         });
         setup();
+
     }
 
     /**
@@ -140,6 +137,17 @@ public final class SoundSettings extends UtilityFrame implements ActionListener 
             musicOn_Off.setText(String.format("Sound %s", ButtonSetter.getPlaySound() ? "off" : "on"));
         }
 
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void closeFrame() {
+        if (ButtonSetter.getPlaySound()) {
+            Menu.continuePlaying();
+        }
+        frame.dispose();
     }
 
 }

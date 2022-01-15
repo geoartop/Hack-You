@@ -23,7 +23,7 @@ import javax.swing.text.StyledDocument;
  */
 public abstract class UtilityFrame {
 
-    private final boolean isOpen;
+    private boolean isOpen;
     protected final JFrame frame;
     protected final JLabel backgroundLabel = new JLabel();
     protected final JTextPane textPane = new JTextPane();
@@ -110,9 +110,27 @@ public abstract class UtilityFrame {
     }
 
     /**
+     * <p>Έλεγχος για το αν υπάρχουν ανοιχτά utilityFrames. <br>
+     * Αν υπάρχουν τότε θα κλείνουν.</p>
+     *
+     * @param utilityFrames a {@link game.UtilityFrame} array
+     */
+    public static void check(UtilityFrame[] utilityFrames) {
+        for (UtilityFrame utilityFrame : utilityFrames) {
+            if (utilityFrame == null) {
+                continue;
+            }
+            if (utilityFrame.getIsOpen()) {
+                utilityFrame.closeFrame();
+            }
+        }
+    }
+
+    /**
      * <p>closeFrame.</p>
      */
     public void closeFrame() {
+        isOpen = false;
         frame.dispose();
     }
 }

@@ -36,8 +36,13 @@ public final class Menu implements ActionListener {
      * στο παιχνίδι ή όχι ώστε να απεικονιστεί η κατάσταση ήχου στο κουμπί
      */
     private final JButton sound = new JButton("Sound Settings");
-
-    //Αρχικοποίηση εξαρτημένων παραθύρων
+    /**
+     * <p> Αρχικοποίηση εξαρτημένων παραθύρων <br>
+     * 0 for guide <br>
+     * 1 for Credits <br>
+     * 2 for Description <br>
+     * 3 for SoundSettings</p>
+     */
     private final UtilityFrame[] utilityFrames = new UtilityFrame[4];
 
     private int y = 250;
@@ -134,14 +139,7 @@ public final class Menu implements ActionListener {
             new Levels();
             frame.dispose();
             //Έλεγχος για το αν υπάρχουν ανοιχτά utilityFrames πριν την έναρξη του παιχνιδιού
-            for (UtilityFrame utilityFrame : utilityFrames) {
-                if (utilityFrame == null) {
-                    continue;
-                }
-                if (utilityFrame.getIsOpen()) {
-                    utilityFrame.closeFrame();
-                }
-            }
+            UtilityFrame.check(utilityFrames);
         } else if (e.getSource() == how2play) {
             how2play.setEnabled(false);
             utilityFrames[0] = new Guide(this);

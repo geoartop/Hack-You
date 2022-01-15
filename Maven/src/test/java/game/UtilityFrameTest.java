@@ -29,7 +29,23 @@ class UtilityFrameTest {
     @DisplayName("Should be false after closeWindows")
     void checkOpen() {
         for (UtilityFrame utilityFrame : utilityFrames) {
+            if (utilityFrame == null) {
+                continue;
+            }
             Assertions.assertTrue(utilityFrame.getIsOpen());
+        }
+    }
+
+    @Test
+    @DisplayName("All windows should close")
+    void check() {
+        utilityFrames[2] = null;
+        UtilityFrame.check(utilityFrames);
+        for (UtilityFrame utilityFrame : utilityFrames) {
+            if (utilityFrame == null) {
+                continue;
+            }
+            Assertions.assertFalse(utilityFrame.getIsOpen());
         }
     }
 
