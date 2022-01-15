@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 /**
  * <p>UtilityFrameTest class.</p>
  *
- * @author Hack-You
+ * @author Team Hack-You
  * @version 1.0
  */
 class UtilityFrameTest {

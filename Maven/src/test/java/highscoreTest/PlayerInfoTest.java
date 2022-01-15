@@ -3,12 +3,13 @@ package highscoreTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
  * <p>PlayerInfoTest class.</p>
  *
- * @author Hack-You
+ * @author Team Hack-You
  * @version 1.0
  */
 class PlayerInfoTest {
@@ -26,6 +27,7 @@ class PlayerInfoTest {
     }
 
     @Test
+    @DisplayName("Comparison should work")
     void check() {
         PlayerInfo p2 = new PlayerInfo("Mpampis", 11);
         Assertions.assertEquals(PlayerInfo.greater, playerInfo.didGreater(p2));

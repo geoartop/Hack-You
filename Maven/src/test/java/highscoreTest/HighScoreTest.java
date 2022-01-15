@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 /**
  * <p>HighScoreTest class.</p>
  *
- * @author Hack-You
+ * @author Team Hack-You
  * @version 1.0
  */
 public class HighScoreTest {
@@ -31,6 +31,7 @@ public class HighScoreTest {
     }
 
     @Test
+    @DisplayName("Register's should be assigned to LinkedList")
     void functionalityCheck() {
         Assertions.assertNotEquals(0, HighScore.getPlayerInfoSize());
         Assertions.assertTrue(highScore.isRegistered("Mpampis", 11));

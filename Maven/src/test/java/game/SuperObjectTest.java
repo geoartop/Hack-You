@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 /**
  * <p>SuperObjectTest class.</p>
  *
- * @author Hack-You
+ * @author Team Hack-You
  * @version 1.0
  */
 class SuperObjectTest {

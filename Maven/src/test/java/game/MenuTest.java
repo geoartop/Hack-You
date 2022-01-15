@@ -3,12 +3,13 @@ package game;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
  * <p>MenuTest class.</p>
  *
- * @author Hack-You
+ * @author Team Hack-You
  * @version 1.0
  */
 class MenuTest {
@@ -22,11 +23,13 @@ class MenuTest {
     }
 
     @Test
+    @DisplayName("Music should be playing")
     void playMusic() {
         Assertions.assertTrue(Menu.musicIsPlaying());
     }
 
     @Test
+    @DisplayName("Should be known when music starts/stops")
     void stopMusic() {
         Assertions.assertFalse(Menu.checkMusic());
         Menu.stopMusic();
