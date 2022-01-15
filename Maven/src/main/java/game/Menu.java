@@ -29,17 +29,16 @@ public final class Menu implements ActionListener {
     private final JFrame frame = new JFrame();
     private final JButton start = new JButton("Start Game");
     private final JButton how2play = new JButton("How to Play");
-    private final JButton credits = new JButton("Show Credits");
-    private final JButton description = new JButton("Game Description");
+    private final JButton credits = new JButton("Credits");
+    private final JButton description = new JButton("Description");
     /**
      * Προσδιορισμός για τον αν παίζεται μουσική <br>
      * στο παιχνίδι ή όχι ώστε να απεικονιστεί η κατάσταση ήχου στο κουμπί
      */
-    private final JButton musicOn_Off = new JButton(String.format("Sound %s",
-            ButtonSetter.getPlaySound() ? "off" : "on"));
+    private final JButton sound = new JButton("Sound Settings");
 
     //Αρχικοποίηση εξαρτημένων παραθύρων
-    private final UtilityFrame[] utilityFrames = new UtilityFrame[3];
+    private final UtilityFrame[] utilityFrames = new UtilityFrame[4];
 
     private int y = 250;
 
@@ -50,6 +49,15 @@ public final class Menu implements ActionListener {
      */
     public void setHow2playStatus(boolean status) {
         how2play.setEnabled(status);
+    }
+
+    /**
+     * <p>Setter for <code>how2play</code> enabled status.</p>
+     *
+     * @param status a boolean
+     */
+    public void setSoundStatus(boolean status) {
+        sound.setEnabled(status);
     }
 
     /**
@@ -86,7 +94,7 @@ public final class Menu implements ActionListener {
         setButton(how2play);
         setButton(credits);
         setButton(description);
-        setButton(musicOn_Off);
+        setButton(sound);
 
         JLabel thLabel = new JLabel();
         JLabel mLabel = new JLabel();
@@ -122,17 +130,6 @@ public final class Menu implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         ButtonSetter.playSE();
-        if (e.getSource() == musicOn_Off) {
-            ButtonSetter.setPlaySound(!ButtonSetter.getPlaySound());
-            if (ButtonSetter.getPlaySound()) {
-                playMusic();
-            } else {
-                stopMusic();
-            }
-            musicOn_Off.setText(String.format("Sound %s", ButtonSetter.getPlaySound() ? "off" : "on"));
-            return;
-        }
-
         if (e.getSource() == start) {
             new Levels();
             frame.dispose();
@@ -151,9 +148,12 @@ public final class Menu implements ActionListener {
         } else if (e.getSource() == credits) {
             credits.setEnabled(false);
             utilityFrames[1] = new Credits(this);
-        } else {
+        } else if (e.getSource() == description) {
             description.setEnabled(false);
             utilityFrames[2] = new Description(this);
+        } else {
+            sound.setEnabled(false);
+            utilityFrames[3] = new SoundSettings(this);
         }
     }
 
