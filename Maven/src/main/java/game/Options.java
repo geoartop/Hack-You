@@ -1,17 +1,21 @@
 package game;
 
+import com.google.common.annotations.VisibleForTesting;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JSlider;
 import javax.swing.SwingUtilities;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.event.ChangeListener;
 
 /**
- * <p>Παράθυρο επιλόγων που προκαλεί παύση του παιχνιδιού όταν εμφανίζεται</p>
+ * <p>Παράθυρο επιλόγων που προκαλεί παύση του παιχνιδιού όταν εμφανίζεται.</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -28,8 +32,18 @@ public final class Options implements ActionListener {
     private final JButton end = new JButton("exit");
     private static boolean isActive = false;
     private Guide guide;
+    private static final JSlider slider = new JSlider(-30, 6, (-30 + 6) / 2);
 
+    /**
+     * <code>slider</code> minimum value
+     */
+    static final int min = slider.getMinimum();
+    /**
+     * <code>slider</code> maximum value
+     */
+    static final int max = slider.getMaximum();
     private int y = 200;
+
 
     /**
      * <p>set <code>showGuide</code> enabled status</p>
@@ -64,6 +78,20 @@ public final class Options implements ActionListener {
         graphicPane.setBounds(0, 0, 650, 150);
         frame.add(graphicPane);
 
+        slider.setBounds(200, 120, 300, 100);
+        slider.setOpaque(false);
+        slider.setEnabled(true);
+        JLabel label = new JLabel();
+        label.setFont(new Font("Calibri", Font.BOLD, 22));
+        label.setBounds(100, 120, 200, 100);
+        label.setText("Volume:");
+        frame.add(label);
+        frame.add(slider);
+
+        if (!ButtonSetter.getPlaySound()) {
+            slider.setEnabled(false);
+        }
+
         setButton(returnBack);
         setButton(showGuide);
         setButton(restart);
@@ -96,8 +124,9 @@ public final class Options implements ActionListener {
 
     /**
      * <p>check</p>
-     * Έλεγχος για τον αν υπάρχει ανοιχτό παράθυρο guide
-     * Σε περίπτωση που υπάρχει το παράθυρο αυτό κλείνει
+     *
+     * <p>Έλεγχος για τον αν υπάρχει ανοιχτό παράθυρο guide <br>
+     * Σε περίπτωση που υπάρχει το παράθυρο αυτό κλείνει</p>
      */
     private void check() {
         if (guide == null) {
@@ -108,7 +137,9 @@ public final class Options implements ActionListener {
         }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         ButtonSetter.playSE();
@@ -146,4 +177,42 @@ public final class Options implements ActionListener {
         }
 
     }
+
+    /**
+     * <p>Setter for the field's <code>slider</code> value .</p>
+     *
+     * @param value an int
+     */
+    @VisibleForTesting
+    public static void setSliderValue(int value) {
+        slider.setValue(value);
+    }
+
+    /**
+     * <p>Getter for the field's <code>slider</code> value .</p>
+     *
+     * @return an int
+     */
+    static int getSliderValue() {
+        return slider.getValue();
+    }
+
+    /**
+     * <p>Check if slider is still adjusting.</p>
+     *
+     * @return a boolean
+     */
+    static boolean sliderIsAdjusting() {
+        return slider.getValueIsAdjusting();
+    }
+
+    /**
+     * <p>add ChangeListener to slider.</p>
+     *
+     * @param changeListener a {@link ChangeListener} object
+     */
+    static void sliderAddChangeListener(ChangeListener changeListener) {
+        slider.addChangeListener(changeListener);
+    }
+
 }

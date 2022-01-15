@@ -1,13 +1,15 @@
 package game;
 
+import java.io.IOException;
+import java.net.URL;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import java.io.IOException;
-import java.net.URL;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 /**
  * <p>Αναπαραγωγή ήχου και ηχητικών εφέ</p>
@@ -15,11 +17,13 @@ import java.net.URL;
  * @author Team Hack-You
  * @version 1.0
  */
-public final class Sound {
+public final class Sound implements ChangeListener {
 
     private Clip clip;
     private static final URL[] soundURL = new URL[6];
     private boolean active = false;
+    private static int volume = (Options.min + Options.max) / 2;
+    private FloatControl soundVolume;
 
     /**
      * <p>Constructor for Sound.</p>
@@ -31,6 +35,8 @@ public final class Sound {
         soundURL[3] = getClass().getResource("/sound/win_sound.wav");
         soundURL[4] = getClass().getResource("/sound/swoosh.wav");
         soundURL[5] = getClass().getResource("/sound/death_sound.wav");
+
+        Options.sliderAddChangeListener(this);
     }
 
     /**
@@ -43,9 +49,10 @@ public final class Sound {
             AudioInputStream ais = AudioSystem.getAudioInputStream(soundURL[i]);
             clip = AudioSystem.getClip();
             clip.open(ais);
-            FloatControl soundVolume =
+            soundVolume =
                     (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-            soundVolume.setValue(-10.0f); // Reduce volume by 10 decibels.
+            soundVolume.setValue(volume);// Set initial volume
+
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
@@ -82,6 +89,27 @@ public final class Sound {
     public void stop() {
         active = false;
         clip.stop();
+    }
+
+    /**
+     * <p>flush clip.</p>
+     */
+    public void flush() {
+        clip.flush();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void stateChanged(ChangeEvent e) {
+        if (soundVolume == null) {
+            return;
+        }
+        if (!Options.sliderIsAdjusting()) {
+            volume = Options.getSliderValue();
+            soundVolume.setValue(volume);
+        }
     }
 
 }

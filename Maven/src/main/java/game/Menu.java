@@ -161,6 +161,7 @@ public final class Menu implements ActionListener {
      * <p>continuePlaying</p>
      */
     static void continuePlaying() {
+        music.flush();
         music.play();
         music.loop();
     }
