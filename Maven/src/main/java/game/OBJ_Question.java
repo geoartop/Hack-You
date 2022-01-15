@@ -2,9 +2,6 @@ package game;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.Objects;
-import javax.imageio.ImageIO;
 
 /**
  * <p>Αντικείμενο ερώτησης στο παιχνίδι</p>

@@ -22,7 +22,7 @@ public final class Sound implements ChangeListener {
     private Clip clip;
     private static final URL[] soundURL = new URL[6];
     private boolean active = false;
-    private static int volume = (Options.min + Options.max) / 2;
+    private static int volume = (SoundSettings.min + SoundSettings.max) / 2;
     private FloatControl soundVolume;
 
     /**
@@ -36,7 +36,7 @@ public final class Sound implements ChangeListener {
         soundURL[4] = getClass().getResource("/sound/swoosh.wav");
         soundURL[5] = getClass().getResource("/sound/death_sound.wav");
 
-        Options.sliderAddChangeListener(this);
+        SoundSettings.sliderAddChangeListener(this);
     }
 
     /**
@@ -106,8 +106,8 @@ public final class Sound implements ChangeListener {
         if (soundVolume == null) {
             return;
         }
-        if (!Options.sliderIsAdjusting()) {
-            volume = Options.getSliderValue();
+        if (!SoundSettings.sliderIsAdjusting()) {
+            volume = SoundSettings.getSliderValue();
             soundVolume.setValue(volume);
         }
     }

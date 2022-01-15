@@ -155,7 +155,7 @@ public class Player extends Entity {
      */
     private void interact(int index) {
         if (index != 999) {
-            String objectName = gp.obj.get(index).name;
+            String objectName = gp.obj.get(index).getName();
 
             if (ButtonSetter.getPlaySound()) {
                 gp.obj.get(index).playSE();
@@ -226,7 +226,6 @@ public class Player extends Entity {
 
         g2.drawImage(image, x1, y1, null);
     }
-
 
     /**
      * <p>draw.</p>

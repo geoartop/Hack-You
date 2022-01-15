@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 class SoundTest {
 
     static Sound sound;
-    int start_volume = (Options.min + Options.max) / 2;
+    int start_volume = (SoundSettings.min + SoundSettings.max) / 2;
 
     @BeforeEach
     void setUp() {
@@ -25,8 +25,8 @@ class SoundTest {
     @Test
     @DisplayName("When slider value changes the volume should change")
     void stateChanged() {
-        Options.setSliderValue((int) (Math.random() * 10));
-        Assertions.assertNotEquals(Options.getSliderValue(), start_volume);
+        SoundSettings.setSliderValue((int) (Math.random() * 10));
+        Assertions.assertNotEquals(SoundSettings.getSliderValue(), start_volume);
     }
 
     @AfterEach

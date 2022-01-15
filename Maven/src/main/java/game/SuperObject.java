@@ -15,7 +15,7 @@ import javax.imageio.ImageIO;
  */
 public abstract class SuperObject {
 
-    protected String name;
+    private final String name;
     protected boolean collision;
     private int worldX, worldY;
     protected final Rectangle solidArea
@@ -155,6 +155,15 @@ public abstract class SuperObject {
             e.printStackTrace();
         }
         return image;
+    }
+
+    /**
+     * <p>Getter for the field <code>name</code>.</p>
+     *
+     * @return a {@link java.lang.String} object
+     */
+    public String getName() {
+        return name;
     }
 
 }

@@ -99,9 +99,7 @@ public final class KeyHandler implements KeyListener {
         this.gp = gp;
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void keyPressed(KeyEvent e) {
         //Σε περίπτωση ήττας να μην επιτρέπεται καμία ενέργεια από τον χρήστη
@@ -129,6 +127,7 @@ public final class KeyHandler implements KeyListener {
             }
         }
         if (code == KeyEvent.VK_ESCAPE && !quizTrig) {
+            Menu.stopMusic();
             //Για να μπορεί ο χρήστης να ανοίξει μόνο ένα παράθυρο options χωρίς να διακόπτεται η ομαλή ροή του προγράμματος
             if (!escPressed) {
                 escPressed = true;
@@ -140,7 +139,7 @@ public final class KeyHandler implements KeyListener {
                 return;
             }
             gp.setGameState(GamePanel.pauseState);
-            Menu.stopMusic();
+            //Menu.stopMusic();
             gp.labyrinthFrame.stopBar();
             SwingUtilities.invokeLater(() -> new Options(gp));
         }
@@ -167,9 +166,7 @@ public final class KeyHandler implements KeyListener {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();
