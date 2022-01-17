@@ -36,7 +36,7 @@ public final class WinFrame implements ActionListener {
 
     private final HighScore highScore;
 
-    private int y = 300;
+    private int y = 270;
 
     /**
      * <p>Setter for <code>seeHighScores</code> enabled status</p>
@@ -59,11 +59,11 @@ public final class WinFrame implements ActionListener {
     /**
      * <p>Constructor for WinFrame.</p>
      *
-     * @param time a int
+     * @param time an int
      */
     public WinFrame(int time) {
         frame = new JFrame();
-        FrameSetter.setFrame(frame, "Victory", 800, 800);
+        FrameSetter.setFrame(frame, "Victory", 750, 680);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //Έλεγχος για το αν ο παίκτης έκανε νέο highscore
         highScore = new HighScore(Username.getUsername(), calculateScore(time));
@@ -74,18 +74,18 @@ public final class WinFrame implements ActionListener {
         setButton(exit);
 
         JLabel minLabel = new JLabel();
-        FrameSetter.scaleImgToLabel(minLabel, 350, 0, 120, 100, minotaur);
+        FrameSetter.scaleImgToLabel(minLabel, 315, 0, 120, 100, minotaur);
         frame.add(minLabel);
         JLabel thLabel = new JLabel();
-        FrameSetter.scaleImgToLabel(thLabel, 365, 100, 100, 70, thiseas);
+        FrameSetter.scaleImgToLabel(thLabel, 330, 100, 100, 70, thiseas);
         frame.add(thLabel);
 
-        GraphicPane graphicPane = new GraphicPane("VICTORY!", 800, 100, new Color(23, 131, 59), new Font("Times new Roman", Font.BOLD, 60));
-        graphicPane.setBounds(0, 150, 800, 150);
+        GraphicPane graphicPane = new GraphicPane("VICTORY!", 750, 80, new Color(23, 131, 59), new Font("Times new Roman", Font.BOLD, 60));
+        graphicPane.setBounds(0, 150, 750, 150);
         frame.add(graphicPane);
 
         JLabel backgroundLabel = new JLabel();
-        FrameSetter.scaleBackground(backgroundLabel, 800, 800);
+        FrameSetter.scaleBackground(backgroundLabel, 750, 680);
         frame.add(backgroundLabel);
     }
 
@@ -95,7 +95,7 @@ public final class WinFrame implements ActionListener {
      * @param button a {@link JButton} object
      */
     private void setButton(JButton button) {
-        ButtonSetter.setButton(button, 275, y, 250, 50, Main.mainFont, this);
+        ButtonSetter.setButton(button, 250, y, 250, 50, Main.mainFont, this);
         frame.add(button);
         y += 100;
     }
