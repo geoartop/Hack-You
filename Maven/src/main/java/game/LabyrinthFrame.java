@@ -14,7 +14,7 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
 /**
- * <p>Παράθυρο όπου τρέχει ο λαβύρινθος</p>
+ * <p>Παράθυρο όπου τρέχει ο λαβύρινθος.</p>
  *
  * @author Team Hack-You
  * @version 1.0
@@ -90,7 +90,7 @@ public final class LabyrinthFrame implements ActionListener {
     static void setLabyrinth() {
         switch (Levels.getDifficulty()) {
             case "Easy":
-                time = 55;
+                time = 50;
                 for_correct = 3;
                 for_wrong = -5;
                 break;

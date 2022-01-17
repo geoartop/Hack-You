@@ -45,7 +45,7 @@ public final class Menu implements ActionListener {
      */
     private final UtilityFrame[] utilityFrames = new UtilityFrame[4];
 
-    private int y = 250;
+    private int y = 220;
 
     /**
      * <p>Setter for <code>how2play</code> enabled status.</p>
@@ -92,7 +92,7 @@ public final class Menu implements ActionListener {
         }
 
         // Εξατομίκευση παραθύρου
-        FrameSetter.setFrame(frame, "Menu", 970, 770);
+        FrameSetter.setFrame(frame, "Menu", 970, 720);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setButton(start);
@@ -104,15 +104,15 @@ public final class Menu implements ActionListener {
         JLabel thLabel = new JLabel();
         JLabel mLabel = new JLabel();
 
-        FrameSetter.scaleImgToLabel(thLabel, 380, 170, 90, 70, thiseas);
+        FrameSetter.scaleImgToLabel(thLabel, 380, 140, 90, 70, thiseas);
         frame.add(thLabel);
 
-        FrameSetter.scaleImgToLabel(mLabel, 465, 140, 120, 100, minotaur);
+        FrameSetter.scaleImgToLabel(mLabel, 465, 110, 120, 100, minotaur);
         frame.add(mLabel);
 
         //Εισαγωγή τίτλου παιχνιδιού
         JLabel titleLabel = new JLabel();
-        FrameSetter.scaleImgToLabel(titleLabel, 235, 50, 500, 100, title);
+        FrameSetter.scaleImgToLabel(titleLabel, 235, 20, 500, 100, title);
         frame.add(titleLabel);
         //Εισαγωγή background
         JLabel backgroundLabel = new JLabel();

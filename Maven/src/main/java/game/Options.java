@@ -35,7 +35,7 @@ public final class Options implements ActionListener {
      */
     private final UtilityFrame[] utilityFrames = new UtilityFrame[2];
 
-    private int y = 150;
+    private int y = 120;
 
 
     /**
@@ -65,7 +65,7 @@ public final class Options implements ActionListener {
         isActive = true;
         this.gp = gp;
         frame = new JFrame();
-        FrameSetter.setFrame(frame, "Options", 650, 750);
+        FrameSetter.setFrame(frame, "Options", 650, 720);
         //Θέτω το κουμπί της εξόδου να κάνει αυτόματα click το return για να μην κολλήσει η ροή του LabyrinthFrame
         frame.addWindowListener(new WindowAdapter() {
             @Override
@@ -76,7 +76,7 @@ public final class Options implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         GraphicPane graphicPane = new GraphicPane("Options", 650, 100, Main.mainColor, new Font("Times new Roman", Font.BOLD + Font.ITALIC, 50));
-        graphicPane.setBounds(0, 0, 650, 150);
+        graphicPane.setBounds(0, -30, 650, 150);
         frame.add(graphicPane);
 
         setButton(returnBack);

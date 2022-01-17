@@ -28,10 +28,10 @@ public final class WinFrame implements ActionListener {
     private static BufferedImage minotaur;
 
     private final JFrame frame;
-    private final JButton playAgain = new JButton("play again");
-    private final JButton seeHighScores = new JButton("check HighScore table");
-    private final JButton back_to_menu = new JButton("back to Menu");
-    private final JButton exit = new JButton("exit");
+    private final JButton playAgain = new JButton("Play again");
+    private final JButton seeHighScores = new JButton("Check HighScore table");
+    private final JButton back_to_menu = new JButton("Back to Menu");
+    private final JButton exit = new JButton("Exit");
     private HighScoreFrame highScoreFrame;
 
     private final HighScore highScore;

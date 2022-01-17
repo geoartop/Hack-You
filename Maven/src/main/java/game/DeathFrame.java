@@ -4,7 +4,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,13 +23,14 @@ public final class DeathFrame implements ActionListener {
 
     private static BufferedImage thiseas;
     private static BufferedImage minotaur;
+    private static BufferedImage icon;
 
     private int y = 200;
 
     private final JFrame frame;
-    private final JButton tryAgain = new JButton("try again");
-    private final JButton back_to_menu = new JButton("back to Menu");
-    private final JButton exit = new JButton("exit");
+    private final JButton tryAgain = new JButton("Try again");
+    private final JButton back_to_menu = new JButton("Back to Menu");
+    private final JButton exit = new JButton("Exit");
 
     /**
      * <p>Constructor for DeathFrame.</p>
@@ -39,7 +39,7 @@ public final class DeathFrame implements ActionListener {
         frame = new JFrame();
         FrameSetter.setFrame(frame, "Defeat", 600, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setIconImage(new ImageIcon("src/main/resources/icons/grave.png").getImage());
+        frame.setIconImage(icon);
 
         GraphicPane graphicPane = new GraphicPane("GAME OVER", 600, 50, Color.red, new Font("Times new Roman", Font.BOLD, 40));
 
@@ -87,6 +87,7 @@ public final class DeathFrame implements ActionListener {
         } else {
             Main.exit();
         }
+        //If deathsound is playing stop it
         GamePanel.stopSE();
         Quiz.clearIndexes();
         frame.dispose();
@@ -99,6 +100,7 @@ public final class DeathFrame implements ActionListener {
         try {
             thiseas = ImageIO.read(Objects.requireNonNull(Main.class.getResourceAsStream("/deadthiseas/dead3.png")));
             minotaur = ImageIO.read(Objects.requireNonNull(Main.class.getResourceAsStream("/minotaur/minotaurwin.png")));
+            icon = ImageIO.read(Objects.requireNonNull(Main.class.getResourceAsStream("/icons/grave.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
