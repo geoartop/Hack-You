@@ -1,22 +1,24 @@
 The team is :
 
 Georgios Artopoulos
-Role: FrontEnd Developer,Software Engineer
+Role: FrontEnd Developer, Software Engineer
 
 Elisavet Voulgari
-Role: Assets of Levels Designer,Presentation Administrator
+Role: Assets of Levels Designer, Presentation Administrator
 
 Emmanouil Dellatolas
-Role: Software Engineer, QA Engineer , Level Developer
+Role: Software Engineer, QA Engineer, Level Developer
 
 Athanasia Koutra
 Role: Question and Level Designer, Presentation Administrator
 
 Theodoros Malikourtis
-Role: Software Engineer,Question and Descriptions Designer, QA Engineer
+Role: Software Engineer, Question and Descriptions Designer, QA Engineer
 
 Panagiotis Spanakis
-Role: Lead Software Engineer, DevOps , GitHub Administrator , BackEnd Administrator
+Role: Lead Software Engineer, DevOps, GitHub Administrator, BackEnd Administrator
+
+Art and music:
 
 Demon’s Souls Remake soundtrack. pic.twitter.com/I4498GhHnr
 Shunsuke Kida - > Maiden in Black
@@ -33,3 +35,9 @@ Authors: dalonedrau, Stephen Challener (Redshrike), ElizaWy, Evert, Daniel Eddel
     - https://opengameart.org/content/lpc-style-farm-animals
     - https://opengameart.org/content/lpc-faun-and-minotaur
     - https://opengameart.org/content/spikes-0
+
+Windows (Jframe) icon:
+https://www.flaticon.com/premium-icon/maze_1890564?term=maze&page=1&position=29&page=1&position=29&related_id=1890564&origin=tag
+
+Background image:
+https://www.wallpaperflare.com/brown-greek-key-pattern-cloth-background-texture-gold-textured-wallpaper-crnq
