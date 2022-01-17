@@ -65,9 +65,9 @@ public final class TileManager {
      * ώστε να μη χρειάζεται να γίνεται η διαδικασία αυτή μέσα στο gameloop <br>
      * Λόγος : Improved rendering performance</p>
      *
-     * @param index     : θέση πίνακα tile
-     * @param path      : path του image
-     * @param collision : αν το tile θα είναι εμπόδιο ή οχι
+     * @param index     θέση πίνακα tile
+     * @param path      path του image
+     * @param collision αν το tile θα είναι εμπόδιο ή οχι
      */
     private void setup(int index, String path, boolean collision) {
         try {

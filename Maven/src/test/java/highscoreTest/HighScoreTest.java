@@ -16,7 +16,6 @@ import org.junit.jupiter.api.Test;
  *
  * @author Team Hack-You
  * @version 1.0
- * @since A[maze]ing
  */
 public class HighScoreTest {
 
@@ -67,6 +66,7 @@ public class HighScoreTest {
         //Clear file contents
         new FileOutputStream("./HighScore.txt").close();
         file.setWritable(false);
+        highScore = null;
     }
 
 }

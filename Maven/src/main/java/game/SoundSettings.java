@@ -12,8 +12,9 @@ import javax.swing.event.ChangeListener;
 /**
  * <p>Παράθυρο προσαρμογής ήχου.</p>
  *
- * @author panagiotis
+ * @author Team Hack-You
  * @version 1.0
+ * @see UtilityFrame
  */
 public final class SoundSettings extends UtilityFrame implements ActionListener {
 
@@ -148,6 +149,16 @@ public final class SoundSettings extends UtilityFrame implements ActionListener 
             Menu.continuePlaying();
         }
         frame.dispose();
+    }
+
+    /**
+     * <p>getSliderStatus.</p>
+     *
+     * @return a boolean
+     */
+    @VisibleForTesting
+    public static boolean getSliderStatus() {
+        return slider.isEnabled();
     }
 
 }

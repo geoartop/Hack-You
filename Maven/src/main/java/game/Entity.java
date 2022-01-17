@@ -43,7 +43,7 @@ public class Entity {
     /**
      * <code>OBJ_Spikes</code> animation
      */
-    static BufferedImage[] spikes = new BufferedImage[2];
+    final static BufferedImage[] spikes = OBJ_Spikes.setup();
 
 
     /**
@@ -58,8 +58,6 @@ public class Entity {
             setMovement(death, "/deadthiseas/dead");
 
             setMovement(coin, "/goldCoin/goldCoin");
-
-            spikes = OBJ_Spikes.setup();
             OBJ_Question.setup();
             OBJ_Exit.setup();
         } catch (IOException e) {

@@ -81,7 +81,7 @@ public final class AssetSetter {
      * <p>2 coins</p>
      * <p>3 exit</p>
      */
-    public void load() {
+    void load() {
         InputStream is = getClass().getResourceAsStream(String.format("/objects/%s%d.txt", Levels.getDifficulty(), TileManager.getLevel()));
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(Objects.requireNonNull(is),

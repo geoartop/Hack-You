@@ -19,7 +19,6 @@ class UtilityFrameTest {
 
     @BeforeEach
     void setUp() {
-        Menu.setup();
         Guide.setupImages();
         menu = new Menu();
         utilityFrames = new UtilityFrame[]{new Credits(menu), new Description(menu), new Guide(menu)};

@@ -1,5 +1,6 @@
 package game;
 
+import com.google.common.annotations.VisibleForTesting;
 import java.io.IOException;
 import java.net.URL;
 import javax.sound.sampled.AudioInputStream;
@@ -109,6 +110,7 @@ public final class Sound implements ChangeListener {
         if (!SoundSettings.sliderIsAdjusting()) {
             volume = SoundSettings.getSliderValue();
             soundVolume.setValue(volume);
+            ButtonSetter.playSE();
         }
     }
 

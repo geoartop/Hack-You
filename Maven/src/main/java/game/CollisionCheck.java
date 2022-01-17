@@ -56,8 +56,8 @@ public final class CollisionCheck {
                 break;
             default:
                 entityRightCol = (entityRightWorldX + Player.speed) / GamePanel.tileSize;
-                tileNum1=gp.tileM.mapTileNum[entityRightCol][entityTopRow];
-                tileNum2=gp.tileM.mapTileNum[entityRightCol][entityBottomRow];
+                tileNum1 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
+                tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityBottomRow];
                 break;
 
         }
@@ -89,22 +89,18 @@ public final class CollisionCheck {
                 switch (entity.getDirection()) {
                     case "up":
                         entity.solidArea.y -= Player.speed;
-                        index = check(entity, player, index, i);
                         break;
                     case "down":
                         entity.solidArea.y += Player.speed;
-                        index = check(entity, player, index, i);
                         break;
                     case "left":
                         entity.solidArea.x -= Player.speed;
-                        index = check(entity, player, index, i);
                         break;
                     default:
                         entity.solidArea.x += Player.speed;
-                        index = check(entity, player, index, i);
                         break;
-
                 }
+                index = check(entity, player, index, i);
                 entity.solidArea.x = entity.solidAreaDefaultX;
                 entity.solidArea.y = entity.solidAreaDefaultY;
                 object.solidArea.x = SuperObject.solidAreaDefaultX;

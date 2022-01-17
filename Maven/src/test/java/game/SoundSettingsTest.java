@@ -1,8 +1,6 @@
 package game;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,15 +10,9 @@ import org.junit.jupiter.api.Test;
  * @author Team Hack-You
  * @version 1.0
  */
-class SoundTest {
+class SoundSettingsTest {
 
-    static Sound sound;
     int start_volume = (SoundSettings.min + SoundSettings.max) / 2;
-
-    @BeforeEach
-    void setUp() {
-        sound = new Sound();
-    }
 
     @Test
     @DisplayName("When slider value changes the volume should change")
@@ -29,8 +21,13 @@ class SoundTest {
         Assertions.assertNotEquals(SoundSettings.getSliderValue(), start_volume);
     }
 
-    @AfterEach
-    void tearDown() {
-        sound = null;
+    @Test
+    @DisplayName("When sound is off slider should be disabled")
+    void sliderDisabledTest() {
+        Menu menu = new Menu();
+        ButtonSetter.setPlaySound(false);
+        new SoundSettings(menu);
+        Assertions.assertFalse(SoundSettings.getSliderStatus());
     }
+
 }

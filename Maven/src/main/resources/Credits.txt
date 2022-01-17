@@ -28,13 +28,17 @@ You Died: is the thirteenth song on Miracle of Sound's second album, Level 2. It
 
 Authors: dalonedrau, Stephen Challener (Redshrike), ElizaWy, Evert, Daniel Eddeland (daneeklu), Nila122
 
-- body/muscular/minotaur.png: by dalonedrau, Stephen Challener (Redshrike), ElizaWy, Evert, Daniel Eddeland (daneeklu), Nila122. License(s): CC-BY-SA 3.0.
+- body/muscular/minotaur.png: by dalonedrau, Stephen Challener (Redshrike),
+ElizaWy, Evert, Daniel Eddeland (daneeklu), Nila122. License(s): CC-BY-SA 3.0.
     - https://opengameart.org/content/lpc-barbarian-sprite-base
     - https://opengameart.org/content/lpc-muscular-swing-animation
     - https://opengameart.org/content/lpc-muscular-hurt-animation
     - https://opengameart.org/content/lpc-style-farm-animals
     - https://opengameart.org/content/lpc-faun-and-minotaur
     - https://opengameart.org/content/spikes-0
+
+-For grave.png
+Icon made by Freepik from www.flaticon.com
 
 Windows (Jframe) icon:
 https://www.flaticon.com/premium-icon/maze_1890564?term=maze&page=1&position=29&page=1&position=29&related_id=1890564&origin=tag

@@ -35,7 +35,7 @@ public final class FrameSetter {
      * @param height an int
      */
     public static void setFrame(JFrame frame, String title, int width, int height) {
-        frame.setTitle(title); //setTitle of frame
+        frame.setTitle(title);
         frame.setResizable(false);
         frame.setSize(width, height);
         frame.setVisible(true);

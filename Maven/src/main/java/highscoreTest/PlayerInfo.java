@@ -45,9 +45,9 @@ public final class PlayerInfo implements Serializable {
      *
      * @param obj an {@link highscoreTest.PlayerInfo} object
      * @return an int
-     * 0 for not common name
-     * 1 for common name but not greater score
-     * 2 for common name and greater score
+     * <p>0 for not common name <br>
+     * 1 for common name but not greater score <br>
+     * 2 for common name and greater score</p>
      */
     public int didGreater(PlayerInfo obj) {
         if (obj == null) {
