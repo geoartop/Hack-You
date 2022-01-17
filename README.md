@@ -1,4 +1,4 @@
-[<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/panos-span/Hack-you">](https://github.com/panos-span/Hack-you/graphs/contributors)   [<img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/panos-span/Hack-you">](https://github.com/panos-span/Hack-you/releases/tag/1.0)
+[<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/panos-span/Hack-you">](https://github.com/panos-span/Hack-you/graphs/contributors)   [<img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/panos-span/Hack-you">](https://github.com/panos-span/Hack-you/releases/tag/1.0) [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/panos-span/Hack-you?color=orange&style=flat-square)]
 
 ## Οδηγίες μεταγλώττισης του προγράμματος : 
 * `cd Maven` και στη συνέχεια 
