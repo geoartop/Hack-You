@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Maven:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="Final Commit 1.1">
+      <change afterPath="$PROJECT_DIR$/ckjm_ext.jar" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaFXApplication" />
+        <option value="editable-svg" />
+        <option value="UML Class" />
+        <option value="package-info" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/OBJ_Coin.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Username.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Entity.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/FrameSetter.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Quiz.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Description.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/DeathFrame.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/highscoreTest/HighScoreFrame.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Credits.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/CollisionCheck.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Guide.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/Mythos.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/GamePanel.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/LabyrinthFrame.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/HighScore.txt" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Player.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Options.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/highscoreTest/HighScore.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/SuperObject.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/AssetSetter.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/OBJ_Spikes.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/highscoreTest/PlayerInfoTest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/Guide.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/objects/Medium1.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/WinFrame.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/GraphicPane.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/game/MenuTest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Tile.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/UtilityFrame.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Levels.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/ButtonSetter.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/TileManager.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/objects/Medium2.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/objects/Hard2.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/objects/Easy2.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/objects/Hard1.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/OBJ_Question.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/OBJ_Exit.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/highscoreTest/PlayerInfo.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/maps/Easy2.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/objects/Easy1.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/KeyHandler.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/Credits.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/game/EntityTest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/game/UtilityFrameTest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/highscoreTest/HighScoreTest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/game/SuperObjectTest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Menu.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/game/Sound.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="20xVOn3YTqvm2wi5F8tgNal13oY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="sqlserver" />
+    <property name="DefaultPlantUmlFileTemplate" value="UML Class" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/main/java/game/SuperObject.java" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\panagiotis\Desktop\GitHub\Hack-you\Maven" />
+      <recent name="C:\Users\panagiotis\Desktop\GitHub\Hack-you\Maven\src\test\resources" />
+      <recent name="C:\Users\panagiotis\Desktop\GitHub\Hack-you\Maven\src" />
+      <recent name="C:\Users\panagiotis\Desktop\GitHub\Hack-you\Maven\target" />
+      <recent name="C:\Users\panagiotis\Desktop\GitHub\Hack-you\Maven\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\panagiotis\Desktop\GitHub\Hack-you\Maven\src\main\resources" />
+      <recent name="C:\Users\panagiotis\Desktop\GitHub\Hack-you\Maven\src\main\resources\" />
+      <recent name="C:\Users\panagiotis\Desktop\GitHub\Hack-you\Maven\src\main\resources\sound" />
+      <recent name="C:\Users\panagiotis\Desktop\GitHub\Hack-you\Maven\src\main\resources\spikes" />
+      <recent name="C:\Users\geoar\Documents\GitHub\Hack-you3\Maven\src\main\resources" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="highscoreTest" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="game" />
+      <recent name="highscoreTest" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="test2" />
+      <recent name="test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="game.Main" />
+      <module name="Amazeing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SoundSettingsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Maven" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="game" />
+      <option name="MAIN_CLASS_NAME" value="game.SoundSettingsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SoundSettingsTest.sliderDisabledTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Maven" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="game" />
+      <option name="MAIN_CLASS_NAME" value="game.SoundSettingsTest" />
+      <option name="METHOD_NAME" value="sliderDisabledTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UtilityFrameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Maven" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="game" />
+      <option name="MAIN_CLASS_NAME" value="game.UtilityFrameTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ckjm_ext.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/ckjm_ext.jar" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.SoundSettingsTest" />
+        <item itemvalue="JUnit.UtilityFrameTest" />
+        <item itemvalue="JUnit.SoundSettingsTest.sliderDisabledTest" />
+        <item itemvalue="JAR Application.ckjm_ext.jar" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8bd8264c-86bc-42b8-957d-e28ecafbda6b" name="Changes" comment="" />
+      <created>1636986198885</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1636986198885</updated>
+      <workItem from="1637694631856" duration="766000" />
+      <workItem from="1637695458384" duration="5941000" />
+      <workItem from="1637704772573" duration="132000" />
+      <workItem from="1637704936175" duration="2000" />
+      <workItem from="1637777155201" duration="14273000" />
+      <workItem from="1637798364886" duration="2868000" />
+      <workItem from="1637801276113" duration="105000" />
+      <workItem from="1637801407653" duration="292000" />
+      <workItem from="1637836469913" duration="2981000" />
+      <workItem from="1637866026370" duration="7750000" />
+      <workItem from="1637921815285" duration="18201000" />
+      <workItem from="1638012026690" duration="2641000" />
+      <workItem from="1638114626844" duration="18594000" />
+      <workItem from="1638202679375" duration="13500000" />
+      <workItem from="1638228239096" duration="774000" />
+      <workItem from="1638285763389" duration="10569000" />
+      <workItem from="1638301884944" duration="8459000" />
+      <workItem from="1638356774319" duration="9333000" />
+      <workItem from="1638384447633" duration="7254000" />
+      <workItem from="1638403375955" duration="11000" />
+      <workItem from="1638446375790" duration="50000" />
+      <workItem from="1638446641561" duration="2683000" />
+      <workItem from="1638451922085" duration="477000" />
+      <workItem from="1638465517214" duration="850000" />
+      <workItem from="1638469737160" duration="6000" />
+      <workItem from="1638478329261" duration="7429000" />
+      <workItem from="1638489805630" duration="174000" />
+      <workItem from="1638492413383" duration="621000" />
+      <workItem from="1638532423891" duration="1055000" />
+      <workItem from="1638533836544" duration="434000" />
+      <workItem from="1638536094272" duration="1911000" />
+      <workItem from="1638544555697" duration="1310000" />
+      <workItem from="1638627107659" duration="3060000" />
+      <workItem from="1638631462179" duration="7957000" />
+      <workItem from="1638641055531" duration="385000" />
+      <workItem from="1638656994509" duration="4867000" />
+      <workItem from="1638666518678" duration="688000" />
+      <workItem from="1638703617456" duration="524000" />
+      <workItem from="1638718618776" duration="20230000" />
+      <workItem from="1638826722415" duration="1790000" />
+      <workItem from="1638864266452" duration="4755000" />
+      <workItem from="1638870934762" duration="6503000" />
+      <workItem from="1638898740443" duration="4498000" />
+      <workItem from="1638974710714" duration="248000" />
+      <workItem from="1638983196940" duration="1103000" />
+      <workItem from="1638988268338" duration="9301000" />
+      <workItem from="1639083844417" duration="20000" />
+      <workItem from="1639135599282" duration="2589000" />
+      <workItem from="1639142993212" duration="396000" />
+      <workItem from="1639148042742" duration="1948000" />
+      <workItem from="1639223680991" duration="1435000" />
+      <workItem from="1639231384182" duration="8000" />
+      <workItem from="1639231583199" duration="1718000" />
+      <workItem from="1639234116441" duration="738000" />
+      <workItem from="1639241521005" duration="149000" />
+      <workItem from="1639319881709" duration="653000" />
+      <workItem from="1639320813469" duration="671000" />
+      <workItem from="1639326620402" duration="2620000" />
+      <workItem from="1639330590200" duration="925000" />
+      <workItem from="1639336877783" duration="35000" />
+      <workItem from="1639339844034" duration="1018000" />
+      <workItem from="1639344530249" duration="6353000" />
+      <workItem from="1639414503620" duration="16924000" />
+      <workItem from="1639486578335" duration="1142000" />
+      <workItem from="1639497581335" duration="3703000" />
+      <workItem from="1639506467324" duration="13928000" />
+      <workItem from="1639566390950" duration="6059000" />
+      <workItem from="1639579155345" duration="1432000" />
+      <workItem from="1639580806455" duration="202000" />
+      <workItem from="1639588815347" duration="1199000" />
+      <workItem from="1639596071903" duration="11547000" />
+      <workItem from="1639653055732" duration="1460000" />
+      <workItem from="1639667115781" duration="1854000" />
+      <workItem from="1639682415186" duration="5120000" />
+      <workItem from="1639688770582" duration="8640000" />
+      <workItem from="1639736988645" duration="727000" />
+      <workItem from="1639742970890" duration="6811000" />
+      <workItem from="1639763482216" duration="7386000" />
+      <workItem from="1639774975125" duration="6069000" />
+      <workItem from="1639828798477" duration="5159000" />
+      <workItem from="1639839147320" duration="9012000" />
+      <workItem from="1639870074426" duration="168000" />
+      <workItem from="1639870259719" duration="37000" />
+      <workItem from="1639870707891" duration="5440000" />
+      <workItem from="1639912661811" duration="15799000" />
+      <workItem from="1639933934986" duration="2146000" />
+      <workItem from="1639953365594" duration="6373000" />
+      <workItem from="1640024300292" duration="19250000" />
+      <workItem from="1640047719701" duration="708000" />
+      <workItem from="1640072809655" duration="12610000" />
+      <workItem from="1640101946381" duration="8111000" />
+      <workItem from="1640131239012" duration="412000" />
+      <workItem from="1640186817492" duration="1801000" />
+      <workItem from="1640188655501" duration="16561000" />
+      <workItem from="1640209220259" duration="7339000" />
+      <workItem from="1640255968269" duration="21634000" />
+      <workItem from="1640347325225" duration="12299000" />
+      <workItem from="1640368149063" duration="1190000" />
+      <workItem from="1640372616847" duration="5753000" />
+      <workItem from="1640389342734" duration="5105000" />
+      <workItem from="1640457497822" duration="3761000" />
+      <workItem from="1640462570053" duration="41000" />
+      <workItem from="1640462638841" duration="70000" />
+      <workItem from="1640462736391" duration="32000" />
+      <workItem from="1640462772386" duration="46000" />
+      <workItem from="1640462846496" duration="1498000" />
+      <workItem from="1640470171951" duration="2632000" />
+      <workItem from="1640475115180" duration="2897000" />
+      <workItem from="1640556938057" duration="8038000" />
+      <workItem from="1640565517827" duration="4302000" />
+      <workItem from="1640616333864" duration="3460000" />
+      <workItem from="1640622635287" duration="491000" />
+      <workItem from="1640624551080" duration="3360000" />
+      <workItem from="1640628451548" duration="111000" />
+      <workItem from="1640629312263" duration="2159000" />
+      <workItem from="1640650589945" duration="3299000" />
+      <workItem from="1640654587188" duration="482000" />
+      <workItem from="1640705112800" duration="201000" />
+      <workItem from="1640706487983" duration="3310000" />
+      <workItem from="1640732236339" duration="5327000" />
+      <workItem from="1640816716003" duration="3589000" />
+      <workItem from="1640821073266" duration="293000" />
+      <workItem from="1640822575493" duration="1118000" />
+      <workItem from="1640826087606" duration="5161000" />
+      <workItem from="1640862679695" duration="6249000" />
+      <workItem from="1640876937596" duration="1666000" />
+      <workItem from="1640881088032" duration="558000" />
+      <workItem from="1641230698786" duration="1588000" />
+      <workItem from="1641238525885" duration="5778000" />
+      <workItem from="1641299017889" duration="3490000" />
+      <workItem from="1641317219177" duration="12200000" />
+      <workItem from="1641379058286" duration="2131000" />
+      <workItem from="1641391834090" duration="6080000" />
+      <workItem from="1641423011895" duration="5299000" />
+      <workItem from="1641492509935" duration="9620000" />
+      <workItem from="1641503137826" duration="1959000" />
+      <workItem from="1641511623792" duration="3495000" />
+      <workItem from="1641515165242" duration="5011000" />
+      <workItem from="1641589827692" duration="3712000" />
+      <workItem from="1641593595625" duration="5307000" />
+      <workItem from="1641600037938" duration="703000" />
+      <workItem from="1641637472950" duration="935000" />
+      <workItem from="1641638830226" duration="1411000" />
+      <workItem from="1641645774838" duration="3202000" />
+      <workItem from="1641654140230" duration="8724000" />
+      <workItem from="1641683495305" duration="2669000" />
+      <workItem from="1641724142694" duration="58000" />
+      <workItem from="1641737964472" duration="2904000" />
+      <workItem from="1641747585405" duration="954000" />
+      <workItem from="1641760506097" duration="10218000" />
+      <workItem from="1641810563786" duration="4226000" />
+      <workItem from="1641891713334" duration="518000" />
+      <workItem from="1641892312450" duration="67000" />
+      <workItem from="1641917095853" duration="6140000" />
+      <workItem from="1641994387859" duration="213000" />
+      <workItem from="1642005408436" duration="13452000" />
+      <workItem from="1642019111313" duration="5751000" />
+      <workItem from="1642025108563" duration="3194000" />
+      <workItem from="1642031177894" duration="443000" />
+      <workItem from="1642032830728" duration="70000" />
+      <workItem from="1642032942392" duration="1550000" />
+      <workItem from="1642070762385" duration="120000" />
+      <workItem from="1642072823551" duration="14565000" />
+      <workItem from="1642096197914" duration="473000" />
+      <workItem from="1642100466806" duration="934000" />
+      <workItem from="1642117133589" duration="20000" />
+      <workItem from="1642119657321" duration="1711000" />
+      <workItem from="1642165547371" duration="7352000" />
+      <workItem from="1642184016401" duration="1667000" />
+      <workItem from="1642185772560" duration="142000" />
+      <workItem from="1642188445244" duration="4607000" />
+      <workItem from="1642201716381" duration="4359000" />
+      <workItem from="1642206127917" duration="1861000" />
+      <workItem from="1642243455937" duration="14742000" />
+      <workItem from="1642271706657" duration="153000" />
+      <workItem from="1642285354745" duration="6344000" />
+      <workItem from="1642332336743" duration="4723000" />
+      <workItem from="1642337398088" duration="627000" />
+      <workItem from="1642364952294" duration="7469000" />
+      <workItem from="1642432946761" duration="3618000" />
+      <workItem from="1642438513748" duration="201000" />
+      <workItem from="1642438738506" duration="59000" />
+      <workItem from="1642438825694" duration="227000" />
+      <workItem from="1642439083878" duration="49000" />
+      <workItem from="1642439155127" duration="988000" />
+      <workItem from="1642440173877" duration="2184000" />
+    </task>
+    <task id="LOCAL-00081" summary="Add transparent title">
+      <created>1638994393025</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1638994393026</updated>
+    </task>
+    <task id="LOCAL-00082" summary="SuperObject array made to a LinkedList and some minor updates">
+      <created>1639143370440</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1639143370440</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Rename Title">
+      <created>1639148164968</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1639148164968</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Add title to menu">
+      <created>1639149183393</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1639149183393</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Minor update to Scrollpane @UtilityFrame">
+      <created>1639321170179</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1639321170179</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Minor updates">
+      <created>1639330882460</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1639330882460</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Add Sound functionality">
+      <created>1639417120623</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1639417120624</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Add Sound functionality 2">
+      <created>1639417177651</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1639417177652</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Add Sound functionality 3">
+      <created>1639417414564</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1639417414564</updated>
+    </task>
+    <task id="LOCAL-00090" summary="New start button feature">
+      <created>1639421581969</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1639421581969</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Fix music pause bug">
+      <created>1639421965083</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1639421965083</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Implement death animation">
+      <created>1639501148124</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1639501148124</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Minor update to bar">
+      <created>1639501718581</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1639501718581</updated>
+    </task>
+    <task id="LOCAL-00094" summary="All components of LabyrinthFrame made to non-static and major restart bug fixed">
+      <created>1639518734188</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1639518734188</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Adjust map to difficulty">
+      <created>1639608931550</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1639608931551</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Adjust map to difficulty">
+      <created>1639609207954</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1639609207954</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Descriptions and comments added to classes">
+      <created>1639670723747</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1639670723747</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Improve rendering efficiency and add GraphicPane">
+      <created>1639744501313</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1639744501314</updated>
+    </task>
+    <task id="LOCAL-00099" summary="1)Add coin object &#10;2)Fix progressBar bug originated from quiz popup ( 1 second remaining bug )&#10;3)TODOs added">
+      <created>1639781049806</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1639781049816</updated>
+    </task>
+    <task id="LOCAL-00100" summary="Fix Findbugs issues">
+      <created>1639845836078</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1639845836079</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Add coin animation and fix checkstyle and findbugs warnings about &#10;package protection">
+      <created>1639925813341</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1639925813341</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Fixed HighScore loading bug and Label centering issue &#10;and updated minor elements">
+      <created>1639931566733</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1639931566733</updated>
+    </task>
+    <task id="LOCAL-00103" summary="Add spike object and upgrading SuperObject and AssetSetter &#10;functionality">
+      <created>1640037740608</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1640037740608</updated>
+    </task>
+    <task id="LOCAL-00104" summary="Added generated javadoc comments and optimized general functionality">
+      <created>1640047426387</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1640047426388</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Optimized general functionality and added new sound effects">
+      <created>1640216452378</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1640216452379</updated>
+    </task>
+    <task id="LOCAL-00106" summary="General update to everything">
+      <created>1640621078569</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1640621078569</updated>
+    </task>
+    <task id="LOCAL-00107" summary="Add check for personal best to HighScore, add win_sound.wav &#10;and add comments">
+      <created>1640830745626</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1640830745626</updated>
+    </task>
+    <task id="LOCAL-00108" summary="Fix HighScore issue on personal record check">
+      <created>1640868148047</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1640868148047</updated>
+    </task>
+    <task id="LOCAL-00109" summary="General update">
+      <created>1641406031497</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1641406031498</updated>
+    </task>
+    <task id="LOCAL-00110" summary="1)Added calculateScore method&#10;2)Tiles change according to difficulty">
+      <created>1641512722296</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1641512722297</updated>
+    </task>
+    <task id="LOCAL-00111" summary="Changes:&#10;1)Centered Questions on Quiz&#10;2)Adding scaled images on scrollPane of Guide&#10;(Caution 3) Small memory leaks from game with System.gc();">
+      <created>1641598914654</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1641598914654</updated>
+    </task>
+    <task id="LOCAL-00112" summary="Optimized loading of objects to map and changed coin functionality">
+      <created>1641658012111</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1641658012112</updated>
+    </task>
+    <task id="LOCAL-00113" summary="Blank">
+      <created>1641660612530</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1641660612530</updated>
+    </task>
+    <task id="LOCAL-00114" summary="Fix sound volume">
+      <created>1641661077692</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1641661077692</updated>
+    </task>
+    <task id="LOCAL-00115" summary="Update object files">
+      <created>1641739753802</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1641739753802</updated>
+    </task>
+    <task id="LOCAL-00116" summary="Fix sound bug and esc issue">
+      <created>1641828477632</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1641828477632</updated>
+    </task>
+    <task id="LOCAL-00117" summary="Clear HighScore.txt">
+      <created>1641892349934</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1641892349935</updated>
+    </task>
+    <task id="LOCAL-00118" summary="Github Actions">
+      <created>1642005559368</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1642005559368</updated>
+    </task>
+    <task id="LOCAL-00119" summary="Update Tests">
+      <created>1642006192241</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1642006192241</updated>
+    </task>
+    <task id="LOCAL-00120" summary="Test">
+      <created>1642006486425</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1642006486425</updated>
+    </task>
+    <task id="LOCAL-00121" summary="Upgrade resources' functionality for jar &#10;and optimize HighScore functionality">
+      <created>1642084605301</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1642084605301</updated>
+    </task>
+    <task id="LOCAL-00122" summary="Optimize SuperObject and subclasses of SuperObject functionality and &#10;add minor feature to deathSound of GamePanel">
+      <created>1642096661617</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1642096661618</updated>
+    </task>
+    <task id="LOCAL-00123" summary="Add SoundTest">
+      <created>1642247589498</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1642247589499</updated>
+    </task>
+    <task id="LOCAL-00124" summary="Add SoundSettings frame">
+      <created>1642257017247</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1642257017247</updated>
+    </task>
+    <task id="LOCAL-00125" summary="Add SoundSettings frame">
+      <created>1642257350032</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1642257350032</updated>
+    </task>
+    <task id="LOCAL-00126" summary="Minor update to SoundSettings and UtilityFrame">
+      <created>1642261822497</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1642261822497</updated>
+    </task>
+    <task id="LOCAL-00127" summary="Final Commit">
+      <created>1642439274411</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1642439274411</updated>
+    </task>
+    <task id="LOCAL-00128" summary="Final Commit 1.1">
+      <created>1642442199979</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1642442199979</updated>
+    </task>
+    <task id="LOCAL-00129" summary="Final Commit 1.1">
+      <created>1642442298669</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1642442298669</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Add spike object and upgrading SuperObject and AssetSetter &#10;functionality" />
+    <MESSAGE value="Added generated javadoc comments and optimized general functionality" />
+    <MESSAGE value="Optimized general functionality and added new sound effects" />
+    <MESSAGE value="General update to everything" />
+    <MESSAGE value="Add check for personal best to HighScore, add win_sound.wav &#10;and add comments" />
+    <MESSAGE value="Fix HighScore issue on personal record check" />
+    <MESSAGE value="General update" />
+    <MESSAGE value="1)Added calculateScore method&#10;2)Tiles change according to difficulty" />
+    <MESSAGE value="Changes:&#10;1)Centered Questions on Quiz&#10;2)Adding scaled images on scrollPane of Guide&#10;(Caution 3) Small memory leaks from game with System.gc();" />
+    <MESSAGE value="Optimized loading of objects to map and changed coin functionality" />
+    <MESSAGE value="Blank" />
+    <MESSAGE value="Fix sound volume" />
+    <MESSAGE value="Update object files" />
+    <MESSAGE value="Fix sound bug and esc issue" />
+    <MESSAGE value="Clear HighScore.txt" />
+    <MESSAGE value="Github Actions" />
+    <MESSAGE value="Update Tests" />
+    <MESSAGE value="Test" />
+    <MESSAGE value="Upgrade resources' functionality for jar &#10;and optimize HighScore functionality" />
+    <MESSAGE value="Optimize SuperObject and subclasses of SuperObject functionality and &#10;add minor feature to deathSound of GamePanel" />
+    <MESSAGE value="Add SoundTest" />
+    <MESSAGE value="Add SoundSettings frame" />
+    <MESSAGE value="Minor update to SoundSettings and UtilityFrame" />
+    <MESSAGE value="Final Commit" />
+    <MESSAGE value="Final Commit 1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Commit 1.1" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Maven$Main__2_.ic" NAME="Main (2) Coverage Results" MODIFIED="1640209366433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>game.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Maven$Main.ic" NAME="Main Coverage Results" MODIFIED="1637701809465" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: gr.spinellis.ckjm:ckjm_ext:2.4">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/gr/spinellis/ckjm/ckjm_ext/2.4/ckjm_ext-2.4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/gr/spinellis/ckjm/ckjm_ext/2.4/ckjm_ext-2.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/gr/spinellis/ckjm/ckjm_ext/2.4/ckjm_ext-2.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
