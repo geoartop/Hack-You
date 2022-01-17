@@ -26,42 +26,42 @@ public final class CollisionCheck {
      */
     public void checkTile(Player entity) {
 
-        int entityLeftWorldX = entity.getWorldx() + entity.solidArea.x;
-        int entityRightWorldX = entity.getWorldx() + entity.solidArea.x + entity.solidArea.width;
-        int entityTopWorldY = entity.getWorldy() + entity.solidArea.y;
-        int entityBottomWorldY = entity.getWorldy() + entity.solidArea.y + entity.solidArea.height;
+        int entityLeftWorldX = entity.solidArea.x + entity.getWorldx();
+        int entityRightWorldX = entity.solidArea.x + entity.getWorldx() + entity.solidArea.width;
+        int entityTopWorldY = entity.solidArea.y + entity.getWorldy();
+        int entityBottomWorldY = entity.solidArea.y + entity.getWorldy() + entity.solidArea.height;
 
-        int entityLeftCol = entityLeftWorldX / GamePanel.tileSize;
-        int entityRightCol = entityRightWorldX / GamePanel.tileSize;
+        int entityLeftColumn = entityLeftWorldX / GamePanel.tileSize;
+        int entityRightColumn = entityRightWorldX / GamePanel.tileSize;
         int entityTopRow = entityTopWorldY / GamePanel.tileSize;
         int entityBottomRow = entityBottomWorldY / GamePanel.tileSize;
 
-        int tileNum1, tileNum2;
+        int tileNumber1, tileNumber2;
 
         switch (entity.getDirection()) {
             case "up":
                 entityTopRow = (entityTopWorldY - Player.speed) / GamePanel.tileSize;
-                tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityTopRow];
-                tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
+                tileNumber1 = gp.tileM.mapTileNumber[entityLeftColumn][entityTopRow];
+                tileNumber2 = gp.tileM.mapTileNumber[entityRightColumn][entityTopRow];
                 break;
             case "down":
                 entityBottomRow = (entityBottomWorldY + Player.speed) / GamePanel.tileSize;
-                tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityBottomRow];
-                tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityBottomRow];
+                tileNumber1 = gp.tileM.mapTileNumber[entityLeftColumn][entityBottomRow];
+                tileNumber2 = gp.tileM.mapTileNumber[entityRightColumn][entityBottomRow];
                 break;
             case "left":
-                entityLeftCol = (entityLeftWorldX - Player.speed) / GamePanel.tileSize;
-                tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityTopRow];
-                tileNum2 = gp.tileM.mapTileNum[entityLeftCol][entityBottomRow];
+                entityLeftColumn = (entityLeftWorldX - Player.speed) / GamePanel.tileSize;
+                tileNumber1 = gp.tileM.mapTileNumber[entityLeftColumn][entityTopRow];
+                tileNumber2 = gp.tileM.mapTileNumber[entityLeftColumn][entityBottomRow];
                 break;
             default:
-                entityRightCol = (entityRightWorldX + Player.speed) / GamePanel.tileSize;
-                tileNum1 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
-                tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityBottomRow];
+                entityRightColumn = (entityRightWorldX + Player.speed) / GamePanel.tileSize;
+                tileNumber1 = gp.tileM.mapTileNumber[entityRightColumn][entityTopRow];
+                tileNumber2 = gp.tileM.mapTileNumber[entityRightColumn][entityBottomRow];
                 break;
 
         }
-        if (gp.tileM.getTileCollision(tileNum1, tileNum2)) {
+        if (gp.tileM.getTileCollision(tileNumber1, tileNumber2)) {
             entity.setCollisionOn(true);
         }
     }
@@ -80,11 +80,11 @@ public final class CollisionCheck {
         for (SuperObject object : gp.obj) {
             if (object != null) {
                 // get entity's solid area position
-                entity.solidArea.x = entity.getWorldx() + entity.solidArea.x;
-                entity.solidArea.y = entity.getWorldy() + entity.solidArea.y;
+                entity.solidArea.x = entity.solidArea.x + entity.getWorldx();
+                entity.solidArea.y = entity.solidArea.y + entity.getWorldy();
                 // get the object solid area position
-                object.solidArea.x = object.getWorldX() + object.solidArea.x;
-                object.solidArea.y = object.getWorldY() + object.solidArea.y;
+                object.solidArea.x = object.solidArea.x + object.getWorldX();
+                object.solidArea.y = object.solidArea.y + object.getWorldY();
 
                 switch (entity.getDirection()) {
                     case "up":

@@ -21,7 +21,7 @@ public final class TileManager {
 
     private final GamePanel gp;
     private final Tile[] tile;
-    final int[][] mapTileNum;
+    final int[][] mapTileNumber;
     private static final SecureRandom random = new SecureRandom();
     private static int level;
 
@@ -33,7 +33,7 @@ public final class TileManager {
     public TileManager(GamePanel gp) {
         this.gp = gp;
         tile = new Tile[2];
-        mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
+        mapTileNumber = new int[gp.maxWorldColumn][gp.maxWorldRow];
 
         if (!LabyrinthFrame.getRestartStatus()) {
             level = 1 + random.nextInt(2);
@@ -89,22 +89,22 @@ public final class TileManager {
         assert is != null;
         try (BufferedReader br = new BufferedReader(
                 new InputStreamReader(is, StandardCharsets.UTF_8))) {
-            int col = 0;
+            int column = 0;
             int row = 0;
 
-            while (col < gp.maxWorldCol && row < gp.maxWorldRow) {
+            while (gp.maxWorldColumn > column && gp.maxWorldRow > row) {
                 String line = br.readLine();
 
-                while (col < gp.maxWorldCol) {
+                while (gp.maxWorldColumn > column) {
 
                     String[] numbers = line.split(" "); //splits the line with spaces
 
-                    int num = Integer.parseInt(numbers[col]); //from String to integer
-                    mapTileNum[col][row] = num; //store the integer
-                    col++;
+                    int number = Integer.parseInt(numbers[column]); //from String to integer
+                    mapTileNumber[column][row] = number; //store the integer
+                    column++;
                 }
-                if (col == gp.maxWorldCol) {
-                    col = 0;
+                if (column == gp.maxWorldColumn) {
+                    column = 0;
                     row++;
                 }
             }
@@ -123,24 +123,24 @@ public final class TileManager {
      */
     public void draw(Graphics2D g2) {
 
-        int worldCol = 0;
+        int worldColumn = 0;
         int worldRow = 0;
 
-        while (worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow) {
+        while (worldColumn < gp.maxWorldColumn && worldRow < gp.maxWorldRow) {
 
-            int tileNum = mapTileNum[worldCol][worldRow]; // number of tile
+            int tileNum = mapTileNumber[worldColumn][worldRow]; // number of tile
 
-            int worldX = worldCol * GamePanel.tileSize;
+            int worldX = worldColumn * GamePanel.tileSize;
             int worldY = worldRow * GamePanel.tileSize;
-            int screenX = worldX - gp.getPlayerWorldx() + gp.getPlayerScreenX();
-            int screenY = worldY - gp.getPlayerWorldy() + gp.getPlayerScreenY();
+            int screenX = gp.getPlayerScreenX() + worldX - gp.getPlayerWorldx();
+            int screenY = gp.getPlayerScreenY() + worldY - gp.getPlayerWorldy();
 
             // παύση κίνησης της κάμερας στο edge του window
-            if (gp.getPlayerScreenX() > gp.getPlayerWorldx()) {
+            if (gp.getPlayerWorldx() < gp.getPlayerScreenX()) {
                 screenX = worldX;
             }
 
-            if (gp.getPlayerScreenY() > gp.getPlayerWorldy()) {
+            if (gp.getPlayerWorldy() < gp.getPlayerScreenY()) {
                 screenY = worldY;
             }
 
@@ -156,10 +156,10 @@ public final class TileManager {
                 screenY = GamePanel.screenHeight - (gp.WorldHeight - worldY);
             }
 
-            if (worldX + GamePanel.tileSize > gp.getPlayerWorldx() - gp.getPlayerScreenX() &&
-                    worldX - GamePanel.tileSize < gp.getPlayerWorldx() + gp.getPlayerScreenX() &&
-                    worldY + GamePanel.tileSize > gp.getPlayerWorldy() - gp.getPlayerScreenY() &&
-                    worldY - GamePanel.tileSize < gp.getPlayerWorldy() + gp.getPlayerScreenY()) {
+            if (gp.getPlayerWorldx() - gp.getPlayerScreenX() < worldX + GamePanel.tileSize &&
+                    gp.getPlayerWorldx() + gp.getPlayerScreenX() > worldX - GamePanel.tileSize &&
+                    gp.getPlayerWorldy() - gp.getPlayerScreenY() < worldY + GamePanel.tileSize &&
+                    gp.getPlayerWorldy() + gp.getPlayerScreenY() > worldY - GamePanel.tileSize) {
                 g2.drawImage(tile[tileNum].getImage(), screenX, screenY, null);
             } else if (gp.getPlayerWorldx() < gp.getPlayerScreenX() ||
                     gp.getPlayerWorldy() < gp.getPlayerScreenY() ||
@@ -168,10 +168,10 @@ public final class TileManager {
                 g2.drawImage(tile[tileNum].getImage(), screenX, screenY, null);
             }
 
-            worldCol++;
+            worldColumn++;
 
-            if (worldCol == gp.maxWorldCol) {
-                worldCol = 0;
+            if (worldColumn == gp.maxWorldColumn) {
+                worldColumn = 0;
                 worldRow++;
             }
         }
@@ -181,11 +181,11 @@ public final class TileManager {
     /**
      * <p>getTileCollision.</p>
      *
-     * @param tileNum1 an int
-     * @param tileNum2 an int
+     * @param tileNumber1 an int
+     * @param tileNumber2 an int
      * @return a boolean
      */
-    public boolean getTileCollision(int tileNum1, int tileNum2) {
-        return tile[tileNum1].getCollision() || tile[tileNum2].getCollision();
+    public boolean getTileCollision(int tileNumber1, int tileNumber2) {
+        return tile[tileNumber1].getCollision() || tile[tileNumber2].getCollision();
     }
 }

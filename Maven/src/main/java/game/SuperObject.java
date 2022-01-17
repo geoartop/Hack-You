@@ -64,20 +64,20 @@ public abstract class SuperObject {
 
         int rightOffsetValue = GamePanel.screenWidth - gp.getPlayerScreenX();
 
-        if (rightOffsetValue > gp.WorldWidth - gp.getPlayerWorldx()) {
+        if (gp.WorldWidth - gp.getPlayerWorldx() < rightOffsetValue) {
             screenX = GamePanel.screenWidth - (gp.WorldWidth - worldX);
         }
 
         int bottomOffsetValue = GamePanel.screenHeight - gp.getPlayerScreenY();
 
-        if (bottomOffsetValue > gp.WorldHeight - gp.getPlayerWorldy()) {
+        if (gp.WorldHeight - gp.getPlayerWorldy() < bottomOffsetValue) {
             screenY = GamePanel.screenHeight - (gp.WorldHeight - worldY);
         }
 
-        if (worldX + GamePanel.tileSize > gp.getPlayerWorldx() - gp.getPlayerScreenX() &&
-                worldX - GamePanel.tileSize < gp.getPlayerWorldx() + gp.getPlayerScreenX() &&
-                worldY + GamePanel.tileSize > gp.getPlayerWorldy() - gp.getPlayerScreenY() &&
-                worldY - GamePanel.tileSize < gp.getPlayerWorldy() + gp.getPlayerScreenY()) {
+        if (gp.getPlayerWorldx() - gp.getPlayerScreenX() < worldX + GamePanel.tileSize &&
+                gp.getPlayerWorldx() + gp.getPlayerScreenX() > worldX - GamePanel.tileSize &&
+                gp.getPlayerWorldy() - gp.getPlayerScreenY() < worldY + GamePanel.tileSize &&
+                gp.getPlayerWorldy() + gp.getPlayerScreenY() > worldY - GamePanel.tileSize) {
 
             g2.drawImage(image, screenX, screenY + addY, null);
             // If player is around the edge, draw everything

@@ -29,17 +29,17 @@ public final class GamePanel extends JPanel implements Runnable {
     private static final int scale = 3;
 
     static final int tileSize = originalTileSize * scale;
-    static final int maxScreenCol = 16;
+    static final int maxScreenColumn = 16;
     static final int maxScreenRow = 12;
-    static final int screenWidth = tileSize * maxScreenCol;
+    static final int screenWidth = tileSize * maxScreenColumn;
     static final int screenHeight = tileSize * maxScreenRow;
 
     //Καθορισμός των διαστάσεων του κόσμου του λαβυρίνθου ανάλογα με την επιλεγμένη δυσκολία
-    final int maxWorldCol = 28
+    final int maxWorldColumn = 28
             + (Levels.getDifficulty().equals("Medium") ? 6
             : (Levels.getDifficulty().equals("Hard") ? 14 : 0));
-    final int maxWorldRow = maxWorldCol;
-    final int WorldWidth = tileSize * maxWorldCol;
+    final int maxWorldRow = maxWorldColumn;
+    final int WorldWidth = tileSize * maxWorldColumn;
     final int WorldHeight = tileSize * maxWorldRow;
 
     final TileManager tileM = new TileManager(this);
