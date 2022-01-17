@@ -6,7 +6,7 @@
 
 ## Οδηγίες εκτέλεσης του προγράμματος : 
 * `java -jar Amazeing-1.0.jar` ή 
-* κάνοντας διπλό κλικ στο Amazeing-1.0.jar
+* κάνοντας διπλό κλικ στο `Amazeing-1.0.jar`
 
 ## Οδηγίες χρήσης του προγράμματος : 
 Μόλις ανοίξετε το jar εισάγετε το username σας.  
@@ -20,5 +20,5 @@
 * [src/test/java](Maven/src/test/java) περιέχει τους ελέγχους μονάδας (JUnit tests) του παιχνιδιού
 * [target](Maven/target) φάκελος που περιέχονται τα αρχεία .class μετά τη μεταγλώττιση. 
   - _Επίσης, στο [target/site/apidocs](Maven/target/site/apidocs) περιέχεται η τεκμηρίωση των κλάσεων σε μορφή Javadoc._
-* Φακελοί .idea αρχεία για τη διαμόρφωση του project στο Intellij
+* Φακελοί `.idea` αρχεία για τη διαμόρφωση του project στο Intellij
 
