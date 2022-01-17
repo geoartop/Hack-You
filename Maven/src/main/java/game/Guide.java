@@ -99,13 +99,13 @@ public final class Guide extends UtilityFrame {
             Scanner q = new Scanner(Objects.requireNonNull(is), "UTF-8");
             while (q.hasNextLine()) {
                 counter++;
-                if (counter == 16) {
+                if (counter == 17) {
                     textPane.insertIcon(qmark);
-                } else if (counter == 18) {
+                } else if (counter == 19) {
                     textPane.insertIcon(spikes);
-                } else if (counter == 20) {
+                } else if (counter == 21) {
                     textPane.insertIcon(coin);
-                } else if (counter == 22) {
+                } else if (counter == 23) {
                     textPane.insertIcon(exit);
                 }
                 doc.insertString(doc.getLength(), q.nextLine() + "\n", null);

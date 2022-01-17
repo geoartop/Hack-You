@@ -28,6 +28,7 @@ You Died: is the thirteenth song on Miracle of Sound's second album, Level 2. It
 
 Authors: dalonedrau, Stephen Challener (Redshrike), ElizaWy, Evert, Daniel Eddeland (daneeklu), Nila122
 
+for minautors sprites
 - body/muscular/minotaur.png: by dalonedrau, Stephen Challener (Redshrike),
 ElizaWy, Evert, Daniel Eddeland (daneeklu), Nila122. License(s): CC-BY-SA 3.0.
     - https://opengameart.org/content/lpc-barbarian-sprite-base
@@ -45,3 +46,65 @@ https://www.flaticon.com/premium-icon/maze_1890564?term=maze&page=1&position=29&
 
 Background image:
 https://www.wallpaperflare.com/brown-greek-key-pattern-cloth-background-texture-gold-textured-wallpaper-crnq
+
+- for thiseas' model and animations
+Authors: drjamgo@hotmail.com, Stephen Challener (Redshrike), Johannes Sjölund (wulax), Matthew Krohn (makrohn), Manuel Riecke (MrBeast), Joe White, Michael Whitlock (bigbeargames), bluecarrot16, Thane Brimhall (pennomi), laetissima, Nila122, David Conway Jr. (JaidynReiman), DarkwallLKE, Tuomo Untinen (reemax), Daniel Eddeland (daneeklu), gr3yh47
+
+- shadow/adult/shadow.png: by drjamgo@hotmail.com. License(s): CC0.
+    - https://opengameart.org/content/shadow-for-lpc-sprite
+
+- body/male/human/light.png: by Stephen Challener (Redshrike), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0.
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- eyes/male/brown.png: by Matthew Krohn (makrohn), Stephen Challener (Redshrike). License(s): CC-BY-SA 3.0, GPL 3.0.
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+
+- hair/plain/male/black.png: by Manuel Riecke (MrBeast), Joe White. License(s): CC-BY-SA 3.0, GPL 3.0.
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/ponytail-and-plain-hairstyles
+
+- shoulders/plate/male/12.png: by Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0.
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- arms/male/4.png: by Michael Whitlock (bigbeargames), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0.
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- bracers/male/3.png: by Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0.
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- torso/clothes/vest/male/yellow.png: by bluecarrot16, Thane Brimhall (pennomi), laetissima. License(s): CC-BY-SA 3.0, GPL 3.0.
+    - https://opengameart.org/content/lpc-2-characters
+    - https://opengameart.org/content/lpc-gentleman
+    - https://opengameart.org/content/lpc-pirates
+
+- torso/armour/plate/male/special.png: by Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0.
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- legs/armour/male/10.png: by Michael Whitlock (bigbeargames), Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0.
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- feet/sandals/male/brown.png: by Nila122, David Conway Jr. (JaidynReiman), Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 2.0, GPL 3.0.
+    - https://opengameart.org/content/lpc-roman-armor
+
+- shield/male/round_gold.png: by Johannes Sjölund (wulax), Michael Whitlock (bigbeargames), DarkwallLKE, Tuomo Untinen (reemax). License(s): CC-BY-SA 3.0, GPL 3.0. ?
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - https://opengameart.org/content/lpc-shields-pack
+
+- weapon/slash_oversize_layered/all/universal/saber.png: by Daniel Eddeland (daneeklu), Johannes Sjölund (wulax), gr3yh47, bluecarrot16. License(s): CC-BY-SA 3.0.
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - https://opengameart.org/content/lpc-extended-weapon-animations
+
+- weapon/slash_oversize_layered/all/universal/behind/saber.png: by Daniel Eddeland (daneeklu), Johannes Sjölund (wulax), gr3yh47, bluecarrot16. License(s): CC-BY-SA 3.0.
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - https://opengameart.org/content/lpc-extended-weapon-animations
+
+- weapon/slash_oversize_layered/all/saber.png: by Daniel Eddeland (daneeklu), Johannes Sjölund (wulax), gr3yh47, bluecarrot16. License(s): CC-BY-SA 3.0.
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - https://opengameart.org/content/lpc-extended-weapon-animations
+
+for the button wallpappers
+From pngtree.com
+ui PNG Designed By sang from <a href="https://pngtree.com"> Pngtree.com</a>
+game PNG Designed By TheInvisibleMen from <a href="https://pngtree.com"> Pngtree.com</a>
+
