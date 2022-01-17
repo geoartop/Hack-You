@@ -1,27 +1,14 @@
-This will be the repository for our game 
+Οδηγίες μεταγλώττισης του προγράμματος: cd Maven και στη συνέχεια mvn compile
 
-The team is : 
+Οδηγίες εκτέλεσης του προγράμματος: java -jar Amazeing-1.0.jar ή κάνοντας διπλό κλικ στο Amazeing-1.0.jar
 
-Georgios Artopoulos 
+Οδηγίες χρήσης του προγράμματος: Μόλις ανοίξετε το jar εισάγετε το username σας. Στη συνέχεια μπορείτε να διαβάσετε τις οδηγίες του παιχνιδιού πατώντας το κουμπί How to play
 
-- Role: Software Engineer 
+Περιεχόμενα του αποθετηρίου:
 
-Elisavet Voulgari
-
-- Role: Presentation Administrator 
-
-Emmanouil Dellatolas 
-
-- Role: Software Engineer, QA Engineer , Level Developer
-
-Athanasia Koutra 
-
-- Role: Question Designer, Presentation Administrator
-
-Theodoros Malikourtis
-
-- Role: Software Engineer, DevOps
-
-Panagiotis Spanakis  
-
-- Role: Lead Software Engineer , GitHub Administrator 
+Στον φάκελο Maven βρίσκεται το java project μας χτισμένο μέσω του Maven
+pom.xml αρχείο xml για τη διαμόρφωση του project
+src/main/java περιέχει 2 πακέτα τα οποία περιέχουν τα αρχεία java για την υλοποίηση του παιχνιδιού
+src/main/resources περιέχει εξωτερικά αρχεία απαραίτητα για τη λειτουργία του παιχνιδιού (αρχεία .txt, .png, .wav κλπ)
+src/test/java περιέχει τους ελέγχους μονάδας (JUnit tests) του παιχνιδιού
+Φακελοί .idea αρχεία για τη διαμόρφωση του project στο Intellij
