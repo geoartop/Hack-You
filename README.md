@@ -1,5 +1,5 @@
 <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/panos-span/Hack-you">
-.. image:: https://img.shields.io/github/contributors/panos-span/Hack-you?style=flat-square   :alt: GitHub contributors
+
 ## Οδηγίες μεταγλώττισης του προγράμματος: 
 * `cd Maven` και στη συνέχεια 
 * `mvn compile`
