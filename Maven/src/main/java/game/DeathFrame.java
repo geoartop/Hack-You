@@ -88,7 +88,9 @@ public final class DeathFrame implements ActionListener {
             Main.exit();
         }
         //If deathsound is playing stop it
-        GamePanel.stopSE();
+        if (GamePanel.deathSoundPlaying()) {
+            GamePanel.stopSE();
+        }
         Quiz.clearIndexes();
         frame.dispose();
     }

@@ -207,6 +207,15 @@ public final class GamePanel extends JPanel implements Runnable {
     }
 
     /**
+     * <p>Check if deathSound is active.</p>
+     *
+     * @return a boolean
+     */
+    static boolean deathSoundPlaying() {
+        return deathSound.isPlaying();
+    }
+
+    /**
      * <p>sleep for certain <code>seconds</code></p>
      *
      * @param seconds an int
