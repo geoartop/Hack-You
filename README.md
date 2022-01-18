@@ -19,8 +19,6 @@
 * [src/main/resources](Maven/src/main/resources) περιέχει εξωτερικά αρχεία απαραίτητα για τη λειτουργία του παιχνιδιού   
   (αρχεία .txt, .png, .wav κλπ)
 * [src/test/java](Maven/src/test/java) περιέχει τους ελέγχους μονάδας (JUnit tests) του παιχνιδιού
-* [target](Maven/target) φάκελος που περιέχονται τα αρχεία .class μετά τη μεταγλώττιση. 
-  - _Επίσης, στο [target/site/apidocs](Maven/target/site/apidocs) περιέχεται η τεκμηρίωση των κλάσεων σε μορφή Javadoc._
 * Φακελοί `.idea` αρχεία για τη διαμόρφωση του project στο Intellij
 
 ## Trailer for game :   
