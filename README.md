@@ -23,3 +23,5 @@
   - _Επίσης, στο [target/site/apidocs](Maven/target/site/apidocs) περιέχεται η τεκμηρίωση των κλάσεων σε μορφή Javadoc._
 * Φακελοί `.idea` αρχεία για τη διαμόρφωση του project στο Intellij
 
+## Trailer for game :   
+[A[MAZE]ING Trailer](https://www.youtube.com/watch?v=eTh9oq79dy0)
