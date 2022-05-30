@@ -31,6 +31,8 @@ public final class DeathFrame implements ActionListener {
     private final JButton tryAgain = new JButton("Try again");
     private final JButton back_to_menu = new JButton("Back to Menu");
     private final JButton exit = new JButton("Exit");
+    private final JButton logOut = new JButton("Log out");
+
 
     /**
      * <p>Constructor for DeathFrame.</p>
@@ -49,6 +51,7 @@ public final class DeathFrame implements ActionListener {
         setButton(tryAgain);
         setButton(back_to_menu);
         setButton(exit);
+        setButton(logOut);
 
         JLabel headLabel = new JLabel();
         FrameSetter.scaleImgToLabel(headLabel, 210, 20, 100, 80, thiseas);
@@ -84,6 +87,8 @@ public final class DeathFrame implements ActionListener {
             SwingUtilities.invokeLater(LabyrinthFrame::new);
         } else if (e.getSource() == back_to_menu) {
             SwingUtilities.invokeLater(Menu::new);
+        } else if (e.getSource() == logOut) {
+            SwingUtilities.invokeLater(Username::new);
         } else {
             Main.exit();
         }

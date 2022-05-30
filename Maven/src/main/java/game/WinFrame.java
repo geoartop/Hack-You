@@ -32,7 +32,9 @@ public final class WinFrame implements ActionListener {
     private final JButton seeHighScores = new JButton("Check HighScore table");
     private final JButton back_to_menu = new JButton("Back to Menu");
     private final JButton exit = new JButton("Exit");
+    private final JButton logOut = new JButton("Log out");
     private HighScoreFrame highScoreFrame;
+
 
     private final HighScore highScore;
 
@@ -71,7 +73,10 @@ public final class WinFrame implements ActionListener {
         setButton(playAgain);
         setButton(seeHighScores);
         setButton(back_to_menu);
-        setButton(exit);
+        ButtonSetter.setButton(exit, 250, y, 125, 50, Main.mainFont, this);
+        frame.add(exit);
+        ButtonSetter.setButton(logOut, 380, y, 125, 50, Main.mainFont, this);
+        frame.add(logOut);
 
         JLabel minLabel = new JLabel();
         FrameSetter.scaleImgToLabel(minLabel, 315, 0, 120, 100, minotaur);
@@ -148,6 +153,9 @@ public final class WinFrame implements ActionListener {
             check();
             SwingUtilities.invokeLater(Menu::new);
             Quiz.clearIndexes();
+        } else if (e.getSource() == logOut) {
+            Quiz.clearIndexes();
+            SwingUtilities.invokeLater(Username::new);
         } else {
             Main.exit();
         }
